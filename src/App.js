@@ -1,24 +1,30 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  BrowserRouter,
+} from "react-router-dom";
 
-import Navbar from './components/Navbar';
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
-import Home from './pages/Home';
-import About from './pages/About';
-import JobListings from './pages/JobListings';
-import JobSingle from './pages/JobSingle';
-import PostJob from './pages/PostJob';
-import Services from './pages/Services';
-import ServiceSingle from './pages/ServiceSingle';
-import Blog from './pages/Blog';
-import BlogSingle from './pages/BlogSingle';
-import Portfolio from './pages/Portfolio';
-import PortfolioSingle from './pages/PortfolioSingle';
-import Testimonials from './pages/Testimonials';
-import FAQ from './pages/FAQ';
-import Gallery from './pages/Gallery';
-import Contact from './pages/Contact';
-import Login from './pages/Login';
+import Home from "./pages/Home";
+import About from "./pages/About";
+import JobListings from "./pages/JobListings";
+import JobSingle from "./pages/JobSingle";
+import PostJob from "./pages/PostJob";
+import Services from "./pages/Services";
+import ServiceSingle from "./pages/ServiceSingle";
+import Blog from "./pages/Blog";
+import BlogSingle from "./pages/BlogSingle";
+import Portfolio from "./pages/Portfolio";
+import PortfolioSingle from "./pages/PortfolioSingle";
+import Testimonials from "./pages/Testimonials";
+import FAQ from "./pages/FAQ";
+import Gallery from "./pages/Gallery";
+import Contact from "./pages/Contact";
+import Login from "./pages/Login";
 
 function App() {
   return (
@@ -42,6 +48,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Login />} />
       </Routes>
+      <Footer />
     </Router>
   );
 }
