@@ -33,24 +33,24 @@ const Services = () => {
             <div className="col-6 col-md-6 col-lg-4 mb-4 mb-lg-5">
               <Link to="#" className="block__16443 text-center d-block">
                 <span className="custom-icon mx-auto">
-                  <span className="icon-magnet d-block"></span>
+                  <span className="icon-search d-block"></span>
                 </span>
-                <h3>Graphic Design</h3>
+                <h3>Smart Job Search</h3>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Fugit facilis, pariatur harum labore aperiam assumenda.
+                  Find jobs fast with filters for skills, location and
+                  preferences that match your profile instantly.
                 </p>
               </Link>
             </div>
             <div className="col-6 col-md-6 col-lg-4 mb-4 mb-lg-5">
               <Link to="#" className="block__16443 text-center d-block">
                 <span className="custom-icon mx-auto">
-                  <span className="icon-trophy d-block"></span>
+                  <span className="icon-file-text d-block"></span>
                 </span>
-                <h3>Marketing Strategy</h3>
+                <h3>Resume Builder</h3>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Fugit facilis, pariatur harum labore aperiam assumenda.
+                  Create a strong resume with templates and smart tips that help
+                  you stand out to employers easily.
                 </p>
               </Link>
             </div>
@@ -59,46 +59,46 @@ const Services = () => {
                 <span className="custom-icon mx-auto">
                   <span className="icon-laptop d-block"></span>
                 </span>
-                <h3>Web Design</h3>
+                <h3>Skill Assessments</h3>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Fugit facilis, pariatur harum labore aperiam assumenda.
+                  Take quick tests to highlight your abilities and boost your
+                  chances of landing the right job today.
                 </p>
               </Link>
             </div>
             <div className="col-6 col-md-6 col-lg-4 mb-4 mb-lg-5">
               <Link to="#" className="block__16443 text-center d-block">
                 <span className="custom-icon mx-auto">
-                  <span className="icon-search d-block"></span>
+                  <span className="icon-bell d-block"></span>
                 </span>
-                <h3>SEO</h3>
+                <h3>Instant Job Alerts</h3>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Fugit facilis, pariatur harum labore aperiam assumenda.
+                  Get real time updates whenever new jobs are posted that fit
+                  your career goals and requirements.
                 </p>
               </Link>
             </div>
             <div className="col-6 col-md-6 col-lg-4 mb-4 mb-lg-5">
               <Link to="#" className="block__16443 text-center d-block">
                 <span className="custom-icon mx-auto">
-                  <span className="icon-paper-plane d-block"></span>
+                  <span className="icon-briefcase d-block"></span>
                 </span>
-                <h3>Market Leading </h3>
+                <h3>Career Guidance</h3>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Fugit facilis, pariatur harum labore aperiam assumenda.
+                  Access expert advice, interview practice and career tips that
+                  guide you to achieve real success.
                 </p>
               </Link>
             </div>
             <div className="col-6 col-md-6 col-lg-4 mb-4 mb-lg-5">
               <Link to="#" className="block__16443 text-center d-block">
                 <span className="custom-icon mx-auto">
-                  <span className="icon-plug d-block"></span>
+                  <span className="icon-users d-block"></span>
                 </span>
-                <h3>Pixel Perfect Design</h3>
+                <h3>Employer Connections</h3>
                 <p className="d-sm-block">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Fugit facilis, pariatur harum labore aperiam assumenda.
+                  Connect directly with recruiters and companies that are
+                  actively hiring for roles you want now.
                 </p>
               </Link>
             </div>

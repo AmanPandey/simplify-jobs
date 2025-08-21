@@ -38,6 +38,7 @@ const FAQ = () => {
               />
             </div>
             <div className="col-lg-5 ml-auto">
+              {/* Employer FAQ */}
               <div className="accordion-item">
                 <h3 className="mb-0 heading">
                   <a
@@ -48,8 +49,7 @@ const FAQ = () => {
                     aria-expanded="true"
                     aria-controls="collapseFive"
                   >
-                    What is the name of your company
-                    <span className="icon"></span>
+                    What is SimplyfyJob? <span className="icon"></span>
                   </a>
                 </h3>
                 <div
@@ -60,21 +60,17 @@ const FAQ = () => {
                 >
                   <div className="body-text">
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                      Consequatur quae cumque perspiciatis aperiam accusantium
-                      facilis provident aspernatur nisi optio debitis dolorum,
-                      est eum eligendi vero aut ad necessitatibus nulla sit
-                      labore doloremque magnam! Ex molestiae, dolor tempora, ad
-                      fuga minima enim mollitia consequuntur, necessitatibus
-                      praesentium eligendi officia recusandae culpa tempore
-                      eaque quasi ullam magnam modi quidem in amet. Quod debitis
-                      error placeat, tempore quasi aliquid eaque vel facilis
-                      culpa voluptate.
+                      SimplyfyJob is a modern job portal that connects job
+                      seekers with employers. Employees can create profiles,
+                      upload resumes, and apply for roles, while employers can
+                      post vacancies and find candidates faster using smart
+                      search filters.
                     </p>
                   </div>
                 </div>
               </div>
 
+              {/* Employer FAQ */}
               <div className="accordion-item">
                 <h3 className="mb-0 heading">
                   <a
@@ -85,7 +81,8 @@ const FAQ = () => {
                     aria-expanded="false"
                     aria-controls="collapseSix"
                   >
-                    How much pay for 3 months?<span className="icon"></span>
+                    What are the charges for posting jobs?{" "}
+                    <span className="icon"></span>
                   </a>
                 </h3>
                 <div
@@ -96,18 +93,16 @@ const FAQ = () => {
                 >
                   <div className="body-text">
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                      Vel ad laborum expedita. Nostrum iure atque enim quisquam
-                      minima distinctio omnis, consequatur aliquam suscipit,
-                      quidem, esse aspernatur! Libero, excepturi animi
-                      repellendus porro impedit nihil in doloremque Link quaerat
-                      enim voluptatum, perspiciatis, quas dignissimos maxime ut
-                      cum reiciendis eius dolorum voluptatem aliquam!
+                      Employers can post a limited number of jobs for free. For
+                      extended visibility and premium features like highlighted
+                      listings and resume access, subscription plans are
+                      available for 1, 3, or 6 months at competitive rates.
                     </p>
                   </div>
                 </div>
               </div>
 
+              {/* Employee FAQ */}
               <div className="accordion-item">
                 <h3 className="mb-0 heading">
                   <a
@@ -118,7 +113,8 @@ const FAQ = () => {
                     aria-expanded="false"
                     aria-controls="collapseSeven"
                   >
-                    Do I need to register? <span className="icon"></span>
+                    Do I need to pay to apply for jobs?{" "}
+                    <span className="icon"></span>
                   </a>
                 </h3>
                 <div
@@ -129,18 +125,16 @@ const FAQ = () => {
                 >
                   <div className="body-text">
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                      Vel ad laborum expedita. Nostrum iure atque enim quisquam
-                      minima distinctio omnis, consequatur aliquam suscipit,
-                      quidem, esse aspernatur! Libero, excepturi animi
-                      repellendus porro impedit nihil in doloremque Link quaerat
-                      enim voluptatum, perspiciatis, quas dignissimos maxime ut
-                      cum reiciendis eius dolorum voluptatem aliquam!
+                      No, job seekers can apply to jobs for free. Simply create
+                      a profile, upload your resume, and start applying. Premium
+                      job alerts and resume boosting are optional paid features
+                      to improve visibility.
                     </p>
                   </div>
                 </div>
               </div>
 
+              {/* General Support FAQ */}
               <div className="accordion-item">
                 <h3 className="mb-0 heading">
                   <a
@@ -151,7 +145,7 @@ const FAQ = () => {
                     aria-expanded="false"
                     aria-controls="collapseEight"
                   >
-                    Who should I contact in case of support.
+                    Who should I contact for support?{" "}
                     <span className="icon"></span>
                   </a>
                 </h3>
@@ -163,13 +157,10 @@ const FAQ = () => {
                 >
                   <div className="body-text">
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                      Vel ad laborum expedita. Nostrum iure atque enim quisquam
-                      minima distinctio omnis, consequatur aliquam suscipit,
-                      quidem, esse aspernatur! Libero, excepturi animi
-                      repellendus porro impedit nihil in doloremque Link quaerat
-                      enim voluptatum, perspiciatis, quas dignissimos maxime ut
-                      cum reiciendis eius dolorum voluptatem aliquam!
+                      For assistance, both employers and job seekers can reach
+                      out to our support team via the Help Center or email. Our
+                      team is available 24/7 to resolve issues like account
+                      setup, posting jobs, or applying to opportunities.
                     </p>
                   </div>
                 </div>
@@ -183,57 +174,59 @@ const FAQ = () => {
         <div className="container">
           <div className="row mb-5">
             <div className="col-12 text-center" data-aos="fade">
-              <h2 className="section-title mb-3">Happy Candidates Says</h2>
+              <h2 className="section-title mb-3">Happy Candidates Say</h2>
             </div>
           </div>
           <div className="row">
+            {/* Testimonial 1 */}
             <div className="col-lg-6">
               <div className="block__87154 bg-white rounded">
                 <blockquote>
                   <p>
-                    &ldquo;Ipsum harum assumenda in eum vel eveniet numquam
-                    cumque vero vitae enim cupiditate deserunt eligendi officia
-                    modi consectetur. Expedita tempora quos nobis earum hic ex
-                    asperiores quisquam optio nostrum sit&rdquo;
+                    &ldquo;SimplyfyJob made my job search stress-free. The smart
+                    filters helped me find roles that matched my skills, and I
+                    landed interviews within days of signing up. Highly
+                    recommended for job seekers!&rdquo;
                   </p>
                 </blockquote>
                 <div className="block__91147 d-flex align-items-center">
                   <figure className="mr-4">
                     <img
                       src="images/person_1.jpg"
-                      alt="Image"
+                      alt="Candidate testimonial"
                       className="img-fluid"
                     />
                   </figure>
                   <div>
-                    <h3>Elisabeth Smith</h3>
-                    <span className="position">Creative Director</span>
+                    <h3>Priya Nair</h3>
+                    <span className="position">Marketing Executive</span>
                   </div>
                 </div>
               </div>
             </div>
 
+            {/* Testimonial 2 */}
             <div className="col-lg-6">
               <div className="block__87154 bg-white rounded">
                 <blockquote>
                   <p>
-                    &ldquo;Ipsum harum assumenda in eum vel eveniet numquam,
-                    cumque vero vitae enim cupiditate deserunt eligendi officia
-                    modi consectetur. Expedita tempora quos nobis earum hic ex
-                    asperiores quisquam optio nostrum sit&rdquo;
+                    &ldquo;I uploaded my resume and within a week received
+                    multiple interview calls. The job alerts kept me updated,
+                    and I finally got placed in a company I love. Thank you
+                    SimplyfyJob!&rdquo;
                   </p>
                 </blockquote>
                 <div className="block__91147 d-flex align-items-center">
                   <figure className="mr-4">
                     <img
                       src="images/person_2.jpg"
-                      alt="Image"
+                      alt="Candidate testimonial"
                       className="img-fluid"
                     />
                   </figure>
                   <div>
-                    <h3>Chris Peter</h3>
-                    <span className="position">Web Designer</span>
+                    <h3>Karan Malhotra</h3>
+                    <span className="position">Software Developer</span>
                   </div>
                 </div>
               </div>

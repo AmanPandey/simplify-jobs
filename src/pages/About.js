@@ -24,6 +24,136 @@ const About = () => {
         </div>
       </section>
 
+      <section className="site-section custom-section pb-0">
+        <div className="container">
+          <div className="row  ">
+            <div className="col-lg-6 mb-5 mb-lg-0">
+              <img
+                src="simple-about-intro.jpg"
+                alt="Image"
+                className="img-fluid img-shadow h-100"
+              />
+            </div>
+            <div className="col-lg-6 ">
+              <h2 className="section-title mb-3">
+                Simplifying the Way People and Jobs Connect
+              </h2>
+              <p className="">
+                At SimplifyJob, we exist to make job searching and hiring
+                simple. Traditional portals overwhelm users with clutter,
+                leaving both job seekers and employers frustrated.
+              </p>
+              <p>
+                For job seekers, the challenge is endless applications, unclear
+                job descriptions, and little feedback. SimplifyJob helps
+                candidates discover clear, relevant opportunities tailored to
+                their skills.
+              </p>
+              <p>
+                For employers, hiring often means wasting time filtering
+                irrelevant resumes. SimplifyJob enables smarter, faster
+                recruitment by delivering quality candidates who truly match job
+                requirements.
+              </p>{" "}
+              <p>
+                By bridging this gap, SimplifyJob creates meaningful connections
+                between people and opportunities. Our mission is clear —
+                simplify the hiring process for everyone.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* category  */}
+      <section
+        className="site-section services-section bg-light block__62849"
+        id="next-section"
+      >
+        <div className="container">
+          <div className="row mb-5">
+            <div className="col-md-7">
+              <h2 className="section-title mb-2">Services for Job Seekers</h2>
+            </div>
+          </div>
+          <div className="row align-items-stretch">
+            <div className="col-12 col-md-3 mb-4 mb-lg-5 ">
+              <div className="block__16443 text-center d-block h-100">
+                <span className="custom-icon mx-auto">
+                  <span className="icon-search d-block"></span>
+                </span>
+                <h3>Smart Job Search</h3>
+                {/* <p>13 Jobs Available</p> */}
+              </div>
+            </div>
+            <div className="col-12 col-md-3 mb-4 mb-lg-5 ">
+              <div className="block__16443 text-center d-block h-100">
+                <span className="custom-icon mx-auto">
+                  <span className="fas fa-file-alt fa-2x d-block"></span>
+                </span>
+                <h3>Resume Upload & Profile Creation</h3>
+              </div>
+            </div>
+            <div className="col-12 col-md-3 mb-4 mb-lg-5 ">
+              <div className="block__16443 text-center d-block h-100">
+                <span className="custom-icon mx-auto">
+                  <span className="fas fa-robot fa-2x d-block"></span>
+                </span>
+                <h3>AI-Powered Job Matching</h3>
+              </div>
+            </div>
+            <div className="col-12 col-md-3 mb-4 mb-lg-5 ">
+              <div className="block__16443 text-center d-block h-100">
+                <span className="custom-icon mx-auto">
+                  <span className="fas fa-tasks fa-2x d-block"></span>
+                </span>
+                <h3>Application Tracking</h3>
+              </div>
+            </div>
+          </div>
+          <div className="row mb-5 ">
+            <div className="col-md-7 ">
+              <h2 className="section-title mb-2">Services for Employers</h2>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-12 col-md-3 mb-4 mb-lg-5">
+              <div className="block__16443 text-center d-block h-100">
+                <span className="custom-icon mx-auto">
+                  <span className="fas fa-briefcase fa-2x d-block"></span>
+                </span>
+                <h3>Job Postings</h3>
+                {/* <p>13 Jobs Available</p> */}
+              </div>
+            </div>
+            <div className="col-12 col-md-3 mb-4 mb-lg-5">
+              <div className="block__16443 text-center d-block h-100">
+                <span className="custom-icon mx-auto">
+                  <span className="fas fa-users fa-2x d-block"></span>
+                </span>
+                <h3>Candidate Management</h3>
+              </div>
+            </div>
+            <div className="col-12 col-md-3 mb-4 mb-lg-5">
+              <div className="block__16443 text-center d-block h-100">
+                <span className="custom-icon mx-auto">
+                  <span className="fas fa-tools fa-2x d-block"></span>
+                </span>
+                <h3>Efficient Recruitment Tools</h3>
+              </div>
+            </div>
+            <div className="col-12 col-md-3 mb-4 mb-lg-5">
+              <div className="block__16443 text-center d-block h-100">
+                <span className="custom-icon mx-auto">
+                  <span className="fas fa-brain fa-2x d-block"></span>
+                </span>
+                <h3>AI-Driven Matching</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section
         className="py-5 bg-image overlay-primary fixed overlay"
         id="next-section"
@@ -36,204 +166,162 @@ const About = () => {
                 SimplifyJob Site Stats
               </h2>
               <p className="lead text-white">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Expedita unde officiis recusandae sequi excepturi corrupti.
+                Discover the growth and success we’ve achieved together with job
+                seekers and employers who trust our platform.
               </p>
             </div>
           </div>
           <div className="row pb-0 block__19738 section-counter">
             <div className="col-6 col-md-6 col-lg-3 mb-5 mb-lg-0">
               <div className="d-flex align-items-center justify-content-center mb-2">
-                <strong className="number" data-number="1930">
-                  0
-                </strong>
-              </div>
-              <span className="caption">Candidates</span>
-            </div>
-
-            <div className="col-6 col-md-6 col-lg-3 mb-5 mb-lg-0">
-              <div className="d-flex align-items-center justify-content-center mb-2">
-                <strong className="number" data-number="54">
-                  0
-                </strong>
+                <strong className="number">1200</strong>
+                <strong className="number">+</strong>
               </div>
               <span className="caption">Jobs Posted</span>
             </div>
+            <div className="col-6 col-md-6 col-lg-3 mb-5 mb-lg-0">
+              <div className="d-flex align-items-center justify-content-center mb-2">
+                <strong className="number">500</strong>
+                <strong className="number">+</strong>
+              </div>
+              <span className="caption">Verified Employers</span>
+            </div>
 
             <div className="col-6 col-md-6 col-lg-3 mb-5 mb-lg-0">
               <div className="d-flex align-items-center justify-content-center mb-2">
-                <strong className="number" data-number="120">
-                  0
-                </strong>
+                <strong className="number">2000</strong>
+                <strong className="number">+</strong>
               </div>
-              <span className="caption">Jobs Filled</span>
+              <span className="caption">Candidates Hired</span>
             </div>
 
             <div className="col-6 col-md-6 col-lg-3 mb-5 mb-lg-0">
               <div className="d-flex align-items-center justify-content-center mb-2">
-                <strong className="number" data-number="550">
-                  0
-                </strong>
+                <strong className="number">98</strong>
+                <strong className="number">%</strong>
               </div>
-              <span className="caption">Companies</span>
+              <span className="caption">User Satisfaction</span>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="site-section pb-0">
-        <div className="container">
-          <div className="row align-items-center">
-            <div className="col-lg-6 mb-5 mb-lg-0">
-              <Link
-                data-fancybox
-                data-ratio="2"
-                href="https://vimeo.com/317571768"
-                className="block__96788"
-              >
-                <span className="play-icon">
-                  <span className="icon-play"></span>
-                </span>
-                <img
-                  src="images/sq_img_6.jpg"
-                  alt="Image"
-                  className="img-fluid img-shadow"
-                />
-              </Link>
-            </div>
-            <div className="col-lg-5 ml-auto">
-              <h2 className="section-title mb-3">
-                SimplifyJob For Freelancers, Web Developers
-              </h2>
-              <p className="lead">
-                Eveniet voluptatibus voluptates suscipit minima, cum voluptatum
-                ut dolor, sed facere corporis qui, ea quisquam quis odit minus
-                nulla vitae. Sit, voluptatem.
-              </p>
-              <p>
-                Ipsum harum assumenda in eum vel eveniet numquam, cumque vero
-                vitae enim cupiditate deserunt eligendi officia modi
-                consectetur. Expedita tempora quos nobis earum hic ex asperiores
-                quisquam optio nostrum sit!
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="site-section pt-0">
-        <div className="container">
-          <div className="row align-items-center">
-            <div className="col-lg-6 mb-5 mb-lg-0 order-md-2">
-              <Link
-                data-fancybox
-                data-ratio="2"
-                href="https://vimeo.com/317571768"
-                className="block__96788"
-              >
-                <span className="play-icon">
-                  <span className="icon-play"></span>
-                </span>
-                <img
-                  src="images/sq_img_8.jpg"
-                  alt="Image"
-                  className="img-fluid img-shadow"
-                />
-              </Link>
-            </div>
-            <div className="col-lg-5 mr-auto order-md-1 mb-5 mb-lg-0">
-              <h2 className="section-title mb-3">SimplifyJob For Workers</h2>
-              <p className="lead">
-                Eveniet voluptatibus voluptates suscipit minima, cum voluptatum
-                ut dolor, sed facere corporis qui, ea quisquam quis odit minus
-                nulla vitae. Sit, voluptatem.
-              </p>
-              <p>
-                Ipsum harum assumenda in eum vel eveniet numquam, cumque vero
-                vitae enim cupiditate deserunt eligendi officia modi
-                consectetur. Expedita tempora quos nobis earum hic ex asperiores
-                quisquam optio nostrum sit!
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="site-section">
-        <div className="container">
+      {/* testimonial  */}
+      <section className="about-testimonial">
+        <div className="container position-relative">
+          <div className="about-testimonial-shape"></div>
           <div className="row mb-5">
-            <div className="col-12 text-center" data-aos="fade">
-              <h2 className="section-title mb-3">Our Team</h2>
+            <div className="col-md-7">
+              <h2 className="section-title mb-2">What Our Users Say</h2>
+              <p>
+                Real stories from job seekers and employers who found success
+                through SimplifyJob.
+              </p>
             </div>
           </div>
-
-          <div className="row align-items-center block__69944">
-            <div className="col-md-6">
-              <img
-                src="images/person_6.jpg"
-                alt="Image"
-                className="img-fluid mb-4 rounded"
-              />
-            </div>
-
-            <div className="col-md-6">
-              <h3>Elisabeth Smith</h3>
-              <p className="text-muted">Creative Director</p>
-              <p>
-                Soluta quasi cum delectus eum facilis recusandae nesciunt
-                molestias accusantium libero dolores repellat id in dolorem
-                laborum ad modi qui at quas dolorum voluptatem voluptatum
-                repudiandae voluptatibus ut? Ex vel ad explicabo iure ipsa
-                possimus consectetur neque rem molestiae eligendi velit?.
-              </p>
-              <div className="social mt-4">
-                <Link href="#">
-                  <span className="icon-facebook"></span>
-                </Link>
-                <Link href="#">
-                  <span className="icon-twitter"></span>
-                </Link>
-                <Link href="#">
-                  <span className="icon-instagram"></span>
-                </Link>
-                <Link href="#">
-                  <span className="icon-linkedin"></span>
-                </Link>
+          <div className="row about-testimonial-card text-center position-relative">
+            <div className="col-md-4 mt-3 mt-md-4 ">
+              <div className="card about-testimonial-item  h-100">
+                <div className="card-body p-4 py-5">
+                  <img
+                    src="about-testimonial-1.jpg"
+                    alt=""
+                    className="img-fluid rounded-circle border mb-4"
+                    width="100"
+                  />
+                  <h4 className="about-testimonial-title fs-4 mb-2">David</h4>
+                  <small>Marketing Executive</small>
+                  <p className="mb-4 about-testimonial-rating">
+                    <span className="fas fa-star active"></span>
+                    <span className="fas fa-star active"></span>
+                    <span className="fas fa-star active"></span>
+                    <span className="fas fa-star active"></span>
+                    <span className="fas fa-star-half-alt active"></span>
+                  </p>
+                  <p className="about-testimonial-content mb-0">
+                    SimplifyJob made my job search so easy! I uploaded my
+                    resume, applied in one click, and landed a job within two
+                    weeks.
+                  </p>
+                </div>
               </div>
             </div>
-
-            <div className="col-md-6 order-md-2 ml-md-auto">
-              <img
-                src="images/person_5.jpg"
-                alt="Image"
-                className="img-fluid mb-4 rounded"
-              />
-            </div>
-
-            <div className="col-md-6">
-              <h3>Chintan Patel</h3>
-              <p className="text-muted">Creative Director</p>
-              <p>
-                Soluta quasi cum delectus eum facilis recusandae nesciunt
-                molestias accusantium libero dolores repellat id in dolorem
-                laborum ad modi qui at quas dolorum voluptatem voluptatum
-                repudiandae voluptatibus ut? Ex vel ad explicabo iure ipsa
-                possimus consectetur neque rem molestiae eligendi velit?.
-              </p>
-              <div className="social mt-4">
-                <Link href="#">
-                  <span className="icon-facebook"></span>
-                </Link>
-                <Link href="#">
-                  <span className="icon-twitter"></span>
-                </Link>
-                <Link href="#">
-                  <span className="icon-instagram"></span>
-                </Link>
-                <Link href="#">
-                  <span className="icon-linkedin"></span>
-                </Link>
+            <div className="col-md-4 mt-3 mt-md-4">
+              <div className="card about-testimonial-item h-100">
+                <div className="card-body p-4 py-5">
+                  <img
+                    src="about-testimonial-2.jpg"
+                    alt=""
+                    className="img-fluid rounded-circle border mb-4"
+                    width="100"
+                  />
+                  <h4 className="about-testimonial-title fs-4 mb-2">Sofia</h4>
+                  <small> HR Manager</small>
+                  <p className="mb-4 about-testimonial-rating">
+                    <span className="fas fa-star active"></span>
+                    <span className="fas fa-star active"></span>
+                    <span className="fas fa-star active"></span>
+                    <span className="fas fa-star active"></span>
+                    <span className="fas fa-star-half-alt active"></span>
+                  </p>
+                  <p className="about-testimonial-content mb-0">
+                    Hiring used to be time-consuming, but SimplifyJob’s
+                    AI-matching helped us find the right candidate in days, not
+                    weeks.
+                  </p>
+                </div>
               </div>
+            </div>
+            <div className="col-md-4 mt-3 mt-md-4">
+              <div className="card about-testimonial-item h-100">
+                <div className="card-body p-4 py-5">
+                  <img
+                    src="about-testimonial-3.jpg"
+                    alt=""
+                    className="img-fluid rounded-circle border mb-4"
+                    width="100"
+                  />
+                  <h4 className="about-testimonial-title fs-4 mb-2">
+                    Liam Novak
+                  </h4>
+                  <small>Software Developer</small>
+                  <p className="mb-4 about-testimonial-rating">
+                    <span className="fas fa-star active"></span>
+                    <span className="fas fa-star active"></span>
+                    <span className="fas fa-star active"></span>
+                    <span className="fas fa-star active"></span>
+                    <span className="fas fa-star-half-alt active"></span>
+                  </p>
+                  <p className="about-testimonial-content mb-0">
+                    I loved how simple the platform is. Clear job listings,
+                    quick applications, and helpful career tips — it really
+                    boosted my confidence."
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* call to action  */}
+
+      <section
+        className="py-5 bg-image overlay-primary fixed overlay"
+        id="next-section"
+        style={{ backgroundImage: "url('images/hero_1.jpg')" }}
+      >
+        <div className="container">
+          <div className="row mb-5 justify-content-center">
+            <div className="col-md-7 text-center">
+              <h2 className="section-title mb-2 text-white">
+                Join with us for more information
+              </h2>
+              <p className="lead text-white">
+                It’s easier to reach your savings goals when you have the right
+                savings account.
+              </p>
+              <button className="cta-btn">Let's Talk</button>
             </div>
           </div>
         </div>
