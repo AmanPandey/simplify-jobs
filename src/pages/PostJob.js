@@ -97,16 +97,14 @@ const PostJob = () => {
                 </div>
 
                 <div className="form-group">
-                  <label for="job-region">Job Region</label>
+                  <label htmlFor="job-region">Job Region</label>
                   <select
-                    className="selectpicker border rounded"
+                    className="form-control border rounded"
                     id="job-region"
-                    data-style="btn-black"
-                    data-width="100%"
-                    data-live-search="true"
-                    title="Select Region"
                   >
-                    <option>Anywhere</option>
+                    <option disabled hidden>
+                      Anywhere
+                    </option>
                     <option>San Francisco</option>
                     <option>Palo Alto</option>
                     <option>New York</option>
@@ -119,25 +117,20 @@ const PostJob = () => {
                 </div>
 
                 <div className="form-group">
-                  <label for="job-type">Job Type</label>
-                  <select
-                    className="selectpicker border rounded"
-                    id="job-type"
-                    data-style="btn-black"
-                    data-width="100%"
-                    data-live-search="true"
-                    title="Select Job Type"
-                  >
+                  <label htmlFor="job-type">Job Type</label>
+                  <select className="form-control border rounded" id="job-type">
                     <option>Part Time</option>
                     <option>Full Time</option>
                   </select>
                 </div>
 
                 <div className="form-group">
-                  <label for="job-description">Job Description</label>
-                  <div className="editor" id="editor-1">
-                    <p>Write Job Description!</p>
-                  </div>
+                  <label htmlFor="job-description">Job Description</label>
+
+                  <textarea
+                    className="w-100"
+                    style={{ minHeight: "250px" }}
+                  ></textarea>
                 </div>
 
                 <h3 className="text-black my-5 border-bottom pb-2">
@@ -167,9 +160,10 @@ const PostJob = () => {
                   <label for="job-description">
                     Company Description (Optional)
                   </label>
-                  <div className="editor" id="editor-2">
-                    <p>Description</p>
-                  </div>
+                  <textarea
+                    className="w-100"
+                    style={{ minHeight: "250px" }}
+                  ></textarea>
                 </div>
 
                 <div className="form-group">

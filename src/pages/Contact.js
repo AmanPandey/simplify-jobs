@@ -127,23 +127,23 @@ const Contact = () => {
               <div className="block__87154 bg-white rounded">
                 <blockquote>
                   <p>
-                    &ldquo;Ipsum harum assumenda in eum vel eveniet numquam
-                    cumque vero vitae enim cupiditate deserunt eligendi officia
-                    modi consectetur. Expedita tempora quos nobis earum hic ex
-                    asperiores quisquam optio nostrum sit&rdquo;
+                    &ldquo;Reaching out through the SimplifyJob contact page was
+                    quick and effortless. Their team responded within hours and
+                    guided me through every step of the hiring process. The
+                    support felt personal and genuinely helpful.&rdquo;
                   </p>
                 </blockquote>
                 <div className="block__91147 d-flex align-items-center">
                   <figure className="mr-4">
                     <img
-                      src="images/person_1.jpg"
+                      src="contact-client-1.jpg"
                       alt="Image"
                       className="img-fluid"
                     />
                   </figure>
                   <div>
-                    <h3>Elisabeth Smith</h3>
-                    <span className="position">Creative Director</span>
+                    <h3>Anita Sharma </h3>
+                    <span className="position">HR Manager</span>
                   </div>
                 </div>
               </div>
@@ -153,23 +153,23 @@ const Contact = () => {
               <div className="block__87154 bg-white rounded">
                 <blockquote>
                   <p>
-                    &ldquo;Ipsum harum assumenda in eum vel eveniet numquam,
-                    cumque vero vitae enim cupiditate deserunt eligendi officia
-                    modi consectetur. Expedita tempora quos nobis earum hic ex
-                    asperiores quisquam optio nostrum sit&rdquo;
+                    &ldquo;I used the contact form to clarify some queries about
+                    job postings, and I was impressed by how fast and
+                    professional the response was. SimplifyJob really values
+                    communication with clients and job seekers alike.&rdquo;
                   </p>
                 </blockquote>
                 <div className="block__91147 d-flex align-items-center">
                   <figure className="mr-4">
                     <img
-                      src="images/person_2.jpg"
+                      src="contact-client-2.jpg"
                       alt="Image"
                       className="img-fluid"
                     />
                   </figure>
                   <div>
-                    <h3>Chris Peter</h3>
-                    <span className="position">Web Designer</span>
+                    <h3>David Lee</h3>
+                    <span className="position">Recruitment Lead</span>
                   </div>
                 </div>
               </div>

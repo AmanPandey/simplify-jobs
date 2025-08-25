@@ -12,12 +12,12 @@ const JobSingle = () => {
         <div className="container">
           <div className="row">
             <div className="col-md-7">
-              <h1 className="text-white font-weight-bold">Product Designer</h1>
+              <h1 className="text-white font-weight-bold">UI/UX Designer</h1>
               <div className="custom-breadcrumbs">
                 <Link to="/">Home</Link> <span className="mx-2 slash">/</span>
                 <Link to="#">Job</Link> <span className="mx-2 slash">/</span>
                 <span className="text-white">
-                  <strong>Product Designer</strong>
+                  <strong>UI/UX Designer</strong>
                 </span>
               </div>
             </div>
@@ -31,16 +31,16 @@ const JobSingle = () => {
             <div className="col-lg-8 mb-4 mb-lg-0">
               <div className="d-flex align-items-center">
                 <div className="border p-2 d-inline-block mr-3 rounded">
-                  <img src="images/job_logo_5.jpg" alt="Image" />
+                  <img src="images/job_logo_5.jpg" alt="SimplifyJob Logo" />
                 </div>
                 <div>
-                  <h2>Product Designer</h2>
+                  <h2>UI/UX Designer</h2>
                   <div>
                     <span className="ml-0 mr-2 mb-2">
                       <span className="icon-briefcase mr-2"></span>Puma
                     </span>
                     <span className="m-2">
-                      <span className="icon-room mr-2"></span>New York City
+                      <span className="icon-room mr-2"></span>Noida, India
                     </span>
                     <span className="m-2">
                       <span className="icon-clock-o mr-2"></span>
@@ -66,13 +66,14 @@ const JobSingle = () => {
               </div>
             </div>
           </div>
+
           <div className="row">
             <div className="col-lg-8">
               <div className="mb-5">
                 <figure className="mb-5">
                   <img
                     src="images/job_single_img_1.jpg"
-                    alt="Image"
+                    alt="Job Illustration"
                     className="img-fluid rounded"
                   />
                 </figure>
@@ -80,18 +81,18 @@ const JobSingle = () => {
                   <span className="icon-align-left mr-3"></span>Job Description
                 </h3>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Debitis illum fuga eveniet. Deleniti asperiores, commodi quae
-                  ipsum quas est itaque, ipsa, dolore beatae voluptates nemo
-                  blanditiis iste eius officia minus.
+                  Puma is looking for a creative and detail-oriented UI/UX
+                  Designer to join our team. You will design user-friendly
+                  interfaces that enhance our job portal experience for job
+                  seekers and employers.
                 </p>
                 <p>
-                  Velit unde aliquam et voluptas reiciendis non sapiente labore,
-                  deleniti asperiores blanditiis nihil quia officiis dolor vero
-                  iste dolore vel molestiae saepe. Id nisi, consequuntur sunt
-                  impedit quidem, vitae mollitia!
+                  Work closely with product managers and developers to deliver
+                  seamless user experiences. Bring your ideas to life through
+                  intuitive design patterns and thoughtful interactions.
                 </p>
               </div>
+
               <div className="mb-5">
                 <h3 className="h5 d-flex align-items-center mb-4 text-primary">
                   <span className="icon-rocket mr-3"></span>Responsibilities
@@ -99,30 +100,21 @@ const JobSingle = () => {
                 <ul className="list-unstyled m-0 p-0">
                   <li className="d-flex align-items-start mb-2">
                     <span className="icon-check_circle mr-2 text-muted"></span>
-                    <span>Necessitatibus quibusdam facilis</span>
-                  </li>
-                  <li className="d-flex align-items-start mb-2">
-                    <span className="icon-check_circle mr-2 text-muted"></span>
                     <span>
-                      Velit unde aliquam et voluptas reiciendis n Velit unde
-                      aliquam et voluptas reiciendis non sapiente labore
+                      Create wireframes, prototypes, and visual designs
                     </span>
                   </li>
                   <li className="d-flex align-items-start mb-2">
                     <span className="icon-check_circle mr-2 text-muted"></span>
-                    <span>Commodi quae ipsum quas est itaque</span>
+                    <span>Collaborate with product and engineering teams</span>
                   </li>
                   <li className="d-flex align-items-start mb-2">
                     <span className="icon-check_circle mr-2 text-muted"></span>
-                    <span>
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit
-                    </span>
+                    <span>Ensure consistent branding and design standards</span>
                   </li>
                   <li className="d-flex align-items-start mb-2">
                     <span className="icon-check_circle mr-2 text-muted"></span>
-                    <span>
-                      Deleniti asperiores blanditiis nihil quia officiis dolor
-                    </span>
+                    <span>Conduct user research and usability testing</span>
                   </li>
                 </ul>
               </div>
@@ -134,65 +126,37 @@ const JobSingle = () => {
                 <ul className="list-unstyled m-0 p-0">
                   <li className="d-flex align-items-start mb-2">
                     <span className="icon-check_circle mr-2 text-muted"></span>
-                    <span>Necessitatibus quibusdam facilis</span>
-                  </li>
-                  <li className="d-flex align-items-start mb-2">
-                    <span className="icon-check_circle mr-2 text-muted"></span>
                     <span>
-                      Velit unde aliquam et voluptas reiciendis non sapiente
-                      labore
+                      Bachelor’s degree in Design, HCI, or related field
                     </span>
                   </li>
                   <li className="d-flex align-items-start mb-2">
                     <span className="icon-check_circle mr-2 text-muted"></span>
-                    <span>Commodi quae ipsum quas est itaque</span>
+                    <span>2+ years of experience in UI/UX design</span>
                   </li>
                   <li className="d-flex align-items-start mb-2">
                     <span className="icon-check_circle mr-2 text-muted"></span>
-                    <span>
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit
-                    </span>
-                  </li>
-                  <li className="d-flex align-items-start mb-2">
-                    <span className="icon-check_circle mr-2 text-muted"></span>
-                    <span>
-                      Deleniti asperiores blanditiis nihil quia officiis dolor
-                    </span>
+                    <span>Strong portfolio demonstrating design thinking</span>
                   </li>
                 </ul>
               </div>
 
               <div className="mb-5">
                 <h3 className="h5 d-flex align-items-center mb-4 text-primary">
-                  <span className="icon-turned_in mr-3"></span>Other Benifits
+                  <span className="icon-turned_in mr-3"></span>Other Benefits
                 </h3>
                 <ul className="list-unstyled m-0 p-0">
                   <li className="d-flex align-items-start mb-2">
                     <span className="icon-check_circle mr-2 text-muted"></span>
-                    <span>Necessitatibus quibusdam facilis</span>
+                    <span>Flexible work hours and remote options</span>
                   </li>
                   <li className="d-flex align-items-start mb-2">
                     <span className="icon-check_circle mr-2 text-muted"></span>
-                    <span>
-                      Velit unde aliquam et voluptas reiciendis non sapiente
-                      labore
-                    </span>
+                    <span>Health, dental, and vision insurance</span>
                   </li>
                   <li className="d-flex align-items-start mb-2">
                     <span className="icon-check_circle mr-2 text-muted"></span>
-                    <span>Commodi quae ipsum quas est itaque</span>
-                  </li>
-                  <li className="d-flex align-items-start mb-2">
-                    <span className="icon-check_circle mr-2 text-muted"></span>
-                    <span>
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit
-                    </span>
-                  </li>
-                  <li className="d-flex align-items-start mb-2">
-                    <span className="icon-check_circle mr-2 text-muted"></span>
-                    <span>
-                      Deleniti asperiores blanditiis nihil quia officiis dolor
-                    </span>
+                    <span>Learning & development support</span>
                   </li>
                 </ul>
               </div>
@@ -211,33 +175,31 @@ const JobSingle = () => {
                 </div>
               </div>
             </div>
+
             <div className="col-lg-4">
               <div className="bg-light p-3 border rounded mb-4">
-                <h3 className="text-primary  mt-3 h5 pl-3 mb-3 ">
-                  Job Summary
-                </h3>
+                <h3 className="text-primary mt-3 h5 pl-3 mb-3">Job Summary</h3>
                 <ul className="list-unstyled pl-3 mb-0">
                   <li className="mb-2">
-                    <strong className="text-black">Published on:</strong> April
-                    14, 2019
+                    <strong className="text-black">Published on:</strong> August
+                    22, 2025
                   </li>
                   <li className="mb-2">
-                    <strong className="text-black">Vacancy:</strong> 20
+                    <strong className="text-black">Vacancy:</strong> 5
                   </li>
                   <li className="mb-2">
                     <strong className="text-black">Employment Status:</strong>{" "}
                     Full-time
                   </li>
                   <li className="mb-2">
-                    <strong className="text-black">Experience:</strong> 2 to 3
-                    year(s)
+                    <strong className="text-black">Experience:</strong> 2+ years
                   </li>
                   <li className="mb-2">
-                    <strong className="text-black">Job Location:</strong> New
-                    ork City
+                    <strong className="text-black">Job Location:</strong> Noida,
+                    India
                   </li>
                   <li className="mb-2">
-                    <strong className="text-black">Salary:</strong> $60k - $100k
+                    <strong className="text-black">Salary:</strong> $70k - $120k
                   </li>
                   <li className="mb-2">
                     <strong className="text-black">Gender:</strong> Any
@@ -246,13 +208,13 @@ const JobSingle = () => {
                     <strong className="text-black">
                       Application Deadline:
                     </strong>{" "}
-                    April 28, 2019
+                    September 15, 2025
                   </li>
                 </ul>
               </div>
 
               <div className="bg-light p-3 border rounded">
-                <h3 className="text-primary  mt-3 h5 pl-3 mb-3 ">Share</h3>
+                <h3 className="text-primary mt-3 h5 pl-3 mb-3">Share</h3>
                 <div className="px-3">
                   <Link to="#" className="pt-3 pb-3 pr-3 pl-0">
                     <span className="icon-facebook"></span>
@@ -277,7 +239,7 @@ const JobSingle = () => {
         <div className="container">
           <div className="row mb-5 justify-content-center">
             <div className="col-md-7 text-center">
-              <h2 className="section-title mb-2">22,392 Related Jobs</h2>
+              <h2 className="section-title mb-2">1223 Related Jobs</h2>
             </div>
           </div>
 
@@ -299,6 +261,9 @@ const JobSingle = () => {
                 </div>
                 <div className="job-listing-location mb-3 mb-sm-0 custom-width w-25">
                   <span className="icon-room"></span> New York, New York
+                </div>
+                <div className="job-listing-location mb-3 custom-width w-25">
+                  <span className=""></span>$55,000/year
                 </div>
                 <div className="job-listing-meta">
                   <span className="badge badge-danger">Part Time</span>
@@ -322,6 +287,9 @@ const JobSingle = () => {
                 </div>
                 <div className="job-listing-location mb-3 mb-sm-0 custom-width w-25">
                   <span className="icon-room"></span> Overland Park, Kansas
+                </div>
+                <div className="job-listing-location mb-3 custom-width w-25">
+                  <span className=""></span>$60,000/year
                 </div>
                 <div className="job-listing-meta">
                   <span className="badge badge-success">Full Time</span>
@@ -347,6 +315,9 @@ const JobSingle = () => {
                 <div className="job-listing-location mb-3 mb-sm-0 custom-width w-25">
                   <span className="icon-room"></span> Overland Park, Kansas
                 </div>
+                <div className="job-listing-location mb-3 custom-width w-25">
+                  <span className=""></span>$35,000/year
+                </div>
                 <div className="job-listing-meta">
                   <span className="badge badge-success">Full Time</span>
                 </div>
@@ -370,6 +341,9 @@ const JobSingle = () => {
                 </div>
                 <div className="job-listing-location mb-3 mb-sm-0 custom-width w-25">
                   <span className="icon-room"></span> Anywhere
+                </div>
+                <div className="job-listing-location mb-3 custom-width w-25">
+                  <span className=""></span>$100,000/year
                 </div>
                 <div className="job-listing-meta">
                   <span className="badge badge-success">Full Time</span>
@@ -395,6 +369,9 @@ const JobSingle = () => {
                 <div className="job-listing-location mb-3 mb-sm-0 custom-width w-25">
                   <span className="icon-room"></span> San Mateo, CA
                 </div>
+                <div className="job-listing-location mb-3 custom-width w-25">
+                  <span className=""></span>$90,000/year
+                </div>
                 <div className="job-listing-meta">
                   <span className="badge badge-success">Full Time</span>
                 </div>
@@ -418,6 +395,9 @@ const JobSingle = () => {
                 <div className="job-listing-location mb-3 mb-sm-0 custom-width w-25">
                   <span className="icon-room"></span> New York, New York
                 </div>
+                <div className="job-listing-location mb-3 custom-width w-25">
+                  <span className=""></span>$40,000/year
+                </div>
                 <div className="job-listing-meta">
                   <span className="badge badge-danger">Part Time</span>
                 </div>
@@ -440,6 +420,9 @@ const JobSingle = () => {
                 </div>
                 <div className="job-listing-location mb-3 mb-sm-0 custom-width w-25">
                   <span className="icon-room"></span> Overland Park, Kansas
+                </div>
+                <div className="job-listing-location mb-3 custom-width w-25">
+                  <span className=""></span>$80,000/year
                 </div>
                 <div className="job-listing-meta">
                   <span className="badge badge-success">Full Time</span>
@@ -474,20 +457,19 @@ const JobSingle = () => {
         </div>
       </section>
 
-      <section className="bg-light pt-5 testimony-full">
+      {/* <section className="bg-light pt-5 testimony-full">
         <div className="owl-carousel single-carousel">
           <div className="container">
             <div className="row">
               <div className="col-lg-6 align-self-center text-center text-lg-left">
                 <blockquote>
                   <p>
-                    &ldquo;Soluta quasi cum delectus eum facilis recusandae
-                    nesciunt molestias accusantium libero dolores repellat id in
-                    dolorem laborum ad modi qui at quas dolorum voluptatem
-                    voluptatum repudiandae.&rdquo;
+                    &ldquo;SimplifyJob made my job search effortless! The
+                    personalized recommendations and timely alerts helped me
+                    land my dream role in record time.&rdquo;
                   </p>
                   <p>
-                    <cite> &mdash; Corey Woods, @Dribbble</cite>
+                    <cite> &mdash; Corey Woods, Software Engineer</cite>
                   </p>
                 </blockquote>
               </div>
@@ -506,13 +488,12 @@ const JobSingle = () => {
               <div className="col-lg-6 align-self-center text-center text-lg-left">
                 <blockquote>
                   <p>
-                    &ldquo;Soluta quasi cum delectus eum facilis recusandae
-                    nesciunt molestias accusantium libero dolores repellat id in
-                    dolorem laborum ad modi qui at quas dolorum voluptatem
-                    voluptatum repudiandae.&rdquo;
+                    &ldquo;Thanks to SimplifyJob, our company filled key
+                    positions quickly with qualified candidates. The platform
+                    streamlined our hiring process significantly.&rdquo;
                   </p>
                   <p>
-                    <cite> &mdash; Chris Peters, @Google</cite>
+                    <cite> &mdash; Chris Peters, HR Manager</cite>
                   </p>
                 </blockquote>
               </div>
@@ -526,7 +507,7 @@ const JobSingle = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       <section
         className="pt-5 bg-image overlay-primary fixed overlay"
@@ -535,15 +516,15 @@ const JobSingle = () => {
         <div className="container">
           <div className="row">
             <div className="col-md-6 align-self-center text-center text-md-left mb-5 mb-md-0">
-              <h2 className="text-white">Get The Mobile Apps</h2>
+              <h2 className="text-white">Get the SimplifyJob App</h2>
               <p className="mb-5 lead text-white">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit tempora
-                adipisci impedit.
+                Search and apply for jobs on the go, connect with top employers,
+                and track your applications—all from your mobile device.
               </p>
               <p className="mb-0">
                 <Link
                   to="#"
-                  className="btn btn-dark btn-md px-4 border-width-2  mx-1  my-1"
+                  className="btn btn-dark btn-md px-4 border-width-2 mx-1 my-1"
                 >
                   <span className="icon-apple mr-3"></span>App Store
                 </Link>

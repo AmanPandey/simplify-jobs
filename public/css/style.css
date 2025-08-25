@@ -665,6 +665,7 @@ h4 {
 .home-section .search-jobs-form .btn-search > span {
   font-size: 1rem;
   position: relative;
+  background-color: transparent;
 }
 .home-section .search-jobs-form .dropdown-menu {
   position: relative;
@@ -2386,4 +2387,14 @@ h4 {
 .about-testimonial-rating [class*="fa-"].active,
 .about-testimonial-rating [class*="fa-"].active * {
   color: #89ba16;
+}
+
+.service_single_current {
+  font-weight: 700;
+  color: black;
+}
+
+.blog-img {
+  height: 350px;
+  width: 100%;
 }

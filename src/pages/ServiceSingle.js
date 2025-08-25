@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 const ServiceSingle = () => {
+  const [tab, setTab] = useState(1);
   return (
     <>
       <section
@@ -30,58 +31,187 @@ const ServiceSingle = () => {
               <div className="border p-4 rounded">
                 <ul className="list-unstyled block__47528 mb-0">
                   <li>
-                    <span className="active">Graphic Design</span>
+                    <Link
+                      to="#"
+                      className={`${tab == 1 ? "service_single_current" : ""}`}
+                      onClick={() => setTab(1)}
+                    >
+                      Smart Job Search
+                    </Link>
                   </li>
                   <li>
-                    <Link to="#">Marketing Strategy</Link>
+                    <Link
+                      to="#"
+                      className={`${tab == 2 ? "service_single_current" : ""}`}
+                      onClick={() => setTab(2)}
+                    >
+                      Employer Connection
+                    </Link>
                   </li>
                   <li>
-                    <Link to="#">Web Design</Link>
+                    <Link
+                      to="#"
+                      className={`${tab == 3 ? "service_single_current" : ""}`}
+                      onClick={() => setTab(3)}
+                    >
+                      Career Advice
+                    </Link>
                   </li>
                   <li>
-                    <Link to="#">Market Leading</Link>
+                    <Link
+                      to="#"
+                      className={`${tab == 4 ? "service_single_current" : ""}`}
+                      onClick={() => setTab(4)}
+                    >
+                      Skill Development
+                    </Link>
                   </li>
                   <li>
-                    <Link to="#">Search Engine Optimization</Link>
+                    <Link
+                      to="#"
+                      className={`${tab == 5 ? "service_single_current" : ""}`}
+                      onClick={() => setTab(5)}
+                    >
+                      Salary & Market Insights
+                    </Link>
                   </li>
                 </ul>
               </div>
             </div>
-            <div className="col-lg-8">
-              <span className="text-primary d-block mb-5">
-                <span className="icon-magnet display-1"></span>
-              </span>
-              <h2 className="mb-4">Graphic Design</h2>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam
-                dolorum incidunt dolorem facere, officiis placeat consequuntur
-                odit quasi, quam voluptates, deleniti! Neque tenetur in, omnis
-                consectetur molestias expedita nostrum et.
-              </p>
-              <p>
-                Sed odio temporibus quaerat laboriosam dicta ipsam eligendi
-                deserunt architecto, aliquam in totam provident praesentium
-                aperiam, id impedit aut delectus mollitia doloribus nostrum
-                numquam tempore ullam reprehenderit nesciunt cumque veniam.
-              </p>
-              <p>
-                Officia mollitia deserunt vel expedita deleniti iure eius illum
-                dolor optio tempora! Fuga, voluptates omnis velit neque. Rerum
-                aperiam consequatur vero, nulla dolores Link. Sed, non veniam
-                maiores recusandae iure.
-              </p>
-              <p>
-                Nobis officia tempore porro incidunt quaerat commodi numquam
-                exercitationem laboriosam deserunt, error excepturi et delectus
-                quis explicabo repellendus obcaecati iusto. Delectus magni
-                ducimus illo! Fugit quaerat debitis deserunt facere reiciendis!
-              </p>
-              <p>
-                <Link to="#" className="btn btn-primary btn-md mt-4">
-                  Hire Us, Our Agency
-                </Link>
-              </p>
-            </div>
+            {tab == 1 && (
+              <div className="col-lg-8">
+                <span className="text-primary d-block mb-5">
+                  <span className="icon-search display-1"></span>
+                </span>
+                <h2 className="mb-4">Smart Job Search</h2>
+                <p>
+                  SimplifyJob provides a powerful smart search engine to help
+                  job seekers find the perfect opportunity quickly. Filter jobs
+                  by location, salary, type, and skills to discover positions
+                  that match your profile.
+                </p>
+                <p>
+                  Advanced AI-driven recommendations suggest jobs based on your
+                  resume, experience, and career goals, saving you time and
+                  effort.
+                </p>
+                <p>
+                  Stay updated with personalized job alerts, ensuring you never
+                  miss an opportunity that suits your skills and aspirations.
+                </p>
+                <p>
+                  <Link to="#" className="btn btn-primary btn-md mt-4">
+                    Start Your Job Search
+                  </Link>
+                </p>
+              </div>
+            )}
+            {tab == 2 && (
+              <div className="col-lg-8">
+                <span className="text-primary d-block mb-5">
+                  <span className="icon-briefcase display-1"></span>
+                </span>
+                <h2 className="mb-4">Employer Connection</h2>
+                <p>
+                  Connect directly with top employers and companies actively
+                  hiring in your industry. SimplifyJob bridges the gap between
+                  candidates and recruiters for a smooth hiring process.
+                </p>
+                <p>
+                  Create a professional profile that employers can discover,
+                  making it easier for the right opportunities to reach you.
+                </p>
+                <p>
+                  Track applications, communicate with recruiters, and get
+                  feedback to improve your chances of landing the job you want.
+                </p>
+                <p>
+                  <Link to="#" className="btn btn-primary btn-md mt-4">
+                    Connect with Employers
+                  </Link>
+                </p>
+              </div>
+            )}{" "}
+            {tab == 3 && (
+              <div className="col-lg-8">
+                <span className="text-primary d-block mb-5">
+                  <i className="fas fa-lightbulb display-1"></i>
+                </span>
+
+                <h2 className="mb-4">Career Advice</h2>
+                <p>
+                  Access expert career advice and resources to boost your
+                  professional growth. Get tips on resume writing, interview
+                  preparation, and personal branding.
+                </p>
+                <p>
+                  Learn strategies for negotiating salaries, advancing your
+                  career, and making informed decisions at every stage.
+                </p>
+                <p>
+                  Our curated articles, webinars, and guides help you stay
+                  competitive in a fast-changing job market.
+                </p>
+                <p>
+                  <Link to="#" className="btn btn-primary btn-md mt-4">
+                    Explore Career Advice
+                  </Link>
+                </p>
+              </div>
+            )}{" "}
+            {tab == 4 && (
+              <div className="col-lg-8">
+                <span className="text-primary d-block mb-5">
+                  <span className="icon-graduation-cap display-1"></span>
+                </span>
+                <h2 className="mb-4">Skill Development</h2>
+                <p>
+                  Enhance your skills with SimplifyJob’s learning resources and
+                  courses. Stay ahead by acquiring new skills relevant to the
+                  jobs you want.
+                </p>
+                <p>
+                  From coding and design to leadership and communication, we
+                  provide online courses and certifications to improve
+                  employability.
+                </p>
+                <p>
+                  Track your progress and showcase new skills on your profile to
+                  attract top employers.
+                </p>
+                <p>
+                  <Link to="#" className="btn btn-primary btn-md mt-4">
+                    Start Learning Today
+                  </Link>
+                </p>
+              </div>
+            )}{" "}
+            {tab == 5 && (
+              <div className="col-lg-8">
+                <span className="text-primary d-block mb-5">
+                  <span className="icon-bar-chart display-1"></span>
+                </span>
+                <h2 className="mb-4">Salary & Market Insights</h2>
+                <p>
+                  Make informed career decisions with accurate salary data and
+                  market trends. SimplifyJob provides insights into average
+                  salaries, industry demand, and career growth potential.
+                </p>
+                <p>
+                  Compare salaries by role, location, and experience level to
+                  negotiate better offers confidently.
+                </p>
+                <p>
+                  Stay updated on emerging industries and skills to align your
+                  career path with market needs.
+                </p>
+                <p>
+                  <Link to="#" className="btn btn-primary btn-md mt-4">
+                    View Market Insights
+                  </Link>
+                </p>
+              </div>
+            )}
           </div>
         </div>
       </section>

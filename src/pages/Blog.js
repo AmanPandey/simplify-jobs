@@ -30,114 +30,102 @@ const Blog = () => {
             <div className="col-md-6 col-lg-4 mb-5">
               <Link href="blog-single.html">
                 <img
-                  src="images/sq_img_1.jpg"
+                  src="simply-blog-1.jpg"
                   alt="Image"
-                  className="img-fluid rounded mb-4"
+                  className="img-fluid rounded mb-4 blog-img"
                 />
               </Link>
               <h3>
                 <Link href="blog-single.html" className="text-black">
-                  7 Factors for Choosing Between Two Jobs
+                  7 Tips to Find the Right Job Faster
                 </Link>
               </h3>
-              <div>
-                April 15, 2019 <span className="mx-2">|</span>{" "}
-                <Link href="#">2 Comments</Link>
-              </div>
+              <div>August 20, 2025</div>
             </div>
+
             <div className="col-md-6 col-lg-4 mb-5">
               <Link href="blog-single.html">
                 <img
-                  src="images/sq_img_2.jpg"
+                  src="simply-blog-2.jpg"
                   alt="Image"
-                  className="img-fluid rounded mb-4"
+                  className="img-fluid rounded mb-4 blog-img"
                 />
               </Link>
               <h3>
                 <Link href="blog-single.html" className="text-black">
-                  How to Write Link Creative Cover Letter
+                  How to Write a Standout Resume for SimplifyJob
                 </Link>
               </h3>
-              <div>
-                April 15, 2019 <span className="mx-2">|</span>{" "}
-                <Link href="#">2 Comments</Link>
-              </div>
+              <div>August 18, 2025</div>
             </div>
+
             <div className="col-md-6 col-lg-4 mb-5">
               <Link href="blog-single.html">
                 <img
-                  src="images/sq_img_4.jpg"
+                  src="simply-blog-3.jpg"
                   alt="Image"
-                  className="img-fluid rounded mb-4"
+                  className="img-fluid rounded mb-4 blog-img"
                 />
               </Link>
               <h3>
                 <Link href="blog-single.html" className="text-black">
-                  The Right Way to Quit Link Job You Started
+                  How to Connect with Top Employers Online
                 </Link>
               </h3>
-              <div>
-                April 15, 2019 <span className="mx-2">|</span>{" "}
-                <Link href="#">2 Comments</Link>
-              </div>
+              <div>August 15, 2025</div>
             </div>
+
             <div className="col-md-6 col-lg-4 mb-5">
               <Link href="blog-single.html">
                 <img
-                  src="images/sq_img_7.jpg"
+                  src="simply-blog-4.jpg"
                   alt="Image"
-                  className="img-fluid rounded mb-4"
+                  className="img-fluid rounded mb-4 blog-img"
                 />
               </Link>
               <h3>
                 <Link href="blog-single.html" className="text-black">
-                  7 Factors for Choosing Between Two Jobs
+                  Maximizing Job Alerts to Never Miss Opportunities
                 </Link>
               </h3>
-              <div>
-                April 15, 2019 <span className="mx-2">|</span>{" "}
-                <Link href="#">2 Comments</Link>
-              </div>
+              <div>August 12, 2025</div>
             </div>
+
             <div className="col-md-6 col-lg-4 mb-5">
               <Link href="blog-single.html">
                 <img
                   src="images/sq_img_5.jpg"
                   alt="Image"
-                  className="img-fluid rounded mb-4"
+                  className="img-fluid rounded mb-4 blog-img"
                 />
               </Link>
               <h3>
                 <Link href="blog-single.html" className="text-black">
-                  How to Write Link Creative Cover Letter
+                  Skill Development Courses to Boost Your Career
                 </Link>
               </h3>
-              <div>
-                April 15, 2019 <span className="mx-2">|</span>{" "}
-                <Link href="#">2 Comments</Link>
-              </div>
+              <div>August 10, 2025</div>
             </div>
+
             <div className="col-md-6 col-lg-4 mb-5">
               <Link href="blog-single.html">
                 <img
-                  src="images/sq_img_6.jpg"
+                  src="simply-blog-6.jpg"
                   alt="Image"
-                  className="img-fluid rounded mb-4"
+                  className="img-fluid rounded mb-4 blog-img"
                 />
               </Link>
               <h3>
                 <Link href="blog-single.html" className="text-black">
-                  The Right Way to Quit Link Job You Started
+                  Understanding Salary Insights Before Negotiation
                 </Link>
               </h3>
-              <div>
-                April 15, 2019 <span className="mx-2">|</span>{" "}
-                <Link href="#">2 Comments</Link>
-              </div>
+              <div>August 8, 2025</div>
             </div>
           </div>
+
           <div className="row pagination-wrap mt-5">
-            <div className="col-md-12 text-center ">
+            <div className="col-md-12 text-center">
               <div className="custom-pagination ml-auto">
                 <Link href="#" className="prev">
                   Prev
