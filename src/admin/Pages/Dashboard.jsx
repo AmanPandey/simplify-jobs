@@ -9,7 +9,9 @@ import {
   FaTimesCircle,
 } from "react-icons/fa";
 
-const Dashboard = () => {
+const Dashboard = ({ value }) => {
+  // console.log(value);
+
   return (
     <div className="dashboard rounded shadow-lg px-3 pt-3 pb-5">
       <div className="">

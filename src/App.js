@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   BrowserRouter as Router,
   Routes,
   Route,
   BrowserRouter,
+  Navigate,
 } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
@@ -35,8 +36,12 @@ import EditJob from "./admin/Pages/EditJob";
 import SignUp from "./admin/Components/SignUp";
 import Login from "./admin/Components/Login";
 import Layout from "./components/Layout";
+import ProtectedRoute from "./admin/Pages/ProtectedRoute";
+import AdminContext from "./admin/Context/AdminContext";
+import PageNotFound from "./pages/PageNotFound.js";
 
 function App() {
+  const { isAuthentication } = useContext(AdminContext);
   return (
     <Router>
       {/* <Navbar /> */}
@@ -60,23 +65,30 @@ function App() {
           {/* <Route path="/login" element={<Login />} />  */}
         </Route>
 
-        {/* Redirect /admin to /signup */}
-        <Route path="/admin" element={<AuthUser />} />
+        {/* ADMIN PART */}
 
-        {/* Admin layout for /admin/dashboard only */}
-        <Route path="/admin" element={<AdminLayout />}>
+        {/* Public route for admin login */}
+        <Route path="/admin/login" element={<AuthUser />} />
+
+        {/* Protected admin routes */}
+        <Route
+          path="/admin"
+          element={
+            <ProtectedRoute>
+              <AdminLayout />
+            </ProtectedRoute>
+          }
+        >
+          {/* When visiting /admin → Dashboard by default */}
+          <Route index element={<Navigate to="dashboard" replace />} />
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="jobslisting" element={<JobListing />} />
           <Route path="addjob" element={<AddNewJob />} />
           <Route path="draft" element={<DraftJobs />} />
           <Route path="edit" element={<EditJob />} />
         </Route>
-
-        {/* Auth pages */}
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
-      {/* <Footer /> */}
     </Router>
   );
 }

@@ -10,7 +10,7 @@ const Header = () => {
         zIndex: 1050,
         top: 0,
         left: 0,
-        backgroundColor: "rgb(63 77 103)",
+        backgroundColor: "#555",
       }}
     >
       <div className="container-fluid h-100">

@@ -12,7 +12,7 @@ const JobListing = () => {
   function handleChange() {}
   return (
     <>
-      <div className="rounded shadow px-3 pt-3 pb-5">
+      <div className="rounded shadow px-3 pt-3 pb-5 ">
         {/* Header row with title and Add button */}
         <div className="d-flex justify-content-between align-items-center mb-4">
           <h3 className="mb-0 fw-bold">Jobs</h3>
@@ -41,7 +41,9 @@ const JobListing = () => {
           </div>
         </div>
         <div className="row">
-          <JobTable setEditJob={setEditJob} draft={draft} />
+          <div className="col-12">
+            <JobTable setEditJob={setEditJob} draft={draft} />
+          </div>
         </div>
       </div>
     </>

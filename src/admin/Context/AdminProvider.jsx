@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import AdminContext from "./AdminContext";
 import { useState } from "react";
 
@@ -8,11 +8,47 @@ const AdminProvider = ({ children }) => {
   const [showSidebar, setShowSidebar] = useState(false);
   const [isSignUpMode, setIsSignUpMode] = useState(false);
   const [errors, setErrors] = useState({});
+  const [token, setToken] = useState(() => localStorage.getItem("token"));
+
+  const login = (newToken) => {
+    // localStorage.setItem("token", newToken);
+    setToken(newToken);
+  };
+
+  const logout = () => {
+    // localStorage.removeItem("token");
+    setToken(null);
+  };
+
+  // 🔹 keep localStorage synced when token changes
+  useEffect(() => {
+    if (token) {
+      localStorage.setItem("token", token);
+    } else {
+      localStorage.removeItem("token");
+    }
+  }, [token]);
+
+  // 🔹 listen for manual localStorage changes (other tabs or devtools)
+  useEffect(() => {
+    const handleStorageChange = () => {
+      const storedToken = localStorage.getItem("token");
+      if (storedToken !== token) {
+        setToken(storedToken);
+      }
+    };
+    window.addEventListener("storage", handleStorageChange);
+    return () => {
+      window.removeEventListener("storage", handleStorageChange);
+    };
+  }, [token]);
+
+  // console.log(errors);
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     password: "",
-    confirmPassword: "",
   });
 
   const value = {
@@ -28,6 +64,9 @@ const AdminProvider = ({ children }) => {
     setFormData,
     errors,
     setErrors,
+    token,
+    login,
+    logout,
   };
   return (
     <AdminContext.Provider value={value}>{children}</AdminContext.Provider>

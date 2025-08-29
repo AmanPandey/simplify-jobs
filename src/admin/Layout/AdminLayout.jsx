@@ -6,7 +6,7 @@ import { useState } from "react";
 import Check from "../Components/Check";
 import "../assets/admin.css";
 
-const AdminLayout = ({ setDraft }) => {
+const AdminLayout = () => {
   return (
     <>
       <div className="d-flex" style={{ minHeight: "100vh" }}>

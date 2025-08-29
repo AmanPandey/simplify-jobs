@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import AdminContext from "../Context/AdminContext";
 
 import {
@@ -12,7 +12,10 @@ import {
 } from "react-icons/fa";
 
 const Sidebar = () => {
-  const { showSidebar, setShowSidebar, setDraft } = useContext(AdminContext);
+  const { showSidebar, setShowSidebar, setDraft, setIsAuthentication } =
+    useContext(AdminContext);
+
+  const navigate = useNavigate();
 
   function toggleSidebar() {
     setShowSidebar(!showSidebar);
@@ -97,13 +100,17 @@ const Sidebar = () => {
           </li>
           <li>
             <NavLink
-              to="/admin"
+              to="/admin/login"
               end
               className={({ isActive }) =>
                 `nav-link fw-semibold ${
                   isActive ? "text-white bg-active" : "text-dark"
                 }`
               }
+              onClick={() => {
+                localStorage.removeItem("token");
+                setShowSidebar(false);
+              }}
             >
               <FaSignOutAlt className="mr-2" />
               Logout

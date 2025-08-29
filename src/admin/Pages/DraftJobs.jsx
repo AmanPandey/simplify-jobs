@@ -28,7 +28,9 @@ const DraftJobs = () => {
           </div>
         </div>
         <div className="row">
-          <JobTable />
+          <div className="col-12">
+            <JobTable />
+          </div>
         </div>
       </div>
     </>

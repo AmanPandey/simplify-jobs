@@ -3,6 +3,7 @@ import AdminContext from "../Context/AdminContext";
 import Input from "./Input";
 import { useNavigate } from "react-router-dom";
 import { validate } from "../Utils/Validate";
+import { registerUser, loginUser } from "../Utils/authService";
 
 const AuthUser = () => {
   const {
@@ -12,15 +13,17 @@ const AuthUser = () => {
     setErrors,
     formData,
     setFormData,
+    setIsAuthentication,
+    login,
   } = useContext(AdminContext);
-  console.log(isSignUpMode);
+  // console.log(isSignUpMode);
 
   const navigate = useNavigate();
 
   const validationConfig = {
     name: [
       { required: true, message: "Please enter your name" },
-      { minLength: 2, message: "Name should be at least 2 characters" },
+      { minLength: 3, message: "Name should be at least 3 characters" },
     ],
     email: [
       { required: true, message: "Please enter your email" },
@@ -33,13 +36,6 @@ const AuthUser = () => {
       { required: true, message: "Please enter your password" },
       { minLength: 6, message: "Password must be at least 6 characters" },
     ],
-    confirmPassword: [
-      { required: true, message: "Please confirm your password" },
-      {
-        custom: (val, formData) => val === formData.password,
-        message: "Passwords do not match",
-      },
-    ],
   };
 
   function onchange(e) {
@@ -48,27 +44,47 @@ const AuthUser = () => {
     setErrors({});
   }
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-    const dynamicValidateConfig = isSignUpMode
-      ? validationConfig
-      : {
-          email: validationConfig.email,
-          password: validationConfig.password,
-        };
-    const errors = validate(formData, dynamicValidateConfig, setErrors);
+    const errors = validate(
+      formData,
+      {
+        email: validationConfig.email,
+        password: validationConfig.password,
+      },
+      setErrors
+    );
+
     if (Object.keys(errors).length > 0) {
       return;
-    } else {
-      console.log("form Submitted");
+    }
 
-      navigate("/admin/dashboard");
-      setFormData({
-        name: "",
-        email: "",
-        password: "",
-        confirmPassword: "",
+    try {
+      const res = await loginUser({
+        email: formData.email,
+        password: formData.password,
       });
+      // console.log(res);
+
+      if (res.token) {
+        // Save token instead of a boolean
+        // localStorage.setItem("token", res.token);
+        login(res.token);
+
+        navigate("/admin/dashboard");
+
+        // reset form
+        setFormData({ email: "", password: "" });
+        setErrors({}); // clear previous errors
+      } else {
+        setErrors((prev) => ({
+          ...prev,
+          general: res.error || "Login failed",
+        }));
+      }
+    } catch (err) {
+      console.error("Error:", err);
+      alert("Something went wrong. Try again.");
     }
   }
 
@@ -117,86 +133,10 @@ const AuthUser = () => {
               {errors.password && (
                 <p className="text-danger">{errors.password}</p>
               )}
+              {errors && <p className="text-danger">{errors.general}</p>}
             </div>
 
             <input type="submit" value="Login" className="btn solid" />
-          </form>
-
-          <form action="#" className="sign-up-form" onSubmit={handleSubmit}>
-            <h2 className="title">Sign up</h2>
-            <div className="input-wrapper">
-              <div className="input-field">
-                <i className="fas fa-user"></i>
-
-                <Input
-                  type="text"
-                  id="name"
-                  placeholder="Username"
-                  name="name"
-                  onChange={onchange}
-                  value={formData.name}
-                  error={errors.name}
-                />
-              </div>
-              {errors.name && <p className="text-danger">{errors.name}</p>}
-            </div>
-            <div className="input-wrapper">
-              <div className="input-field">
-                <i className="fas fa-envelope"></i>
-
-                <input
-                  type="email"
-                  id="email"
-                  placeholder="Email"
-                  name="email"
-                  onChange={onchange}
-                  value={formData.email}
-                  error={errors.email}
-                />
-              </div>
-              {errors.email && <p className="text-danger">{errors.email}</p>}
-            </div>
-            <div className="input-wrapper">
-              <div className="input-field">
-                <i className="fas fa-lock"></i>
-
-                <Input
-                  type="password"
-                  className="form-control"
-                  id="password"
-                  name="password"
-                  onChange={onchange}
-                  value={formData.password}
-                  error={errors.password}
-                  placeholder="Password"
-                />
-              </div>
-              {errors.password && (
-                <p className="text-danger">{errors.password}</p>
-              )}
-            </div>
-
-            <div className="input-wrapper">
-              <div className="input-field">
-                <i className="fas fa-lock"></i>
-
-                <input
-                  type="password"
-                  className="form-control"
-                  id="confirmPassword"
-                  name="confirmPassword"
-                  onChange={onchange}
-                  value={formData.confirmPassword}
-                  error={errors.confirmPassword}
-                  placeholder="Confirm Password"
-                />
-              </div>
-              {errors.confirmPassword && (
-                <p className="text-danger">{errors.confirmPassword}</p>
-              )}
-            </div>
-
-            <input type="submit" className="btn" value="Sign up" />
           </form>
         </div>
       </div>
@@ -204,13 +144,13 @@ const AuthUser = () => {
       <div className="panels-container">
         <div className="panel left-panel">
           <div className="content">
-            <h3>New Admin ?</h3>
+            <h3>Welcome Back</h3>
             <p>
-              Register now to access the SimplifyJob admin panel. Manage job
-              postings, review applicants, and control your recruitment process
-              efficiently.
+              Log in to your dashboard and continue managing jobs, reviewing
+              candidates, and keeping your hiring process streamlined with
+              SimplifyJob.
             </p>
-            <button
+            {/* <button
               className="btn transparent"
               id="sign-up-btn"
               onClick={() => {
@@ -219,11 +159,11 @@ const AuthUser = () => {
               }}
             >
               Sign up
-            </button>
+            </button>  */}
           </div>
           <img src="img/log.svg" className="image" alt="" />
         </div>
-        <div className="panel right-panel">
+        {/* <div className="panel right-panel">
           <div className="content">
             <h3>Already an Admin ?</h3>
             <p>
@@ -243,7 +183,7 @@ const AuthUser = () => {
             </button>
           </div>
           <img src="img/register.svg" className="image" alt="" />
-        </div>
+        </div> */}
       </div>
     </div>
   );
