@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Model from "./Model";
 
 const Home = () => {
-  const [email, setEmail] = useState("");
+  const [isModelOpen, setIsModelOpen] = useState(false);
   const navigate = useNavigate();
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    navigate("/");
-    setEmail("");
-  }
+  // function handleSubmit(e) {
+  //   e.preventDefault();
+  //   navigate("/");
+  //   setEmail("");
+  // }
 
   useEffect(() => {
     if (window.$) {
@@ -70,7 +71,7 @@ const Home = () => {
           id="home-section"
           style={{ backgroundImage: "url('images/hero_1.jpg')" }}
         >
-          <div className="container">
+          <div className="container" data-aos="zoom-in" data-aos-delay="1000">
             <div className="row align-items-center justify-content-center">
               <div className="col-md-12">
                 <div className="mb-5 text-center">
@@ -84,7 +85,7 @@ const Home = () => {
                   </p>
                 </div>
                 <form
-                  method="post"
+                  method=""
                   className="search-jobs-form"
                   id="job-search-form"
                 >
@@ -130,6 +131,7 @@ const Home = () => {
                       <button
                         type="submit"
                         className="btn btn-primary btn-lg btn-block text-white btn-search"
+                        onClick={() => navigate("/jobs-listing")}
                       >
                         <span className="icon-search icon mr-2"></span>Search
                         Job
@@ -170,9 +172,9 @@ const Home = () => {
             </div>
           </div>
 
-          <a href="#next" className="scroll-button smoothscroll">
+          {/* <a href="#next" className="scroll-button smoothscroll">
             <span className="icon-keyboard_arrow_down"></span>
-          </a>
+          </a> */}
         </section>
       </div>
 
@@ -180,14 +182,22 @@ const Home = () => {
       <section className="site-section pb-0">
         <div className="container">
           <div className="row">
-            <div className="col-lg-6 mb-5 mb-lg-0">
+            <div
+              className="col-lg-6 mb-5 mb-lg-0"
+              data-aos="zoom-in"
+              data-aos-delay="500"
+            >
               <img
                 src="images/sq_img_6.jpg"
                 alt="Image"
                 className="img-fluid img-shadow"
               />
             </div>
-            <div className="col-lg-5 ml-auto">
+            <div
+              className="col-lg-5 ml-auto"
+              data-aos="zoom-in"
+              data-aos-delay="500"
+            >
               <h2 className="section-title mb-3">Why Choose SimplifyJob?</h2>
               <p className="lead">
                 ✔ Industry-Focused Opportunities in Banking, Distillery &
@@ -206,17 +216,25 @@ const Home = () => {
         id="next-section"
       >
         <div className="container">
-          <div className="row mb-5 justify-content-center">
+          <div
+            className="row mb-5 justify-content-center"
+            data-aos="zoom-in"
+            data-aos-delay="500"
+          >
             <div className="col-md-7 text-center">
               <h2 className="section-title mb-2">Browse by Category</h2>
               <p>Find the job that’s perfect for you</p>
             </div>
           </div>
           <div className="row">
-            <div className="col-12 col-md-3 mb-4 mb-lg-5">
+            <div
+              className="col-12 col-md-3 mb-4 mb-md-0"
+              data-aos="fade-up"
+              data-aos-delay="1000"
+            >
               <a
                 href="service-single.html"
-                className="block__16443 text-center d-block"
+                className="block__16443 text-center d-block h-100"
               >
                 <span className="custom-icon mx-auto">
                   <span className="icon-briefcase d-block"></span>
@@ -225,10 +243,14 @@ const Home = () => {
                 <p>13 Jobs Available</p>
               </a>
             </div>
-            <div className="col-12 col-md-3 mb-4 mb-lg-5">
+            <div
+              className="col-12 col-md-3 mb-4 mb-md-0 "
+              data-aos="fade-up"
+              data-aos-delay="1100"
+            >
               <a
                 href="service-single.html"
-                className="block__16443 text-center d-block"
+                className="block__16443 text-center d-block h-100"
               >
                 <span className="custom-icon mx-auto">
                   <span className="icon-glass d-block"></span>
@@ -237,10 +259,14 @@ const Home = () => {
                 <p>5 Jobs Available</p>
               </a>
             </div>
-            <div className="col-12 col-md-3 mb-4 mb-lg-5">
+            <div
+              className="col-12 col-md-3 mb-4 mb-md-0"
+              data-aos="fade-up"
+              data-aos-delay="1200"
+            >
               <a
                 href="service-single.html"
-                className="block__16443 text-center d-block"
+                className="block__16443 text-center d-block h-100"
               >
                 <span className="custom-icon mx-auto">
                   <span className="icon-car d-block"></span>
@@ -249,10 +275,14 @@ const Home = () => {
                 <p>8 Jobs Available</p>
               </a>
             </div>
-            <div className="col-12 col-md-3 mb-4 mb-lg-5">
+            <div
+              className="col-12 col-md-3 mb-4 mb-md-0"
+              data-aos="fade-up"
+              data-aos-delay="1300"
+            >
               <a
                 href="service-single.html"
-                className="block__16443 text-center d-block"
+                className="block__16443 text-center d-block h-100"
               >
                 <span className="custom-icon mx-auto">
                   <span className="icon-users d-block"></span>
@@ -268,14 +298,22 @@ const Home = () => {
       {/* feature jobs  */}
       <section className="site-section">
         <div className="container">
-          <div className="row mb-5 justify-content-center">
+          {/* <div
+            className="row mb-5 justify-content-center"
+            data-aos="zoom-in"
+            data-aos-delay="1000"
+          >
             <div className="col-md-7 text-center">
               <h2 className="section-title mb-2">Feature Jobs</h2>
             </div>
-          </div>
+          </div> */}
 
           <ul className="job-listings mb-5">
-            <li className="job-listing d-block d-md-flex pb-3 pb-sm-0 align-items-center">
+            <li
+              className="job-listing d-block d-md-flex pb-3 pb-sm-0 align-items-center"
+              data-aos="fade-up"
+              data-aos-delay="1000"
+            >
               <a href="job-single.html"></a>
               <div className="job-listing-logo">
                 <img
@@ -301,7 +339,11 @@ const Home = () => {
                 </div>
               </div>
             </li>
-            <li className="job-listing d-block d-md-flex pb-3 pb-sm-0 align-items-center">
+            <li
+              className="job-listing d-block d-md-flex pb-3 pb-sm-0 align-items-center"
+              data-aos="fade-up"
+              data-aos-delay="1100"
+            >
               <a href="job-single.html"></a>
               <div className="job-listing-logo">
                 <img
@@ -328,7 +370,11 @@ const Home = () => {
               </div>
             </li>
 
-            <li className="job-listing d-block d-md-flex pb-3 pb-sm-0 align-items-center">
+            <li
+              className="job-listing d-block d-md-flex pb-3 pb-sm-0 align-items-center"
+              data-aos="fade-up"
+              data-aos-delay="1200"
+            >
               <a href="job-single.html"></a>
               <div className="job-listing-logo">
                 <img
@@ -356,7 +402,7 @@ const Home = () => {
             </li>
           </ul>
 
-          <div className="row pagination-wrap">
+          {/* <div className="row pagination-wrap">
             <div className="col-md-6 text-center text-md-left mb-4 mb-md-0">
               <span>Showing 1-7 Of 1367 Jobs</span>
             </div>
@@ -378,6 +424,13 @@ const Home = () => {
                 </a>
               </div>
             </div>
+          </div> */}
+          <div
+            className="row d-flex justify-content-center"
+            data-aos="zoom"
+            data-aos-delay="1000"
+          >
+            <button className="btn explore-more-jobs">Expore More Jobs</button>
           </div>
         </div>
       </section>
@@ -386,12 +439,20 @@ const Home = () => {
       <section className="location-section">
         <div className="container my-5">
           <div className="row mb-5 justify-content-center">
-            <div className="col-md-7 text-center">
+            <div
+              className="col-md-7 text-center"
+              data-aos="zoom-in"
+              data-aos-delay="1000"
+            >
               <h2 className="section-title mb-2">Jobs by Location</h2>
             </div>
           </div>
           <div className="row g-4">
-            <div className="col-12 col-sm-6 col-lg-3 mb-5">
+            <div
+              className="col-12 col-sm-6 col-lg-3 mb-5"
+              data-aos="fade-up"
+              data-aos-delay="1000"
+            >
               <div className="card h-100">
                 <div className="card-img-wrapper">
                   <img
@@ -414,7 +475,11 @@ const Home = () => {
               </div>
             </div>
 
-            <div className="col-12 col-sm-6 col-lg-3 mb-5">
+            <div
+              className="col-12 col-sm-6 col-lg-3 mb-5"
+              data-aos="fade-up"
+              data-aos-delay="1100"
+            >
               <div className="card h-100">
                 <div className="card-img-wrapper">
                   <img
@@ -437,7 +502,11 @@ const Home = () => {
               </div>
             </div>
 
-            <div className="col-12 col-sm-6 col-lg-3 mb-5">
+            <div
+              className="col-12 col-sm-6 col-lg-3 mb-5"
+              data-aos="fade-up"
+              data-aos-delay="1200"
+            >
               <div className="card h-100">
                 <div className="card-img-wrapper">
                   <img
@@ -460,7 +529,11 @@ const Home = () => {
               </div>
             </div>
 
-            <div className="col-12 col-sm-6 col-lg-3 mb-5">
+            <div
+              className="col-12 col-sm-6 col-lg-3 mb-5"
+              data-aos="fade-up"
+              data-aos-delay="1300"
+            >
               <div className="card h-100">
                 <div className="card-img-wrapper">
                   <img
@@ -489,21 +562,33 @@ const Home = () => {
       {/* hiring */}
 
       <section
-        className="py-5 bg-image overlay-primary fixed overlay"
-        style={{ backgroundImage: "url('images/hero_1.jpg')" }}
+        className="py-5 bg-image overlay-primary fixed overlay d-flex align-items-center "
+        style={{
+          backgroundImage:
+            "url('https://images.pexels.com/photos/8463166/pexels-photo-8463166.jpeg')",
+          height: "400px",
+        }}
       >
         <div className="container">
-          <div className="row align-items-center">
+          <div
+            className="row align-items-center"
+            data-aos="fade-up"
+            data-aos-delay="1000"
+          >
             <div className="col-md-8 mb-3">
               <h2 className="text-white section-title">We are HIRING</h2>
-              <p className="mb-0 text-white lead">
+              <p className="mb-0 text-white" style={{ fontSize: "18px" }}>
                 Lets work together and explore the opportunities
               </p>
             </div>
             <div className="col-md-3 ml-auto">
-              <a href="#" className="btn btn-warning btn-block btn-lg">
+              <button
+                onClick={() => setIsModelOpen(true)}
+                className="btn btn-block btn-lg apply-now"
+                style={{ fontWeight: "600" }}
+              >
                 Apply Now
-              </a>
+              </button>
             </div>
           </div>
         </div>
@@ -515,33 +600,53 @@ const Home = () => {
           <div className="row align-items-center">
             <div className="col-12 text-center mt-4 mb-5">
               <div className="row justify-content-center">
-                <div className="col-md-7">
+                <div
+                  className="col-md-7"
+                  data-aos="zoom-in"
+                  data-aos-delay="1000"
+                >
                   <h2 className="section-title mb-2">Top Recruiters Hiring</h2>
                 </div>
               </div>
             </div>
-            <div className="col-6 col-lg-3 col-md-6 text-center mb-5">
+            <div
+              className="col-6 col-lg-3 col-md-6 text-center mb-5"
+              data-aos="fade-up"
+              data-aos-delay="1000"
+            >
               <img
                 src="images/tesla-svgrepo-com.svg"
                 alt="Image"
                 className="img-fluid logo-1 recruiters-logo"
               />
             </div>
-            <div className="col-6 col-lg-3 col-md-6 text-center mb-5">
+            <div
+              className="col-6 col-lg-3 col-md-6 text-center mb-5"
+              data-aos="fade-up"
+              data-aos-delay="1100"
+            >
               <img
                 src="images/amazon-icon-logo-svgrepo-com.svg"
                 alt="Image"
                 className="img-fluid logo-2 recruiters-logo"
               />
             </div>
-            <div className="col-6 col-lg-3 col-md-6 text-center mb-5">
+            <div
+              className="col-6 col-lg-3 col-md-6 text-center mb-5"
+              data-aos="fade-up"
+              data-aos-delay="1200"
+            >
               <img
                 src="images/linkedin-161-svgrepo-com.svg"
                 alt="Image"
                 className="img-fluid logo-3 recruiters-logo"
               />
             </div>
-            <div className="col-6 col-lg-3 col-md-6 text-center mb-5">
+            <div
+              className="col-6 col-lg-3 col-md-6 text-center mb-5"
+              data-aos="fade-up"
+              data-aos-delay="1300"
+            >
               <img
                 src="images/exela-technologies-logo-png_seeklogo-350880.svg"
                 alt="Image"
@@ -557,15 +662,26 @@ const Home = () => {
       <section
         className="site-section services-section bg-light block__62849"
         id="next-section"
+        style={{ marginBottom: "7rem" }}
       >
         <div className="container">
-          <div className="row mb-5 justify-content-center">
+          <div
+            className="row mb-5 justify-content-center"
+            data-aos="zoom-in"
+            data-aos-delay="1000"
+          >
             <div className="col-md-7 text-center">
-              <h2 className="section-title mb-2">Career Tips & Resources</h2>
+              <h2 className="section-title mb-2" style={{ fontWeight: "700" }}>
+                Career Tips & Resources
+              </h2>
             </div>
           </div>
           <div className="row d-flex align-items-stretch">
-            <div className="col-12 col-md-4 mb-4 align-items-stretch d-flex">
+            <div
+              className="col-12 col-md-4 mb-4 align-items-stretch d-flex"
+              data-aos="fade-up"
+              data-aos-delay="1000"
+            >
               <a href="#" className="block__16443 text-center d-block">
                 <span className="custom-icon mx-auto">
                   <span className="icon-chat d-block"></span>
@@ -577,7 +693,11 @@ const Home = () => {
                 </p>
               </a>
             </div>
-            <div className="col-12 col-md-4 mb-4 align-items-stretch d-flex">
+            <div
+              className="col-12 col-md-4 mb-4 align-items-stretch d-flex"
+              data-aos="fade-up"
+              data-aos-delay="1100"
+            >
               <a href="#" className="block__16443 text-center d-block">
                 <span className="custom-icon mx-auto">
                   <span className="icon-briefcase d-block"></span>
@@ -589,7 +709,11 @@ const Home = () => {
                 </p>
               </a>
             </div>
-            <div className="col-12 col-md-4 mb-4  align-items-stretch d-flex">
+            <div
+              className="col-12 col-md-4 mb-4  align-items-stretch d-flex"
+              data-aos="fade-up"
+              data-aos-delay="1200"
+            >
               <a href="#" className="block__16443 text-center d-block">
                 <span className="custom-icon mx-auto">
                   <span className="icon-beer d-block"></span>
@@ -607,48 +731,40 @@ const Home = () => {
 
       {/* subscribe  */}
       <section
-        className="bg-image overlay-hiring fixed overlay py-5"
-        style={{ backgroundImage: "url('images/hiring.jpg')" }}
+        className="site-section bg-image overlay-hiring fixed overlay"
+        style={{
+          backgroundImage: "url('images/hiring.jpg')",
+          padding: "6rem 0rem",
+        }}
       >
         <div className="container">
-          <div className="row align-items-center d-flex flex-column">
+          <div
+            className="row align-items-center d-flex flex-column"
+            data-aos="zoom-in"
+            data-aos-delay="1000"
+          >
             <div className="col-md-8 mx-auto text-center">
-              <h2 className="text-white">Subscribe for Job Alerts</h2>
-              <p className="mb-0 text-white lead">
-                Get personalized job alerts, blog updates, and hiring trends
-                directly to your inbox.
+              <h2 className="text-white section-title">
+                Find the Right Job, Faster
+              </h2>
+              <p className="mb-0 text-white" style={{ fontSize: "18px" }}>
+                Join SimplyfyJob to explore thousands of opportunities, connect
+                with top employers, and take the next step in your career.
               </p>
             </div>
-            <div className="col-md-6 mx-auto py-2">
-              <form
-                className="row g-2 justify-content-center align-items-center subscribe-form d-flex"
-                method="post"
-                id="subscribe-form"
-                onSubmit={handleSubmit}
+            <div className="col-md-6 mx-auto py-2 d-flex justify-content-center mt-3">
+              <button
+                className="cta-btn mt-4"
+                onClick={() => (window.location.href = "/contact")}
               >
-                <div className="col-md-8 px-1 mb-3">
-                  <input
-                    type="email"
-                    className="form-control"
-                    placeholder="Enter your email"
-                    name="email"
-                    required
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                  />
-                </div>
-                <div className="col-md-4 px-1 mb-3 ">
-                  <button type="" className="btn btn-primary w-100 d-block">
-                    Subscribe
-                  </button>
-                </div>
-              </form>
+                Start Your Search
+              </button>
             </div>
           </div>
         </div>
       </section>
 
-      <section
+      {/* <section
         className="pt-5 bg-image overlay-primary fixed overlay"
         style={{ backgroundImage: "url('images/hero_1.jpg')" }}
       >
@@ -685,7 +801,9 @@ const Home = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
+
+      <Model isOpen={isModelOpen} onClose={() => setIsModelOpen(false)} />
     </>
   );
 };

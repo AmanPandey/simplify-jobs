@@ -11,15 +11,16 @@ const BlogSingle = () => {
       >
         <div className="container">
           <div className="row">
-            <div className="col-md-12">
+            <div className="col-md-12" data-aos="fade-up" data-aos-delay="500">
               <div className="custom-breadcrumbs mb-0">
                 <span className="slash">Posted by</span> <span> Admin</span>
-                <span className="mx-2 slash">&bullet;</span>
-                <span className="text-white">
+                {/* <span className="mx-2 slash">&bullet;</span> */}
+                <span className="text-white ml-2">
                   <strong>August 22, 2025</strong>
                 </span>
               </div>
-              <h1 className="text-white">
+
+              <h1 className="text-white" style={{ fontWeight: "600" }}>
                 How to Land Your Dream Job with SimplifyJob
               </h1>
             </div>
@@ -27,27 +28,32 @@ const BlogSingle = () => {
         </div>
       </section>
 
-      <section className="site-section" id="next-section">
+      <section className="site-section single-blog" id="next-section">
         <div className="container">
           <div className="row">
             <div className="col-lg-8 blog-content">
-              <h3 className="mb-4">
+              {/* <h3 className="mb-4" data-aos="zoom-in" data-aos-delay="500"></h3> */}
+              <h2
+                class="section-title mb-3 aos-init aos-animate"
+                data-aos="zoom-in"
+                data-aos-delay="500"
+              >
                 SimplifyJob: Making Job Search Smarter and Easier
-              </h3>
-              <p className="lead">
+              </h2>
+              <p className="" data-aos="zoom-in" data-aos-delay="500">
                 SimplifyJob is a modern job portal designed to connect job
                 seekers with top employers efficiently. Our smart platform
                 streamlines the job search process and helps candidates find
                 roles that truly match their skills.
               </p>
-              <p>
+              <p data-aos="zoom-in" data-aos-delay="500">
                 <img
                   src="images/job_single_img_1.jpg"
                   alt="Job Search"
                   className="img-fluid rounded"
                 />
               </p>
-              <p>
+              <p data-aos="fade-up" data-aos-delay="1000">
                 From filtering jobs by location, salary, or experience to
                 receiving personalized job recommendations, SimplifyJob makes
                 your search faster and more effective. With AI-driven
@@ -56,55 +62,67 @@ const BlogSingle = () => {
               </p>
 
               <blockquote>
-                <p>
+                <p data-aos="fade-up" data-aos-delay="1000">
                   “SimplifyJob transformed my career search! The personalized
                   alerts and curated listings saved me countless hours.” – Jane
                   Doe
                 </p>
               </blockquote>
 
-              <p>
+              <p data-aos="fade-up" data-aos-delay="1000">
                 Our platform also provides a range of services for employers,
                 including posting jobs, tracking applications, and discovering
                 the best candidates for their teams. This dual approach ensures
                 both sides of the job market are served effectively.
               </p>
 
-              <h4 className="mt-5 mb-4">
+              <h4
+                className="mt-5 mb-4"
+                data-aos="fade-up"
+                data-aos-delay="1000"
+              >
                 Enhance Your Career with SimplifyJob Features
               </h4>
-              <p>
+              <p data-aos="fade-up" data-aos-delay="1000">
                 SimplifyJob offers tools such as resume building, skill
                 development courses, career advice, and detailed market
                 insights. By leveraging these features, job seekers can improve
                 their profiles, gain new skills, and make informed career
                 decisions.
               </p>
-              <p>
+              <p data-aos="fade-up" data-aos-delay="1000">
                 Whether you are looking for full-time, part-time, freelance, or
                 remote opportunities, SimplifyJob has a comprehensive database
                 of listings across multiple industries.
               </p>
-              <p>
+              <p data-aos="fade-up" data-aos-delay="1000">
                 Stay updated with alerts for the latest job postings, and
                 connect directly with top employers looking for candidates just
                 like you.
               </p>
-              <p>
-                <Link to="#" className="btn btn-primary btn-md mt-4">
+              <p data-aos="fade-up" data-aos-delay="1000">
+                <Link
+                  to="#"
+                  className="btn btn-primary btn-md mt-4"
+                  style={{ fontWeight: "600" }}
+                >
                   Explore Jobs Now
                 </Link>
               </p>
             </div>
 
-            <div className="col-lg-4 sidebar pl-lg-5">
+            <div
+              className="col-lg-4 sidebar pl-lg-5"
+              data-aos="zoom-in"
+              data-aos-delay="500"
+            >
               <div className="sidebar-box">
                 <img
                   src="images/person_1.jpg"
                   alt="Image placeholder"
                   className="img-fluid mb-4 w-50 rounded-circle"
                 />
-                <h3>About The Author</h3>
+                <h3 style={{ fontWeight: "600" }}>About The Author</h3>
                 <p>
                   Sneha is an experienced career consultant with extensive
                   expertise in guiding professionals through the job market. She
@@ -124,23 +142,38 @@ const BlogSingle = () => {
         </div>
       </section>
 
+      {/* call to action  */}
+
       <section
-        className="bg-image overlay-hiring fixed overlay"
-        style={{ backgroundImage: "url('images/hiring.jpg')" }}
+        className="bg-image overlay-primary fixed overlay"
+        id="next-section"
+        style={{
+          backgroundImage:
+            "url('https://images.pexels.com/photos/3184316/pexels-photo-3184316.jpeg')",
+          padding: "6rem 0",
+          marginTop: "7rem",
+        }}
       >
         <div className="container">
-          <div className="row align-items-center d-flex flex-column">
-            <div className="col-md-8 mx-auto text-center align-items-center d-flex flex-column">
-              <h2 className="" style={{ color: "rgba(137, 186, 22, 0.9)" }}>
-                Find Your Dream Job Today
+          <div className="row mb-5 justify-content-center">
+            <div
+              className="col-md-7 text-center"
+              data-aos="zoom-in"
+              data-aos-delay="500"
+            >
+              <h2 className="section-title mb-2 text-white">
+                Liked What You Read?
               </h2>
-              <p className="mb-2 text-white lead">
-                SimplifyJob connects talented professionals with top employers
-                across industries. Start your career journey and discover
-                opportunities tailored to you.
+              <p className="text-white">
+                If this article inspired you or raised questions, let’s continue
+                the conversation. Our team at SimplyfyJob is here to help you
+                with career growth and hiring solutions.
               </p>
-              <button type="submit" className="btn btn-primary d-block">
-                Browse Jobs
+              <button
+                className="cta-btn mt-4"
+                onClick={() => (window.location.href = "/contact")}
+              >
+                Get in Touch
               </button>
             </div>
           </div>

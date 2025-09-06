@@ -11,7 +11,7 @@ const PostJob = () => {
       >
         <div className="container">
           <div className="row">
-            <div className="col-md-7">
+            <div className="col-md-7" data-aos="fade-up" data-aos-delay="500">
               <h1 className="text-white font-weight-bold">Post Link Job</h1>
               <div className="custom-breadcrumbs">
                 <Link to="/">Home</Link> <span className="mx-2 slash">/</span>
@@ -31,7 +31,7 @@ const PostJob = () => {
             <div className="col-lg-8 mb-4 mb-lg-0">
               <div className="d-flex align-items-center">
                 <div>
-                  <h2>Post Link Job</h2>
+                  <h2 style={{ fontWeight: "600" }}>Post Link Job</h2>
                 </div>
               </div>
             </div>
@@ -43,17 +43,24 @@ const PostJob = () => {
                   </Link>
                 </div>
                 <div className="col-6">
-                  <Link to="#" className="btn btn-block btn-primary btn-md">
+                  <Link
+                    to="#"
+                    className="btn btn-block btn-primary btn-md"
+                    style={{ fontWeight: "600" }}
+                  >
                     Save Job
                   </Link>
                 </div>
               </div>
             </div>
           </div>
-          <div className="row mb-5">
+          <div className="row mb-5" data-aos="zoom-in" data-aos-delay="500">
             <div className="col-lg-12">
               <form className="p-4 p-md-5 border rounded" method="post">
-                <h3 className="text-black mb-5 border-bottom pb-2">
+                <h3
+                  className="text-black mb-5 border-bottom pb-2"
+                  style={{ fontWeight: "600" }}
+                >
                   Job Details
                 </h3>
 
@@ -133,7 +140,10 @@ const PostJob = () => {
                   ></textarea>
                 </div>
 
-                <h3 className="text-black my-5 border-bottom pb-2">
+                <h3
+                  className="text-black my-5 border-bottom pb-2"
+                  style={{ fontWeight: "600" }}
+                >
                   Company Details
                 </h3>
                 <div className="form-group">
@@ -214,7 +224,10 @@ const PostJob = () => {
                 <div className="form-group">
                   <label for="company-website-tw d-block">Upload Logo</label>
                   <br />
-                  <label className="btn btn-primary btn-md btn-file">
+                  <label
+                    className="btn btn-primary btn-md btn-file"
+                    style={{ fontWeight: "600" }}
+                  >
                     Browse File
                     <input type="file" hidden />
                   </label>
@@ -222,7 +235,11 @@ const PostJob = () => {
               </form>
             </div>
           </div>
-          <div className="row align-items-center mb-5">
+          <div
+            className="row align-items-center mb-5"
+            data-aos="zoom-in"
+            data-aos-delay="500"
+          >
             <div className="col-lg-4 ml-auto">
               <div className="row">
                 <div className="col-6">
@@ -231,11 +248,53 @@ const PostJob = () => {
                   </Link>
                 </div>
                 <div className="col-6">
-                  <Link to="#" className="btn btn-block btn-primary btn-md">
+                  <Link
+                    to="#"
+                    className="btn btn-block btn-primary btn-md"
+                    style={{ fontWeight: "600" }}
+                  >
                     Save Job
                   </Link>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* call to action  */}
+
+      <section
+        className="bg-image overlay-primary fixed overlay"
+        id="next-section"
+        style={{
+          backgroundImage:
+            "url('https://images.pexels.com/photos/3184316/pexels-photo-3184316.jpeg')",
+          padding: "6rem 0",
+          marginTop: "7rem",
+        }}
+      >
+        <div className="container">
+          <div className="row mb-5 justify-content-center">
+            <div
+              className="col-md-7 text-center"
+              data-aos="zoom-in"
+              data-aos-delay="500"
+            >
+              <h2 className="section-title mb-2 text-white">
+                Connect with SimplyfyJob
+              </h2>
+              <p className="text-white">
+                Whether you’re looking for top talent or exploring career
+                opportunities, SimplyfyJob makes it simple to connect the right
+                people with the right jobs.
+              </p>
+              <button
+                className="cta-btn mt-4"
+                onClick={() => (window.location.href = "/contact")}
+              >
+                Let’s Talk
+              </button>
             </div>
           </div>
         </div>

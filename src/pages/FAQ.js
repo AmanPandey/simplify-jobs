@@ -11,7 +11,7 @@ const FAQ = () => {
       >
         <div className="container">
           <div className="row">
-            <div className="col-md-7">
+            <div className="col-md-7" data-aos="fade-up" data-aos-delay="500">
               <h1 className="text-white font-weight-bold">
                 Frequently Ask Questions
               </h1>
@@ -30,14 +30,18 @@ const FAQ = () => {
       <section className="site-section" id="accordion">
         <div className="container">
           <div className="row accordion justify-content-center block__76208">
-            <div className="col-lg-6">
+            <div className="col-lg-6" data-aos="zoom-in" data-aos-delay="500">
               <img
                 src="images/sq_img_8.jpg"
                 alt="Image"
                 className="img-fluid rounded"
               />
             </div>
-            <div className="col-lg-5 ml-auto">
+            <div
+              className="col-lg-5 ml-auto"
+              data-aos="zoom-in"
+              data-aos-delay="500"
+            >
               {/* Employer FAQ */}
               <div className="accordion-item">
                 <h3 className="mb-0 heading">
@@ -172,7 +176,7 @@ const FAQ = () => {
 
       <section className="site-section bg-light">
         <div className="container">
-          <div className="row mb-5">
+          <div className="row mb-5" data-aos="zoom-in" data-aos-delay="500">
             <div className="col-12 text-center" data-aos="fade">
               <h2 className="section-title mb-3">Happy Candidates Say</h2>
             </div>
@@ -180,7 +184,11 @@ const FAQ = () => {
           <div className="row">
             {/* Testimonial 1 */}
             <div className="col-lg-6">
-              <div className="block__87154 bg-white rounded">
+              <div
+                className="block__87154 bg-white rounded"
+                data-aos="fade-up"
+                data-aos-delay="500"
+              >
                 <blockquote>
                   <p>
                     &ldquo;SimplyfyJob made my job search stress-free. The smart
@@ -197,7 +205,7 @@ const FAQ = () => {
                       className="img-fluid"
                     />
                   </figure>
-                  <div>
+                  <div className="testimonial-user">
                     <h3>Priya Nair</h3>
                     <span className="position">Marketing Executive</span>
                   </div>
@@ -206,7 +214,7 @@ const FAQ = () => {
             </div>
 
             {/* Testimonial 2 */}
-            <div className="col-lg-6">
+            <div className="col-lg-6" data-aos="fade-up" data-aos-delay="600">
               <div className="block__87154 bg-white rounded">
                 <blockquote>
                   <p>
@@ -224,12 +232,49 @@ const FAQ = () => {
                       className="img-fluid"
                     />
                   </figure>
-                  <div>
+                  <div className="testimonial-user">
                     <h3>Karan Malhotra</h3>
                     <span className="position">Software Developer</span>
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* call to action  */}
+
+      <section
+        className="bg-image overlay-primary fixed overlay"
+        id="next-section"
+        style={{
+          backgroundImage:
+            "url('https://images.pexels.com/photos/3184316/pexels-photo-3184316.jpeg')",
+          padding: "6rem 0",
+          marginTop: "7rem",
+        }}
+      >
+        <div className="container">
+          <div className="row mb-5 justify-content-center">
+            <div
+              className="col-md-7 text-center"
+              data-aos="zoom-in"
+              data-aos-delay="500"
+            >
+              <h2 className="section-title mb-2 text-white">
+                Still Have Questions?
+              </h2>
+              <p className="text-white">
+                If you didn’t find the answer you were looking for, our team at
+                SimplyfyJob is here to help. Reach out and we’ll guide you
+                personally.
+              </p>
+              <button
+                className="cta-btn mt-4"
+                onClick={() => (window.location.href = "/contact")}
+              >
+                Contact Us
+              </button>
             </div>
           </div>
         </div>

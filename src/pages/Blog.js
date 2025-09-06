@@ -11,7 +11,7 @@ const Blog = () => {
       >
         <div className="container">
           <div className="row">
-            <div className="col-md-7">
+            <div className="col-md-7" data-aos="fade-up" data-aos-delay="500">
               <h1 className="text-white font-weight-bold">Our Blog</h1>
               <div className="custom-breadcrumbs">
                 <Link href="#">Home</Link> <span className="mx-2 slash">/</span>
@@ -24,10 +24,14 @@ const Blog = () => {
         </div>
       </section>
 
-      <section className="site-section">
+      <section className="site-section blog-section">
         <div className="container">
           <div className="row mb-5">
-            <div className="col-md-6 col-lg-4 mb-5">
+            <div
+              className="col-md-6 col-lg-4 mb-5"
+              data-aos="fade-up"
+              data-aos-delay="500"
+            >
               <Link href="blog-single.html">
                 <img
                   src="simply-blog-1.jpg"
@@ -43,7 +47,11 @@ const Blog = () => {
               <div>August 20, 2025</div>
             </div>
 
-            <div className="col-md-6 col-lg-4 mb-5">
+            <div
+              className="col-md-6 col-lg-4 mb-5"
+              data-aos="fade-up"
+              data-aos-delay="600"
+            >
               <Link href="blog-single.html">
                 <img
                   src="simply-blog-2.jpg"
@@ -59,7 +67,11 @@ const Blog = () => {
               <div>August 18, 2025</div>
             </div>
 
-            <div className="col-md-6 col-lg-4 mb-5">
+            <div
+              className="col-md-6 col-lg-4 mb-5"
+              data-aos="fade-up"
+              data-aos-delay="700"
+            >
               <Link href="blog-single.html">
                 <img
                   src="simply-blog-3.jpg"
@@ -75,7 +87,11 @@ const Blog = () => {
               <div>August 15, 2025</div>
             </div>
 
-            <div className="col-md-6 col-lg-4 mb-5">
+            <div
+              className="col-md-6 col-lg-4 mb-5"
+              data-aos="fade-up"
+              data-aos-delay="800"
+            >
               <Link href="blog-single.html">
                 <img
                   src="simply-blog-4.jpg"
@@ -91,7 +107,11 @@ const Blog = () => {
               <div>August 12, 2025</div>
             </div>
 
-            <div className="col-md-6 col-lg-4 mb-5">
+            <div
+              className="col-md-6 col-lg-4 mb-5"
+              data-aos="fade-up"
+              data-aos-delay="900"
+            >
               <Link href="blog-single.html">
                 <img
                   src="images/sq_img_5.jpg"
@@ -107,7 +127,11 @@ const Blog = () => {
               <div>August 10, 2025</div>
             </div>
 
-            <div className="col-md-6 col-lg-4 mb-5">
+            <div
+              className="col-md-6 col-lg-4 mb-5"
+              data-aos="fade-up"
+              data-aos-delay="1000"
+            >
               <Link href="blog-single.html">
                 <img
                   src="simply-blog-6.jpg"
@@ -142,6 +166,44 @@ const Blog = () => {
                   Next
                 </Link>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* call to action  */}
+
+      <section
+        className="bg-image overlay-primary fixed overlay"
+        id="next-section"
+        style={{
+          backgroundImage:
+            "url('https://images.pexels.com/photos/3184316/pexels-photo-3184316.jpeg')",
+          padding: "6rem 0",
+          marginTop: "7rem",
+        }}
+      >
+        <div className="container">
+          <div className="row mb-5 justify-content-center">
+            <div
+              className="col-md-7 text-center"
+              data-aos="zoom-in"
+              data-aos-delay="500"
+            >
+              <h2 className="section-title mb-2 text-white">
+                Have Questions or Need Guidance?
+              </h2>
+              <p className="text-white">
+                Whether you’re exploring career advice or hiring strategies from
+                our blog, our team is here to support you. Get in touch to
+                discuss your goals with SimplyfyJob.
+              </p>
+              <button
+                className="cta-btn mt-4"
+                onClick={() => (window.location.href = "/contact")}
+              >
+                Contact Us
+              </button>
             </div>
           </div>
         </div>

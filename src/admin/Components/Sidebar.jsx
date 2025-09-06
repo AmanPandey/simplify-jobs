@@ -55,7 +55,7 @@ const Sidebar = () => {
           </li>
           <li>
             <NavLink
-              to="/admin/jobslisting"
+              to="/admin/jobs"
               onClick={() => setShowSidebar(false)}
               className={({ isActive }) =>
                 `nav-link fw-semibold ${
@@ -64,10 +64,10 @@ const Sidebar = () => {
               }
             >
               <FaBriefcase className="mr-2" />
-              Job Listings
+              Jobs
             </NavLink>
           </li>
-          <li>
+          {/* <li>
             <NavLink
               to="/admin/addjob"
               onClick={() => setShowSidebar(false)}
@@ -80,8 +80,8 @@ const Sidebar = () => {
               <FaBriefcase className="mr-2" />
               Add Job
             </NavLink>
-          </li>
-          <li>
+          </li> */}
+          {/* <li>
             <NavLink
               to="/admin/draft"
               onClick={() => {
@@ -96,6 +96,20 @@ const Sidebar = () => {
             >
               <FaUsers className="mr-2" />
               Draft
+            </NavLink>
+          </li> */}
+          <li>
+            <NavLink
+              to="/admin/employers"
+              onClick={() => setShowSidebar(false)}
+              className={({ isActive }) =>
+                `nav-link fw-semibold ${
+                  isActive ? "text-white bg-active" : "text-dark"
+                }`
+              }
+            >
+              <FaBriefcase className="mr-2" />
+              Employers
             </NavLink>
           </li>
           <li>

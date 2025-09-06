@@ -185,11 +185,26 @@ form.sign-in-form {
   font-size: 1.1rem;
   color: #333;
   height: 55px;
+  border-radius: 55px;
 }
+.auth-container input:-webkit-autofill,
+.auth-container input:-webkit-autofill:hover,
+.auth-container input:-webkit-autofill:focus,
+.auth-container input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0px 1000px #f0f0f0 inset !important; /* background */
+  box-shadow: 0 0 0px 1000px #f0f0f0 inset !important;
+  -webkit-text-fill-color: black !important; /* text color */
+  caret-color: black; /* cursor color */
+  background-image: none !important;
+}
+
 .text-danger {
   color: red;
   font-size: 0.8rem;
   margin: 5px 15px; /* Slight spacing and alignment */
+}
+.delete-btn {
+  margin: 0px;
 }
 
 .auth-container .input-field input::placeholder {
@@ -382,7 +397,7 @@ form.sign-in-form {
   }
   .signin-signup {
     width: 100%;
-    top: 95%;
+    top: 80%;
     transform: translate(-50%, -100%);
     transition: 1s 0.8s ease-in-out;
   }

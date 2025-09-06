@@ -13,7 +13,7 @@ const Dashboard = ({ value }) => {
   // console.log(value);
 
   return (
-    <div className="dashboard rounded shadow-lg px-3 pt-3 pb-5">
+    <div className="dashboard rounded shadow-lg px-3 pt-3 pb-5 bg-white">
       <div className="">
         <div className="">
           <h4 className="mb-0 fw-bold mb-5">Admin Dashboard</h4>

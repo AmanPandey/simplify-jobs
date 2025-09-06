@@ -11,7 +11,7 @@ const ServiceSingle = () => {
       >
         <div className="container">
           <div className="row">
-            <div className="col-md-7">
+            <div className="col-md-7" data-aos="fade-up" data-aos-delay="500">
               <h1 className="text-white font-weight-bold">Service Single</h1>
               <div className="custom-breadcrumbs">
                 <Link to="/">Home</Link> <span className="mx-2 slash">/</span>
@@ -27,7 +27,11 @@ const ServiceSingle = () => {
       <section className="site-section block__18514" id="next-section">
         <div className="container">
           <div className="row">
-            <div className="col-lg-3 mr-auto">
+            <div
+              className="col-lg-3 mr-auto"
+              data-aos="zoom-in"
+              data-aos-delay="500"
+            >
               <div className="border p-4 rounded">
                 <ul className="list-unstyled block__47528 mb-0">
                   <li>
@@ -79,7 +83,7 @@ const ServiceSingle = () => {
               </div>
             </div>
             {tab == 1 && (
-              <div className="col-lg-8">
+              <div className="col-lg-8" data-aos="zoom-in" data-aos-delay="500">
                 <span className="text-primary d-block mb-5">
                   <span className="icon-search display-1"></span>
                 </span>
@@ -107,7 +111,7 @@ const ServiceSingle = () => {
               </div>
             )}
             {tab == 2 && (
-              <div className="col-lg-8">
+              <div className="col-lg-8" data-aos="zoom-in" data-aos-delay="500">
                 <span className="text-primary d-block mb-5">
                   <span className="icon-briefcase display-1"></span>
                 </span>
@@ -133,7 +137,7 @@ const ServiceSingle = () => {
               </div>
             )}{" "}
             {tab == 3 && (
-              <div className="col-lg-8">
+              <div className="col-lg-8" data-aos="zoom-in" data-aos-delay="500">
                 <span className="text-primary d-block mb-5">
                   <i className="fas fa-lightbulb display-1"></i>
                 </span>
@@ -160,7 +164,7 @@ const ServiceSingle = () => {
               </div>
             )}{" "}
             {tab == 4 && (
-              <div className="col-lg-8">
+              <div className="col-lg-8" data-aos="zoom-in" data-aos-delay="500">
                 <span className="text-primary d-block mb-5">
                   <span className="icon-graduation-cap display-1"></span>
                 </span>
@@ -187,7 +191,7 @@ const ServiceSingle = () => {
               </div>
             )}{" "}
             {tab == 5 && (
-              <div className="col-lg-8">
+              <div className="col-lg-8" data-aos="zoom-in" data-aos-delay="500">
                 <span className="text-primary d-block mb-5">
                   <span className="icon-bar-chart display-1"></span>
                 </span>
@@ -206,12 +210,54 @@ const ServiceSingle = () => {
                   career path with market needs.
                 </p>
                 <p>
-                  <Link to="#" className="btn btn-primary btn-md mt-4">
+                  <Link
+                    to="#"
+                    className="btn btn-primary btn-md mt-4"
+                    style={{ fontWeight: "600" }}
+                  >
                     View Market Insights
                   </Link>
                 </p>
               </div>
             )}
+          </div>
+        </div>
+      </section>
+
+      {/* call to action  */}
+
+      <section
+        className="bg-image overlay-primary fixed overlay"
+        id="next-section"
+        style={{
+          backgroundImage:
+            "url('https://images.pexels.com/photos/3184316/pexels-photo-3184316.jpeg')",
+          padding: "6rem 0",
+          marginTop: "7rem",
+        }}
+      >
+        <div className="container">
+          <div className="row mb-5 justify-content-center">
+            <div
+              className="col-md-7 text-center"
+              data-aos="zoom-in"
+              data-aos-delay="500"
+            >
+              <h2 className="section-title mb-2 text-white">
+                Ready to Take the Next Step?
+              </h2>
+              <p className="text-white">
+                Discover how SimplyfyJob’s services can make your hiring or job
+                search journey easier. Let’s connect and explore how we can
+                support your goals.
+              </p>
+              <button
+                className="cta-btn mt-4"
+                onClick={() => (window.location.href = "/contact")}
+              >
+                Let’s Talk
+              </button>
+            </div>
           </div>
         </div>
       </section>

@@ -1,5 +1,7 @@
 const API_URL = "https://api-simplify-jobs.tekalgo.com/application";
 
+// ADMIN SECTION
+
 export async function registerUser(userData) {
   const res = await fetch(`${API_URL}/seed_user.php`, {
     method: "POST",
@@ -34,3 +36,20 @@ export async function verifyToken(token) {
 
   return res.json();
 }
+
+// EMPLOYER SECTION
+
+// add employer
+export async function createEmployer(credentials, token) {
+  const res = await fetch(`${API_URL}/add_employer.php`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify(credentials),
+  });
+  return res.json();
+}
+
+// empoyer list

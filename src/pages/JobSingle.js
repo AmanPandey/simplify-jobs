@@ -11,8 +11,13 @@ const JobSingle = () => {
       >
         <div className="container">
           <div className="row">
-            <div className="col-md-7">
-              <h1 className="text-white font-weight-bold">UI/UX Designer</h1>
+            <div className="col-md-7" data-aos="fade-up" data-aos-delay="500">
+              <h1
+                className="text-white font-weight-bold"
+                style={{ fontWeight: "600" }}
+              >
+                UI/UX Designer
+              </h1>
               <div className="custom-breadcrumbs">
                 <Link to="/">Home</Link> <span className="mx-2 slash">/</span>
                 <Link to="#">Job</Link> <span className="mx-2 slash">/</span>
@@ -59,7 +64,11 @@ const JobSingle = () => {
                   </Link>
                 </div>
                 <div className="col-6">
-                  <Link to="#" className="btn btn-block btn-primary btn-md">
+                  <Link
+                    to="#"
+                    className="btn btn-block btn-primary btn-md"
+                    style={{ fontWeight: "600" }}
+                  >
                     Apply Now
                   </Link>
                 </div>
@@ -70,23 +79,31 @@ const JobSingle = () => {
           <div className="row">
             <div className="col-lg-8">
               <div className="mb-5">
-                <figure className="mb-5">
+                <figure
+                  className="mb-5"
+                  data-aos="zoom-in"
+                  data-aos-delay="500"
+                >
                   <img
                     src="images/job_single_img_1.jpg"
                     alt="Job Illustration"
                     className="img-fluid rounded"
                   />
                 </figure>
-                <h3 className="h5 d-flex align-items-center mb-4 text-primary">
+                <h3
+                  className="h5 d-flex align-items-center mb-4 text-primary"
+                  data-aos="fade-up"
+                  data-aos-delay="1000"
+                >
                   <span className="icon-align-left mr-3"></span>Job Description
                 </h3>
-                <p>
+                <p data-aos="fade-up" data-aos-delay="1000">
                   Puma is looking for a creative and detail-oriented UI/UX
                   Designer to join our team. You will design user-friendly
                   interfaces that enhance our job portal experience for job
                   seekers and employers.
                 </p>
-                <p>
+                <p data-aos="fade-up" data-aos-delay="1000">
                   Work closely with product managers and developers to deliver
                   seamless user experiences. Bring your ideas to life through
                   intuitive design patterns and thoughtful interactions.
@@ -94,25 +111,45 @@ const JobSingle = () => {
               </div>
 
               <div className="mb-5">
-                <h3 className="h5 d-flex align-items-center mb-4 text-primary">
+                <h3
+                  className="h5 d-flex align-items-center mb-4 text-primary"
+                  data-aos="fade-up"
+                  data-aos-delay="1000"
+                >
                   <span className="icon-rocket mr-3"></span>Responsibilities
                 </h3>
                 <ul className="list-unstyled m-0 p-0">
-                  <li className="d-flex align-items-start mb-2">
+                  <li
+                    className="d-flex align-items-start mb-2"
+                    data-aos="fade-up"
+                    data-aos-delay="1000"
+                  >
                     <span className="icon-check_circle mr-2 text-muted"></span>
                     <span>
                       Create wireframes, prototypes, and visual designs
                     </span>
                   </li>
-                  <li className="d-flex align-items-start mb-2">
+                  <li
+                    className="d-flex align-items-start mb-2"
+                    data-aos="fade-up"
+                    data-aos-delay="1000"
+                  >
                     <span className="icon-check_circle mr-2 text-muted"></span>
                     <span>Collaborate with product and engineering teams</span>
                   </li>
-                  <li className="d-flex align-items-start mb-2">
+                  <li
+                    className="d-flex align-items-start mb-2"
+                    data-aos="fade-up"
+                    data-aos-delay="1000"
+                  >
                     <span className="icon-check_circle mr-2 text-muted"></span>
                     <span>Ensure consistent branding and design standards</span>
                   </li>
-                  <li className="d-flex align-items-start mb-2">
+                  <li
+                    className="d-flex align-items-start mb-2"
+                    data-aos="fade-up"
+                    data-aos-delay="1000"
+                  >
                     <span className="icon-check_circle mr-2 text-muted"></span>
                     <span>Conduct user research and usability testing</span>
                   </li>
@@ -120,21 +157,37 @@ const JobSingle = () => {
               </div>
 
               <div className="mb-5">
-                <h3 className="h5 d-flex align-items-center mb-4 text-primary">
+                <h3
+                  className="h5 d-flex align-items-center mb-4 text-primary"
+                  data-aos="fade-up"
+                  data-aos-delay="1000"
+                >
                   <span className="icon-book mr-3"></span>Education + Experience
                 </h3>
                 <ul className="list-unstyled m-0 p-0">
-                  <li className="d-flex align-items-start mb-2">
+                  <li
+                    className="d-flex align-items-start mb-2"
+                    data-aos="fade-up"
+                    data-aos-delay="1000"
+                  >
                     <span className="icon-check_circle mr-2 text-muted"></span>
                     <span>
                       Bachelor’s degree in Design, HCI, or related field
                     </span>
                   </li>
-                  <li className="d-flex align-items-start mb-2">
+                  <li
+                    className="d-flex align-items-start mb-2"
+                    data-aos="fade-up"
+                    data-aos-delay="1000"
+                  >
                     <span className="icon-check_circle mr-2 text-muted"></span>
                     <span>2+ years of experience in UI/UX design</span>
                   </li>
-                  <li className="d-flex align-items-start mb-2">
+                  <li
+                    className="d-flex align-items-start mb-2"
+                    data-aos="fade-up"
+                    data-aos-delay="1000"
+                  >
                     <span className="icon-check_circle mr-2 text-muted"></span>
                     <span>Strong portfolio demonstrating design thinking</span>
                   </li>
@@ -142,34 +195,61 @@ const JobSingle = () => {
               </div>
 
               <div className="mb-5">
-                <h3 className="h5 d-flex align-items-center mb-4 text-primary">
+                <h3
+                  className="h5 d-flex align-items-center mb-4 text-primary"
+                  data-aos="fade-up"
+                  data-aos-delay="1000"
+                >
                   <span className="icon-turned_in mr-3"></span>Other Benefits
                 </h3>
                 <ul className="list-unstyled m-0 p-0">
-                  <li className="d-flex align-items-start mb-2">
+                  <li
+                    className="d-flex align-items-start mb-2"
+                    data-aos="fade-up"
+                    data-aos-delay="1000"
+                  >
                     <span className="icon-check_circle mr-2 text-muted"></span>
                     <span>Flexible work hours and remote options</span>
                   </li>
-                  <li className="d-flex align-items-start mb-2">
+                  <li
+                    className="d-flex align-items-start mb-2"
+                    data-aos="fade-up"
+                    data-aos-delay="1000"
+                  >
                     <span className="icon-check_circle mr-2 text-muted"></span>
                     <span>Health, dental, and vision insurance</span>
                   </li>
-                  <li className="d-flex align-items-start mb-2">
+                  <li
+                    className="d-flex align-items-start mb-2"
+                    data-aos="fade-up"
+                    data-aos-delay="1000"
+                  >
                     <span className="icon-check_circle mr-2 text-muted"></span>
                     <span>Learning & development support</span>
                   </li>
                 </ul>
               </div>
 
-              <div className="row mb-5">
+              <div
+                className="row mb-5"
+                data-aos="zoom-in"
+                data-aos-delay="1000"
+              >
                 <div className="col-6">
-                  <Link to="#" className="btn btn-block btn-light btn-md">
+                  <Link
+                    to="#"
+                    className="btn btn-block btn-light btn-md border border-grey"
+                  >
                     <span className="icon-heart-o mr-2 text-danger"></span>Save
                     Job
                   </Link>
                 </div>
                 <div className="col-6">
-                  <Link to="#" className="btn btn-block btn-primary btn-md">
+                  <Link
+                    to="#"
+                    className="btn btn-block btn-primary btn-md"
+                    style={{ fontWeight: "600" }}
+                  >
                     Apply Now
                   </Link>
                 </div>
@@ -177,7 +257,11 @@ const JobSingle = () => {
             </div>
 
             <div className="col-lg-4">
-              <div className="bg-light p-3 border rounded mb-4">
+              <div
+                className="bg-light p-3 border rounded mb-4"
+                data-aos="zoom-in"
+                data-aos-delay="500"
+              >
                 <h3 className="text-primary mt-3 h5 pl-3 mb-3">Job Summary</h3>
                 <ul className="list-unstyled pl-3 mb-0">
                   <li className="mb-2">
@@ -213,7 +297,11 @@ const JobSingle = () => {
                 </ul>
               </div>
 
-              <div className="bg-light p-3 border rounded">
+              <div
+                className="bg-light p-3 border rounded"
+                data-aos="zoom-in"
+                data-aos-delay="500"
+              >
                 <h3 className="text-primary mt-3 h5 pl-3 mb-3">Share</h3>
                 <div className="px-3">
                   <Link to="#" className="pt-3 pb-3 pr-3 pl-0">
@@ -237,14 +325,18 @@ const JobSingle = () => {
 
       <section className="site-section" id="next">
         <div className="container">
-          <div className="row mb-5 justify-content-center">
+          {/* <div className="row mb-5 justify-content-center">
             <div className="col-md-7 text-center">
               <h2 className="section-title mb-2">1223 Related Jobs</h2>
             </div>
-          </div>
+          </div> */}
 
           <ul className="job-listings mb-5">
-            <li className="job-listing d-block d-sm-flex pb-3 pb-sm-0 align-items-center">
+            <li
+              className="job-listing d-block d-sm-flex pb-3 pb-sm-0 align-items-center"
+              data-aos="fade-up"
+              data-aos-delay="1000"
+            >
               <Link to="#"></Link>
               <div className="job-listing-logo">
                 <img
@@ -270,7 +362,11 @@ const JobSingle = () => {
                 </div>
               </div>
             </li>
-            <li className="job-listing d-block d-sm-flex pb-3 pb-sm-0 align-items-center">
+            <li
+              className="job-listing d-block d-sm-flex pb-3 pb-sm-0 align-items-center"
+              data-aos="fade-up"
+              data-aos-delay="1100"
+            >
               <Link to="#"></Link>
               <div className="job-listing-logo">
                 <img
@@ -297,7 +393,11 @@ const JobSingle = () => {
               </div>
             </li>
 
-            <li className="job-listing d-block d-sm-flex pb-3 pb-sm-0 align-items-center">
+            <li
+              className="job-listing d-block d-sm-flex pb-3 pb-sm-0 align-items-center"
+              data-aos="fade-up"
+              data-aos-delay="1200"
+            >
               <Link to="#"></Link>
               <div className="job-listing-logo">
                 <img
@@ -324,7 +424,11 @@ const JobSingle = () => {
               </div>
             </li>
 
-            <li className="job-listing d-block d-sm-flex pb-3 pb-sm-0 align-items-center">
+            <li
+              className="job-listing d-block d-sm-flex pb-3 pb-sm-0 align-items-center"
+              data-aos="fade-up"
+              data-aos-delay="1300"
+            >
               <Link to="#"></Link>
               <div className="job-listing-logo">
                 <img
@@ -351,7 +455,11 @@ const JobSingle = () => {
               </div>
             </li>
 
-            <li className="job-listing d-block d-sm-flex pb-3 pb-sm-0 align-items-center">
+            <li
+              className="job-listing d-block d-sm-flex pb-3 pb-sm-0 align-items-center"
+              data-aos="fade-up"
+              data-aos-delay="1300"
+            >
               <Link to="#"></Link>
               <div className="job-listing-logo">
                 <img
@@ -377,7 +485,11 @@ const JobSingle = () => {
                 </div>
               </div>
             </li>
-            <li className="job-listing d-block d-sm-flex pb-3 pb-sm-0 align-items-center">
+            <li
+              className="job-listing d-block d-sm-flex pb-3 pb-sm-0 align-items-center"
+              data-aos="fade-up"
+              data-aos-delay="1400"
+            >
               <Link to="#"></Link>
               <div className="job-listing-logo">
                 <img
@@ -403,7 +515,11 @@ const JobSingle = () => {
                 </div>
               </div>
             </li>
-            <li className="job-listing d-block d-sm-flex pb-3 pb-sm-0 align-items-center">
+            <li
+              className="job-listing d-block d-sm-flex pb-3 pb-sm-0 align-items-center"
+              data-aos="fade-up"
+              data-aos-delay="1500"
+            >
               <Link to="#"></Link>
               <div className="job-listing-logo">
                 <img
@@ -433,7 +549,7 @@ const JobSingle = () => {
 
           <div className="row pagination-wrap">
             <div className="col-md-6 text-center text-md-left mb-4 mb-md-0">
-              <span>Showing 1-7 Of 22,392 Jobs</span>
+              <span>Showing 1-7 Of 2,392 Jobs</span>
             </div>
             <div className="col-md-6 text-center text-md-right">
               <div className="custom-pagination ml-auto">
@@ -452,6 +568,43 @@ const JobSingle = () => {
                   Next
                 </Link>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* call to action  */}
+
+      <section
+        className="bg-image overlay-primary fixed overlay"
+        id="next-section"
+        style={{
+          backgroundImage:
+            "url('https://images.pexels.com/photos/3184316/pexels-photo-3184316.jpeg')",
+          padding: "6rem 0",
+          marginTop: "7rem",
+        }}
+      >
+        <div className="container">
+          <div className="row mb-5 justify-content-center">
+            <div
+              className="col-md-7 text-center"
+              data-aos="zoom-in"
+              data-aos-delay="1000"
+            >
+              <h2 className="section-title mb-2 text-white">
+                Discover More Opportunities
+              </h2>
+              <p className="text-white">
+                Keep exploring thousands of job openings and find the one that
+                fits your career goals on SimplyfyJob.
+              </p>
+              <button
+                className="cta-btn mt-4"
+                onClick={() => (window.location.href = "/contact")}
+              >
+                Search Jobs
+              </button>
             </div>
           </div>
         </div>
@@ -509,7 +662,7 @@ const JobSingle = () => {
         </div>
       </section> */}
 
-      <section
+      {/* <section
         className="pt-5 bg-image overlay-primary fixed overlay"
         style={{ backgroundImage: "url('images/hero_1.jpg')" }}
       >
@@ -541,7 +694,7 @@ const JobSingle = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
     </>
   );
 };

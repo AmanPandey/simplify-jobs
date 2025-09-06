@@ -11,7 +11,7 @@ const Contact = () => {
       >
         <div className="container">
           <div className="row">
-            <div className="col-md-7">
+            <div className="col-md-7" data-aos="fade-up" data-aos-delay="500">
               <h1 className="text-white font-weight-bold">Contact Us</h1>
               <div className="custom-breadcrumbs">
                 <Link href="#">Home</Link> <span className="mx-2 slash">/</span>
@@ -28,7 +28,12 @@ const Contact = () => {
         <div className="container">
           <div className="row">
             <div className="col-lg-6 mb-5 mb-lg-0">
-              <form action="#" className="">
+              <form
+                action="#"
+                className=""
+                data-aos="zoom-in"
+                data-aos-delay="500"
+              >
                 <div className="row form-group">
                   <div className="col-md-6 mb-3 mb-md-0">
                     <label className="text-black" for="fname">
@@ -88,26 +93,39 @@ const Contact = () => {
                       type="submit"
                       value="Send Message"
                       className="btn btn-primary btn-md text-white"
+                      style={{ fontWeight: "600" }}
                     />
                   </div>
                 </div>
               </form>
             </div>
-            <div className="col-lg-5 ml-auto">
+            <div
+              className="col-lg-5 ml-auto"
+              data-aos="zoom-in"
+              data-aos-delay="500"
+            >
               <div className="p-4 mb-3 bg-white">
-                <p className="mb-0 font-weight-bold">Address</p>
+                <p className="mb-0 font-weight-bold" style={{ color: "#000" }}>
+                  Address
+                </p>
+                <p className="mb-4">Sector 17 , Chandigarh , India</p>
+
+                <p className="mb-0 font-weight-bold" style={{ color: "#000" }}>
+                  Phone
+                </p>
                 <p className="mb-4">
-                  203 Fake St. Mountain View, San Francisco, California, USA
+                  <Link href="#" style={{ color: "#7f848c" }}>
+                    +91 9041XXXXXX
+                  </Link>
                 </p>
 
-                <p className="mb-0 font-weight-bold">Phone</p>
-                <p className="mb-4">
-                  <Link href="#">+1 232 3235 324</Link>
+                <p className="mb-0 font-weight-bold" style={{ color: "#000" }}>
+                  Email Address
                 </p>
-
-                <p className="mb-0 font-weight-bold">Email Address</p>
                 <p className="mb-0">
-                  <Link href="#">youremail@domain.com</Link>
+                  <Link href="#" style={{ color: "#7f848c" }}>
+                    Email@domain.com
+                  </Link>
                 </p>
               </div>
             </div>
@@ -117,13 +135,13 @@ const Contact = () => {
 
       <section className="site-section bg-light">
         <div className="container">
-          <div className="row mb-5">
+          <div className="row mb-5" data-aos="zoom-in" data-aos-delay="500">
             <div className="col-12 text-center" data-aos="fade">
               <h2 className="section-title mb-3">Happy Candidates Says</h2>
             </div>
           </div>
           <div className="row">
-            <div className="col-lg-6">
+            <div className="col-lg-6" data-aos="fade-up" data-aos-delay="500">
               <div className="block__87154 bg-white rounded">
                 <blockquote>
                   <p>
@@ -141,7 +159,7 @@ const Contact = () => {
                       className="img-fluid"
                     />
                   </figure>
-                  <div>
+                  <div className="testimonial-user">
                     <h3>Anita Sharma </h3>
                     <span className="position">HR Manager</span>
                   </div>
@@ -149,7 +167,12 @@ const Contact = () => {
               </div>
             </div>
 
-            <div className="col-lg-6">
+            <div
+              className="col-lg-6"
+              data-aos="fade-up"
+              data-aos-delay="600"
+              style={{ marginBottom: "7rem" }}
+            >
               <div className="block__87154 bg-white rounded">
                 <blockquote>
                   <p>
@@ -167,7 +190,7 @@ const Contact = () => {
                       className="img-fluid"
                     />
                   </figure>
-                  <div>
+                  <div className="testimonial-user">
                     <h3>David Lee</h3>
                     <span className="position">Recruitment Lead</span>
                   </div>

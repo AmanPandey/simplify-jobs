@@ -4,6 +4,7 @@ import Input from "./Input";
 import { useNavigate } from "react-router-dom";
 import { validate } from "../Utils/Validate";
 import { registerUser, loginUser } from "../Utils/authService";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const AuthUser = () => {
   const {
@@ -19,6 +20,7 @@ const AuthUser = () => {
   // console.log(isSignUpMode);
 
   const navigate = useNavigate();
+  const [showPassword, setShowPassword] = useState(false);
 
   const validationConfig = {
     name: [
@@ -64,13 +66,9 @@ const AuthUser = () => {
         email: formData.email,
         password: formData.password,
       });
-      // console.log(res);
 
       if (res.token) {
-        // Save token instead of a boolean
-        // localStorage.setItem("token", res.token);
         login(res.token);
-
         navigate("/admin/dashboard");
 
         // reset form
@@ -117,11 +115,11 @@ const AuthUser = () => {
             </div>
 
             <div className="input-wrapper">
-              <div className="input-field">
+              <div className="input-field" style={{ position: "relative" }}>
                 <i className="fas fa-lock"></i>
-                {/* <input type="password" placeholder="Password" /> */}
+
                 <Input
-                  type="password"
+                  type={showPassword ? "text" : "password"}
                   id="password"
                   name="password"
                   value={formData.password}
@@ -129,12 +127,27 @@ const AuthUser = () => {
                   placeholder="Password"
                   errors={errors.password}
                 />
+
+                {/* Eye Icon */}
+                <span
+                  onClick={() => setShowPassword(!showPassword)}
+                  style={{
+                    position: "absolute",
+                    right: "10px",
+                    top: "50%",
+                    transform: "translateY(-50%)",
+                    cursor: "pointer",
+                  }}
+                >
+                  {showPassword ? <FaEyeSlash /> : <FaEye />}
+                </span>
               </div>
+
               {errors.password && (
                 <p className="text-danger">{errors.password}</p>
               )}
-              {errors && <p className="text-danger">{errors.general}</p>}
             </div>
+            {errors && <p className="text-danger">{errors.general}</p>}
 
             <input type="submit" value="Login" className="btn solid" />
           </form>

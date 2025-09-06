@@ -28,7 +28,9 @@ const Login = () => {
         <div className="container">
           <div className="row">
             <div className="col-lg-6 mb-5">
-              <h2 className="mb-4">Sign Up To JobBoard</h2>
+              <h2 className="mb-4" style={{ fontWeight: "600" }}>
+                Sign Up To JobBoard
+              </h2>
               <form action="#" className="p-4 border rounded">
                 <div className="row form-group">
                   <div className="col-md-12 mb-3 mb-md-0">
@@ -76,13 +78,16 @@ const Login = () => {
                       type="submit"
                       value="Sign Up"
                       className="btn px-4 btn-primary text-white"
+                      style={{ fontWeight: "600" }}
                     />
                   </div>
                 </div>
               </form>
             </div>
             <div className="col-lg-6">
-              <h2 className="mb-4">Log In To JobBoard</h2>
+              <h2 className="mb-4" style={{ fontWeight: "600" }}>
+                Log In To JobBoard
+              </h2>
               <form action="#" className="p-4 border rounded">
                 <div className="row form-group">
                   <div className="col-md-12 mb-3 mb-md-0">
@@ -117,6 +122,7 @@ const Login = () => {
                       type="submit"
                       value="Log In"
                       className="btn px-4 btn-primary text-white"
+                      style={{ fontWeight: "600" }}
                     />
                   </div>
                 </div>

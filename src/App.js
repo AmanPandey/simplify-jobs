@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import {
   BrowserRouter as Router,
   Routes,
@@ -12,7 +12,7 @@ import Footer from "./components/Footer";
 
 import Home from "./pages/Home";
 import About from "./pages/About";
-import JobListings from "./pages/JobListings";
+
 import JobSingle from "./pages/JobSingle";
 import PostJob from "./pages/PostJob";
 import Services from "./pages/Services";
@@ -25,23 +25,35 @@ import Testimonials from "./pages/Testimonials";
 import FAQ from "./pages/FAQ";
 import Gallery from "./pages/Gallery";
 import Contact from "./pages/Contact";
-// import Login from "./pages/Login";
+import Login from "./pages/Login";
 import AuthUser from "./admin/Components/AuthUser";
 import AdminLayout from "./admin/Layout/AdminLayout";
 import Dashboard from "./admin/Pages/Dashboard";
-import JobListing from "./admin/Pages/JobListing";
+
 import AddNewJob from "./admin/Pages/AddNewJob";
 import DraftJobs from "./admin/Pages/DraftJobs";
 import EditJob from "./admin/Pages/EditJob";
-import SignUp from "./admin/Components/SignUp";
-import Login from "./admin/Components/Login";
+
 import Layout from "./components/Layout";
 import ProtectedRoute from "./admin/Pages/ProtectedRoute";
 import AdminContext from "./admin/Context/AdminContext";
 import PageNotFound from "./pages/PageNotFound.js";
+import Aos from "aos";
+import "aos/dist/aos.css";
+import AdminJobsListing from "./admin/Pages/AdminJobsListing.jsx";
+import JobListings from "./pages/JobListings";
+import { EmployersList } from "./admin/Pages/EmployersList.js";
+import { AddEmployer } from "./AddEmployer.js";
+import { Check } from "./admin/Pages/Check.js";
 
 function App() {
-  const { isAuthentication } = useContext(AdminContext);
+  useEffect(() => {
+    Aos.init({
+      once: true,
+      duration: 800,
+    });
+  }, []);
+
   return (
     <Router>
       {/* <Navbar /> */}
@@ -62,6 +74,10 @@ function App() {
           <Route path="/faq" element={<FAQ />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/login" element={<Login />} />
+
+          <Route path="/jobs-listing" element={<JobListings />} />
+
           {/* <Route path="/login" element={<Login />} />  */}
         </Route>
 
@@ -82,10 +98,13 @@ function App() {
           {/* When visiting /admin → Dashboard by default */}
           <Route index element={<Navigate to="dashboard" replace />} />
           <Route path="dashboard" element={<Dashboard />} />
-          <Route path="jobslisting" element={<JobListing />} />
+          <Route path="jobs" element={<AdminJobsListing />} />
           <Route path="addjob" element={<AddNewJob />} />
           <Route path="draft" element={<DraftJobs />} />
           <Route path="edit" element={<EditJob />} />
+          <Route path="employers" element={<EmployersList />} />
+          <Route path="add-employer" element={<AddEmployer />} />
+          <Route path="check" element={<Check />} />
         </Route>
         <Route path="*" element={<PageNotFound />} />
       </Routes>
