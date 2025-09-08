@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
 import Button from "../Components/Button";
 import Input from "../Components/Input";
-import JobTable from "./JobTable";
+import JobTable from "../Components/JobTable";
 import { useNavigate } from "react-router-dom";
 import AdminContext from "../Context/AdminContext";
 import { jobs } from "../Data/JobsData";
-import { baseColumns } from "../Data/HeaderData";
+import { baseColumns } from "../Data/TableHeader";
 
 const AdminJobsListing = () => {
   const { setEditJob, draft } = useContext(AdminContext);

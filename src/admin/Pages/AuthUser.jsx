@@ -1,12 +1,12 @@
 import React, { useContext, useState } from "react";
 import AdminContext from "../Context/AdminContext";
-import Input from "./Input";
+import Input from "../Components/Input";
 import { useNavigate } from "react-router-dom";
 import { validate } from "../Utils/Validate";
 import { registerUser, loginUser } from "../Utils/authService";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
-const AuthUser = () => {
+const AuthUser = React.memo(() => {
   const {
     isSignUpMode,
     setIsSignUpMode,
@@ -200,6 +200,6 @@ const AuthUser = () => {
       </div>
     </div>
   );
-};
+});
 
 export default AuthUser;

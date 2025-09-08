@@ -1,7 +1,7 @@
 import React from "react";
 import Input from "../Components/Input";
 import Button from "../Components/Button";
-import JobTable from "./JobTable";
+import JobTable from "../Components/JobTable";
 
 const DraftJobs = () => {
   function handleChange() {}

@@ -7,12 +7,16 @@ import {
   Navigate,
 } from "react-router-dom";
 
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
+// THIRD PARTY
+import Aos from "aos";
+import "aos/dist/aos.css";
 
+// GENERAL ROUTE
+import PageNotFound from "./pages/PageNotFound.js";
+
+// FRONTEND
 import Home from "./pages/Home";
 import About from "./pages/About";
-
 import JobSingle from "./pages/JobSingle";
 import PostJob from "./pages/PostJob";
 import Services from "./pages/Services";
@@ -26,25 +30,21 @@ import FAQ from "./pages/FAQ";
 import Gallery from "./pages/Gallery";
 import Contact from "./pages/Contact";
 import Login from "./pages/Login";
-import AuthUser from "./admin/Components/AuthUser";
+
+// BACKEND ADMIN
+import ProtectedRoute from "./admin/Pages/ProtectedRoute";
+import AuthUser from "./admin/Pages/AuthUser.jsx";
 import AdminLayout from "./admin/Layout/AdminLayout";
 import Dashboard from "./admin/Pages/Dashboard";
-
 import AddNewJob from "./admin/Pages/AddNewJob";
 import DraftJobs from "./admin/Pages/DraftJobs";
 import EditJob from "./admin/Pages/EditJob";
-
 import Layout from "./components/Layout";
-import ProtectedRoute from "./admin/Pages/ProtectedRoute";
-import AdminContext from "./admin/Context/AdminContext";
-import PageNotFound from "./pages/PageNotFound.js";
-import Aos from "aos";
-import "aos/dist/aos.css";
 import AdminJobsListing from "./admin/Pages/AdminJobsListing.jsx";
 import JobListings from "./pages/JobListings";
-import { EmployersList } from "./admin/Pages/EmployersList.js";
-import { AddEmployer } from "./AddEmployer.js";
-import { Check } from "./admin/Pages/Check.js";
+import EmployersList from "./admin/Pages/EmployersList.jsx";
+import AddEmployer from "./admin/Pages/AddEmployer.jsx";
+import Check from "./admin/Components/Check.jsx";
 
 function App() {
   useEffect(() => {
@@ -75,10 +75,7 @@ function App() {
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<Login />} />
-
           <Route path="/jobs-listing" element={<JobListings />} />
-
-          {/* <Route path="/login" element={<Login />} />  */}
         </Route>
 
         {/* ADMIN PART */}

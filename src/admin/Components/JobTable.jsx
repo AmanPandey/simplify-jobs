@@ -1,11 +1,11 @@
 import { FaCheckCircle, FaEdit, FaTrash, FaCheck } from "react-icons/fa";
-import Button from "../Components/Button";
+import Button from "./Button";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useContext, useLayoutEffect } from "react";
 import AdminContext from "../Context/AdminContext";
-import TableHeaderWithFilter from "../Components/TableHeaderWithFilter";
-import TableRow from "../Components/TableRow";
-import { baseColumns } from "../Data/HeaderData";
+import TableHeaderWithFilter from "./TableHeaderWithFilter";
+import TableRow from "./TableRow";
+import { baseColumns } from "../Data/TableHeader";
 import { jobs } from "../Data/JobsData";
 
 const JobTable = ({ data = [], columns = [], onDelete, onPublish }) => {

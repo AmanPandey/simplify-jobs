@@ -1,14 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useFetcher, useNavigate } from "react-router-dom";
 import AdminContext from "../Context/AdminContext";
-import JobTable from "./JobTable";
+import JobTable from "../Components/JobTable";
 import Button from "../Components/Button";
-import { employerColumns } from "../Data/HeaderData";
+import { employerColumns } from "../Data/TableHeader";
 import { EmployerData } from "../Data/EmployerData";
-import { getEmployers } from "../Utils/authService";
-import axios from "axios";
 
-export const EmployersList = () => {
+const EmployersList = () => {
   const [empData, setEmpData] = useState(null);
   const { token } = useContext(AdminContext);
   const navigate = useNavigate();
@@ -41,3 +39,5 @@ export const EmployersList = () => {
     </>
   );
 };
+
+export default EmployersList;

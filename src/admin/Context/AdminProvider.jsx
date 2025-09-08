@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useCallback, useEffect } from "react";
 import AdminContext from "./AdminContext";
 import { useState } from "react";
 
@@ -10,15 +10,15 @@ const AdminProvider = ({ children }) => {
   const [errors, setErrors] = useState({});
   const [token, setToken] = useState(() => localStorage.getItem("token"));
 
-  const login = (newToken) => {
+  const login = useCallback((newToken) => {
     // localStorage.setItem("token", newToken);
     setToken(newToken);
-  };
+  }, []);
 
-  const logout = () => {
+  const logout = useCallback(() => {
     // localStorage.removeItem("token");
     setToken(null);
-  };
+  }, []);
 
   // 🔹 keep localStorage synced when token changes
   useEffect(() => {
