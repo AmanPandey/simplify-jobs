@@ -7,10 +7,10 @@ const Header = () => {
       className="  position-fixed w-100"
       style={{
         height: "70px",
-        zIndex: 1050,
+        zIndex: 1040,
         top: 0,
         left: 0,
-        backgroundColor: "#555",
+        backgroundColor: "#d6e6ff",
       }}
     >
       <div className="container-fluid h-100">
@@ -20,7 +20,7 @@ const Header = () => {
             style={{ paddingLeft: "16px" }}
           >
             <h1
-              className="h4 mb-0  ms-2 fw-bold text-white "
+              className="h4 mb-0  ms-2 fw-bold text-black "
               style={{ fontSize: "32px" }}
             >
               SimplifyJob

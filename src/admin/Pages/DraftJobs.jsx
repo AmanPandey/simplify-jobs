@@ -1,7 +1,6 @@
 import React from "react";
 import Input from "../Components/Input";
 import Button from "../Components/Button";
-import JobTable from "../Components/JobTable";
 
 const DraftJobs = () => {
   function handleChange() {}
@@ -28,9 +27,7 @@ const DraftJobs = () => {
           </div>
         </div>
         <div className="row">
-          <div className="col-12">
-            <JobTable />
-          </div>
+          <div className="col-12"></div>
         </div>
       </div>
     </>

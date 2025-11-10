@@ -24,7 +24,7 @@ const AddNewJob = () => {
         {/* Job Info Section */}
         <h4 className="mb-3 fw-bold"> Job Information</h4>
         <div className="row g-3">
-          <div className="col-md-6">
+          <div className="col-md-6 mb-2">
             <label className="form-label">Job Title</label>
             <Input
               type="text"
@@ -32,7 +32,7 @@ const AddNewJob = () => {
               placeholder="Frontend Developer"
             />
           </div>
-          <div className="col-md-6">
+          <div className="col-md-6 mb-2">
             <label className="form-label">Company Name</label>
             <Input
               type="text"
@@ -40,9 +40,12 @@ const AddNewJob = () => {
               placeholder="Tech Corp"
             />
           </div>
-          <div className="col-md-4">
+          <div className="col-md-4 mb-2">
             <label className="form-label">Job Type</label>
-            <select className="form-select">
+            <select
+              className="form-select w-100 "
+              style={{ padding: "6px 12px" }}
+            >
               <option>Full-time</option>
               <option>Part-time</option>
               <option>Internship</option>
@@ -50,16 +53,19 @@ const AddNewJob = () => {
               <option>Contract</option>
             </select>
           </div>
-          <div className="col-md-4">
+          <div className="col-md-4 mb-2">
             <label className="form-label">Category/Department</label>
-            <select className="form-select">
+            <select
+              className="form-select w-100"
+              style={{ padding: "6px 12px" }}
+            >
               <option>IT</option>
               <option>HR</option>
               <option>Marketing</option>
               <option>Sales</option>
             </select>
           </div>
-          <div className="col-md-4">
+          <div className="col-md-4 mb-2">
             <label className="form-label">Job Location</label>
             <Input
               type="text"
@@ -68,7 +74,7 @@ const AddNewJob = () => {
             />
           </div>
 
-          <div className="col-md-4">
+          <div className="col-md-4 mb-2">
             <label className="form-label">Salary Range</label>
             <Input
               type="text"
@@ -76,24 +82,27 @@ const AddNewJob = () => {
               placeholder="₹4,00,000 - ₹6,00,000"
             />
           </div>
-          <div className="col-md-4">
+          <div className="col-md-4 mb-2">
             <label className="form-label">Experience Required</label>
-            <select className="form-select">
+            <select
+              className="form-select w-100"
+              style={{ padding: "6px 12px" }}
+            >
               <option>0-1 years</option>
               <option>1-3 years</option>
               <option>3-5 years</option>
               <option>5+ years</option>
             </select>
           </div>
-          <div className="col-md-4">
+          <div className="col-md-4 mb-2">
             <label className="form-label">Number of Openings</label>
             <Input type="number" className="form-control" min="1" />
           </div>
-          <div className="col-md-6">
+          <div className="col-md-6 mb-2">
             <label className="form-label">Application Deadline</label>
             <Input type="date" className="form-control" />
           </div>
-          <div className="col-md-6">
+          <div className="col-md-6 mb-2">
             <label className="form-label">Posted Date</label>
             <Input type="date" className="form-control" />
           </div>
@@ -115,7 +124,7 @@ const AddNewJob = () => {
           {/* You can replace this textarea with <ReactQuill /> */}
         </div>
 
-        <div className="mb-3">
+        <div className="mb-2">
           <label className="form-label">Required Skills</label>
           <Input
             type="text"
@@ -125,7 +134,7 @@ const AddNewJob = () => {
         </div>
 
         <div className="row g-3">
-          <div className="col-md-4">
+          <div className="col-md-4 mb-2">
             <label className="form-label">Education Requirement</label>
             <Input
               type="text"
@@ -133,17 +142,23 @@ const AddNewJob = () => {
               placeholder="B.Tech, MCA"
             />
           </div>
-          <div className="col-md-4">
+          <div className="col-md-4 mb-2">
             <label className="form-label">Work Mode</label>
-            <select className="form-select">
+            <select
+              className="form-select w-100"
+              style={{ padding: "6px 12px" }}
+            >
               <option>Onsite</option>
               <option>Remote</option>
               <option>Hybrid</option>
             </select>
           </div>
-          <div className="col-md-4">
+          <div className="col-md-4 mb-2">
             <label className="form-label">Employment Type</label>
-            <select className="form-select">
+            <select
+              className="form-select w-100"
+              style={{ padding: "6px 12px" }}
+            >
               <option>Permanent</option>
               <option>Contract</option>
               <option>Freelance</option>
@@ -152,7 +167,7 @@ const AddNewJob = () => {
         </div>
 
         {/* Contact & Application Section */}
-        <h4 className="mt-5 mb-3 fw-bold"> Contact & Application</h4>
+        <h4 className="mt-3 mb-3 fw-bold"> Contact & Application</h4>
         <div className="row g-3">
           <div className="col-md-6">
             <label className="form-label">Contact Email</label>
@@ -170,9 +185,12 @@ const AddNewJob = () => {
               placeholder="https://apply.job.com"
             />
           </div>
-          <div className="col-md-4">
+          <div className="col-md-4 mb-2">
             <label className="form-label">Job Status</label>
-            <select className="form-select">
+            <select
+              className="form-select w-100"
+              style={{ padding: "6px 12px" }}
+            >
               <option>Active</option>
               <option>Inactive</option>
               <option>Draft</option>
@@ -192,7 +210,7 @@ const AddNewJob = () => {
           </div> */}
         </div>
 
-        <button type="submit" className="btn btn-primary mt-4">
+        <button type="submit" className="btn global-btn mt-4">
           Post Job
         </button>
       </form>

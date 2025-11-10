@@ -1,27 +1,20 @@
-const API_URL = "https://api-simplify-jobs.tekalgo.com/application";
+const API_URL = "https://simplify-job-node-js-backend-api.vercel.app/api";
 
-// ADMIN SECTION
-
-export async function registerUser(userData) {
-  const res = await fetch(`${API_URL}/seed_user.php`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(userData),
-  });
-  return res.json();
-}
+// ADMIN SECTION AUTH
 
 export async function loginUser(credentials) {
-  const res = await fetch(`${API_URL}/loging.php`, {
+  const res = await fetch(`${API_URL}/login`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(credentials),
   });
-  return res.json();
+  const data = await res.json();
+
+  return data;
 }
 
 export async function verifyToken(token) {
-  const res = await fetch(`${API_URL}/verify_token.php`, {
+  const res = await fetch(`${API_URL}/verifyToken`, {
     method: "GET",
     headers: {
       Accept: "application/json",
@@ -29,27 +22,7 @@ export async function verifyToken(token) {
     },
   });
 
-  if (!res.ok) {
-    // Handle 401 or other errors
-    throw new Error(`Error: ${res.status} ${res.statusText}`);
-  }
+  const data = await res.json();
 
-  return res.json();
+  return data;
 }
-
-// EMPLOYER SECTION
-
-// add employer
-export async function createEmployer(credentials, token) {
-  const res = await fetch(`${API_URL}/add_employer.php`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
-    },
-    body: JSON.stringify(credentials),
-  });
-  return res.json();
-}
-
-// empoyer list

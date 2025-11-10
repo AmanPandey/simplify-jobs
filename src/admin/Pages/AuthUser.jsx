@@ -1,10 +1,11 @@
-import React, { useContext, useState } from "react";
+import React, { useCallback, useContext, useState } from "react";
 import AdminContext from "../Context/AdminContext";
 import Input from "../Components/Input";
 import { useNavigate } from "react-router-dom";
 import { validate } from "../Utils/Validate";
-import { registerUser, loginUser } from "../Utils/authService";
+import { loginUser } from "../Utils/authService";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import Notification from "../Components/Notification";
 
 const AuthUser = React.memo(() => {
   const {
@@ -16,6 +17,8 @@ const AuthUser = React.memo(() => {
     setFormData,
     setIsAuthentication,
     login,
+    setNotif,
+    notif,
   } = useContext(AdminContext);
   // console.log(isSignUpMode);
 
@@ -40,10 +43,16 @@ const AuthUser = React.memo(() => {
     ],
   };
 
+  const handleNotifClose = useCallback(() => {
+    if (notif.message) {
+      setNotif({ message: "", type: "", id: null });
+    }
+  }, [setNotif]);
+
   function onchange(e) {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
-    setErrors({});
+    setErrors((prevError) => ({ ...prevError, [name]: "" }));
   }
 
   async function handleSubmit(e) {
@@ -60,143 +69,105 @@ const AuthUser = React.memo(() => {
     if (Object.keys(errors).length > 0) {
       return;
     }
-
     try {
       const res = await loginUser({
         email: formData.email,
         password: formData.password,
       });
 
-      if (res.token) {
-        login(res.token);
-        navigate("/admin/dashboard");
+      if (!res.success) {
+        setErrors((prevError) => ({ ...prevError, general: res.message }));
 
-        // reset form
-        setFormData({ email: "", password: "" });
-        setErrors({}); // clear previous errors
-      } else {
-        setErrors((prev) => ({
-          ...prev,
-          general: res.error || "Login failed",
-        }));
+        return;
       }
+      setErrors({});
+
+      //  On success
+      login(res.token);
+
+      navigate("/admin/dashboard");
+      setFormData({ email: "", password: "" });
     } catch (err) {
-      console.error("Error:", err);
-      alert("Something went wrong. Try again.");
+      const errorMsg = err.message || "Something went wrong!";
+      setErrors((prevError) => ({ ...prevError, general: errorMsg }));
     }
   }
 
   return (
     <div
-      className={`auth-container ${isSignUpMode ? "sign-up-mode" : ""} ${
+      className={`auth-container ${
         Object.keys(errors).length > 0 ? "error" : ""
       } `}
     >
+      {notif.message && (
+        <Notification
+          key={notif.id}
+          message={notif.message}
+          type={notif.type}
+          onClose={handleNotifClose}
+        />
+      )}
+
       <div className="forms-container">
-        <div className="signin-signup">
-          <form className="sign-in-form" onSubmit={handleSubmit}>
-            <h2 className="title">Sign in</h2>
-            <div className="input-wrapper">
-              <div className="input-field">
-                <i className="fas fa-user"></i>
+        <form className="sign-in-form" onSubmit={handleSubmit}>
+          <h2 className="title">Welcome !</h2>
+          <div className="input-wrapper">
+            <div className="input-field">
+              <i className="fas fa-user"></i>
 
-                <Input
-                  type="email"
-                  className="form-control"
-                  id="email"
-                  placeholder="Email"
-                  name="email"
-                  onChange={onchange}
-                  value={formData.email}
-                  error={errors.email}
-                />
-              </div>
-              {errors.email && <p className="text-danger">{errors.email}</p>}
+              <Input
+                type="email"
+                id="email"
+                placeholder="Email"
+                name="email"
+                onChange={onchange}
+                value={formData.email}
+                error={errors.email}
+              />
             </div>
+          </div>
+          {errors.email && <p className="text-danger">{errors.email}</p>}
 
-            <div className="input-wrapper">
-              <div className="input-field" style={{ position: "relative" }}>
-                <i className="fas fa-lock"></i>
+          <div className="input-wrapper">
+            <div className="input-field" style={{ position: "relative" }}>
+              <i className="fas fa-lock"></i>
 
-                <Input
-                  type={showPassword ? "text" : "password"}
-                  id="password"
-                  name="password"
-                  value={formData.password}
-                  onChange={onchange}
-                  placeholder="Password"
-                  errors={errors.password}
-                />
+              <Input
+                type={showPassword ? "text" : "password"}
+                id="password"
+                name="password"
+                value={formData.password}
+                onChange={onchange}
+                placeholder="Password"
+                errors={errors.password}
+              />
 
-                {/* Eye Icon */}
-                <span
-                  onClick={() => setShowPassword(!showPassword)}
-                  style={{
-                    position: "absolute",
-                    right: "10px",
-                    top: "50%",
-                    transform: "translateY(-50%)",
-                    cursor: "pointer",
-                  }}
-                >
-                  {showPassword ? <FaEyeSlash /> : <FaEye />}
-                </span>
-              </div>
-
-              {errors.password && (
-                <p className="text-danger">{errors.password}</p>
-              )}
+              {/* Eye Icon */}
+              <span
+                onClick={() => setShowPassword(!showPassword)}
+                style={{
+                  position: "absolute",
+                  right: "10px",
+                  top: "50%",
+                  transform: "translateY(-50%)",
+                  cursor: "pointer",
+                }}
+              >
+                {showPassword ? <FaEyeSlash /> : <FaEye />}
+              </span>
             </div>
-            {errors && <p className="text-danger">{errors.general}</p>}
-
-            <input type="submit" value="Login" className="btn solid" />
-          </form>
-        </div>
-      </div>
-
-      <div className="panels-container">
-        <div className="panel left-panel">
-          <div className="content">
-            <h3>Welcome Back</h3>
-            <p>
-              Log in to your dashboard and continue managing jobs, reviewing
-              candidates, and keeping your hiring process streamlined with
-              SimplifyJob.
-            </p>
-            {/* <button
-              className="btn transparent"
-              id="sign-up-btn"
-              onClick={() => {
-                setErrors({});
-                setIsSignUpMode(true);
-              }}
-            >
-              Sign up
-            </button>  */}
           </div>
-          <img src="img/log.svg" className="image" alt="" />
-        </div>
-        {/* <div className="panel right-panel">
-          <div className="content">
-            <h3>Already an Admin ?</h3>
-            <p>
-              Log in to your dashboard and continue managing jobs, reviewing
-              candidates, and keeping your hiring process streamlined with
-              SimplifyJob.
-            </p>
-            <button
-              className="btn transparent"
-              id="sign-in-btn"
-              onClick={() => {
-                setErrors({});
-                setIsSignUpMode(false);
-              }}
-            >
-              Sign in
-            </button>
+          {errors.password && <p className="text-danger">{errors.password}</p>}
+          <div>
+            {errors.general && <p className="text-danger">{errors.general}</p>}
           </div>
-          <img src="img/register.svg" className="image" alt="" />
-        </div> */}
+
+          <input
+            type="submit"
+            value="Sign In"
+            className="btn solid admin-login-btn"
+          />
+        </form>
       </div>
     </div>
   );

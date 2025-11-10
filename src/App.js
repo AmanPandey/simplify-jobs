@@ -32,7 +32,7 @@ import Contact from "./pages/Contact";
 import Login from "./pages/Login";
 
 // BACKEND ADMIN
-import ProtectedRoute from "./admin/Pages/ProtectedRoute";
+import ProtectedRoute from "./admin/Routes/ProtectedRoute.jsx";
 import AuthUser from "./admin/Pages/AuthUser.jsx";
 import AdminLayout from "./admin/Layout/AdminLayout";
 import Dashboard from "./admin/Pages/Dashboard";
@@ -44,7 +44,7 @@ import AdminJobsListing from "./admin/Pages/AdminJobsListing.jsx";
 import JobListings from "./pages/JobListings";
 import EmployersList from "./admin/Pages/EmployersList.jsx";
 import AddEmployer from "./admin/Pages/AddEmployer.jsx";
-import Check from "./admin/Components/Check.jsx";
+import EditEmployer from "./admin/Pages/EditEmployer.jsx";
 
 function App() {
   useEffect(() => {
@@ -101,7 +101,7 @@ function App() {
           <Route path="edit" element={<EditJob />} />
           <Route path="employers" element={<EmployersList />} />
           <Route path="add-employer" element={<AddEmployer />} />
-          <Route path="check" element={<Check />} />
+          <Route path="edit-employer" element={<EditEmployer />} />
         </Route>
         <Route path="*" element={<PageNotFound />} />
       </Routes>

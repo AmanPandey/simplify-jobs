@@ -1,8 +1,4 @@
-// TableHeaderWithFilter.js
-import React from "react";
-import { useLocation } from "react-router-dom";
-
-const TableHeaderWithFilter = ({ label, options = [], onChange }) => {
+const SelectBox = ({ label, options = [], onChange }) => {
   return (
     <th>
       <div
@@ -28,4 +24,4 @@ const TableHeaderWithFilter = ({ label, options = [], onChange }) => {
   );
 };
 
-export default TableHeaderWithFilter;
+export default SelectBox;

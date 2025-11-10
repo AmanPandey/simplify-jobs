@@ -4,13 +4,25 @@ import Input from "../Components/Input";
 import { validate } from "../Utils/Validate";
 import AdminContext from "../Context/AdminContext";
 import Notification from "../Components/Notification";
-import { addEmployer } from "../Utils/employersLogic";
+import {
+  addEmployer,
+  getEmployer,
+  updateEmployer,
+} from "../Utils/employersLogic";
 import { useCallback } from "react";
-import { useNavigate } from "react-router-dom";
+import {
+  Navigate,
+  useNavigate,
+  useParams,
+  useSearchParams,
+} from "react-router-dom";
 
-const AddEmployer = () => {
+const EditEmployer = () => {
   const { errors, setErrors, token, setNotif, notif } =
     useContext(AdminContext);
+
+  const [searchParams] = useSearchParams();
+  const id = searchParams.get("id")?.trim();
   const navigate = useNavigate();
 
   const [empFormData, setEmpFormData] = useState({
@@ -25,15 +37,28 @@ const AddEmployer = () => {
     description: "",
     status: "active",
   });
+
+  //fetch employer by id
+  useEffect(() => {
+    async function fetchEmployer() {
+      const res = await getEmployer(id, token);
+      if (res) {
+        setEmpFormData(res.employer);
+      }
+    }
+    fetchEmployer();
+  }, [id, token]);
+
+  //  Ensure this is memoized and doesn’t trigger re-renders
   useEffect(() => {
     if (notif?.message) {
       setNotif({ id: null, message: "", type: "" });
     }
   }, []);
-
-  // ✅ Ensure this is memoized and doesn’t trigger re-renders
   const handleNotifClose = useCallback(() => {
     if (notif?.message) {
+      console.log(notif.message);
+
       setNotif({ id: null, message: "", type: "" });
     }
   }, [notif, setNotif]);
@@ -85,8 +110,14 @@ const AddEmployer = () => {
       return;
     }
     try {
-      const res = await addEmployer(empFormData, token);
-      setNotif({ id: Date.now(), message: res.message, type: "success" });
+      const res = await updateEmployer(id, empFormData, token);
+      console.log(res);
+
+      setNotif({
+        id: Date.now(),
+        message: res.message || "Employer updated successfully",
+        type: "success",
+      });
       setEmpFormData({
         name: "",
         email: "",
@@ -104,8 +135,12 @@ const AddEmployer = () => {
       }, 4000);
     } catch (error) {
       console.log(error.message);
-      const errorMsg = error.message;
-      setNotif({ id: Date.now(), message: errorMsg, type: "error" });
+      const errorMsg = error.message || "Update failed";
+      setNotif({
+        id: Date.now(),
+        message: errorMsg || "Error updating employer ",
+        type: "error",
+      });
     }
   }
 
@@ -122,7 +157,7 @@ const AddEmployer = () => {
       <div className="rounded shadow px-3 pt-3 pb-5 bg-white">
         <div className="row mb-4 d-flex justify-content-between">
           <div className="col-md-6 d-flex">
-            <h3 className="mb-0 fw-bold">Add Employer</h3>
+            <h3 className="mb-0 fw-bold">Edit Employer</h3>
           </div>
         </div>
 
@@ -317,7 +352,7 @@ const AddEmployer = () => {
                 className="btn global-btn px-4"
                 style={{ fontWeight: "600" }}
               >
-                Save Employer
+                Update Employer
               </button>
             </div>
           </div>
@@ -327,4 +362,4 @@ const AddEmployer = () => {
   );
 };
 
-export default AddEmployer;
+export default EditEmployer;

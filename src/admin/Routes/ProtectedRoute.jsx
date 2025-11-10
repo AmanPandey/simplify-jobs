@@ -4,8 +4,9 @@ import { verifyToken } from "../Utils/authService";
 import AdminContext from "../Context/AdminContext";
 
 const ProtectedRoute = ({ children }) => {
-  const [valid, setValid] = useState(null); // null = not verified yet
+  const [valid, setValid] = useState(null);
   const [user, setUser] = useState(null);
+  // console.log(user);
 
   const { token, logout } = useContext(AdminContext);
 
@@ -15,25 +16,23 @@ const ProtectedRoute = ({ children }) => {
         setValid(false);
         return;
       }
-
       try {
         const res = await verifyToken(token);
-        if (res.ok) {
+
+        if (res.success) {
           setValid(true);
           setUser({
-            profile_id: res.profile_id,
-            email: res.email,
-            full_name: res.full_name,
-            role: res.role,
+            id: res.user.id,
+            name: res.user.name,
+            email: res.user.email,
           });
         } else {
           logout();
           setValid(false);
         }
-      } catch (err) {
-        console.error("Token verification failed", err);
+      } catch (error) {
+        console.error("Token verification failed:", error);
         logout();
-
         setValid(false);
       }
     };

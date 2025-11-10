@@ -27,16 +27,17 @@ const Sidebar = () => {
       <button
         className="btn  d-lg-none m-3 position-fixed admin-toggler-btn "
         onClick={toggleSidebar}
-        style={{ top: "0px", right: "0px", zIndex: 1051 }}
+        style={{ top: "0px", right: "0px", zIndex: 1050 }}
       >
         {showSidebar ? <FaTimes color="white" /> : <FaBars color="white" />}
       </button>
 
       {/* Sidebar */}
       <div
-        className={`bg-white position-fixed top-0 start-0 vh-100 p-3 shadow d-md-block sidebar ${
+        className={` position-fixed top-0 start-0 vh-100 p-3 d-md-block sidebar ${
           showSidebar ? "" : "hidden"
         }`}
+        style={{ background: "#fff" }}
       >
         <ul className="nav nav-pills flex-column admin-nav">
           <li className="nav-item">
@@ -44,8 +45,8 @@ const Sidebar = () => {
               to="/admin/dashboard"
               onClick={() => setShowSidebar(false)}
               className={({ isActive }) =>
-                `nav-link fw-semibold ${
-                  isActive ? "text-white bg-active" : "text-dark"
+                `nav-link  ${
+                  isActive ? "fw-bold bg-active" : "fw-semibold text-black"
                 }`
               }
             >
@@ -58,8 +59,8 @@ const Sidebar = () => {
               to="/admin/jobs"
               onClick={() => setShowSidebar(false)}
               className={({ isActive }) =>
-                `nav-link fw-semibold ${
-                  isActive ? "text-white bg-active" : "text-dark"
+                `nav-link  ${
+                  isActive ? "fw-bold bg-active" : "fw-semibold text-black"
                 }`
               }
             >
@@ -103,8 +104,8 @@ const Sidebar = () => {
               to="/admin/employers"
               onClick={() => setShowSidebar(false)}
               className={({ isActive }) =>
-                `nav-link fw-semibold ${
-                  isActive ? "text-white bg-active" : "text-dark"
+                `nav-link   ${
+                  isActive ? "fw-bold bg-active" : "fw-semibold text-black"
                 }`
               }
             >
@@ -117,8 +118,8 @@ const Sidebar = () => {
               to="/admin/login"
               end
               className={({ isActive }) =>
-                `nav-link fw-semibold ${
-                  isActive ? "text-white bg-active" : "text-dark"
+                `nav-link    ${
+                  isActive ? "fw-bold bg-active" : "fw-semibold text-black"
                 }`
               }
               onClick={() => {
