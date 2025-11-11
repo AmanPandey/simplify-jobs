@@ -22,8 +22,7 @@ import Services from "./pages/Services";
 import ServiceSingle from "./pages/ServiceSingle";
 import Blog from "./pages/Blog";
 import BlogSingle from "./pages/BlogSingle";
-import Portfolio from "./pages/Portfolio";
-import PortfolioSingle from "./pages/PortfolioSingle";
+
 import Testimonials from "./pages/Testimonials";
 import FAQ from "./pages/FAQ";
 import Gallery from "./pages/Gallery";
@@ -68,8 +67,7 @@ function App() {
           <Route path="/service-single" element={<ServiceSingle />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog-single" element={<BlogSingle />} />
-          <Route path="/portfolio" element={<Portfolio />} />
-          <Route path="/portfolio-single" element={<PortfolioSingle />} />
+
           <Route path="/testimonials" element={<Testimonials />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/gallery" element={<Gallery />} />
