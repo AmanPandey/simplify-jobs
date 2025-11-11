@@ -11,7 +11,7 @@ const Testimonials = () => {
       >
         <div className="container">
           <div className="row">
-            <div className="col-md-7" data-aos="fade-up" data-aos-delay="500">
+            <div className="col-md-7" data-aos="fade-up" data-aos-delay="200">
               <h1 className="text-white font-weight-bold">
                 Candidate's Testimonials
               </h1>
@@ -33,7 +33,7 @@ const Testimonials = () => {
             <div
               className="col-lg-6 mb-4"
               data-aos="fade-up"
-              data-aos-delay="500"
+              data-aos-delay="200"
             >
               <div className="block__87154">
                 <blockquote>
@@ -64,7 +64,7 @@ const Testimonials = () => {
             <div
               className="col-lg-6 mb-4"
               data-aos="fade-up"
-              data-aos-delay="600"
+              data-aos-delay="200"
             >
               <div className="block__87154">
                 <blockquote>
@@ -95,7 +95,7 @@ const Testimonials = () => {
             <div
               className="col-lg-6 mb-4"
               data-aos="fade-up"
-              data-aos-delay="700"
+              data-aos-delay="200"
             >
               <div className="block__87154">
                 <blockquote>
@@ -126,7 +126,7 @@ const Testimonials = () => {
             <div
               className="col-lg-6 mb-4"
               data-aos="fade-up"
-              data-aos-delay="800"
+              data-aos-delay="200"
             >
               <div className="block__87154">
                 <blockquote>
@@ -157,7 +157,7 @@ const Testimonials = () => {
             <div
               className="col-lg-12 mb-4"
               data-aos="zoom-in"
-              data-aos-delay="500"
+              data-aos-delay="200"
             >
               <div className="block__87154 bg-primary">
                 <blockquote>
@@ -206,7 +206,7 @@ const Testimonials = () => {
             <div
               className="col-md-7 text-center"
               data-aos="zoom-in"
-              data-aos-delay="500"
+              data-aos-delay="200"
             >
               <h2 className="section-title mb-2 text-white">
                 Be Our Next Success Story

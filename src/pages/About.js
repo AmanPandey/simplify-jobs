@@ -11,7 +11,7 @@ const About = () => {
       >
         <div className="container">
           <div className="row">
-            <div className="col-md-7" data-aos="fade-up" data-aos-delay="500">
+            <div className="col-md-7" data-aos="fade-up" data-aos-delay="200">
               <h1 className="text-white font-weight-bold">About Us</h1>
               <div className="custom-breadcrumbs">
                 <Link to="/">Home</Link> <span className="mx-2 slash">/</span>
@@ -30,7 +30,7 @@ const About = () => {
             <div
               className="col-lg-6 mb-5 mb-lg-0"
               data-aos="zoom-in"
-              data-aos-delay="500"
+              data-aos-delay="200"
             >
               <img
                 src="simple-about-intro.jpg"
@@ -42,28 +42,28 @@ const About = () => {
               <h2
                 className="section-title mb-3"
                 data-aos="zoom-in"
-                data-aos-delay="500"
+                data-aos-delay="200"
               >
                 Simplifying the Way People and Jobs Connect
               </h2>
-              <p className="" data-aos="fade-up" data-aos-delay="500">
+              <p className="" data-aos="fade-up" data-aos-delay="200">
                 At SimplifyJob, we exist to make job searching and hiring
                 simple. Traditional portals overwhelm users with clutter,
                 leaving both job seekers and employers frustrated.
               </p>
-              <p data-aos="fade-up" data-aos-delay="600">
+              <p data-aos="fade-up" data-aos-delay="200">
                 For job seekers, the challenge is endless applications, unclear
                 job descriptions, and little feedback. SimplifyJob helps
                 candidates discover clear, relevant opportunities tailored to
                 their skills.
               </p>
-              <p data-aos="fade-up" data-aos-delay="700">
+              <p data-aos="fade-up" data-aos-delay="200">
                 For employers, hiring often means wasting time filtering
                 irrelevant resumes. SimplifyJob enables smarter, faster
                 recruitment by delivering quality candidates who truly match job
                 requirements.
               </p>{" "}
-              <p data-aos="fade-up" data-aos-delay="800">
+              <p data-aos="fade-up" data-aos-delay="200">
                 By bridging this gap, SimplifyJob creates meaningful connections
                 between people and opportunities. Our mission is clear —
                 simplify the hiring process for everyone.
@@ -80,7 +80,7 @@ const About = () => {
       >
         <div className="container">
           <div className="row mb-5">
-            <div className="col-md-7" data-aos="zoom-in" data-aos-delay="1000">
+            <div className="col-md-7" data-aos="zoom-in" data-aos-delay="200">
               <h2 className="section-title mb-2">Services for Job Seekers</h2>
             </div>
           </div>
@@ -88,7 +88,7 @@ const About = () => {
             <div
               className="col-12 col-md-3 mb-4 mb-lg-5 "
               data-aos="fade-up"
-              data-aos-delay="1000"
+              data-aos-delay="200"
             >
               <div className="block__16443 text-center d-block h-100">
                 <span className="custom-icon mx-auto">
@@ -101,7 +101,7 @@ const About = () => {
             <div
               className="col-12 col-md-3 mb-4 mb-lg-5"
               data-aos="fade-up"
-              data-aos-delay="1100"
+              data-aos-delay="200"
             >
               <div className="block__16443 text-center d-block h-100">
                 <span className="custom-icon mx-auto">
@@ -113,7 +113,7 @@ const About = () => {
             <div
               className="col-12 col-md-3 mb-4 mb-lg-5"
               data-aos="fade-up"
-              data-aos-delay="1200"
+              data-aos-delay="200"
             >
               <div className="block__16443 text-center d-block h-100">
                 <span className="custom-icon mx-auto">
@@ -125,7 +125,7 @@ const About = () => {
             <div
               className="col-12 col-md-3 mb-4 mb-lg-5"
               data-aos="fade-up"
-              data-aos-delay="1300"
+              data-aos-delay="200"
             >
               <div className="block__16443 text-center d-block h-100">
                 <span className="custom-icon mx-auto">
@@ -135,7 +135,7 @@ const About = () => {
               </div>
             </div>
           </div>
-          <div className="row mb-5" data-aos="zoom-in" data-aos-delay="1000">
+          <div className="row mb-5" data-aos="zoom-in" data-aos-delay="200">
             <div className="col-md-7">
               <h2 className="section-title mb-2">Services for Employers</h2>
             </div>
@@ -144,7 +144,7 @@ const About = () => {
             <div
               className="col-12 col-md-3 mb-4 mb-lg-5"
               data-aos="fade-up"
-              data-aos-delay="1000"
+              data-aos-delay="200"
             >
               <div className="block__16443 text-center d-block h-100">
                 <span className="custom-icon mx-auto">
@@ -157,7 +157,7 @@ const About = () => {
             <div
               className="col-12 col-md-3 mb-4 mb-lg-5"
               data-aos="fade-up"
-              data-aos-delay="1100"
+              data-aos-delay="200"
             >
               <div className="block__16443 text-center d-block h-100">
                 <span className="custom-icon mx-auto">
@@ -169,7 +169,7 @@ const About = () => {
             <div
               className="col-12 col-md-3 mb-4 mb-lg-5"
               data-aos="fade-up"
-              data-aos-delay="1200"
+              data-aos-delay="200"
             >
               <div className="block__16443 text-center d-block h-100">
                 <span className="custom-icon mx-auto">
@@ -181,7 +181,7 @@ const About = () => {
             <div
               className="col-12 col-md-3 mb-4 mb-lg-5"
               data-aos="fade-up"
-              data-aos-delay="1300"
+              data-aos-delay="200"
             >
               <div className="block__16443 text-center d-block h-100">
                 <span className="custom-icon mx-auto">
@@ -209,7 +209,7 @@ const About = () => {
             <div
               className="col-md-7 text-center"
               data-aos="zoom-in"
-              data-aos-delay="1000"
+              data-aos-delay="200"
             >
               <h2 className="section-title mb-2 text-white">
                 SimplifyJob Site Stats
@@ -223,7 +223,7 @@ const About = () => {
           <div
             className="row pb-0 block__19738 section-counter"
             data-aos="zoom-in"
-            data-aos-delay="1000"
+            data-aos-delay="200"
           >
             <div className="col-6 col-md-6 col-lg-3 mb-5 mb-lg-0">
               <div className="d-flex align-items-center justify-content-center mb-2">
@@ -264,7 +264,7 @@ const About = () => {
         <div className="container position-relative">
           <div className="about-testimonial-shape"></div>
           <div className="row mb-5">
-            <div className="col-md-7" data-aos="zoom-in" data-aos-delay="500">
+            <div className="col-md-7" data-aos="zoom-in" data-aos-delay="200">
               <h2 className="section-title mb-2">What Our Users Say</h2>
               <p>
                 Real stories from job seekers and employers who found success
@@ -277,7 +277,7 @@ const About = () => {
               <div
                 className="card about-testimonial-item  h-100"
                 data-aos="fade-up"
-                data-aos-delay="1000"
+                data-aos-delay="200"
               >
                 <div className="card-body p-4 py-5">
                   <img
@@ -307,7 +307,7 @@ const About = () => {
               <div
                 className="card about-testimonial-item h-100"
                 data-aos="fade-up"
-                data-aos-delay="1100"
+                data-aos-delay="200"
               >
                 <div className="card-body p-4 py-5">
                   <img
@@ -337,7 +337,7 @@ const About = () => {
               <div
                 className="card about-testimonial-item h-100"
                 data-aos="fade-up"
-                data-aos-delay="1200"
+                data-aos-delay="200"
               >
                 <div className="card-body p-4 py-5">
                   <img
@@ -385,7 +385,7 @@ const About = () => {
             <div
               className="col-md-7 text-center"
               data-aos="zoom-in"
-              data-aos-delay="1000"
+              data-aos-delay="200"
             >
               <h2 className="section-title mb-2 text-white">
                 Grow Your Career with SimplyfyJob

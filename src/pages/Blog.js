@@ -11,7 +11,7 @@ const Blog = () => {
       >
         <div className="container">
           <div className="row">
-            <div className="col-md-7" data-aos="fade-up" data-aos-delay="500">
+            <div className="col-md-7" data-aos="fade-up" data-aos-delay="200">
               <h1 className="text-white font-weight-bold">Our Blog</h1>
               <div className="custom-breadcrumbs">
                 <Link href="#">Home</Link> <span className="mx-2 slash">/</span>
@@ -30,7 +30,7 @@ const Blog = () => {
             <div
               className="col-md-6 col-lg-4 mb-5"
               data-aos="fade-up"
-              data-aos-delay="500"
+              data-aos-delay="200"
             >
               <Link href="blog-single.html">
                 <img
@@ -50,7 +50,7 @@ const Blog = () => {
             <div
               className="col-md-6 col-lg-4 mb-5"
               data-aos="fade-up"
-              data-aos-delay="600"
+              data-aos-delay="200"
             >
               <Link href="blog-single.html">
                 <img
@@ -70,7 +70,7 @@ const Blog = () => {
             <div
               className="col-md-6 col-lg-4 mb-5"
               data-aos="fade-up"
-              data-aos-delay="700"
+              data-aos-delay="200"
             >
               <Link href="blog-single.html">
                 <img
@@ -90,7 +90,7 @@ const Blog = () => {
             <div
               className="col-md-6 col-lg-4 mb-5"
               data-aos="fade-up"
-              data-aos-delay="800"
+              data-aos-delay="200"
             >
               <Link href="blog-single.html">
                 <img
@@ -110,7 +110,7 @@ const Blog = () => {
             <div
               className="col-md-6 col-lg-4 mb-5"
               data-aos="fade-up"
-              data-aos-delay="900"
+              data-aos-delay="200"
             >
               <Link href="blog-single.html">
                 <img
@@ -130,7 +130,7 @@ const Blog = () => {
             <div
               className="col-md-6 col-lg-4 mb-5"
               data-aos="fade-up"
-              data-aos-delay="1000"
+              data-aos-delay="200"
             >
               <Link href="blog-single.html">
                 <img
@@ -188,7 +188,7 @@ const Blog = () => {
             <div
               className="col-md-7 text-center"
               data-aos="zoom-in"
-              data-aos-delay="500"
+              data-aos-delay="200"
             >
               <h2 className="section-title mb-2 text-white">
                 Have Questions or Need Guidance?

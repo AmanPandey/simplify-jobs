@@ -11,7 +11,7 @@ const Services = () => {
       >
         <div className="container">
           <div className="row">
-            <div className="col-md-7" data-aos="fade-up" data-aos-delay="500">
+            <div className="col-md-7" data-aos="fade-up" data-aos-delay="200">
               <h1 className="text-white font-weight-bold">Services</h1>
               <div className="custom-breadcrumbs">
                 <Link to="/">Home</Link> <span className="mx-2 slash">/</span>
@@ -33,7 +33,7 @@ const Services = () => {
             <div
               className="col-6 col-md-6 col-lg-4 mb-4 mb-lg-5"
               data-aos="fade-up"
-              data-aos-delay="500"
+              data-aos-delay="200"
             >
               <Link to="#" className="block__16443 text-center d-block">
                 <span className="custom-icon mx-auto">
@@ -49,7 +49,7 @@ const Services = () => {
             <div
               className="col-6 col-md-6 col-lg-4 mb-4 mb-lg-5"
               data-aos="fade-up"
-              data-aos-delay="600"
+              data-aos-delay="200"
             >
               <Link to="#" className="block__16443 text-center d-block">
                 <span className="custom-icon mx-auto">
@@ -65,7 +65,7 @@ const Services = () => {
             <div
               className="col-6 col-md-6 col-lg-4 mb-4 mb-lg-5"
               data-aos="fade-up"
-              data-aos-delay="700"
+              data-aos-delay="200"
             >
               <Link to="#" className="block__16443 text-center d-block">
                 <span className="custom-icon mx-auto">
@@ -81,7 +81,7 @@ const Services = () => {
             <div
               className="col-6 col-md-6 col-lg-4 mb-4 mb-lg-5"
               data-aos="fade-up"
-              data-aos-delay="800"
+              data-aos-delay="200"
             >
               <Link to="#" className="block__16443 text-center d-block">
                 <span className="custom-icon mx-auto">
@@ -97,7 +97,7 @@ const Services = () => {
             <div
               className="col-6 col-md-6 col-lg-4 mb-4 mb-lg-5"
               data-aos="fade-up"
-              data-aos-delay="900"
+              data-aos-delay="200"
             >
               <Link to="#" className="block__16443 text-center d-block">
                 <span className="custom-icon mx-auto">
@@ -113,7 +113,7 @@ const Services = () => {
             <div
               className="col-6 col-md-6 col-lg-4 mb-4 mb-lg-5"
               data-aos="fade-up"
-              data-aos-delay="1000"
+              data-aos-delay="200"
             >
               <Link to="#" className="block__16443 text-center d-block">
                 <span className="custom-icon mx-auto">
@@ -147,7 +147,7 @@ const Services = () => {
             <div
               className="col-md-7 text-center"
               data-aos="zoom-in"
-              data-aos-delay="500"
+              data-aos-delay="200"
             >
               <h2 className="section-title mb-2 text-white">
                 Simplify Hiring & Job Search with Us

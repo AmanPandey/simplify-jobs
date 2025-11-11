@@ -11,7 +11,7 @@ const BlogSingle = () => {
       >
         <div className="container">
           <div className="row">
-            <div className="col-md-12" data-aos="fade-up" data-aos-delay="500">
+            <div className="col-md-12" data-aos="fade-up" data-aos-delay="200">
               <div className="custom-breadcrumbs mb-0">
                 <span className="slash">Posted by</span> <span> Admin</span>
                 {/* <span className="mx-2 slash">&bullet;</span> */}
@@ -32,21 +32,21 @@ const BlogSingle = () => {
         <div className="container">
           <div className="row">
             <div className="col-lg-8 blog-content">
-              {/* <h3 className="mb-4" data-aos="zoom-in" data-aos-delay="500"></h3> */}
+              {/* <h3 className="mb-4" data-aos="zoom-in" data-aos-delay="200"></h3> */}
               <h2
                 class="section-title mb-3 aos-init aos-animate"
                 data-aos="zoom-in"
-                data-aos-delay="500"
+                data-aos-delay="200"
               >
                 SimplifyJob: Making Job Search Smarter and Easier
               </h2>
-              <p className="" data-aos="zoom-in" data-aos-delay="500">
+              <p className="" data-aos="zoom-in" data-aos-delay="200">
                 SimplifyJob is a modern job portal designed to connect job
                 seekers with top employers efficiently. Our smart platform
                 streamlines the job search process and helps candidates find
                 roles that truly match their skills.
               </p>
-              <p data-aos="zoom-in" data-aos-delay="500">
+              <p data-aos="zoom-in" data-aos-delay="200">
                 <img
                   src="images/job_single_img_1.jpg"
                   alt="Job Search"
@@ -114,7 +114,7 @@ const BlogSingle = () => {
             <div
               className="col-lg-4 sidebar pl-lg-5"
               data-aos="zoom-in"
-              data-aos-delay="500"
+              data-aos-delay="200"
             >
               <div className="sidebar-box">
                 <img
@@ -159,7 +159,7 @@ const BlogSingle = () => {
             <div
               className="col-md-7 text-center"
               data-aos="zoom-in"
-              data-aos-delay="500"
+              data-aos-delay="200"
             >
               <h2 className="section-title mb-2 text-white">
                 Liked What You Read?

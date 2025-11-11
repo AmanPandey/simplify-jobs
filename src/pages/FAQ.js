@@ -11,7 +11,7 @@ const FAQ = () => {
       >
         <div className="container">
           <div className="row">
-            <div className="col-md-7" data-aos="fade-up" data-aos-delay="500">
+            <div className="col-md-7" data-aos="fade-up" data-aos-delay="200">
               <h1 className="text-white font-weight-bold">
                 Frequently Ask Questions
               </h1>
@@ -30,7 +30,7 @@ const FAQ = () => {
       <section className="site-section" id="accordion">
         <div className="container">
           <div className="row accordion justify-content-center block__76208">
-            <div className="col-lg-6" data-aos="zoom-in" data-aos-delay="500">
+            <div className="col-lg-6" data-aos="zoom-in" data-aos-delay="200">
               <img
                 src="images/sq_img_8.jpg"
                 alt="Image"
@@ -40,7 +40,7 @@ const FAQ = () => {
             <div
               className="col-lg-5 ml-auto"
               data-aos="zoom-in"
-              data-aos-delay="500"
+              data-aos-delay="200"
             >
               {/* Employer FAQ */}
               <div className="accordion-item">
@@ -176,7 +176,7 @@ const FAQ = () => {
 
       <section className="site-section bg-light">
         <div className="container">
-          <div className="row mb-5" data-aos="zoom-in" data-aos-delay="500">
+          <div className="row mb-5" data-aos="zoom-in" data-aos-delay="200">
             <div className="col-12 text-center" data-aos="fade">
               <h2 className="section-title mb-3">Happy Candidates Say</h2>
             </div>
@@ -187,7 +187,7 @@ const FAQ = () => {
               <div
                 className="block__87154 bg-white rounded"
                 data-aos="fade-up"
-                data-aos-delay="500"
+                data-aos-delay="200"
               >
                 <blockquote>
                   <p>
@@ -214,7 +214,7 @@ const FAQ = () => {
             </div>
 
             {/* Testimonial 2 */}
-            <div className="col-lg-6" data-aos="fade-up" data-aos-delay="600">
+            <div className="col-lg-6" data-aos="fade-up" data-aos-delay="200">
               <div className="block__87154 bg-white rounded">
                 <blockquote>
                   <p>
@@ -259,7 +259,7 @@ const FAQ = () => {
             <div
               className="col-md-7 text-center"
               data-aos="zoom-in"
-              data-aos-delay="500"
+              data-aos-delay="200"
             >
               <h2 className="section-title mb-2 text-white">
                 Still Have Questions?

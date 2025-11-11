@@ -11,7 +11,7 @@ const PostJob = () => {
       >
         <div className="container">
           <div className="row">
-            <div className="col-md-7" data-aos="fade-up" data-aos-delay="500">
+            <div className="col-md-7" data-aos="fade-up" data-aos-delay="200">
               <h1 className="text-white font-weight-bold">Post Link Job</h1>
               <div className="custom-breadcrumbs">
                 <Link to="/">Home</Link> <span className="mx-2 slash">/</span>
@@ -54,7 +54,7 @@ const PostJob = () => {
               </div>
             </div>
           </div>
-          <div className="row mb-5" data-aos="zoom-in" data-aos-delay="500">
+          <div className="row mb-5" data-aos="zoom-in" data-aos-delay="200">
             <div className="col-lg-12">
               <form className="p-4 p-md-5 border rounded" method="post">
                 <h3
@@ -238,7 +238,7 @@ const PostJob = () => {
           <div
             className="row align-items-center mb-5"
             data-aos="zoom-in"
-            data-aos-delay="500"
+            data-aos-delay="200"
           >
             <div className="col-lg-4 ml-auto">
               <div className="row">
@@ -279,7 +279,7 @@ const PostJob = () => {
             <div
               className="col-md-7 text-center"
               data-aos="zoom-in"
-              data-aos-delay="500"
+              data-aos-delay="200"
             >
               <h2 className="section-title mb-2 text-white">
                 Connect with SimplyfyJob

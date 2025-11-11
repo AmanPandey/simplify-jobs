@@ -12,7 +12,7 @@ const JobListings = () => {
       >
         <div className="container">
           <div className="row">
-            <div className="col-md-7" data-aos="fade-up" data-aos-delay="500">
+            <div className="col-md-7" data-aos="fade-up" data-aos-delay="200">
               <h1 className="text-white font-weight-bold">Jobs Listing</h1>
               <div className="custom-breadcrumbs">
                 <Link href="#">Home</Link> <span className="mx-2 slash">/</span>
@@ -605,7 +605,7 @@ const JobListings = () => {
             <div
               className="col-md-7 text-center"
               data-aos="zoom-in"
-              data-aos-delay="500"
+              data-aos-delay="200"
             >
               <h2 className="section-title mb-2 text-white">
                 Join with us for more information

@@ -11,7 +11,7 @@ const ServiceSingle = () => {
       >
         <div className="container">
           <div className="row">
-            <div className="col-md-7" data-aos="fade-up" data-aos-delay="500">
+            <div className="col-md-7" data-aos="fade-up" data-aos-delay="200">
               <h1 className="text-white font-weight-bold">Service Single</h1>
               <div className="custom-breadcrumbs">
                 <Link to="/">Home</Link> <span className="mx-2 slash">/</span>
@@ -30,7 +30,7 @@ const ServiceSingle = () => {
             <div
               className="col-lg-3 mr-auto"
               data-aos="zoom-in"
-              data-aos-delay="500"
+              data-aos-delay="200"
             >
               <div className="border p-4 rounded">
                 <ul className="list-unstyled block__47528 mb-0">
@@ -83,7 +83,7 @@ const ServiceSingle = () => {
               </div>
             </div>
             {tab == 1 && (
-              <div className="col-lg-8" data-aos="zoom-in" data-aos-delay="500">
+              <div className="col-lg-8" data-aos="zoom-in" data-aos-delay="200">
                 <span className="text-primary d-block mb-5">
                   <span className="icon-search display-1"></span>
                 </span>
@@ -111,7 +111,7 @@ const ServiceSingle = () => {
               </div>
             )}
             {tab == 2 && (
-              <div className="col-lg-8" data-aos="zoom-in" data-aos-delay="500">
+              <div className="col-lg-8" data-aos="zoom-in" data-aos-delay="200">
                 <span className="text-primary d-block mb-5">
                   <span className="icon-briefcase display-1"></span>
                 </span>
@@ -137,7 +137,7 @@ const ServiceSingle = () => {
               </div>
             )}{" "}
             {tab == 3 && (
-              <div className="col-lg-8" data-aos="zoom-in" data-aos-delay="500">
+              <div className="col-lg-8" data-aos="zoom-in" data-aos-delay="200">
                 <span className="text-primary d-block mb-5">
                   <i className="fas fa-lightbulb display-1"></i>
                 </span>
@@ -164,7 +164,7 @@ const ServiceSingle = () => {
               </div>
             )}{" "}
             {tab == 4 && (
-              <div className="col-lg-8" data-aos="zoom-in" data-aos-delay="500">
+              <div className="col-lg-8" data-aos="zoom-in" data-aos-delay="200">
                 <span className="text-primary d-block mb-5">
                   <span className="icon-graduation-cap display-1"></span>
                 </span>
@@ -191,7 +191,7 @@ const ServiceSingle = () => {
               </div>
             )}{" "}
             {tab == 5 && (
-              <div className="col-lg-8" data-aos="zoom-in" data-aos-delay="500">
+              <div className="col-lg-8" data-aos="zoom-in" data-aos-delay="200">
                 <span className="text-primary d-block mb-5">
                   <span className="icon-bar-chart display-1"></span>
                 </span>
@@ -241,7 +241,7 @@ const ServiceSingle = () => {
             <div
               className="col-md-7 text-center"
               data-aos="zoom-in"
-              data-aos-delay="500"
+              data-aos-delay="200"
             >
               <h2 className="section-title mb-2 text-white">
                 Ready to Take the Next Step?

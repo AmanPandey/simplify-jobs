@@ -11,7 +11,7 @@ const Contact = () => {
       >
         <div className="container">
           <div className="row">
-            <div className="col-md-7" data-aos="fade-up" data-aos-delay="500">
+            <div className="col-md-7" data-aos="fade-up" data-aos-delay="200">
               <h1 className="text-white font-weight-bold">Contact Us</h1>
               <div className="custom-breadcrumbs">
                 <Link href="#">Home</Link> <span className="mx-2 slash">/</span>
@@ -32,7 +32,7 @@ const Contact = () => {
                 action="#"
                 className=""
                 data-aos="zoom-in"
-                data-aos-delay="500"
+                data-aos-delay="200"
               >
                 <div className="row form-group">
                   <div className="col-md-6 mb-3 mb-md-0">
@@ -102,7 +102,7 @@ const Contact = () => {
             <div
               className="col-lg-5 ml-auto"
               data-aos="zoom-in"
-              data-aos-delay="500"
+              data-aos-delay="200"
             >
               <div className="p-4 mb-3 bg-white">
                 <p className="mb-0 font-weight-bold" style={{ color: "#000" }}>
@@ -135,13 +135,13 @@ const Contact = () => {
 
       <section className="site-section bg-light">
         <div className="container">
-          <div className="row mb-5" data-aos="zoom-in" data-aos-delay="500">
+          <div className="row mb-5" data-aos="zoom-in" data-aos-delay="200">
             <div className="col-12 text-center" data-aos="fade">
               <h2 className="section-title mb-3">Happy Candidates Says</h2>
             </div>
           </div>
           <div className="row">
-            <div className="col-lg-6" data-aos="fade-up" data-aos-delay="500">
+            <div className="col-lg-6" data-aos="fade-up" data-aos-delay="200">
               <div className="block__87154 bg-white rounded">
                 <blockquote>
                   <p>
@@ -170,7 +170,7 @@ const Contact = () => {
             <div
               className="col-lg-6"
               data-aos="fade-up"
-              data-aos-delay="600"
+              data-aos-delay="200"
               style={{ marginBottom: "7rem" }}
             >
               <div className="block__87154 bg-white rounded">

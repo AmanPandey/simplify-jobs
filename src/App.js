@@ -1,9 +1,8 @@
-import React, { useContext, useEffect } from "react";
+import React, { useEffect } from "react";
 import {
   BrowserRouter as Router,
   Routes,
   Route,
-  BrowserRouter,
   Navigate,
 } from "react-router-dom";
 
@@ -45,6 +44,7 @@ import JobListings from "./pages/JobListings";
 import EmployersList from "./admin/Pages/EmployersList.jsx";
 import AddEmployer from "./admin/Pages/AddEmployer.jsx";
 import EditEmployer from "./admin/Pages/EditEmployer.jsx";
+import ScrollToTop from "./components/ScrollToTop.js";
 
 function App() {
   useEffect(() => {
@@ -57,6 +57,7 @@ function App() {
   return (
     <Router>
       {/* <Navbar /> */}
+      <ScrollToTop />
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />

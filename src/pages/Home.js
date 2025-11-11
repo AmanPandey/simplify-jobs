@@ -71,7 +71,7 @@ const Home = () => {
           id="home-section"
           style={{ backgroundImage: "url('images/hero_1.jpg')" }}
         >
-          <div className="container" data-aos="zoom-in" data-aos-delay="1000">
+          <div className="container" data-aos="zoom-in" data-aos-delay="200">
             <div className="row align-items-center justify-content-center">
               <div className="col-md-12">
                 <div className="mb-5 text-center">
@@ -185,7 +185,7 @@ const Home = () => {
             <div
               className="col-lg-6 mb-5 mb-lg-0"
               data-aos="zoom-in"
-              data-aos-delay="500"
+              data-aos-delay="200"
             >
               <img
                 src="images/sq_img_6.jpg"
@@ -196,7 +196,7 @@ const Home = () => {
             <div
               className="col-lg-5 ml-auto"
               data-aos="zoom-in"
-              data-aos-delay="500"
+              data-aos-delay="200"
             >
               <h2 className="section-title mb-3">Why Choose SimplifyJob?</h2>
               <p className="lead">
@@ -219,7 +219,7 @@ const Home = () => {
           <div
             className="row mb-5 justify-content-center"
             data-aos="zoom-in"
-            data-aos-delay="500"
+            data-aos-delay="200"
           >
             <div className="col-md-7 text-center">
               <h2 className="section-title mb-2">Browse by Category</h2>
@@ -230,7 +230,7 @@ const Home = () => {
             <div
               className="col-12 col-md-3 mb-4 mb-md-0"
               data-aos="fade-up"
-              data-aos-delay="1000"
+              data-aos-delay="200"
             >
               <a
                 href="service-single.html"
@@ -246,7 +246,7 @@ const Home = () => {
             <div
               className="col-12 col-md-3 mb-4 mb-md-0 "
               data-aos="fade-up"
-              data-aos-delay="1100"
+              data-aos-delay="200"
             >
               <a
                 href="service-single.html"
@@ -262,7 +262,7 @@ const Home = () => {
             <div
               className="col-12 col-md-3 mb-4 mb-md-0"
               data-aos="fade-up"
-              data-aos-delay="1200"
+              data-aos-delay="200"
             >
               <a
                 href="service-single.html"
@@ -278,7 +278,7 @@ const Home = () => {
             <div
               className="col-12 col-md-3 mb-4 mb-md-0"
               data-aos="fade-up"
-              data-aos-delay="1300"
+              data-aos-delay="200"
             >
               <a
                 href="service-single.html"
@@ -301,7 +301,7 @@ const Home = () => {
           {/* <div
             className="row mb-5 justify-content-center"
             data-aos="zoom-in"
-            data-aos-delay="1000"
+            data-aos-delay="200"
           >
             <div className="col-md-7 text-center">
               <h2 className="section-title mb-2">Feature Jobs</h2>
@@ -312,7 +312,7 @@ const Home = () => {
             <li
               className="job-listing d-block d-md-flex pb-3 pb-sm-0 align-items-center"
               data-aos="fade-up"
-              data-aos-delay="1000"
+              data-aos-delay="200"
             >
               <a href="job-single.html"></a>
               <div className="job-listing-logo">
@@ -342,7 +342,7 @@ const Home = () => {
             <li
               className="job-listing d-block d-md-flex pb-3 pb-sm-0 align-items-center"
               data-aos="fade-up"
-              data-aos-delay="1100"
+              data-aos-delay="200"
             >
               <a href="job-single.html"></a>
               <div className="job-listing-logo">
@@ -373,7 +373,7 @@ const Home = () => {
             <li
               className="job-listing d-block d-md-flex pb-3 pb-sm-0 align-items-center"
               data-aos="fade-up"
-              data-aos-delay="1200"
+              data-aos-delay="200"
             >
               <a href="job-single.html"></a>
               <div className="job-listing-logo">
@@ -428,7 +428,7 @@ const Home = () => {
           <div
             className="row d-flex justify-content-center"
             data-aos="zoom"
-            data-aos-delay="1000"
+            data-aos-delay="200"
           >
             <button className="btn explore-more-jobs">Expore More Jobs</button>
           </div>
@@ -442,7 +442,7 @@ const Home = () => {
             <div
               className="col-md-7 text-center"
               data-aos="zoom-in"
-              data-aos-delay="1000"
+              data-aos-delay="200"
             >
               <h2 className="section-title mb-2">Jobs by Location</h2>
             </div>
@@ -451,7 +451,7 @@ const Home = () => {
             <div
               className="col-12 col-sm-6 col-lg-3 mb-5"
               data-aos="fade-up"
-              data-aos-delay="1000"
+              data-aos-delay="200"
             >
               <div className="card h-100">
                 <div className="card-img-wrapper">
@@ -478,7 +478,7 @@ const Home = () => {
             <div
               className="col-12 col-sm-6 col-lg-3 mb-5"
               data-aos="fade-up"
-              data-aos-delay="1100"
+              data-aos-delay="200"
             >
               <div className="card h-100">
                 <div className="card-img-wrapper">
@@ -505,7 +505,7 @@ const Home = () => {
             <div
               className="col-12 col-sm-6 col-lg-3 mb-5"
               data-aos="fade-up"
-              data-aos-delay="1200"
+              data-aos-delay="200"
             >
               <div className="card h-100">
                 <div className="card-img-wrapper">
@@ -532,7 +532,7 @@ const Home = () => {
             <div
               className="col-12 col-sm-6 col-lg-3 mb-5"
               data-aos="fade-up"
-              data-aos-delay="1300"
+              data-aos-delay="200"
             >
               <div className="card h-100">
                 <div className="card-img-wrapper">
@@ -573,7 +573,7 @@ const Home = () => {
           <div
             className="row align-items-center"
             data-aos="fade-up"
-            data-aos-delay="1000"
+            data-aos-delay="200"
           >
             <div className="col-md-8 mb-3">
               <h2 className="text-white section-title">We are HIRING</h2>
@@ -603,7 +603,7 @@ const Home = () => {
                 <div
                   className="col-md-7"
                   data-aos="zoom-in"
-                  data-aos-delay="1000"
+                  data-aos-delay="200"
                 >
                   <h2 className="section-title mb-2">Top Recruiters Hiring</h2>
                 </div>
@@ -612,7 +612,7 @@ const Home = () => {
             <div
               className="col-6 col-lg-3 col-md-6 text-center mb-5"
               data-aos="fade-up"
-              data-aos-delay="1000"
+              data-aos-delay="200"
             >
               <img
                 src="images/tesla-svgrepo-com.svg"
@@ -623,7 +623,7 @@ const Home = () => {
             <div
               className="col-6 col-lg-3 col-md-6 text-center mb-5"
               data-aos="fade-up"
-              data-aos-delay="1100"
+              data-aos-delay="200"
             >
               <img
                 src="images/amazon-icon-logo-svgrepo-com.svg"
@@ -634,7 +634,7 @@ const Home = () => {
             <div
               className="col-6 col-lg-3 col-md-6 text-center mb-5"
               data-aos="fade-up"
-              data-aos-delay="1200"
+              data-aos-delay="200"
             >
               <img
                 src="images/linkedin-161-svgrepo-com.svg"
@@ -645,7 +645,7 @@ const Home = () => {
             <div
               className="col-6 col-lg-3 col-md-6 text-center mb-5"
               data-aos="fade-up"
-              data-aos-delay="1300"
+              data-aos-delay="200"
             >
               <img
                 src="images/exela-technologies-logo-png_seeklogo-350880.svg"
@@ -668,7 +668,7 @@ const Home = () => {
           <div
             className="row mb-5 justify-content-center"
             data-aos="zoom-in"
-            data-aos-delay="1000"
+            data-aos-delay="200"
           >
             <div className="col-md-7 text-center">
               <h2 className="section-title mb-2" style={{ fontWeight: "700" }}>
@@ -680,7 +680,7 @@ const Home = () => {
             <div
               className="col-12 col-md-4 mb-4 align-items-stretch d-flex"
               data-aos="fade-up"
-              data-aos-delay="1000"
+              data-aos-delay="200"
             >
               <a href="#" className="block__16443 text-center d-block">
                 <span className="custom-icon mx-auto">
@@ -696,7 +696,7 @@ const Home = () => {
             <div
               className="col-12 col-md-4 mb-4 align-items-stretch d-flex"
               data-aos="fade-up"
-              data-aos-delay="1100"
+              data-aos-delay="200"
             >
               <a href="#" className="block__16443 text-center d-block">
                 <span className="custom-icon mx-auto">
@@ -712,7 +712,7 @@ const Home = () => {
             <div
               className="col-12 col-md-4 mb-4  align-items-stretch d-flex"
               data-aos="fade-up"
-              data-aos-delay="1200"
+              data-aos-delay="200"
             >
               <a href="#" className="block__16443 text-center d-block">
                 <span className="custom-icon mx-auto">
@@ -741,7 +741,7 @@ const Home = () => {
           <div
             className="row align-items-center d-flex flex-column"
             data-aos="zoom-in"
-            data-aos-delay="1000"
+            data-aos-delay="200"
           >
             <div className="col-md-8 mx-auto text-center">
               <h2 className="text-white section-title">
