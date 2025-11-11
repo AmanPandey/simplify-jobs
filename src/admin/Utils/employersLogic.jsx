@@ -1,5 +1,4 @@
 import axios from "axios";
-
 const API_URL = "https://simplify-job-node-js-backend-api.vercel.app/api";
 
 export async function addEmployer(credentials, token) {

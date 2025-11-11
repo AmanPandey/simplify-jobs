@@ -6,8 +6,6 @@ import AdminContext from "../Context/AdminContext";
 const ProtectedRoute = ({ children }) => {
   const [valid, setValid] = useState(null);
   const [user, setUser] = useState(null);
-  // console.log(user);
-
   const { token, logout } = useContext(AdminContext);
 
   useEffect(() => {

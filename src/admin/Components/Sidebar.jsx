@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import AdminContext from "../Context/AdminContext";
 
@@ -6,7 +6,6 @@ import {
   FaBars,
   FaTachometerAlt,
   FaBriefcase,
-  FaUsers,
   FaSignOutAlt,
   FaTimes,
 } from "react-icons/fa";
@@ -14,8 +13,6 @@ import {
 const Sidebar = () => {
   const { showSidebar, setShowSidebar, setDraft, setIsAuthentication } =
     useContext(AdminContext);
-
-  const navigate = useNavigate();
 
   function toggleSidebar() {
     setShowSidebar(!showSidebar);
@@ -68,37 +65,7 @@ const Sidebar = () => {
               Jobs
             </NavLink>
           </li>
-          {/* <li>
-            <NavLink
-              to="/admin/addjob"
-              onClick={() => setShowSidebar(false)}
-              className={({ isActive }) =>
-                `nav-link fw-semibold ${
-                  isActive ? "text-white bg-active" : "text-dark"
-                }`
-              }
-            >
-              <FaBriefcase className="mr-2" />
-              Add Job
-            </NavLink>
-          </li> */}
-          {/* <li>
-            <NavLink
-              to="/admin/draft"
-              onClick={() => {
-                setShowSidebar(false);
-                setDraft(true);
-              }}
-              className={({ isActive }) =>
-                `nav-link fw-semibold ${
-                  isActive ? "text-white bg-active" : "text-dark"
-                }`
-              }
-            >
-              <FaUsers className="mr-2" />
-              Draft
-            </NavLink>
-          </li> */}
+
           <li>
             <NavLink
               to="/admin/employers"

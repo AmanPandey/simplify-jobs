@@ -8,19 +8,8 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import Notification from "../Components/Notification";
 
 const AuthUser = React.memo(() => {
-  const {
-    isSignUpMode,
-    setIsSignUpMode,
-    errors,
-    setErrors,
-    formData,
-    setFormData,
-    setIsAuthentication,
-    login,
-    setNotif,
-    notif,
-  } = useContext(AdminContext);
-  // console.log(isSignUpMode);
+  const { errors, setErrors, formData, setFormData, login, setNotif, notif } =
+    useContext(AdminContext);
 
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);

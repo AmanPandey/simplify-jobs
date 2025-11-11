@@ -1,21 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
 import Input from "../Components/Input";
-
 import { validate } from "../Utils/Validate";
 import AdminContext from "../Context/AdminContext";
 import Notification from "../Components/Notification";
-import {
-  addEmployer,
-  getEmployer,
-  updateEmployer,
-} from "../Utils/employersLogic";
+import { getEmployer, updateEmployer } from "../Utils/employersLogic";
 import { useCallback } from "react";
-import {
-  Navigate,
-  useNavigate,
-  useParams,
-  useSearchParams,
-} from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 const EditEmployer = () => {
   const { errors, setErrors, token, setNotif, notif } =

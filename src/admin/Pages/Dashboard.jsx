@@ -1,13 +1,6 @@
 import React from "react";
 import CardStat from "../Components/CardStat";
-import {
-  FaUser,
-  FaBriefcase,
-  FaFileAlt,
-  FaUserTie,
-  FaCheckCircle,
-  FaTimesCircle,
-} from "react-icons/fa";
+import { FaUser, FaBriefcase, FaFileAlt, FaUserTie } from "react-icons/fa";
 import {
   BarChart,
   Bar,

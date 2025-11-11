@@ -1,14 +1,8 @@
-import React, { useContext } from "react";
+import React from "react";
 import Button from "../Components/Button";
-
 import { useNavigate } from "react-router-dom";
-import AdminContext from "../Context/AdminContext";
-
-import { Dropdown } from "react-bootstrap";
-import { FaEdit, FaTrash, FaEllipsisV } from "react-icons/fa";
 
 const AdminJobsListing = () => {
-  const { setEditJob, draft } = useContext(AdminContext);
   const navigate = useNavigate();
 
   return (

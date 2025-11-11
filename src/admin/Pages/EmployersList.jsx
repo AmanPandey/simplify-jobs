@@ -2,16 +2,12 @@ import React, { useCallback, useContext, useEffect, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import AdminContext from "../Context/AdminContext";
 import Notification from "../Components/Notification";
-
 import Button from "../Components/Button";
-
 import { Dropdown } from "react-bootstrap";
 import { FaEdit, FaTrash, FaEllipsisV } from "react-icons/fa";
 import { deletEmployer, getAllEmployers } from "../Utils/employersLogic";
 
 const EmployersList = () => {
-  const [searchParams] = useSearchParams();
-  const id = searchParams.get("id")?.trim();
   const [empData, setEmpData] = useState([]);
   const [loading, setLoading] = useState(false);
   const { token, notif, setNotif } = useContext(AdminContext);
