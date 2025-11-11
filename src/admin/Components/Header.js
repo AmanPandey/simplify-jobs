@@ -1,6 +1,4 @@
 import React from "react";
-import Button from "./Button";
-
 const Header = () => {
   return (
     <header
@@ -25,7 +23,6 @@ const Header = () => {
             >
               SimplifyJob
             </h1>
-            {/* <Button className="btn btn-primary">Log Out</Button> */}
           </div>
         </div>
       </div>

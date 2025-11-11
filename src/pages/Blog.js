@@ -35,7 +35,7 @@ const Blog = () => {
               <Link href="blog-single.html">
                 <img
                   src="simply-blog-1.jpg"
-                  alt="Image"
+                  alt="simply-blog-1"
                   className="img-fluid rounded mb-4 blog-img"
                 />
               </Link>
@@ -55,7 +55,7 @@ const Blog = () => {
               <Link href="blog-single.html">
                 <img
                   src="simply-blog-2.jpg"
-                  alt="Image"
+                  alt="simply-blog-2"
                   className="img-fluid rounded mb-4 blog-img"
                 />
               </Link>
@@ -75,7 +75,7 @@ const Blog = () => {
               <Link href="blog-single.html">
                 <img
                   src="simply-blog-3.jpg"
-                  alt="Image"
+                  alt="simply-blog-3"
                   className="img-fluid rounded mb-4 blog-img"
                 />
               </Link>
@@ -95,7 +95,7 @@ const Blog = () => {
               <Link href="blog-single.html">
                 <img
                   src="simply-blog-4.jpg"
-                  alt="Image"
+                  alt="simply-blog-4"
                   className="img-fluid rounded mb-4 blog-img"
                 />
               </Link>
@@ -115,7 +115,7 @@ const Blog = () => {
               <Link href="blog-single.html">
                 <img
                   src="images/sq_img_5.jpg"
-                  alt="Image"
+                  alt="Skill Development Courses to Boost Your Career"
                   className="img-fluid rounded mb-4 blog-img"
                 />
               </Link>
@@ -135,7 +135,7 @@ const Blog = () => {
               <Link href="blog-single.html">
                 <img
                   src="simply-blog-6.jpg"
-                  alt="Image"
+                  alt="Understanding Salary Insights Before Negotiation"
                   className="img-fluid rounded mb-4 blog-img"
                 />
               </Link>

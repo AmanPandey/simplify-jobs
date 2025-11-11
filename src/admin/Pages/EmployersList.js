@@ -1,5 +1,5 @@
 import React, { useCallback, useContext, useEffect, useState } from "react";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import AdminContext from "../Context/AdminContext";
 import Notification from "../Components/Notification";
 import Button from "../Components/Button";

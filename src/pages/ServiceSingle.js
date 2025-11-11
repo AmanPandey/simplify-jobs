@@ -37,7 +37,7 @@ const ServiceSingle = () => {
                   <li>
                     <Link
                       to="#"
-                      className={`${tab == 1 ? "service_single_current" : ""}`}
+                      className={`${tab === 1 ? "service_single_current" : ""}`}
                       onClick={() => setTab(1)}
                     >
                       Smart Job Search
@@ -46,7 +46,7 @@ const ServiceSingle = () => {
                   <li>
                     <Link
                       to="#"
-                      className={`${tab == 2 ? "service_single_current" : ""}`}
+                      className={`${tab === 2 ? "service_single_current" : ""}`}
                       onClick={() => setTab(2)}
                     >
                       Employer Connection
@@ -55,7 +55,7 @@ const ServiceSingle = () => {
                   <li>
                     <Link
                       to="#"
-                      className={`${tab == 3 ? "service_single_current" : ""}`}
+                      className={`${tab === 3 ? "service_single_current" : ""}`}
                       onClick={() => setTab(3)}
                     >
                       Career Advice
@@ -64,7 +64,7 @@ const ServiceSingle = () => {
                   <li>
                     <Link
                       to="#"
-                      className={`${tab == 4 ? "service_single_current" : ""}`}
+                      className={`${tab === 4 ? "service_single_current" : ""}`}
                       onClick={() => setTab(4)}
                     >
                       Skill Development
@@ -73,7 +73,7 @@ const ServiceSingle = () => {
                   <li>
                     <Link
                       to="#"
-                      className={`${tab == 5 ? "service_single_current" : ""}`}
+                      className={`${tab === 5 ? "service_single_current" : ""}`}
                       onClick={() => setTab(5)}
                     >
                       Salary & Market Insights
@@ -82,7 +82,7 @@ const ServiceSingle = () => {
                 </ul>
               </div>
             </div>
-            {tab == 1 && (
+            {tab === 1 && (
               <div className="col-lg-8" data-aos="zoom-in" data-aos-delay="200">
                 <span className="text-primary d-block mb-5">
                   <span className="icon-search display-1"></span>
@@ -110,7 +110,7 @@ const ServiceSingle = () => {
                 </p>
               </div>
             )}
-            {tab == 2 && (
+            {tab === 2 && (
               <div className="col-lg-8" data-aos="zoom-in" data-aos-delay="200">
                 <span className="text-primary d-block mb-5">
                   <span className="icon-briefcase display-1"></span>
@@ -136,7 +136,7 @@ const ServiceSingle = () => {
                 </p>
               </div>
             )}{" "}
-            {tab == 3 && (
+            {tab === 3 && (
               <div className="col-lg-8" data-aos="zoom-in" data-aos-delay="200">
                 <span className="text-primary d-block mb-5">
                   <i className="fas fa-lightbulb display-1"></i>
@@ -163,7 +163,7 @@ const ServiceSingle = () => {
                 </p>
               </div>
             )}{" "}
-            {tab == 4 && (
+            {tab === 4 && (
               <div className="col-lg-8" data-aos="zoom-in" data-aos-delay="200">
                 <span className="text-primary d-block mb-5">
                   <span className="icon-graduation-cap display-1"></span>
@@ -190,7 +190,7 @@ const ServiceSingle = () => {
                 </p>
               </div>
             )}{" "}
-            {tab == 5 && (
+            {tab === 5 && (
               <div className="col-lg-8" data-aos="zoom-in" data-aos-delay="200">
                 <span className="text-primary d-block mb-5">
                   <span className="icon-bar-chart display-1"></span>

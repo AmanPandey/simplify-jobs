@@ -4,6 +4,9 @@
 /node_modules
 /.pnp
 .pnp.js
+src/pages/PortfolioSingle.js
+src/pages/Portfolio.js
+
 
 # testing
 /coverage

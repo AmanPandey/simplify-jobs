@@ -337,7 +337,7 @@ const JobSingle = () => {
               <div className="job-listing-logo">
                 <img
                   src="images/job_logo_1.jpg"
-                  alt="Image"
+                  alt="Adidas"
                   className="img-fluid"
                 />
               </div>
@@ -367,7 +367,7 @@ const JobSingle = () => {
               <div className="job-listing-logo">
                 <img
                   src="images/job_logo_2.jpg"
-                  alt="Image"
+                  alt="Sprint"
                   className="img-fluid"
                 />
               </div>
@@ -398,7 +398,7 @@ const JobSingle = () => {
               <div className="job-listing-logo">
                 <img
                   src="images/job_logo_3.jpg"
-                  alt="Image"
+                  alt="Amazon"
                   className="img-fluid"
                 />
               </div>
@@ -429,7 +429,7 @@ const JobSingle = () => {
               <div className="job-listing-logo">
                 <img
                   src="images/job_logo_4.jpg"
-                  alt="Image"
+                  alt="Microsoft"
                   className="img-fluid"
                 />
               </div>
@@ -460,7 +460,7 @@ const JobSingle = () => {
               <div className="job-listing-logo">
                 <img
                   src="images/job_logo_5.jpg"
-                  alt="Image"
+                  alt="Puma"
                   className="img-fluid"
                 />
               </div>
@@ -490,7 +490,7 @@ const JobSingle = () => {
               <div className="job-listing-logo">
                 <img
                   src="images/job_logo_1.jpg"
-                  alt="Image"
+                  alt="Adidas"
                   className="img-fluid"
                 />
               </div>
@@ -520,7 +520,7 @@ const JobSingle = () => {
               <div className="job-listing-logo">
                 <img
                   src="images/job_logo_2.jpg"
-                  alt="Image"
+                  alt="Sprint"
                   className="img-fluid"
                 />
               </div>

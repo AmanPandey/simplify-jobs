@@ -155,7 +155,7 @@ const Contact = () => {
                   <figure className="mr-4">
                     <img
                       src="contact-client-1.jpg"
-                      alt="Image"
+                      alt="Anita Sharma"
                       className="img-fluid"
                     />
                   </figure>
@@ -186,7 +186,7 @@ const Contact = () => {
                   <figure className="mr-4">
                     <img
                       src="contact-client-2.jpg"
-                      alt="Image"
+                      alt="David Lee"
                       className="img-fluid"
                     />
                   </figure>

@@ -33,7 +33,7 @@ const FAQ = () => {
             <div className="col-lg-6" data-aos="zoom-in" data-aos-delay="200">
               <img
                 src="images/sq_img_8.jpg"
-                alt="Image"
+                alt="Faq"
                 className="img-fluid rounded"
               />
             </div>

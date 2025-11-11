@@ -34,7 +34,11 @@ const Gallery = () => {
                 data-fancybox="gallery2"
               >
                 <span className="icon-search2"></span>
-                <img className="img-fluid" src="images/sq_img_1.jpg" />
+                <img
+                  className="img-fluid"
+                  src="images/sq_img_1.jpg"
+                  alt="gallery-1"
+                />
               </a>
             </div>
             <div className="col-md-6 col-lg-4 item">
@@ -44,7 +48,11 @@ const Gallery = () => {
                 data-fancybox="gallery2"
               >
                 <span className="icon-search2"></span>
-                <img className="img-fluid" src="images/sq_img_2.jpg" />
+                <img
+                  className="img-fluid"
+                  src="images/sq_img_2.jpg"
+                  alt="gallery-2"
+                />
               </a>
             </div>
             <div className="col-md-6 col-lg-4 item">
@@ -54,7 +62,11 @@ const Gallery = () => {
                 data-fancybox="gallery2"
               >
                 <span className="icon-search2"></span>
-                <img className="img-fluid" src="images/sq_img_3.jpg" />
+                <img
+                  className="img-fluid"
+                  src="images/sq_img_3.jpg"
+                  alt="gallery-3"
+                />
               </a>
             </div>
 
@@ -65,7 +77,11 @@ const Gallery = () => {
                 data-fancybox="gallery2"
               >
                 <span className="icon-search2"></span>
-                <img className="img-fluid" src="images/sq_img_4.jpg" />
+                <img
+                  className="img-fluid"
+                  src="images/sq_img_4.jpg"
+                  alt="gallery-4"
+                />
               </a>
             </div>
             <div className="col-md-6 col-lg-4 item">
@@ -75,7 +91,11 @@ const Gallery = () => {
                 data-fancybox="gallery2"
               >
                 <span className="icon-search2"></span>
-                <img className="img-fluid" src="images/sq_img_5.jpg" />
+                <img
+                  className="img-fluid"
+                  src="images/sq_img_5.jpg"
+                  alt="gallery-5"
+                />
               </a>
             </div>
             <div className="col-md-6 col-lg-4 item">
@@ -85,7 +105,11 @@ const Gallery = () => {
                 data-fancybox="gallery2"
               >
                 <span className="icon-search2"></span>
-                <img className="img-fluid" src="images/sq_img_6.jpg" />
+                <img
+                  className="img-fluid"
+                  src="images/sq_img_6.jpg"
+                  alt="gallery-6"
+                />
               </a>
             </div>
 
@@ -96,7 +120,11 @@ const Gallery = () => {
                 data-fancybox="gallery2"
               >
                 <span className="icon-search2"></span>
-                <img className="img-fluid" src="images/sq_img_11.jpg" />
+                <img
+                  className="img-fluid"
+                  src="images/sq_img_11.jpg"
+                  alt="gallery-7"
+                />
               </a>
             </div>
             <div className="col-md-6 col-lg-6 item">
@@ -106,7 +134,11 @@ const Gallery = () => {
                 data-fancybox="gallery2"
               >
                 <span className="icon-search2"></span>
-                <img className="img-fluid" src="images/sq_img_2.jpg" />
+                <img
+                  className="img-fluid"
+                  src="images/sq_img_2.jpg"
+                  alt="gallery-8"
+                />
               </a>
             </div>
 
@@ -117,7 +149,11 @@ const Gallery = () => {
                 data-fancybox="gallery2"
               >
                 <span className="icon-search2"></span>
-                <img className="img-fluid" src="images/sq_img_7.jpg" />
+                <img
+                  className="img-fluid"
+                  src="images/sq_img_7.jpg"
+                  alt="gallery-9"
+                />
               </a>
             </div>
             <div className="col-md-6 col-lg-4 item">
@@ -127,7 +163,11 @@ const Gallery = () => {
                 data-fancybox="gallery2"
               >
                 <span className="icon-search2"></span>
-                <img className="img-fluid" src="images/sq_img_8.jpg" />
+                <img
+                  className="img-fluid"
+                  src="images/sq_img_8.jpg"
+                  alt="gallery-9"
+                />
               </a>
             </div>
             <div className="col-md-6 col-lg-4 item">
@@ -137,7 +177,11 @@ const Gallery = () => {
                 data-fancybox="gallery2"
               >
                 <span className="icon-search2"></span>
-                <img className="img-fluid" src="images/sq_img_9.jpg" />
+                <img
+                  className="img-fluid"
+                  src="images/sq_img_9.jpg"
+                  alt="gallery-10"
+                />
               </a>
             </div>
 
@@ -148,7 +192,11 @@ const Gallery = () => {
                 data-fancybox="gallery2"
               >
                 <span className="icon-search2"></span>
-                <img className="img-fluid" src="images/sq_img_10.jpg" />
+                <img
+                  className="img-fluid"
+                  src="images/sq_img_10.jpg"
+                  alt="gallery-11"
+                />
               </a>
             </div>
             <div className="col-md-6 col-lg-4 item">
@@ -158,7 +206,11 @@ const Gallery = () => {
                 data-fancybox="gallery2"
               >
                 <span className="icon-search2"></span>
-                <img className="img-fluid" src="images/sq_img_11.jpg" />
+                <img
+                  className="img-fluid"
+                  src="images/sq_img_11.jpg"
+                  alt="gallery-12"
+                />
               </a>
             </div>
             <div className="col-md-6 col-lg-4 item">
@@ -168,7 +220,11 @@ const Gallery = () => {
                 data-fancybox="gallery2"
               >
                 <span className="icon-search2"></span>
-                <img className="img-fluid" src="images/sq_img_12.jpg" />
+                <img
+                  className="img-fluid"
+                  src="images/sq_img_12.jpg"
+                  alt="gallery-13"
+                />
               </a>
             </div>
           </div>

@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import AdminContext from "../Context/AdminContext";
 
 import {
@@ -11,8 +11,7 @@ import {
 } from "react-icons/fa";
 
 const Sidebar = () => {
-  const { showSidebar, setShowSidebar, setDraft, setIsAuthentication } =
-    useContext(AdminContext);
+  const { showSidebar, setShowSidebar } = useContext(AdminContext);
 
   function toggleSidebar() {
     setShowSidebar(!showSidebar);

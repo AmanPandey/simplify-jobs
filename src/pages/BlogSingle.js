@@ -119,7 +119,7 @@ const BlogSingle = () => {
               <div className="sidebar-box">
                 <img
                   src="images/person_1.jpg"
-                  alt="Image placeholder"
+                  alt="Sneha"
                   className="img-fluid mb-4 w-50 rounded-circle"
                 />
                 <h3 style={{ fontWeight: "600" }}>About The Author</h3>

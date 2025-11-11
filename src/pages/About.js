@@ -34,7 +34,7 @@ const About = () => {
             >
               <img
                 src="simple-about-intro.jpg"
-                alt="Image"
+                alt="about-intro"
                 className="img-fluid img-shadow h-100"
               />
             </div>

@@ -31,19 +31,19 @@ import Contact from "./pages/Contact";
 import Login from "./pages/Login";
 
 // BACKEND ADMIN
-import ProtectedRoute from "./admin/Routes/ProtectedRoute.jsx";
-import AuthUser from "./admin/Pages/AuthUser.jsx";
+import ProtectedRoute from "./admin/Routes/ProtectedRoute.js";
+import AuthUser from "./admin/Pages/AuthUser.js";
 import AdminLayout from "./admin/Layout/AdminLayout";
 import Dashboard from "./admin/Pages/Dashboard";
 import AddNewJob from "./admin/Pages/AddNewJob";
 import DraftJobs from "./admin/Pages/DraftJobs";
 import EditJob from "./admin/Pages/EditJob";
 import Layout from "./components/Layout";
-import AdminJobsListing from "./admin/Pages/AdminJobsListing.jsx";
+import AdminJobsListing from "./admin/Pages/AdminJobsListing.js";
 import JobListings from "./pages/JobListings";
-import EmployersList from "./admin/Pages/EmployersList.jsx";
-import AddEmployer from "./admin/Pages/AddEmployer.jsx";
-import EditEmployer from "./admin/Pages/EditEmployer.jsx";
+import EmployersList from "./admin/Pages/EmployersList.js";
+import AddEmployer from "./admin/Pages/AddEmployer.js";
+import EditEmployer from "./admin/Pages/EditEmployer.js";
 import ScrollToTop from "./components/ScrollToTop.js";
 
 function App() {
@@ -56,7 +56,6 @@ function App() {
 
   return (
     <Router>
-      {/* <Navbar /> */}
       <ScrollToTop />
       <Routes>
         <Route element={<Layout />}>

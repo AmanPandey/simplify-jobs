@@ -149,17 +149,17 @@ const Home = () => {
                       <h3>Trending Keywords:</h3>
                       <ul className="keywords list-unstyled m-0 p-0">
                         <li>
-                          <a href="#" className="mr-1">
+                          <a href="/" className="mr-1">
                             Regional Manager
                           </a>
                         </li>
                         <li>
-                          <a href="#" className="mr-1">
+                          <a href="/" className="mr-1">
                             Cane Manager
                           </a>
                         </li>
                         <li>
-                          <a href="#" className="mr-1">
+                          <a href="/" className="mr-1">
                             {" "}
                             Service Head
                           </a>
@@ -189,7 +189,7 @@ const Home = () => {
             >
               <img
                 src="images/sq_img_6.jpg"
-                alt="Image"
+                alt="Why Choose SimplifyJob"
                 className="img-fluid img-shadow"
               />
             </div>
@@ -314,60 +314,62 @@ const Home = () => {
               data-aos="fade-up"
               data-aos-delay="200"
             >
-              <a href="job-single.html"></a>
-              <div className="job-listing-logo">
-                <img
-                  src="images/job_logo_1.jpg"
-                  alt="Free Website Template by Free-Template.co"
-                  className="img-fluid"
-                />
-              </div>
+              <a href="job-single.html">
+                <div className="job-listing-logo">
+                  <img
+                    src="images/job_logo_1.jpg"
+                    alt="Free Website Template by Free-Template.co"
+                    className="img-fluid"
+                  />
+                </div>
 
-              <div className="job-listing-about d-md-flex custom-width w-100 justify-content-between mx-4">
-                <div className="job-listing-position custom-width w-25 mb-3">
-                  <h2>Mechanical Design Engineer</h2>
-                  <strong>Tesla</strong>
+                <div className="job-listing-about d-md-flex custom-width w-100 justify-content-between mx-4">
+                  <div className="job-listing-position custom-width w-25 mb-3">
+                    <h2>Mechanical Design Engineer</h2>
+                    <strong>Tesla</strong>
+                  </div>
+                  <div className="job-listing-location mb-3 custom-width w-25">
+                    <span className="icon-room"></span>London, UK
+                  </div>
+                  <div className="job-listing-location mb-3 custom-width w-25">
+                    <span className=""></span>$80,000/year
+                  </div>
+                  <div className="job-listing-meta w-25 text-md-right mb-3">
+                    <span className="badge badge-success">Full-Time</span>
+                  </div>
                 </div>
-                <div className="job-listing-location mb-3 custom-width w-25">
-                  <span className="icon-room"></span>London, UK
-                </div>
-                <div className="job-listing-location mb-3 custom-width w-25">
-                  <span className=""></span>$80,000/year
-                </div>
-                <div className="job-listing-meta w-25 text-md-right mb-3">
-                  <span className="badge badge-success">Full-Time</span>
-                </div>
-              </div>
+              </a>
             </li>
             <li
               className="job-listing d-block d-md-flex pb-3 pb-sm-0 align-items-center"
               data-aos="fade-up"
               data-aos-delay="200"
             >
-              <a href="job-single.html"></a>
-              <div className="job-listing-logo">
-                <img
-                  src="images/job_logo_2.jpg"
-                  alt="Free Website Template by Free-Template.co"
-                  className="img-fluid"
-                />
-              </div>
+              <a href="job-single.html">
+                <div className="job-listing-logo">
+                  <img
+                    src="images/job_logo_2.jpg"
+                    alt="Free Website Template by Free-Template.co"
+                    className="img-fluid"
+                  />
+                </div>
 
-              <div className="job-listing-about d-md-flex custom-width w-100 justify-content-between mx-4">
-                <div className="job-listing-position custom-width w-25 mb-3">
-                  <h2>Master Distiller</h2>
-                  <strong>Car Toys</strong>
+                <div className="job-listing-about d-md-flex custom-width w-100 justify-content-between mx-4">
+                  <div className="job-listing-position custom-width w-25 mb-3">
+                    <h2>Master Distiller</h2>
+                    <strong>Car Toys</strong>
+                  </div>
+                  <div className="job-listing-location mb-3 custom-width w-25">
+                    <span className="icon-room"></span>Denmark
+                  </div>
+                  <div className="job-listing-location mb-3 custom-width w-25">
+                    <span className=""></span>$60,000/year
+                  </div>
+                  <div className="job-listing-meta w-25 text-md-right mb-3">
+                    <span className="badge badge-success">Full-Time</span>
+                  </div>
                 </div>
-                <div className="job-listing-location mb-3 custom-width w-25">
-                  <span className="icon-room"></span>Denmark
-                </div>
-                <div className="job-listing-location mb-3 custom-width w-25">
-                  <span className=""></span>$60,000/year
-                </div>
-                <div className="job-listing-meta w-25 text-md-right mb-3">
-                  <span className="badge badge-success">Full-Time</span>
-                </div>
-              </div>
+              </a>
             </li>
 
             <li
@@ -375,30 +377,31 @@ const Home = () => {
               data-aos="fade-up"
               data-aos-delay="200"
             >
-              <a href="job-single.html"></a>
-              <div className="job-listing-logo">
-                <img
-                  src="images/job_logo_3.jpg"
-                  alt="Free Website Template by Free-Template.co"
-                  className="img-fluid"
-                />
-              </div>
+              <a href="job-single.html">
+                <div className="job-listing-logo">
+                  <img
+                    src="images/job_logo_3.jpg"
+                    alt="Free Website Template by Free-Template.co"
+                    className="img-fluid"
+                  />
+                </div>
 
-              <div className="job-listing-about d-md-flex custom-width w-100 justify-content-between mx-4">
-                <div className="job-listing-position custom-width w-25 mb-3">
-                  <h2>Investment Analyst</h2>
-                  <strong> Ibotta, Inc</strong>
+                <div className="job-listing-about d-md-flex custom-width w-100 justify-content-between mx-4">
+                  <div className="job-listing-position custom-width w-25 mb-3">
+                    <h2>Investment Analyst</h2>
+                    <strong> Ibotta, Inc</strong>
+                  </div>
+                  <div className="job-listing-location mb-3 custom-width w-25">
+                    <span className="icon-room"></span>Germany
+                  </div>
+                  <div className="job-listing-location mb-3 custom-width w-25">
+                    <span className=""></span>$45/hr
+                  </div>
+                  <div className="job-listing-meta w-25 text-md-right mb-3">
+                    <span className="badge badge-danger">Part-Time</span>
+                  </div>
                 </div>
-                <div className="job-listing-location mb-3 custom-width w-25">
-                  <span className="icon-room"></span>Germany
-                </div>
-                <div className="job-listing-location mb-3 custom-width w-25">
-                  <span className=""></span>$45/hr
-                </div>
-                <div className="job-listing-meta w-25 text-md-right mb-3">
-                  <span className="badge badge-danger">Part-Time</span>
-                </div>
-              </div>
+              </a>
             </li>
           </ul>
 
@@ -616,7 +619,7 @@ const Home = () => {
             >
               <img
                 src="images/tesla-svgrepo-com.svg"
-                alt="Image"
+                alt="tesla"
                 className="img-fluid logo-1 recruiters-logo"
               />
             </div>
@@ -627,7 +630,7 @@ const Home = () => {
             >
               <img
                 src="images/amazon-icon-logo-svgrepo-com.svg"
-                alt="Image"
+                alt="amazon"
                 className="img-fluid logo-2 recruiters-logo"
               />
             </div>
@@ -638,7 +641,7 @@ const Home = () => {
             >
               <img
                 src="images/linkedin-161-svgrepo-com.svg"
-                alt="Image"
+                alt="linkedin"
                 className="img-fluid logo-3 recruiters-logo"
               />
             </div>
@@ -649,7 +652,7 @@ const Home = () => {
             >
               <img
                 src="images/exela-technologies-logo-png_seeklogo-350880.svg"
-                alt="Image"
+                alt="exela"
                 className="img-fluid logo-4 recruiters-logo"
               />
             </div>
@@ -682,7 +685,7 @@ const Home = () => {
               data-aos="fade-up"
               data-aos-delay="200"
             >
-              <a href="#" className="block__16443 text-center d-block">
+              <a href="/" className="block__16443 text-center d-block">
                 <span className="custom-icon mx-auto">
                   <span className="icon-chat d-block"></span>
                 </span>
@@ -698,7 +701,7 @@ const Home = () => {
               data-aos="fade-up"
               data-aos-delay="200"
             >
-              <a href="#" className="block__16443 text-center d-block">
+              <a href="/" className="block__16443 text-center d-block">
                 <span className="custom-icon mx-auto">
                   <span className="icon-briefcase d-block"></span>
                 </span>
@@ -714,7 +717,7 @@ const Home = () => {
               data-aos="fade-up"
               data-aos-delay="200"
             >
-              <a href="#" className="block__16443 text-center d-block">
+              <a href="/" className="block__16443 text-center d-block">
                 <span className="custom-icon mx-auto">
                   <span className="icon-beer d-block"></span>
                 </span>
