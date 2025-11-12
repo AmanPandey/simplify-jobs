@@ -1,17 +1,19 @@
 import React, { useContext, useEffect, useState } from "react";
 import Input from "../Components/Input";
+import styles from "../assets/admin.module.css";
 
 import { validate } from "../Utils/Validate";
 import AdminContext from "../Context/AdminContext";
 import Notification from "../Components/Notification";
 import { addEmployer } from "../Utils/employersLogic";
-import { useCallback } from "react";
+
 import { useNavigate } from "react-router-dom";
 
 const AddEmployer = () => {
   const { errors, setErrors, token, setNotif, notif } =
     useContext(AdminContext);
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
 
   const [empFormData, setEmpFormData] = useState({
     name: "",
@@ -25,25 +27,23 @@ const AddEmployer = () => {
     description: "",
     status: "active",
   });
+
+  // clear notification msg
+
   useEffect(() => {
     if (notif?.message) {
       setNotif({ id: null, message: "", type: "" });
     }
   }, []);
 
-  // ✅ Ensure this is memoized and doesn’t trigger re-renders
-  const handleNotifClose = useCallback(() => {
-    if (notif?.message) {
-      setNotif({ id: null, message: "", type: "" });
-    }
-  }, [notif, setNotif]);
-
+  // handle form input
   function handleChange(e) {
     const { name, value } = e.target;
     setEmpFormData((prev) => ({ ...prev, [name]: value }));
     setErrors((prevError) => ({ ...prevError, [name]: "" }));
   }
 
+  // validate input
   const validationConfig = {
     name: [
       { required: true, message: "Please enter your name." },
@@ -66,6 +66,7 @@ const AddEmployer = () => {
     ],
   };
 
+  // form submit
   async function handleSubmit(e) {
     e.preventDefault();
     const errors = validate(
@@ -85,7 +86,13 @@ const AddEmployer = () => {
       return;
     }
     try {
+      setLoading(true);
       const res = await addEmployer(empFormData, token);
+      if (!res.success) {
+        setNotif({ id: Date.now(), message: res.message, type: "error" });
+        return;
+      }
+
       setNotif({ id: Date.now(), message: res.message, type: "success" });
       setEmpFormData({
         name: "",
@@ -99,13 +106,20 @@ const AddEmployer = () => {
         description: "",
         status: "active",
       });
+
       setTimeout(() => {
         navigate("/admin/employers");
       }, 4000);
     } catch (error) {
       console.log(error.message);
       const errorMsg = error.message;
-      setNotif({ id: Date.now(), message: errorMsg, type: "error" });
+      setNotif({
+        id: Date.now(),
+        message: errorMsg || "Something went wrong.",
+        type: "error",
+      });
+    } finally {
+      setLoading(false);
     }
   }
 
@@ -116,10 +130,9 @@ const AddEmployer = () => {
           key={notif.id}
           message={notif.message}
           type={notif.type}
-          onClose={handleNotifClose}
         />
       )}
-      <div className="rounded shadow px-3 pt-3 pb-5 bg-white">
+      <div className="container rounded shadow px-3 pt-3 pb-5 bg-white ">
         <div className="row mb-4 d-flex justify-content-between">
           <div className="col-md-6 d-flex">
             <h3 className="mb-0 fw-bold">Add Employer</h3>
@@ -314,8 +327,13 @@ const AddEmployer = () => {
             <div className="col-12 text-end">
               <button
                 type="submit"
-                className="btn global-btn px-4"
-                style={{ fontWeight: "600" }}
+                className={`${styles.global_btn} btn px-4`}
+                style={{
+                  fontWeight: "600",
+                  cursor: loading ? "not-allowed" : "pointer",
+                  opacity: loading ? 0.7 : 1,
+                }}
+                disabled={loading}
               >
                 Save Employer
               </button>

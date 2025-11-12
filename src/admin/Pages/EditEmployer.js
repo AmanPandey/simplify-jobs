@@ -3,14 +3,15 @@ import Input from "../Components/Input";
 import { validate } from "../Utils/Validate";
 import AdminContext from "../Context/AdminContext";
 import Notification from "../Components/Notification";
+import styles from "../assets/admin.module.css";
 import { getEmployer, updateEmployer } from "../Utils/employersLogic";
-import { useCallback } from "react";
+
 import { useNavigate, useSearchParams } from "react-router-dom";
 
 const EditEmployer = () => {
   const { errors, setErrors, token, setNotif, notif } =
     useContext(AdminContext);
-
+  const [loading, setLoading] = useState(false);
   const [searchParams] = useSearchParams();
   const id = searchParams.get("id")?.trim();
   const navigate = useNavigate();
@@ -30,35 +31,75 @@ const EditEmployer = () => {
 
   //fetch employer by id
   useEffect(() => {
+    // Define an inner async function
     async function fetchEmployer() {
-      const res = await getEmployer(id, token);
-      if (res) {
+      try {
+        setLoading(true);
+
+        // Token validation
+        if (!token) {
+          setNotif({
+            id: Date.now(),
+            message: "Your session has expired. Please log in again.",
+            type: "error",
+          });
+          navigate("/admin/login");
+          return;
+        }
+
+        // ID validation
+        if (!id) {
+          setNotif({
+            id: Date.now(),
+            message: "Invalid employer ID",
+            type: "error",
+          });
+          return;
+        }
+
+        // Fetch employer data
+        const res = await getEmployer(id, token);
+
+        if (!res.success) {
+          setNotif({
+            id: Date.now(),
+            message: res.message,
+            type: "error",
+          });
+          return;
+        }
+
         setEmpFormData(res.employer);
+      } catch (error) {
+        console.error("fetchEmployer error:", error);
+        setNotif({
+          id: Date.now(),
+          message: "Error occurred while fetching employer data.",
+          type: "error",
+        });
+      } finally {
+        setLoading(false);
       }
     }
+
     fetchEmployer();
   }, [id, token]);
 
-  //  Ensure this is memoized and doesn’t trigger re-renders
+  // check notification msg
   useEffect(() => {
     if (notif?.message) {
       setNotif({ id: null, message: "", type: "" });
     }
   }, []);
-  const handleNotifClose = useCallback(() => {
-    if (notif?.message) {
-      console.log(notif.message);
 
-      setNotif({ id: null, message: "", type: "" });
-    }
-  }, [notif, setNotif]);
-
+  // handle inputs
   function handleChange(e) {
     const { name, value } = e.target;
     setEmpFormData((prev) => ({ ...prev, [name]: value }));
     setErrors((prevError) => ({ ...prevError, [name]: "" }));
   }
 
+  //validate input
   const validationConfig = {
     name: [
       { required: true, message: "Please enter your name." },
@@ -81,6 +122,7 @@ const EditEmployer = () => {
     ],
   };
 
+  // handle form submit
   async function handleSubmit(e) {
     e.preventDefault();
     const errors = validate(
@@ -100,12 +142,20 @@ const EditEmployer = () => {
       return;
     }
     try {
+      setLoading(true);
       const res = await updateEmployer(id, empFormData, token);
-      console.log(res);
+      if (!res.success) {
+        setNotif({
+          id: Date.now(),
+          message: res.message,
+          type: "success",
+        });
+        return;
+      }
 
       setNotif({
         id: Date.now(),
-        message: res.message || "Employer updated successfully",
+        message: res.message || "Employer custom updated successfully",
         type: "success",
       });
       setEmpFormData({
@@ -131,6 +181,8 @@ const EditEmployer = () => {
         message: errorMsg || "Error updating employer ",
         type: "error",
       });
+    } finally {
+      setLoading(false);
     }
   }
 
@@ -141,10 +193,9 @@ const EditEmployer = () => {
           key={notif.id}
           message={notif.message}
           type={notif.type}
-          onClose={handleNotifClose}
         />
       )}
-      <div className="rounded shadow px-3 pt-3 pb-5 bg-white">
+      <div className="container rounded shadow px-3 pt-3 pb-5 bg-white ">
         <div className="row mb-4 d-flex justify-content-between">
           <div className="col-md-6 d-flex">
             <h3 className="mb-0 fw-bold">Edit Employer</h3>
@@ -336,11 +387,17 @@ const EditEmployer = () => {
             </div>
 
             {/* Submit */}
+
             <div className="col-12 text-end">
               <button
                 type="submit"
-                className="btn global-btn px-4"
-                style={{ fontWeight: "600" }}
+                className={`${styles.global_btn} btn px-4`}
+                style={{
+                  fontWeight: "600",
+                  cursor: loading ? "not-allowed" : "pointer",
+                  opacity: loading ? 0.7 : 1,
+                }}
+                disabled={loading}
               >
                 Update Employer
               </button>

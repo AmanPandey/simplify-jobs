@@ -1,13 +1,21 @@
-import React from "react";
+import React, { useContext } from "react";
 import Button from "../Components/Button";
+import styles from "../assets/admin.module.css";
+
 import { useNavigate } from "react-router-dom";
+import AdminContext from "../Context/AdminContext";
 
 const AdminJobsListing = () => {
   const navigate = useNavigate();
 
   return (
     <>
-      <div className="rounded shadow px-3 pt-3 pb-5 bg-white ">
+      <div
+        className="container rounded shadow px-3 pt-3 pb-5 bg-white "
+        style={{
+          minHeight: "85vh",
+        }}
+      >
         {/* Header row with title and Add button */}
 
         {/* Search row aligned right */}
@@ -17,7 +25,7 @@ const AdminJobsListing = () => {
           </div>
           <div className="col-md-6  text-lg-end  mt-2 mt-lg-0 d-flex justify-content-end">
             <Button
-              className="global-btn"
+              className={`${styles.global_btn} `}
               onClick={() => navigate("/admin/addjob")}
             >
               Add New Job
@@ -39,6 +47,55 @@ const AdminJobsListing = () => {
                   <th scope="col">Applications</th>
                   <th scope="col">Actions</th>
                 </tr>
+
+                {/* ===== Filter Row ===== */}
+                {/* <tr>
+                  <th>
+                    <select className="form-select form-select-sm">
+                      <option value="">All</option>
+                      <option>Frontend</option>
+                      <option>Backend</option>
+                    </select>
+                  </th>
+                  <th>
+                    <select className="form-select form-select-sm">
+                      <option value="">All</option>
+                      <option>Google</option>
+                      <option>Amazon</option>
+                    </select>
+                  </th>
+                  <th>
+                    <select className="form-select form-select-sm">
+                      <option value="">All</option>
+                      <option>Part Time</option>
+                      <option>Full Time</option>
+                    </select>
+                  </th>
+                  <th>
+                    <select className="form-select form-select-sm">
+                      <option value="">All</option>
+                      <option>$10000+</option>
+                      <option>$15000+</option>
+                    </select>
+                  </th>
+                  <th>
+                    <select className="form-select form-select-sm">
+                      <option value="">All</option>
+                      <option>Remote</option>
+                      <option>Hybrid</option>
+                      <option>On-Site</option>
+                    </select>
+                  </th>
+                  <th>
+                    <select className="form-select form-select-sm">
+                      <option value="">All</option>
+                      <option>Active</option>
+                      <option>Closed</option>
+                      <option>Draft</option>
+                    </select>
+                  </th>
+                
+                </tr> */}
               </thead>
 
               {/* ===== Table Body ===== */}

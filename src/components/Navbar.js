@@ -180,12 +180,13 @@ const Navbar = () => {
                 <span className="mr-2 icon-lock_outline"></span>Log In
               </NavLink>
             </div>
-            {/* <a
+            {/* toggler for small screen */}
+            <a
               href="#"
               className="site-menu-toggle js-menu-toggle d-inline-block d-xl-none mt-lg-2 ml-3 "
             >
               <span className="icon-menu h3 m-0 p-0 mt-2"></span>
-            </a> */}
+            </a>
           </div>
         </div>
       </div>

@@ -1,18 +1,28 @@
-import React, { useCallback, useContext, useState } from "react";
+import React, { useContext, useState } from "react";
 import AdminContext from "../Context/AdminContext";
 import Input from "../Components/Input";
 import { useNavigate } from "react-router-dom";
 import { validate } from "../Utils/Validate";
 import { loginUser } from "../Utils/authService";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import Notification from "../Components/Notification";
+
+import styles from "../assets/admin.module.css";
 
 const AuthUser = React.memo(() => {
-  const { errors, setErrors, formData, setFormData, login, setNotif, notif } =
-    useContext(AdminContext);
+  const {
+    errors,
+    setErrors,
+    formData,
+    setFormData,
+
+    login,
+    f,
+  } = useContext(AdminContext);
+  // console.log(isSignUpMode);
 
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const validationConfig = {
     name: [
@@ -31,12 +41,6 @@ const AuthUser = React.memo(() => {
       { minLength: 6, message: "Password must be at least 6 characters" },
     ],
   };
-
-  const handleNotifClose = useCallback(() => {
-    if (notif.message) {
-      setNotif({ message: "", type: "", id: null });
-    }
-  }, [setNotif]);
 
   function onchange(e) {
     const { name, value } = e.target;
@@ -59,49 +63,46 @@ const AuthUser = React.memo(() => {
       return;
     }
     try {
+      setLoading(true);
       const res = await loginUser({
         email: formData.email,
         password: formData.password,
       });
 
-      if (!res.success) {
-        setErrors((prevError) => ({ ...prevError, general: res.message }));
-
+      // Handle failed response
+      if (!res.success || !res.token) {
+        setErrors((prev) => ({
+          ...prev,
+          general: res.message || "Login failed.",
+        }));
         return;
       }
+
+      // Success case
       setErrors({});
-
-      //  On success
       login(res.token);
-
       navigate("/admin/dashboard");
       setFormData({ email: "", password: "" });
     } catch (err) {
-      const errorMsg = err.message || "Something went wrong!";
-      setErrors((prevError) => ({ ...prevError, general: errorMsg }));
+      console.error("Login error:", err);
+      const errorMsg = err.message || "Something went wrong. Please try again.";
+      setErrors((prev) => ({ ...prev, general: errorMsg }));
+    } finally {
+      setLoading(false);
     }
   }
 
   return (
     <div
-      className={`auth-container ${
+      className={`${styles.auth_container} ${
         Object.keys(errors).length > 0 ? "error" : ""
-      } `}
+      }`}
     >
-      {notif.message && (
-        <Notification
-          key={notif.id}
-          message={notif.message}
-          type={notif.type}
-          onClose={handleNotifClose}
-        />
-      )}
-
       <div className="forms-container">
-        <form className="sign-in-form" onSubmit={handleSubmit}>
-          <h2 className="title">Welcome !</h2>
-          <div className="input-wrapper">
-            <div className="input-field">
+        <form className={`${styles.sign_in_form}`} onSubmit={handleSubmit}>
+          <h2 className={`${styles.title}`}>Welcome !</h2>
+          <div className={`${styles.input_wrapper} mb-2`}>
+            <div className={`${styles.input_field}`}>
               <i className="fas fa-user"></i>
 
               <Input
@@ -117,8 +118,11 @@ const AuthUser = React.memo(() => {
           </div>
           {errors.email && <p className="text-danger">{errors.email}</p>}
 
-          <div className="input-wrapper">
-            <div className="input-field" style={{ position: "relative" }}>
+          <div className={`${styles.input_wrapper} mb-2`}>
+            <div
+              className={`${styles.input_field}`}
+              style={{ position: "relative" }}
+            >
               <i className="fas fa-lock"></i>
 
               <Input
@@ -147,6 +151,7 @@ const AuthUser = React.memo(() => {
             </div>
           </div>
           {errors.password && <p className="text-danger">{errors.password}</p>}
+
           <div>
             {errors.general && <p className="text-danger">{errors.general}</p>}
           </div>
@@ -154,7 +159,12 @@ const AuthUser = React.memo(() => {
           <input
             type="submit"
             value="Sign In"
-            className="btn solid admin-login-btn"
+            disabled={loading}
+            style={{
+              cursor: loading ? "not-allowed" : "pointer",
+              opacity: loading ? 0.7 : 1,
+            }}
+            className={`${styles.admin_login_btn} btn solid `}
           />
         </form>
       </div>

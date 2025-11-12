@@ -1,28 +1,54 @@
+import axios from "axios";
 const API_URL = "https://simplify-job-node-js-backend-api.vercel.app/api";
 
-// ADMIN SECTION AUTH
+//! ADMIN SECTION AUTH
+
+// login
 
 export async function loginUser(credentials) {
-  const res = await fetch(`${API_URL}/login`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(credentials),
-  });
-  const data = await res.json();
+  try {
+    const res = await axios.post(`${API_URL}/login`, credentials, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
 
-  return data;
+    return res.data;
+  } catch (error) {
+    console.error("Login error:", error);
+
+    const backendMessage =
+      error?.response?.data?.message ||
+      error?.message ||
+      "Login failed. Please try again later.";
+
+    return {
+      success: false,
+      message: backendMessage,
+    };
+  }
 }
 
+// verify token
+
 export async function verifyToken(token) {
-  const res = await fetch(`${API_URL}/verifyToken`, {
-    method: "GET",
-    headers: {
-      Accept: "application/json",
-      Authorization: `Bearer ${token}`, // <-- add this
-    },
-  });
+  try {
+    const res = await axios.get(`${API_URL}/verifyToken`, {
+      headers: {
+        Accept: "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    });
 
-  const data = await res.json();
+    return res.data;
+  } catch (error) {
+    console.error("verifyToken error:", error);
+    const backendMessage =
+      error?.response?.data?.message || "Token expired or invalid";
 
-  return data;
+    return {
+      success: false,
+      message: backendMessage,
+    };
+  }
 }

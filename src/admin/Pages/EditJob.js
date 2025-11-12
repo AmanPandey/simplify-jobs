@@ -5,6 +5,7 @@ import JoditEditor from "jodit-react";
 
 const AddNewJob = () => {
   const { editJob } = useContext(AdminContext);
+
   const editor = useRef(null);
   const [content, setContent] = useState("");
 

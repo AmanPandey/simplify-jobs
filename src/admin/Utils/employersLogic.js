@@ -6,21 +6,23 @@ export async function addEmployer(credentials, token) {
     const res = await axios.post(`${API_URL}/addEmployer`, credentials, {
       headers: {
         Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
       },
     });
+    console.log(res);
 
     return res.data;
   } catch (error) {
-    if (error.response) {
-      console.error("Server error:", error.response.data);
-      throw new Error(error.response.data?.message || "Something went wrong");
-    } else if (error.request) {
-      console.error("No response from server:", error.request);
-      throw new Error("No response from server");
-    } else {
-      console.error("Request setup error:", error.message);
-      throw new Error(error.message);
-    }
+    console.error("addEmployer error:", error);
+    const backendMessage =
+      error?.response?.data?.message ||
+      error?.message ||
+      "Network error, please try again later.";
+
+    return {
+      success: false,
+      message: backendMessage,
+    };
   }
 }
 
@@ -33,20 +35,18 @@ export async function getAllEmployers(token) {
         Authorization: `Bearer ${token}`,
       },
     });
-    console.log(res);
-
     return res.data;
   } catch (error) {
-    if (error.response) {
-      console.error("Server error:", error.response.data);
-      throw new Error(error.response.data?.message || "Something went wrong");
-    } else if (error.request) {
-      console.error("No response from server:", error.request);
-      throw new Error("No response from server");
-    } else {
-      console.error("Request setup error:", error.message);
-      throw new Error(error.message);
-    }
+    console.error("getAllEmployer error:", error);
+    const backendMessage =
+      error?.response?.data?.message ||
+      error?.message ||
+      "Network error, please try again later.";
+
+    return {
+      success: false,
+      message: backendMessage,
+    };
   }
 }
 
@@ -60,18 +60,19 @@ export async function getEmployer(id, token) {
       },
     });
 
-    return res.data;
+    return res.data; // Expected: { success, employer, message }
   } catch (error) {
-    if (error.response) {
-      console.error("Server error:", error.response.data);
-      throw new Error(error.response.data?.message || "Something went wrong");
-    } else if (error.request) {
-      console.error("No response from server:", error.request);
-      throw new Error("No response from server");
-    } else {
-      console.error("Request setup error:", error.message);
-      throw new Error(error.message);
-    }
+    console.error("getEmployer error:", error);
+
+    const backendMessage =
+      error?.response?.data?.message ||
+      error?.message ||
+      "Network error, please try again later.";
+
+    return {
+      success: false,
+      message: backendMessage,
+    };
   }
 }
 
@@ -90,43 +91,31 @@ export async function updateEmployer(id, updatedData, token) {
       }
     );
 
-    return res;
+    return res.data;
   } catch (error) {
-    if (error.response) {
-      console.error("Server error:", error.response.data);
-      throw new Error(error.response.data?.message || "Something went wrong");
-    } else if (error.request) {
-      console.error("No response from server:", error.request);
-      throw new Error("No response from server");
-    } else {
-      console.error("Request setup error:", error.message);
-      throw new Error(error.message);
-    }
+    console.error("getEmployer error:", error);
+
+    const backendMessage =
+      error?.response?.data?.message ||
+      error?.message ||
+      "Network error, please try again later.";
+
+    return {
+      success: false,
+      message: backendMessage,
+    };
   }
 }
 
 // delete employer
 
 export const deletEmployer = async (id, token) => {
-  try {
-    const res = await axios.delete(`${API_URL}/deleteEmployer?id=${id}`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-        "Content-Type": "application/json",
-      },
-    });
+  const res = await axios.delete(`${API_URL}/deleteEmployer?id=${id}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json",
+    },
+  });
 
-    return res;
-  } catch (error) {
-    if (error.response) {
-      console.error("Server error:", error.response.data);
-      throw new Error(error.response.data?.message || "Something went wrong");
-    } else if (error.request) {
-      console.error("No response from server:", error.request);
-      throw new Error("No response from server");
-    } else {
-      console.error("Request setup error:", error.message);
-      throw new Error(error.message);
-    }
-  }
+  return res.data;
 };

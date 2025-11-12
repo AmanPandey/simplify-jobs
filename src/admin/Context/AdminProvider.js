@@ -9,7 +9,7 @@ const AdminProvider = ({ children }) => {
   });
   const [editJob, setEditJob] = useState(false);
   const [draft, setDraft] = useState(false);
-  const [showSidebar, setShowSidebar] = useState(false);
+  const [showSidebar, setShowSidebar] = useState(window.innerWidth > 992);
   const [isSignUpMode, setIsSignUpMode] = useState(false);
   const [errors, setErrors] = useState({});
   const [notif, setNotif] = useState({ message: null, type: "" });
@@ -44,6 +44,15 @@ const AdminProvider = ({ children }) => {
     window.addEventListener("storage", handleStorageChange);
     return () => window.removeEventListener("storage", handleStorageChange);
   }, [token]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 992) setShowSidebar(false);
+      else setShowSidebar(true);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   // ✅ Memoize context value to prevent infinite re-renders
   const value = useMemo(

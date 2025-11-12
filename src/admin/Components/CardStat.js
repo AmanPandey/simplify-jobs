@@ -1,14 +1,17 @@
 import React from "react";
+import styles from "../assets/admin.module.css";
 
 const CardStat = ({ title, value, icon: Icon, style }) => {
   return (
-    <div className="card admin-card shadow-sm" style={style}>
-      <div className="card-body rounded d-flex admin-card-body">
+    <div className={` ${styles.admin_card} card  shadow `} style={style}>
+      <div className={`${styles.admin_card_body} card-body rounded d-flex`}>
         <div
-          className="icon d-flex justify-content-center align-items-center"
+          className={`${styles.dash_icon_wrapper} icon d-flex justify-content-center align-items-center `}
           style={{ backgroundColor: "white" }}
         >
-          {Icon && <Icon size={24} color="black" />}
+          {Icon && (
+            <Icon size={24} color="black" className={`${styles.dash_icon}`} />
+          )}
         </div>
         <div className="card-data text-white">
           <h5 className="card-title fw-bold">{title}</h5>

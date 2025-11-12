@@ -10,24 +10,27 @@ const ProtectedRoute = ({ children }) => {
 
   useEffect(() => {
     const checkToken = async () => {
-      if (!token) {
-        setValid(false);
-        return;
-      }
       try {
+        if (!token) {
+          setValid(false);
+          return;
+        }
+
         const res = await verifyToken(token);
 
-        if (res.success) {
-          setValid(true);
-          setUser({
-            id: res.user.id,
-            name: res.user.name,
-            email: res.user.email,
-          });
-        } else {
+        if (!res.success) {
           logout();
           setValid(false);
+          return; // <-- important early return
         }
+
+        // Token is valid
+        setValid(true);
+        setUser({
+          id: res.user.id,
+          name: res.user.name,
+          email: res.user.email,
+        });
       } catch (error) {
         console.error("Token verification failed:", error);
         logout();

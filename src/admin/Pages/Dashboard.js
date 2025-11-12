@@ -41,34 +41,14 @@ const Dashboard = ({ value }) => {
   // console.log(value);
 
   return (
-    <div className="dashboard rounded  px-3 pt-3 pb-5 ">
-      <div>
+    <div className="dashboard container rounded  ">
+      <div className="row  d-flex flex-column pt-3 pb-5">
         <div className="">
           <h4 className="mb-0 fw-bold mb-3"> Dashboard</h4>
           {/* <button className="btn btn-primary">Add New</button> */}
         </div>
 
         <div className="row g-4 mt-0">
-          <div className="col-md-6 mb-4">
-            <CardStat
-              title="Users"
-              value="1,240"
-              icon={FaUser}
-              style={{
-                backgroundColor: "#008585",
-              }}
-            />
-          </div>
-          <div className="col-md-6 mb-4">
-            <CardStat
-              title="Job Posted"
-              value="320"
-              icon={FaBriefcase}
-              style={{
-                backgroundColor: "#c7522a",
-              }}
-            />
-          </div>
           <div className="col-md-6 mb-4">
             <CardStat
               title="All recruiters"
@@ -89,6 +69,26 @@ const Dashboard = ({ value }) => {
               }}
             />
           </div>
+          <div className="col-md-6 mb-4">
+            <CardStat
+              title="Users"
+              value="1,240"
+              icon={FaUser}
+              style={{
+                backgroundColor: "#008585",
+              }}
+            />
+          </div>
+          <div className="col-md-6 mb-4">
+            <CardStat
+              title="Job Posted"
+              value="320"
+              icon={FaBriefcase}
+              style={{
+                backgroundColor: "#c7522a",
+              }}
+            />
+          </div>
           {/* <div className="col-lg-4 mb-4">
             <CardStat title="Active jobs" value="225" icon={FaCheckCircle} />
           </div> */}
@@ -100,7 +100,7 @@ const Dashboard = ({ value }) => {
       <div className="container py-4">
         <div className="row gx-4 gy-4">
           {/* ===== Left Column: Bar Chart ===== */}
-          <div className="col-md-7" style={{ height: 500 }}>
+          <div className="col-lg-7 mb-3" style={{ height: 500 }}>
             <div className="w-100 h-100 p-3 rounded shadow-sm bg-white">
               <h5 className="mb-3 text-black">Applications</h5>
 
@@ -153,7 +153,7 @@ const Dashboard = ({ value }) => {
 
           {/* ===== Right Column: Pie Chart ===== */}
           <div
-            className="col-md-5 d-flex flex-column align-items-center justify-content-start"
+            className="col-lg-5 mb-3 d-flex flex-column align-items-center justify-content-start"
             style={{ height: 500 }}
           >
             <div className="h-100 w-100 shadow-sm rounded-lg p-3 bg-white  d-flex flex-column">

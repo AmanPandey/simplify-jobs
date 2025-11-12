@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import styles from "../assets/admin.module.css";
 
 const Notification = ({
   message,
@@ -42,17 +43,7 @@ const Notification = ({
   const isSuccess = type === "success";
 
   return (
-    <div
-      className="toast show position-fixed"
-      style={{
-        top: "70px",
-        right: "8px",
-        minWidth: "320px",
-        zIndex: 9999,
-        background: "white",
-        overflow: "hidden",
-      }}
-    >
+    <div className={`${styles.notification} toast show position-fixed`}>
       <div className="toast-body d-flex border align-items-start">
         <i
           className={`mr-2 fa ${

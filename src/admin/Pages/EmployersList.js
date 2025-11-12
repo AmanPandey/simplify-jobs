@@ -1,8 +1,10 @@
-import React, { useCallback, useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AdminContext from "../Context/AdminContext";
 import Notification from "../Components/Notification";
+import styles from "../assets/admin.module.css";
 import Button from "../Components/Button";
+
 import { Dropdown } from "react-bootstrap";
 import { FaEdit, FaTrash, FaEllipsisV } from "react-icons/fa";
 import { deletEmployer, getAllEmployers } from "../Utils/employersLogic";
@@ -13,25 +15,53 @@ const EmployersList = () => {
   const { token, notif, setNotif } = useContext(AdminContext);
   const navigate = useNavigate();
 
+  // clear notification msg
+
   useEffect(() => {
     if (notif?.message) {
       setNotif({ id: null, message: "", type: "" });
     }
   }, []);
 
-  const handleNotifClose = useCallback(() => {
-    if (notif?.message) {
-      setNotif({ id: null, message: "", type: "" });
-    }
-  }, [notif, setNotif]);
+  // const handleNotifClose = useCallback(() => {
+  //   if (notif?.message) {
+  //     setNotif({ id: null, message: "", type: "" });
+  //   }
+  // }, [notif, setNotif]);
 
   // fetch all employer
   useEffect(() => {
     async function fetchEmployers() {
-      setLoading(true);
-      const res = await getAllEmployers(token);
-      if (res) {
+      try {
+        setLoading(true);
+        if (!token) {
+          setNotif({
+            id: Date.now(),
+            message: "Your session has expired. Please log in again.",
+            type: "error",
+          });
+          navigate("/admin/login");
+          return;
+        }
+        const res = await getAllEmployers(token);
+        if (!res.success) {
+          setNotif({
+            id: Date.now(),
+            message: res.message || "Failed to fetch employers",
+            type: "error",
+          });
+          return;
+        }
+
         setEmpData(res.employers);
+      } catch (error) {
+        console.error("Unexpected fetchEmployers error:", error);
+        setNotif({
+          id: Date.now(),
+          message: "An unexpected error occurred while fetching employers.",
+          type: "error",
+        });
+      } finally {
         setLoading(false);
       }
     }
@@ -41,6 +71,23 @@ const EmployersList = () => {
   // edit employer
 
   function handleEdit(id) {
+    if (!token) {
+      setNotif({
+        id: Date.now(),
+        message: "Your session has expired. Please log in again.",
+        type: "error",
+      });
+      navigate("/admin/login");
+      return;
+    }
+    if (!id) {
+      setNotif({
+        id: Date.now(),
+        message: "Invalid employer ID",
+        type: "error",
+      });
+      return;
+    }
     navigate(`/admin/edit-employer?id=${id}`);
   }
 
@@ -78,10 +125,15 @@ const EmployersList = () => {
           key={notif.id}
           message={notif.message}
           type={notif.type}
-          onClose={handleNotifClose}
+          // onClose={handleNotifClose}
         />
       )}
-      <div className="rounded shadow px-3 pt-3 pb-5 bg-white ">
+      <div
+        className=" container rounded shadow px-3 pt-3 pb-5 bg-white  "
+        style={{
+          minHeight: "85vh",
+        }}
+      >
         {/* Header row with title and Add button */}
 
         {/* Search row aligned right */}
@@ -91,7 +143,7 @@ const EmployersList = () => {
           </div>
           <div className="col-md-6  text-lg-end  mt-2 mt-lg-0 d-flex justify-content-end">
             <Button
-              className="global-btn"
+              className={`${styles.global_btn} `}
               onClick={() => navigate("/admin/add-employer")}
             >
               Add Employer
@@ -227,14 +279,14 @@ const EmployersList = () => {
                           <Dropdown.Menu>
                             <Dropdown.Item
                               onClick={() => handleEdit(emp._id)}
-                              className="admin-action-btn"
+                              className={`${styles.admin_action_btn}`}
                             >
                               <FaEdit className="me-2" /> Edit
                             </Dropdown.Item>
 
                             <Dropdown.Item
                               onClick={() => handleDelete(emp._id)}
-                              className="admin-action-btn"
+                              className={`${styles.admin_action_btn}`}
                             >
                               <FaTrash className="me-2 text-danger m-0" />{" "}
                               Delete

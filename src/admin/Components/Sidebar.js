@@ -1,48 +1,41 @@
 import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import AdminContext from "../Context/AdminContext";
+import styles from "../assets/admin.module.css";
 
-import {
-  FaBars,
-  FaTachometerAlt,
-  FaBriefcase,
-  FaSignOutAlt,
-  FaTimes,
-} from "react-icons/fa";
+import { FaTachometerAlt, FaBriefcase, FaSignOutAlt } from "react-icons/fa";
 
 const Sidebar = () => {
   const { showSidebar, setShowSidebar } = useContext(AdminContext);
 
-  function toggleSidebar() {
-    setShowSidebar(!showSidebar);
-  }
-
   return (
     <>
-      {/* Toggle button (visible on small screens) */}
-      <button
-        className="btn  d-lg-none m-3 position-fixed admin-toggler-btn "
-        onClick={toggleSidebar}
-        style={{ top: "0px", right: "0px", zIndex: 1050 }}
-      >
-        {showSidebar ? <FaTimes color="white" /> : <FaBars color="white" />}
-      </button>
-
-      {/* Sidebar */}
       <div
-        className={` position-fixed top-0 start-0 vh-100 p-3 d-md-block sidebar ${
-          showSidebar ? "" : "hidden"
+        className={`${
+          styles.sidebar
+        } position-fixed top-0 start-0 vh-100 p-3 d-md-block ${
+          showSidebar ? "" : styles.hidden
         }`}
         style={{ background: "#fff" }}
       >
-        <ul className="nav nav-pills flex-column admin-nav">
+        <h1
+          className="mb-4 ms-2 "
+          style={{ fontSize: "32px", color: "#0066ff", fontWeight: "700" }}
+        >
+          SimplifyJob
+        </h1>
+        <ul className="nav nav-pills flex-column ">
           <li className="nav-item">
             <NavLink
               to="/admin/dashboard"
-              onClick={() => setShowSidebar(false)}
+              onClick={() => {
+                if (window.innerWidth < 992) setShowSidebar(false);
+              }}
               className={({ isActive }) =>
                 `nav-link  ${
-                  isActive ? "fw-bold bg-active" : "fw-semibold text-black"
+                  isActive
+                    ? `fw-bold ${styles.bg_active}`
+                    : "fw-semibold text-black"
                 }`
               }
             >
@@ -53,10 +46,14 @@ const Sidebar = () => {
           <li>
             <NavLink
               to="/admin/jobs"
-              onClick={() => setShowSidebar(false)}
+              onClick={() => {
+                if (window.innerWidth < 992) setShowSidebar(false);
+              }}
               className={({ isActive }) =>
                 `nav-link  ${
-                  isActive ? "fw-bold bg-active" : "fw-semibold text-black"
+                  isActive
+                    ? `fw-bold ${styles.bg_active}`
+                    : "fw-semibold text-black"
                 }`
               }
             >
@@ -68,10 +65,14 @@ const Sidebar = () => {
           <li>
             <NavLink
               to="/admin/employers"
-              onClick={() => setShowSidebar(false)}
+              onClick={() => {
+                if (window.innerWidth < 992) setShowSidebar(false);
+              }}
               className={({ isActive }) =>
                 `nav-link   ${
-                  isActive ? "fw-bold bg-active" : "fw-semibold text-black"
+                  isActive
+                    ? `fw-bold ${styles.bg_active}`
+                    : "fw-semibold text-black"
                 }`
               }
             >
@@ -85,12 +86,16 @@ const Sidebar = () => {
               end
               className={({ isActive }) =>
                 `nav-link    ${
-                  isActive ? "fw-bold bg-active" : "fw-semibold text-black"
+                  isActive
+                    ? `fw-bold ${styles.bg_active}`
+                    : "fw-semibold text-black"
                 }`
               }
               onClick={() => {
                 localStorage.removeItem("token");
-                setShowSidebar(false);
+                if (window.innerWidth < 992) {
+                  setShowSidebar(false);
+                }
               }}
             >
               <FaSignOutAlt className="mr-2" />

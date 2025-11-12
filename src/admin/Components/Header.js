@@ -1,28 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
+
+import { FaBars } from "react-icons/fa";
+import styles from "../assets/admin.module.css";
+import AdminContext from "../Context/AdminContext";
+
 const Header = () => {
+  const { showSidebar, setShowSidebar } = useContext(AdminContext);
   return (
-    <header
-      className="  position-fixed w-100"
-      style={{
-        height: "70px",
-        zIndex: 1040,
-        top: 0,
-        left: 0,
-        backgroundColor: "#d6e6ff",
-      }}
-    >
-      <div className="container-fluid h-100">
-        <div className="row h-100">
+    <header>
+      <div className={`${styles.header} container`}>
+        <div className="row mt-1 px-3 py-3 mb-3 bg-white shadow rounded">
           <div
-            className="d-flex justify-content-between align-items-center h-100"
-            style={{ paddingLeft: "16px" }}
+            className={`${styles.sidebar_toggler}`}
+            onClick={() => setShowSidebar(!showSidebar)}
           >
-            <h1
-              className="h4 mb-0  ms-2 fw-bold text-black "
-              style={{ fontSize: "32px" }}
-            >
-              SimplifyJob
-            </h1>
+            <FaBars color="black" />
           </div>
         </div>
       </div>

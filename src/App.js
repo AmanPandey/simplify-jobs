@@ -22,7 +22,6 @@ import Services from "./pages/Services";
 import ServiceSingle from "./pages/ServiceSingle";
 import Blog from "./pages/Blog";
 import BlogSingle from "./pages/BlogSingle";
-
 import Testimonials from "./pages/Testimonials";
 import FAQ from "./pages/FAQ";
 import Gallery from "./pages/Gallery";

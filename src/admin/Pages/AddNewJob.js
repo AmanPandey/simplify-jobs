@@ -1,6 +1,7 @@
-import React, { useMemo, useRef, useState } from "react";
+import React, { useContext, useMemo, useRef, useState } from "react";
 import Input from "../Components/Input";
-
+import AdminContext from "../Context/AdminContext";
+import styles from "../assets/admin.module.css";
 // import TextEditor from "../Components/TextEditor";
 import JoditEditor from "jodit-react";
 
@@ -19,7 +20,7 @@ const AddNewJob = () => {
 
   return (
     <>
-      <form className="container  rounded  shadow px-3 pt-3 pb-5">
+      <form className="container rounded  shadow px-3 pt-3 pb-5 bg-white ">
         {/* Job Info Section */}
         <h4 className="mb-3 fw-bold"> Job Information</h4>
         <div className="row g-3">
@@ -209,7 +210,7 @@ const AddNewJob = () => {
           </div> */}
         </div>
 
-        <button type="submit" className="btn global-btn mt-4">
+        <button type="submit" className={`${styles.global_btn} btn  px-4`}>
           Post Job
         </button>
       </form>
