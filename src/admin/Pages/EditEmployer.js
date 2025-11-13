@@ -25,11 +25,9 @@ const EditEmployer = () => {
     company_location: "",
     company_website: "",
     contact_number: "",
-    company_logo: null,
     description: "",
     status: "active",
   });
-  console.log(empFormData);
 
   //fetch employer by id
   useEffect(() => {
@@ -97,18 +95,8 @@ const EditEmployer = () => {
   // handle inputs
 
   function handleChange(e) {
-    const { name, type } = e.target;
-
-    if (type === "file") {
-      // Store the File object separately
-      setEmpFormData((prev) => ({
-        ...prev,
-        company_logo: e.target.files[0] || null,
-      }));
-    } else {
-      const value = e.target.value;
-      setEmpFormData((prev) => ({ ...prev, [name]: value }));
-    }
+    const { name, value } = e.target;
+    setEmpFormData((prev) => ({ ...prev, [name]: value }));
 
     setErrors((prevError) => ({ ...prevError, [name]: "" }));
   }
@@ -134,7 +122,6 @@ const EditEmployer = () => {
     company_location: [
       { required: true, message: "Please enter your company location." },
     ],
-    company_logo: [{ required: true, message: "Please upload company logo." }],
   };
 
   // handle form submit
@@ -159,14 +146,7 @@ const EditEmployer = () => {
     }
     try {
       setLoading(true);
-      const formData = new FormData();
-      Object.keys(empFormData).forEach((key) => {
-        if (empFormData[key] !== null && empFormData[key] !== undefined) {
-          formData.append(key, empFormData[key]);
-        }
-      });
-
-      const res = await updateEmployer(id, formData, token);
+      const res = await updateEmployer(id, empFormData, token);
       if (!res.success) {
         setNotif({
           id: Date.now(),
@@ -190,7 +170,6 @@ const EditEmployer = () => {
         company_location: "",
         company_website: "",
         contact_number: "",
-        company_logo: null,
         description: "",
         status: "active",
       });
@@ -283,7 +262,6 @@ const EditEmployer = () => {
                 name="company_size"
                 onChange={handleChange}
                 value={empFormData.company_size}
-                // required
                 style={{
                   padding: "6px",
                   width: "200px",
@@ -360,19 +338,6 @@ const EditEmployer = () => {
                 value={empFormData.company_website}
                 onChange={handleChange}
               />
-            </div>
-            {/* Company Logo */}
-            <div className="col-md-6 mb-md-4 mb-2">
-              <label className="form-label fw-semibold">Company Logo*</label>
-              <Input
-                type="file"
-                name="company_logo"
-                accept="image/*"
-                onChange={handleChange}
-              />
-              {errors.company_logo && (
-                <p className="text-danger">{errors.company_logo}</p>
-              )}
             </div>
 
             {/* Description */}

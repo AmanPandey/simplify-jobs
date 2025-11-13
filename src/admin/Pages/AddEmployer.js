@@ -24,7 +24,6 @@ const AddEmployer = () => {
     company_location: "",
     company_website: "",
     contact_number: "",
-    company_logo: null,
     description: "",
     status: "active",
   });
@@ -39,19 +38,8 @@ const AddEmployer = () => {
 
   // handle form input
   function handleChange(e) {
-    const { name, type } = e.target;
-
-    if (type === "file") {
-      // Store the File object separately
-      setEmpFormData((prev) => ({
-        ...prev,
-        company_logo: e.target.files[0] || null,
-      }));
-    } else {
-      const value = e.target.value;
-      setEmpFormData((prev) => ({ ...prev, [name]: value }));
-    }
-
+    const { name, value } = e.target;
+    setEmpFormData((prev) => ({ ...prev, [name]: value }));
     setErrors((prevError) => ({ ...prevError, [name]: "" }));
   }
 
@@ -76,7 +64,6 @@ const AddEmployer = () => {
     company_location: [
       { required: true, message: "Please enter your company location." },
     ],
-    company_logo: [{ required: true, message: "Please upload company logo." }],
   };
 
   // form submit
@@ -92,7 +79,6 @@ const AddEmployer = () => {
         company_size: validationConfig.company_size,
         industry: validationConfig.industry,
         company_location: validationConfig.company_location,
-        company_logo: validationConfig.company_logo,
       },
       setErrors
     );
@@ -102,14 +88,8 @@ const AddEmployer = () => {
     }
     try {
       setLoading(true);
-      const formData = new FormData();
-      Object.keys(empFormData).forEach((key) => {
-        if (empFormData[key] !== null && empFormData[key] !== undefined) {
-          formData.append(key, empFormData[key]);
-        }
-      });
 
-      const res = await addEmployer(formData, token);
+      const res = await addEmployer(empFormData, token);
 
       if (!res.success) {
         setNotif({ id: Date.now(), message: res.message, type: "error" });
@@ -126,7 +106,6 @@ const AddEmployer = () => {
         company_location: "",
         company_website: "",
         contact_number: "",
-        company_logo: null,
         description: "",
         status: "active",
       });
@@ -297,20 +276,6 @@ const AddEmployer = () => {
                 value={empFormData.company_website}
                 onChange={handleChange}
               />
-            </div>
-            {/* Company logo */}
-            <div className="col-12 mb-md-4 mb-2">
-              <label className="form-label fw-semibold">Company Logo*</label>
-              <Input
-                type="file"
-                name="company_logo"
-                placeholder="Company Logo"
-                onChange={handleChange}
-                accept="image/*"
-              />
-              {errors.company_logo && (
-                <p className="text-danger">{errors.company_logo}</p>
-              )}
             </div>
 
             {/* Description */}
