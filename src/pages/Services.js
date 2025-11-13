@@ -31,7 +31,7 @@ const Services = () => {
         <div className="container">
           <div className="row">
             <div
-              className="col-6 col-md-6 col-lg-4 mb-4 mb-lg-5"
+              className=" col-md-6 col-lg-4 mb-4 mb-lg-5"
               data-aos="fade-up"
               data-aos-delay="200"
             >
@@ -47,7 +47,7 @@ const Services = () => {
               </Link>
             </div>
             <div
-              className="col-6 col-md-6 col-lg-4 mb-4 mb-lg-5"
+              className=" col-md-6 col-lg-4 mb-4 mb-lg-5"
               data-aos="fade-up"
               data-aos-delay="200"
             >
@@ -63,7 +63,7 @@ const Services = () => {
               </Link>
             </div>
             <div
-              className="col-6 col-md-6 col-lg-4 mb-4 mb-lg-5"
+              className=" col-md-6 col-lg-4 mb-4 mb-lg-5"
               data-aos="fade-up"
               data-aos-delay="200"
             >
@@ -79,7 +79,7 @@ const Services = () => {
               </Link>
             </div>
             <div
-              className="col-6 col-md-6 col-lg-4 mb-4 mb-lg-5"
+              className=" col-md-6 col-lg-4 mb-4 mb-lg-5"
               data-aos="fade-up"
               data-aos-delay="200"
             >
@@ -95,7 +95,7 @@ const Services = () => {
               </Link>
             </div>
             <div
-              className="col-6 col-md-6 col-lg-4 mb-4 mb-lg-5"
+              className=" col-md-6 col-lg-4 mb-4 mb-lg-5"
               data-aos="fade-up"
               data-aos-delay="200"
             >
@@ -111,7 +111,7 @@ const Services = () => {
               </Link>
             </div>
             <div
-              className="col-6 col-md-6 col-lg-4 mb-4 mb-lg-5"
+              className=" col-md-6 col-lg-4 mb-4 mb-lg-5"
               data-aos="fade-up"
               data-aos-delay="200"
             >

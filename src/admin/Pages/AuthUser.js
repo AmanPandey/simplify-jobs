@@ -9,15 +9,8 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import styles from "../assets/admin.module.css";
 
 const AuthUser = React.memo(() => {
-  const {
-    errors,
-    setErrors,
-    formData,
-    setFormData,
-
-    login,
-    f,
-  } = useContext(AdminContext);
+  const { errors, setErrors, formData, setFormData, login } =
+    useContext(AdminContext);
   // console.log(isSignUpMode);
 
   const navigate = useNavigate();

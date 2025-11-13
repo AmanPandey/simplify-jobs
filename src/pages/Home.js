@@ -149,17 +149,17 @@ const Home = () => {
                       <h3>Trending Keywords:</h3>
                       <ul className="keywords list-unstyled m-0 p-0">
                         <li>
-                          <a href="/" className="mr-1">
+                          <a href="/" className="mr-1 mb-1">
                             Regional Manager
                           </a>
                         </li>
                         <li>
-                          <a href="/" className="mr-1">
+                          <a href="/" className="mr-1 mb-1">
                             Cane Manager
                           </a>
                         </li>
                         <li>
-                          <a href="/" className="mr-1">
+                          <a href="/" className="mr-1 mb-1">
                             {" "}
                             Service Head
                           </a>

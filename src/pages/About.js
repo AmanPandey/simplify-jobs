@@ -201,7 +201,6 @@ const About = () => {
           backgroundImage:
             "url('https://images.pexels.com/photos/6340693/pexels-photo-6340693.jpeg')",
           marginTop: "4rem",
-          height: "500px",
         }}
       >
         <div className="container">
