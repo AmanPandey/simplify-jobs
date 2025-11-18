@@ -95,7 +95,7 @@ function App() {
           <Route path="jobs" element={<AdminJobsListing />} />
           <Route path="addjob" element={<AddNewJob />} />
           <Route path="draft" element={<DraftJobs />} />
-          <Route path="edit" element={<EditJob />} />
+          <Route path="editjob" element={<EditJob />} />
           <Route path="employers" element={<EmployersList />} />
           <Route path="add-employer" element={<AddEmployer />} />
           <Route path="edit-employer" element={<EditEmployer />} />

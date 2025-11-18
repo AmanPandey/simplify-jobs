@@ -160,7 +160,7 @@ const EmployersList = () => {
                   {/* <th scope="col">Employer Code</th> */}
                   <th scope="col">Name</th>
                   <th scope="col">Email</th>
-                  <th scope="col">Company Name</th>
+                  <th scope="col">Company </th>
 
                   <th scope="col">Company Size</th>
                   <th scope="col">Location</th>

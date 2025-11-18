@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Model from "./Model";
 
 const Home = () => {
@@ -48,12 +48,7 @@ const Home = () => {
 
   return (
     <>
-      <div id="overlayer"></div>
-      <div className="loader">
-        <div className="spinner-border text-primary" role="status">
-          <span className="sr-only">Loading...</span>
-        </div>
-      </div>
+      {/* <div id="overlayer"></div> */}
 
       <div className="site-wrap">
         <div className="site-mobile-menu site-navbar-target">
@@ -64,119 +59,114 @@ const Home = () => {
           </div>
           <div className="site-mobile-menu-body"></div>
         </div>
+      </div>
 
-        {/* Hero Section */}
-        <section
-          className="home-section section-hero overlay bg-image"
-          id="home-section"
-          style={{ backgroundImage: "url('images/hero_1.jpg')" }}
-        >
-          <div className="container" data-aos="zoom-in" data-aos-delay="200">
-            <div className="row align-items-center justify-content-center">
-              <div className="col-md-12">
-                <div className="mb-5 text-center">
-                  <h1 className="text-white font-weight-bold">
-                    Simplify Job Amplify Growth
-                  </h1>
-                  <p>
-                    Join 5+ million job seekers monthly. Apply to 100+ fresh
-                    opportunities daily in banking, distillery, and automobile
-                    sectors.
-                  </p>
-                </div>
-                <form
-                  method=""
-                  className="search-jobs-form"
-                  id="job-search-form"
-                >
-                  <div className="row mb-3">
-                    <div className="col-12 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
-                      <select
-                        className="selectpicker"
-                        data-style="btn-white btn-lg"
-                        data-width="100%"
-                        title="Industry"
-                        name="industry"
-                      >
-                        <option value="Distellery">Distellery</option>
-
-                        <option value="Finance & Banking">
-                          Finance & Banking
-                        </option>
-                        <option value="Automobile">Automobile</option>
-                      </select>
-                    </div>
-                    <div className="col-12 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
-                      <input
-                        type="text"
-                        className="form-control form-control-lg"
-                        placeholder="Job title or keyword (e.g., Regional Manager, Cane Manager, Service Head)"
-                        name="keyword"
-                      />
-                    </div>
-                    <div className="col-12 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
-                      <select
-                        className="selectpicker"
-                        data-style="btn-white btn-lg"
-                        data-width="100%"
-                        title="Location"
-                        data-live-search="true"
-                      >
-                        <option>Gurugram</option>
-
-                        <option>Hyderabad</option>
-                      </select>
-                    </div>{" "}
-                    <div className="col-12 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
-                      <button
-                        type="submit"
-                        className="btn btn-primary btn-lg btn-block text-white btn-search"
-                        onClick={() => navigate("/jobs-listing")}
-                      >
-                        <span className="icon-search icon mr-2"></span>Search
-                        Job
-                      </button>
-                    </div>
-                  </div>
-                  <div className="row">
-                    <div className="col-md-12">
-                      <div id="form-error" className="text-white d-none"></div>
-                    </div>
-                  </div>
-
-                  <div className="row">
-                    <div className="col-md-12 popular-keywords">
-                      <h3>Trending Keywords:</h3>
-                      <ul className="keywords list-unstyled m-0 p-0">
-                        <li>
-                          <a href="/" className="mr-1 mb-1">
-                            Regional Manager
-                          </a>
-                        </li>
-                        <li>
-                          <a href="/" className="mr-1 mb-1">
-                            Cane Manager
-                          </a>
-                        </li>
-                        <li>
-                          <a href="/" className="mr-1 mb-1">
-                            {" "}
-                            Service Head
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </form>
+      {/* Hero Section */}
+      <section
+        className="home-section section-hero overlay bg-image"
+        id="home-section"
+        style={{ backgroundImage: "url('images/hero_1.jpg')" }}
+      >
+        <div className="container" data-aos="zoom-in" data-aos-delay="200">
+          <div className="row align-items-center justify-content-center">
+            <div className="col-md-12">
+              <div className="mb-5 text-center">
+                <h1 className="text-white font-weight-bold">
+                  Simplify Job Amplify Growth
+                </h1>
+                <p>
+                  Join 5+ million job seekers monthly. Apply to 100+ fresh
+                  opportunities daily in banking, distillery, and automobile
+                  sectors.
+                </p>
               </div>
+              <form method="" className="search-jobs-form" id="job-search-form">
+                <div className="row mb-3">
+                  <div className="col-12 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
+                    <select
+                      className="selectpicker"
+                      data-style="btn-white btn-lg"
+                      data-width="100%"
+                      title="Industry"
+                      name="industry"
+                    >
+                      <option value="Distellery">Distellery</option>
+
+                      <option value="Finance & Banking">
+                        Finance & Banking
+                      </option>
+                      <option value="Automobile">Automobile</option>
+                    </select>
+                  </div>
+                  <div className="col-12 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
+                    <input
+                      type="text"
+                      className="form-control form-control-lg"
+                      placeholder="Job title or keyword (e.g., Regional Manager, Cane Manager, Service Head)"
+                      name="keyword"
+                    />
+                  </div>
+                  <div className="col-12 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
+                    <select
+                      className="selectpicker"
+                      data-style="btn-white btn-lg"
+                      data-width="100%"
+                      title="Location"
+                      data-live-search="true"
+                    >
+                      <option>Gurugram</option>
+
+                      <option>Hyderabad</option>
+                    </select>
+                  </div>{" "}
+                  <div className="col-12 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
+                    <button
+                      type="submit"
+                      className="btn btn-primary btn-lg btn-block text-white btn-search"
+                      onClick={() => navigate("/jobs-listing")}
+                    >
+                      <span className="icon-search icon mr-2"></span>Search Job
+                    </button>
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="col-md-12">
+                    <div id="form-error" className="text-white d-none"></div>
+                  </div>
+                </div>
+
+                <div className="row">
+                  <div className="col-md-12 popular-keywords">
+                    <h3>Trending Keywords:</h3>
+                    <ul className="keywords list-unstyled m-0 p-0">
+                      <li>
+                        <a href="/" className="mr-1 mb-1">
+                          Regional Manager
+                        </a>
+                      </li>
+                      <li>
+                        <a href="/" className="mr-1 mb-1">
+                          Cane Manager
+                        </a>
+                      </li>
+                      <li>
+                        <a href="/" className="mr-1 mb-1">
+                          {" "}
+                          Service Head
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </form>
             </div>
           </div>
+        </div>
 
-          {/* <a href="#next" className="scroll-button smoothscroll">
+        {/* <a href="#next" className="scroll-button smoothscroll">
             <span className="icon-keyboard_arrow_down"></span>
           </a> */}
-        </section>
-      </div>
+      </section>
 
       {/* why choose */}
       <section className="site-section pb-0">
@@ -291,149 +281,6 @@ const Home = () => {
                 <p>3 Jobs Available</p>
               </a>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* feature jobs  */}
-      <section className="site-section">
-        <div className="container">
-          {/* <div
-            className="row mb-5 justify-content-center"
-            data-aos="zoom-in"
-            data-aos-delay="200"
-          >
-            <div className="col-md-7 text-center">
-              <h2 className="section-title mb-2">Feature Jobs</h2>
-            </div>
-          </div> */}
-
-          <ul className="job-listings mb-5">
-            <li
-              className="job-listing d-block d-md-flex pb-3 pb-sm-0 align-items-center"
-              data-aos="fade-up"
-              data-aos-delay="200"
-            >
-              <a href="job-single.html">
-                <div className="job-listing-logo">
-                  <img
-                    src="images/job_logo_1.jpg"
-                    alt="Free Website Template by Free-Template.co"
-                    className="img-fluid"
-                  />
-                </div>
-
-                <div className="job-listing-about d-md-flex custom-width w-100 justify-content-between mx-4">
-                  <div className="job-listing-position custom-width w-25 mb-3">
-                    <h2>Mechanical Design Engineer</h2>
-                    <strong>Tesla</strong>
-                  </div>
-                  <div className="job-listing-location mb-3 custom-width w-25">
-                    <span className="icon-room"></span>London, UK
-                  </div>
-                  <div className="job-listing-location mb-3 custom-width w-25">
-                    <span className=""></span>$80,000/year
-                  </div>
-                  <div className="job-listing-meta w-25 text-md-right mb-3">
-                    <span className="badge badge-success">Full-Time</span>
-                  </div>
-                </div>
-              </a>
-            </li>
-            <li
-              className="job-listing d-block d-md-flex pb-3 pb-sm-0 align-items-center"
-              data-aos="fade-up"
-              data-aos-delay="200"
-            >
-              <a href="job-single.html">
-                <div className="job-listing-logo">
-                  <img
-                    src="images/job_logo_2.jpg"
-                    alt="Free Website Template by Free-Template.co"
-                    className="img-fluid"
-                  />
-                </div>
-
-                <div className="job-listing-about d-md-flex custom-width w-100 justify-content-between mx-4">
-                  <div className="job-listing-position custom-width w-25 mb-3">
-                    <h2>Master Distiller</h2>
-                    <strong>Car Toys</strong>
-                  </div>
-                  <div className="job-listing-location mb-3 custom-width w-25">
-                    <span className="icon-room"></span>Denmark
-                  </div>
-                  <div className="job-listing-location mb-3 custom-width w-25">
-                    <span className=""></span>$60,000/year
-                  </div>
-                  <div className="job-listing-meta w-25 text-md-right mb-3">
-                    <span className="badge badge-success">Full-Time</span>
-                  </div>
-                </div>
-              </a>
-            </li>
-
-            <li
-              className="job-listing d-block d-md-flex pb-3 pb-sm-0 align-items-center"
-              data-aos="fade-up"
-              data-aos-delay="200"
-            >
-              <a href="job-single.html">
-                <div className="job-listing-logo">
-                  <img
-                    src="images/job_logo_3.jpg"
-                    alt="Free Website Template by Free-Template.co"
-                    className="img-fluid"
-                  />
-                </div>
-
-                <div className="job-listing-about d-md-flex custom-width w-100 justify-content-between mx-4">
-                  <div className="job-listing-position custom-width w-25 mb-3">
-                    <h2>Investment Analyst</h2>
-                    <strong> Ibotta, Inc</strong>
-                  </div>
-                  <div className="job-listing-location mb-3 custom-width w-25">
-                    <span className="icon-room"></span>Germany
-                  </div>
-                  <div className="job-listing-location mb-3 custom-width w-25">
-                    <span className=""></span>$45/hr
-                  </div>
-                  <div className="job-listing-meta w-25 text-md-right mb-3">
-                    <span className="badge badge-danger">Part-Time</span>
-                  </div>
-                </div>
-              </a>
-            </li>
-          </ul>
-
-          {/* <div className="row pagination-wrap">
-            <div className="col-md-6 text-center text-md-left mb-4 mb-md-0">
-              <span>Showing 1-7 Of 1367 Jobs</span>
-            </div>
-            <div className="col-md-6 text-center text-md-right">
-              <div className="custom-pagination ml-auto">
-                <a href="#" className="prev">
-                  Prev
-                </a>
-                <div className="d-inline-block">
-                  <a href="#" className="active">
-                    1
-                  </a>
-                  <a href="#">2</a>
-                  <a href="#">3</a>
-                  <a href="#">4</a>
-                </div>
-                <a href="#" className="next">
-                  Next
-                </a>
-              </div>
-            </div>
-          </div> */}
-          <div
-            className="row d-flex justify-content-center"
-            data-aos="zoom"
-            data-aos-delay="200"
-          >
-            <button className="btn explore-more-jobs">Expore More Jobs</button>
           </div>
         </div>
       </section>

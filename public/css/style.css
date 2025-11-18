@@ -20,7 +20,7 @@
   margin-bottom: 0px;
   z-index: 1999;
   position: absolute;
-  width: 100vw;
+  width: 100%;
   top: 2rem;
   height: 70px;
   display: flex;
@@ -2251,7 +2251,7 @@ h4 {
     padding: 3px;
   } */
   .site-navbar .site-logo a {
-    font-size: 1rem;
+    font-size: 1.5rem;
   }
 }
 

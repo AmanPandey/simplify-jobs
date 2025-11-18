@@ -1,5 +1,6 @@
 import axios from "axios";
 const API_URL = "https://simplify-job-node-js-backend-api.vercel.app/api";
+// const API_URL = "http://localhost:5000/api";
 
 //! ADMIN SECTION AUTH
 

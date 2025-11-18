@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
+import useFixMobileNav from "./useFixMobileNav";
 
 const Navbar = () => {
+  useFixMobileNav();
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -15,6 +17,7 @@ const Navbar = () => {
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
   return (
     <header className={`site-navbar mt-3 ${scrolled ? "scrolled" : ""}  `}>
       <div className="container-fluid">

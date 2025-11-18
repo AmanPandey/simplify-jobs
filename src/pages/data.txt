@@ -549,3 +549,138 @@
           </div>
         </div>
       </div>
+
+
+      home job section  
+          {/* feature jobs  */}
+      <section className="site-section">
+        <div className="container">
+          <ul className="job-listings mb-5">
+            <li
+              className="job-listing d-block d-md-flex pb-3 pb-sm-0 align-items-center"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              <a href="job-single.html">
+                <div className="job-listing-logo">
+                  <img
+                    src="images/job_logo_1.jpg"
+                    alt="Free Website Template by Free-Template.co"
+                    className="img-fluid"
+                  />
+                </div>
+
+                <div className="job-listing-about d-md-flex custom-width w-100 justify-content-between mx-4">
+                  <div className="job-listing-position custom-width w-25 mb-3">
+                    <h2>Mechanical Design Engineer</h2>
+                    <strong>Tesla</strong>
+                  </div>
+                  <div className="job-listing-location mb-3 custom-width w-25">
+                    <span className="icon-room"></span>London, UK
+                  </div>
+                  <div className="job-listing-location mb-3 custom-width w-25">
+                    <span className=""></span>$80,000/year
+                  </div>
+                  <div className="job-listing-meta w-25 text-md-right mb-3">
+                    <span className="badge badge-success">Full-Time</span>
+                  </div>
+                </div>
+              </a>
+            </li>
+            <li
+              className="job-listing d-block d-md-flex pb-3 pb-sm-0 align-items-center"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              <a href="job-single.html">
+                <div className="job-listing-logo">
+                  <img
+                    src="images/job_logo_2.jpg"
+                    alt="Free Website Template by Free-Template.co"
+                    className="img-fluid"
+                  />
+                </div>
+
+                <div className="job-listing-about d-md-flex custom-width w-100 justify-content-between mx-4">
+                  <div className="job-listing-position custom-width w-25 mb-3">
+                    <h2>Master Distiller</h2>
+                    <strong>Car Toys</strong>
+                  </div>
+                  <div className="job-listing-location mb-3 custom-width w-25">
+                    <span className="icon-room"></span>Denmark
+                  </div>
+                  <div className="job-listing-location mb-3 custom-width w-25">
+                    <span className=""></span>$60,000/year
+                  </div>
+                  <div className="job-listing-meta w-25 text-md-right mb-3">
+                    <span className="badge badge-success">Full-Time</span>
+                  </div>
+                </div>
+              </a>
+            </li>
+
+            <li
+              className="job-listing d-block d-md-flex pb-3 pb-sm-0 align-items-center"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              <a href="job-single.html">
+                <div className="job-listing-logo">
+                  <img
+                    src="images/job_logo_3.jpg"
+                    alt="Free Website Template by Free-Template.co"
+                    className="img-fluid"
+                  />
+                </div>
+
+                <div className="job-listing-about d-md-flex custom-width w-100 justify-content-between mx-4">
+                  <div className="job-listing-position custom-width w-25 mb-3">
+                    <h2>Investment Analyst</h2>
+                    <strong> Ibotta, Inc</strong>
+                  </div>
+                  <div className="job-listing-location mb-3 custom-width w-25">
+                    <span className="icon-room"></span>Germany
+                  </div>
+                  <div className="job-listing-location mb-3 custom-width w-25">
+                    <span className=""></span>$45/hr
+                  </div>
+                  <div className="job-listing-meta w-25 text-md-right mb-3">
+                    <span className="badge badge-danger">Part-Time</span>
+                  </div>
+                </div>
+              </a>
+            </li>
+          </ul>
+
+          {/* <div className="row pagination-wrap">
+            <div className="col-md-6 text-center text-md-left mb-4 mb-md-0">
+              <span>Showing 1-7 Of 1367 Jobs</span>
+            </div>
+            <div className="col-md-6 text-center text-md-right">
+              <div className="custom-pagination ml-auto">
+                <a href="#" className="prev">
+                  Prev
+                </a>
+                <div className="d-inline-block">
+                  <a href="#" className="active">
+                    1
+                  </a>
+                  <a href="#">2</a>
+                  <a href="#">3</a>
+                  <a href="#">4</a>
+                </div>
+                <a href="#" className="next">
+                  Next
+                </a>
+              </div>
+            </div>
+          </div> */}
+          <div
+            className="row d-flex justify-content-center"
+            data-aos="zoom"
+            data-aos-delay="200"
+          >
+            <button className="btn explore-more-jobs">Expore More Jobs</button>
+          </div>
+        </div>
+      </section>
