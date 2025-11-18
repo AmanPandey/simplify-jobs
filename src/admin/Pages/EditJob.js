@@ -9,7 +9,7 @@ import { getJob, updatejob } from "../Utils/jobsLogic";
 
 import { useNavigate, useSearchParams } from "react-router-dom";
 
-const EditEmployer = () => {
+const EditJob = () => {
   const { errors, setErrors, token, setNotif, notif } =
     useContext(AdminContext);
   const [loading, setLoading] = useState(false);
@@ -58,11 +58,12 @@ const EditEmployer = () => {
     application_link: "",
     jobStatus: "Draft",
   });
+  console.log(jobFormData);
 
   const config = useMemo(
     () => ({
       readonly: false,
-      placeholder: "Job Description...",
+      // placeholder: "Job Description...",
       height: 400,
     }),
     []
@@ -74,7 +75,7 @@ const EditEmployer = () => {
     }
   }, []);
 
-  //fetch employer by id
+  //fetch job by id
   useEffect(() => {
     // Define an inner async function
     async function fetchJob() {
@@ -96,7 +97,7 @@ const EditEmployer = () => {
         if (!id) {
           setNotif({
             id: Date.now(),
-            message: "Invalid employer ID",
+            message: "Invalid job ID",
             type: "error",
           });
           return;
@@ -114,7 +115,13 @@ const EditEmployer = () => {
           return;
         }
 
-        setJobFormData(res.job);
+        // setJobFormData(res.job);
+        setJobFormData({
+          ...res.job,
+          posted_date: res.job.posted_date?.split("T")[0] || "",
+          application_deadline:
+            res.job.application_deadline?.split("T")[0] || "",
+        });
       } catch (error) {
         console.error("fetch job error:", error);
         setNotif({
@@ -308,7 +315,7 @@ const EditEmployer = () => {
       <div className="container rounded shadow px-3 pt-3 pb-5 bg-white ">
         <div className="row mb-4 d-flex justify-content-between">
           <div className="col-md-6 d-flex">
-            <h3 className="mb-0 fw-bold">Edit Employer</h3>
+            <h3 className="mb-0 fw-bold">Edit Job</h3>
           </div>
         </div>
 
@@ -662,7 +669,7 @@ const EditEmployer = () => {
             }}
             disabled={loading}
           >
-            Save Job
+            Update Job
           </button>
         </form>
       </div>
@@ -670,4 +677,4 @@ const EditEmployer = () => {
   );
 };
 
-export default EditEmployer;
+export default EditJob;
