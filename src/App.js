@@ -72,7 +72,7 @@ function App() {
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/jobs-listing" element={<JobListings />} />
+          <Route path="/all-jobs" element={<JobListings />} />
         </Route>
 
         {/* ADMIN PART */}

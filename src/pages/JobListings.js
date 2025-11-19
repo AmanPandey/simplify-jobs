@@ -329,10 +329,17 @@ const JobListings = () => {
                                 // border: "1px solid #ccc",
                               }}
                             >
-                              <option value="">None</option>
-                              <option value="">job list</option>
-                              <option value="">job list</option>
-                              <option value="">job list</option>
+                              <option value="recent">Most Recent</option>
+
+                              <option value="relevance">Relevance</option>
+                              <option value="salary_desc">
+                                Salary: High to Low
+                              </option>
+                              <option value="salary_asc">
+                                Salary: Low to High
+                              </option>
+                              <option value="title_asc">Job Title: A–Z</option>
+                              <option value="title_desc">Job Title: Z–A</option>
                             </select>
                           </div>
                         </div>

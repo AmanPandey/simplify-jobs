@@ -9,7 +9,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import styles from "../assets/admin.module.css";
 
 const AuthUser = React.memo(() => {
-  const { errors, setErrors, formData, setFormData, login } =
+  const { errors, setErrors, formData, setFormData, login, setLoggedInUser } =
     useContext(AdminContext);
   // console.log(isSignUpMode);
 
@@ -61,6 +61,7 @@ const AuthUser = React.memo(() => {
         email: formData.email,
         password: formData.password,
       });
+      // console.log(res);
 
       // Handle failed response
       if (!res.success || !res.token) {
@@ -74,6 +75,8 @@ const AuthUser = React.memo(() => {
       // Success case
       setErrors({});
       login(res.token);
+      setLoggedInUser(res.user);
+      localStorage.setItem("user", JSON.stringify(res.user));
       navigate("/admin/dashboard");
       setFormData({ email: "", password: "" });
     } catch (err) {

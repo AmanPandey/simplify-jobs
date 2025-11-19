@@ -76,6 +76,33 @@ export async function getEmployer(id, token) {
   }
 }
 
+// get employer created by logged in user
+
+export async function getEmployersByUser(id, token) {
+  try {
+    const res = await axios.get(`${API_URL}/employers/created-by?id=${id}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+    });
+
+    return res.data; // Expected: { success, employer, message }
+  } catch (error) {
+    console.error("getEmployer error:", error);
+
+    const backendMessage =
+      error?.response?.data?.message ||
+      error?.message ||
+      "Network error, please try again later.";
+
+    return {
+      success: false,
+      message: backendMessage,
+    };
+  }
+}
+
 //update employer
 
 export async function updateEmployer(id, updatedData, token) {

@@ -8,13 +8,20 @@ import { useNavigate } from "react-router-dom";
 import { validate } from "../Utils/Validate";
 import { addJob } from "../Utils/jobsLogic";
 import Notification from "../Components/Notification";
+import { getEmployer, getEmployersByUser } from "../Utils/employersLogic";
 
 const AddNewJob = () => {
-  const { errors, setErrors, token, setNotif, notif } =
+  const { errors, setErrors, token, setNotif, notif, loggedInUser } =
     useContext(AdminContext);
+
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
+  const [isValidImage, setIsValidImage] = useState(true);
+  const [createdEmployersByUser, setCreatedEmployersByusers] = useState(null);
+  const [selectEmployerId, setSelectEmployerId] = useState("");
+
   const refs = {
+    company_logo: useRef(),
     job_title: useRef(),
     email: useRef(),
     company_name: useRef(),
@@ -35,6 +42,7 @@ const AddNewJob = () => {
   };
 
   const [jobFormData, setJobFormData] = useState({
+    company_logo: "",
     job_title: "",
     company_name: "",
     job_type: "",
@@ -56,6 +64,8 @@ const AddNewJob = () => {
     jobStatus: "Draft",
   });
 
+  // console.log(jobFormData);
+
   const config = useMemo(
     () => ({
       readonly: false,
@@ -72,6 +82,105 @@ const AddNewJob = () => {
       setNotif({ id: null, message: "", type: "" });
     }
   }, []);
+
+  // get employers data by user
+
+  useEffect(() => {
+    if (!loggedInUser?.id) {
+      setNotif({
+        id: Date.now(),
+        message: "Invalid User ID",
+        type: "error",
+      });
+      return;
+    }
+    if (!token) {
+      setNotif({
+        id: Date.now(),
+        message: "Your session has expired. Please log in again.",
+        type: "error",
+      });
+      navigate("/admin/login");
+      return;
+    }
+
+    const fetchEmployers = async () => {
+      try {
+        const res = await getEmployersByUser(loggedInUser.id, token);
+
+        if (!res.success) {
+          return setNotif({
+            id: Date.now(),
+            message: res.message,
+            type: "error",
+          });
+        }
+
+        setCreatedEmployersByusers(res.employers);
+      } catch (error) {
+        console.log(error.message);
+        setNotif({
+          id: Date.now(),
+          message: error.message || "Something went wrong.",
+          type: "error",
+        });
+      }
+    };
+
+    fetchEmployers();
+  }, []);
+
+  // get employer by id
+
+  useEffect(() => {
+    if (
+      !selectEmployerId ||
+      selectEmployerId === "" ||
+      selectEmployerId === "undefined"
+    ) {
+      return;
+    }
+
+    if (!token) {
+      setNotif({
+        id: Date.now(),
+        message: "Your session has expired. Please log in again.",
+        type: "error",
+      });
+      navigate("/admin/login");
+      return;
+    }
+
+    const fetchEmployer = async () => {
+      try {
+        const res = await getEmployer(selectEmployerId, token);
+
+        if (!res.success) {
+          return setNotif({
+            id: Date.now(),
+            message: res.message,
+            type: "error",
+          });
+        }
+        // console.log(res);
+
+        setJobFormData((prev) => ({
+          ...prev,
+          company_logo: res.employer.company_logo,
+          company_name: res.employer.company_name,
+        }));
+      } catch (error) {
+        console.log(error.message);
+        setNotif({
+          id: Date.now(),
+          message: error.message || "Something went wrong.",
+          type: "error",
+        });
+      }
+    };
+
+    fetchEmployer();
+  }, [selectEmployerId]);
 
   // handle form input
   function handleChange(e) {
@@ -90,6 +199,7 @@ const AddNewJob = () => {
         message: "Please enter a valid email address.",
       },
     ],
+    company_logo: [{ required: true, message: "Please paste logo url" }],
     company_name: [{ required: true, message: "This fields can't be empty." }],
     category: [{ required: true, message: "This fields can't be empty." }],
     job_type: [{ required: true, message: "This fields can't be empty." }],
@@ -131,6 +241,20 @@ const AddNewJob = () => {
     work_mode: [{ required: true, message: "This fields can't be empty." }],
   };
 
+  //company logo
+  useEffect(() => {
+    if (!jobFormData.company_logo) {
+      setIsValidImage(false);
+      return;
+    }
+
+    const img = new Image();
+    img.src = jobFormData.company_logo;
+
+    img.onload = () => setIsValidImage(true); // URL is correct
+    img.onerror = () => setIsValidImage(false); // URL is broken
+  }, [jobFormData.company_logo]);
+
   // form submit
   async function handleSubmit(e) {
     e.preventDefault();
@@ -142,6 +266,7 @@ const AddNewJob = () => {
         job_title: validationConfig.job_title,
         email: validationConfig.email,
         company_name: validationConfig.company_name,
+        company_logo: validationConfig.company_logo,
         job_type: validationConfig.job_type,
         category: validationConfig.category,
         location: validationConfig.location,
@@ -190,8 +315,6 @@ const AddNewJob = () => {
       setLoading(true);
 
       const res = await addJob(jobFormData, token);
-      console.log(res);
-
       if (!res.success) {
         setNotif({ id: Date.now(), message: res.message, type: "error" });
         return;
@@ -199,6 +322,7 @@ const AddNewJob = () => {
 
       setNotif({ id: Date.now(), message: res.message, type: "success" });
       setJobFormData({
+        company_logo: "",
         job_title: "",
         company_name: "",
         job_type: "",
@@ -219,6 +343,7 @@ const AddNewJob = () => {
         application_link: "",
         jobStatus: "Draft",
       });
+      setSelectEmployerId("");
 
       setTimeout(() => {
         navigate("/admin/jobs");
@@ -250,21 +375,74 @@ const AddNewJob = () => {
         onSubmit={handleSubmit}
       >
         {/* Job Info Section */}
-        <h4 className="mb-3 fw-bold"> Job Information</h4>
-        <div className="row g-3">
-          <div className="col-md-6 mb-2">
-            <label className="form-label">Job Title</label>
-            <Input
-              ref={refs.job_title}
-              type="text"
+        <div className="row mb-5">
+          <div className="col-sm-6">
+            {" "}
+            <h4 className="mb-3 fw-bold"> Job Information</h4>
+          </div>
+          <div className="col-sm-6">
+            <select
               className="form-control"
-              placeholder="Frontend Developer"
-              name="job_title"
+              onChange={(e) => setSelectEmployerId(e.target.value)}
+              value={selectEmployerId}
+            >
+              <option value="" disabled>
+                Select Employer
+              </option>
+
+              {createdEmployersByUser?.map((emp) => (
+                <option key={emp._id} value={emp._id}>
+                  {emp.company_name}
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
+
+        <div className="row g-3">
+          {/* company logo  */}
+          <div className="col-12 d-flex flex-column justify-content-center align-items-center mb-2">
+            <div className={`${styles.company_logo} mb-3`}>
+              {isValidImage ? (
+                <img
+                  src={
+                    jobFormData.company_logo ? jobFormData.company_logo : null
+                  }
+                  alt="company logo"
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                    objectPosition: "center",
+                  }}
+                />
+              ) : (
+                // Default company logo (SVG)
+                <svg
+                  width="60"
+                  height="60"
+                  viewBox="0 0 24 24"
+                  fill="#999"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M12 2L2 7v2h20V7l-10-5zm0 3.1L17.74 8H6.26L12 5.1zM2 11h20v11H2V11zm6 2v7h2v-7H8zm6 0v7h2v-7h-2z" />
+                </svg>
+              )}
+            </div>
+          </div>
+          <div className="col-12 mb-2 ">
+            <label className="form-label fw-semibold">Company Logo*</label>
+            <Input
+              ref={refs.company_logo}
+              type="text"
+              id="company_logo"
+              placeholder="Company Logo"
+              name="company_logo"
               onChange={handleChange}
-              value={jobFormData.job_title}
+              value={jobFormData.company_logo}
             />
-            {errors.job_title && (
-              <p className="text-danger">{errors.job_title}</p>
+            {errors.company_logo && (
+              <p className="text-danger">{errors.company_logo}</p>
             )}
           </div>
           <div className="col-md-6 mb-2">
@@ -282,6 +460,22 @@ const AddNewJob = () => {
               <p className="text-danger">{errors.company_name}</p>
             )}
           </div>
+          <div className="col-md-6 mb-2">
+            <label className="form-label">Job Title</label>
+            <Input
+              ref={refs.job_title}
+              type="text"
+              className="form-control"
+              placeholder="Frontend Developer"
+              name="job_title"
+              onChange={handleChange}
+              value={jobFormData.job_title}
+            />
+            {errors.job_title && (
+              <p className="text-danger">{errors.job_title}</p>
+            )}
+          </div>
+
           <div className="col-md-4 mb-2">
             <label className="form-label">Job Type</label>
             <select

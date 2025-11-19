@@ -53,12 +53,12 @@ const Navbar = () => {
                 <ul className="dropdown">
                   <li>
                     <NavLink
-                      to="/job-single"
+                      to="/all-jobs"
                       className={({ isActive }) =>
                         isActive ? "nav-link active" : "nav-link"
                       }
                     >
-                      Job Single
+                      All Jobs
                     </NavLink>
                   </li>
                   <li>

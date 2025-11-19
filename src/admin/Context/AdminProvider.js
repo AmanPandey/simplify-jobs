@@ -7,15 +7,20 @@ const AdminProvider = ({ children }) => {
     email: "",
     password: "",
   });
-  const [editJob, setEditJob] = useState(false);
-  const [draft, setDraft] = useState(false);
+  // const [editJob, setEditJob] = useState(false);
+  // const [draft, setDraft] = useState(false);
+  const [loggedInUser, setLoggedInUser] = useState(() => {
+    const saved = localStorage.getItem("user");
+    return saved ? JSON.parse(saved) : null;
+  });
+  const [token, setToken] = useState(
+    () => localStorage.getItem("token") || null
+  );
+
   const [showSidebar, setShowSidebar] = useState(window.innerWidth > 992);
   const [isSignUpMode, setIsSignUpMode] = useState(false);
   const [errors, setErrors] = useState({});
   const [notif, setNotif] = useState({ message: null, type: "" });
-  const [token, setToken] = useState(
-    () => localStorage.getItem("token") || null
-  );
 
   const login = useCallback((newToken) => {
     setToken(newToken);
@@ -57,10 +62,10 @@ const AdminProvider = ({ children }) => {
   // ✅ Memoize context value to prevent infinite re-renders
   const value = useMemo(
     () => ({
-      editJob,
-      setEditJob,
-      draft,
-      setDraft,
+      // editJob,
+      // setEditJob,
+      // draft,
+      // setDraft,
       showSidebar,
       setShowSidebar,
       isSignUpMode,
@@ -74,10 +79,12 @@ const AdminProvider = ({ children }) => {
       logout,
       notif,
       setNotif,
+      loggedInUser,
+      setLoggedInUser,
     }),
     [
-      editJob,
-      draft,
+      // editJob,
+      // draft,
       showSidebar,
       isSignUpMode,
       formData,
@@ -86,6 +93,7 @@ const AdminProvider = ({ children }) => {
       notif,
       login,
       logout,
+      loggedInUser,
     ]
   );
 

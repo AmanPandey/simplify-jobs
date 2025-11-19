@@ -36,7 +36,7 @@ const AdminJobsListing = () => {
           return;
         }
         const res = await getAllJobs(token);
-        console.log(res);
+        // console.log(res);
 
         if (!res.success) {
           setNotif({

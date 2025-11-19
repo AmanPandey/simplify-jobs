@@ -16,8 +16,10 @@ const EditJob = () => {
   const [searchParams] = useSearchParams();
   const id = searchParams.get("id")?.trim();
   const navigate = useNavigate();
+  const [isValidImage, setIsValidImage] = useState(true);
 
   const refs = {
+    company_logo: useRef(),
     job_title: useRef(),
     email: useRef(),
     company_name: useRef(),
@@ -38,6 +40,7 @@ const EditJob = () => {
   };
 
   const [jobFormData, setJobFormData] = useState({
+    company_logo: "",
     job_title: "",
     company_name: "",
     job_type: "",
@@ -58,12 +61,11 @@ const EditJob = () => {
     application_link: "",
     jobStatus: "Draft",
   });
-  console.log(jobFormData);
 
   const config = useMemo(
     () => ({
       readonly: false,
-      // placeholder: "Job Description...",
+      placeholder: "",
       height: 400,
     }),
     []
@@ -115,7 +117,6 @@ const EditJob = () => {
           return;
         }
 
-        // setJobFormData(res.job);
         setJobFormData({
           ...res.job,
           posted_date: res.job.posted_date?.split("T")[0] || "",
@@ -156,6 +157,7 @@ const EditJob = () => {
         message: "Please enter a valid email address.",
       },
     ],
+    company_logo: [{ required: true, message: "Please paste logo url" }],
     company_name: [{ required: true, message: "This fields can't be empty." }],
     category: [{ required: true, message: "This fields can't be empty." }],
     job_type: [{ required: true, message: "This fields can't be empty." }],
@@ -197,6 +199,20 @@ const EditJob = () => {
     work_mode: [{ required: true, message: "This fields can't be empty." }],
   };
 
+  //company logo
+  useEffect(() => {
+    if (!jobFormData.company_logo) {
+      setIsValidImage(false);
+      return;
+    }
+
+    const img = new Image();
+    img.src = jobFormData.company_logo;
+
+    img.onload = () => setIsValidImage(true); // URL is correct
+    img.onerror = () => setIsValidImage(false); // URL is broken
+  }, [jobFormData.company_logo]);
+
   // handle form submit
   async function handleSubmit(e) {
     e.preventDefault();
@@ -206,6 +222,7 @@ const EditJob = () => {
         job_title: validationConfig.job_title,
         email: validationConfig.email,
         company_name: validationConfig.company_name,
+        company_logo: validationConfig.company_logo,
         job_type: validationConfig.job_type,
         category: validationConfig.category,
         location: validationConfig.location,
@@ -267,6 +284,7 @@ const EditJob = () => {
         type: "success",
       });
       setJobFormData({
+        company_logo: "",
         job_title: "",
         company_name: "",
         job_type: "",
@@ -326,6 +344,51 @@ const EditJob = () => {
           {/* Job Info Section */}
           <h4 className="mb-3 fw-bold"> Job Information</h4>
           <div className="row g-3">
+            {/* company logo  */}
+            <div className="col-12 d-flex flex-column justify-content-center align-items-center mb-2">
+              <div className={`${styles.company_logo} mb-3`}>
+                {isValidImage ? (
+                  <img
+                    src={
+                      jobFormData.company_logo ? jobFormData.company_logo : null
+                    }
+                    alt="company logo"
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      objectPosition: "center",
+                    }}
+                  />
+                ) : (
+                  // Default company logo (SVG)
+                  <svg
+                    width="60"
+                    height="60"
+                    viewBox="0 0 24 24"
+                    fill="#999"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path d="M12 2L2 7v2h20V7l-10-5zm0 3.1L17.74 8H6.26L12 5.1zM2 11h20v11H2V11zm6 2v7h2v-7H8zm6 0v7h2v-7h-2z" />
+                  </svg>
+                )}
+              </div>
+            </div>
+            <div className="col-12 mb-2 ">
+              <label className="form-label fw-semibold">Company Logo*</label>
+              <Input
+                ref={refs.company_logo}
+                type="text"
+                id="company_logo"
+                placeholder="Company Logo"
+                name="company_logo"
+                onChange={handleChange}
+                value={jobFormData.company_logo}
+              />
+              {errors.company_logo && (
+                <p className="text-danger">{errors.company_logo}</p>
+              )}
+            </div>
             <div className="col-md-6 mb-2">
               <label className="form-label">Job Title</label>
               <Input

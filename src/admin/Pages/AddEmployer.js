@@ -14,8 +14,10 @@ const AddEmployer = () => {
     useContext(AdminContext);
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
+  const [isValidImage, setIsValidImage] = useState(true);
 
   const [empFormData, setEmpFormData] = useState({
+    company_logo: "",
     name: "",
     email: "",
     company_name: "",
@@ -46,11 +48,11 @@ const AddEmployer = () => {
   // validate input
   const validationConfig = {
     name: [
-      { required: true, message: "Please enter your name." },
-      { minLength: 3, message: "Name should be at least 3 characters." },
+      { required: true, message: "Please enter your name" },
+      { minLength: 3, message: "Name should be at least 3 characters" },
     ],
     email: [
-      { required: true, message: "Please enter your email." },
+      { required: true, message: "Please enter your email" },
       {
         pattern: /^[\w\-\.]+@([\w-]+\.)+[\w-]{2,}$/,
         message: "Please enter a valid email address",
@@ -59,12 +61,27 @@ const AddEmployer = () => {
     company_name: [
       { required: true, message: "Please enter your company name" },
     ],
-    company_size: [{ required: true, message: "Please select company size." }],
-    industry: [{ required: true, message: "Please enter industry type." }],
+    company_size: [{ required: true, message: "Please select company size" }],
+    company_logo: [{ required: true, message: "Please paste logo url" }],
+
+    industry: [{ required: true, message: "Please enter industry type" }],
     company_location: [
-      { required: true, message: "Please enter your company location." },
+      { required: true, message: "Please enter your company location" },
     ],
   };
+
+  useEffect(() => {
+    if (!empFormData.company_logo) {
+      setIsValidImage(false);
+      return;
+    }
+
+    const img = new Image();
+    img.src = empFormData.company_logo;
+
+    img.onload = () => setIsValidImage(true); // URL is correct
+    img.onerror = () => setIsValidImage(false); // URL is broken
+  }, [empFormData.company_logo]);
 
   // form submit
   async function handleSubmit(e) {
@@ -79,6 +96,7 @@ const AddEmployer = () => {
         company_size: validationConfig.company_size,
         industry: validationConfig.industry,
         company_location: validationConfig.company_location,
+        company_logo: validationConfig.company_logo,
       },
       setErrors
     );
@@ -90,6 +108,7 @@ const AddEmployer = () => {
       setLoading(true);
 
       const res = await addEmployer(empFormData, token);
+      console.log(res);
 
       if (!res.success) {
         setNotif({ id: Date.now(), message: res.message, type: "error" });
@@ -108,6 +127,7 @@ const AddEmployer = () => {
         contact_number: "",
         description: "",
         status: "active",
+        company_logo: "",
       });
 
       setTimeout(() => {
@@ -144,6 +164,51 @@ const AddEmployer = () => {
 
         <form onSubmit={handleSubmit}>
           <div className="row g-3">
+            {/* company logo  */}
+            <div className="col-12 d-flex flex-column justify-content-center align-items-center mb-2">
+              <div className={`${styles.company_logo} mb-3`}>
+                {isValidImage ? (
+                  <img
+                    src={
+                      empFormData.company_logo ? empFormData.company_logo : null
+                    }
+                    alt="company logo"
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      objectPosition: "center",
+                    }}
+                  />
+                ) : (
+                  // Default company logo (SVG)
+                  <svg
+                    width="60"
+                    height="60"
+                    viewBox="0 0 24 24"
+                    fill="#999"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path d="M12 2L2 7v2h20V7l-10-5zm0 3.1L17.74 8H6.26L12 5.1zM2 11h20v11H2V11zm6 2v7h2v-7H8zm6 0v7h2v-7h-2z" />
+                  </svg>
+                )}
+              </div>
+            </div>
+            <div className="col-12 mb-2 ">
+              <label className="form-label fw-semibold">Company Logo*</label>
+              <Input
+                type="text"
+                id="company_logo"
+                placeholder="Company Logo"
+                name="company_logo"
+                onChange={handleChange}
+                // required={true}
+                value={empFormData.company_logo}
+              />
+              {errors.company_logo && (
+                <p className="text-danger">{errors.company_logo}</p>
+              )}
+            </div>
             {/* Name */}
             <div className="col-md-6 mb-md-4 mb-2 ">
               <label className="form-label fw-semibold">Name*</label>

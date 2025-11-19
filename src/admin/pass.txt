@@ -1,0 +1,6 @@
+Cloud name	dihovscns
+API key	949525568163235
+API secret	**********
+API environment variable CLOUDINARY_URL=cloudinary://949525568163235:**********@dihovscns
+
+
