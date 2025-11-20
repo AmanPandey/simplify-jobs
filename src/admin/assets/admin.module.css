@@ -240,8 +240,8 @@ svg:focus,
 
 /* company logo   */
 .company_logo {
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
   background: "e5e5e5";
   overflow: hidden;
@@ -250,4 +250,9 @@ svg:focus,
   justify-content: center;
   margin-bottom: 15px;
   border: 1px solid #ced4da;
+}
+
+.SkillsInput {
+  background-color: #3c3c3c !important;
+  font-size: 16px;
 }

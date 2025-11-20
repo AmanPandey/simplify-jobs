@@ -5,6 +5,7 @@ import AdminContext from "../Context/AdminContext";
 import Notification from "../Components/Notification";
 import styles from "../assets/admin.module.css";
 import JoditEditor from "jodit-react";
+import SkillsInput from "../Components/SkillsInput";
 import { getJob, updatejob } from "../Utils/jobsLogic";
 
 import { useNavigate, useSearchParams } from "react-router-dom";
@@ -16,13 +17,10 @@ const EditJob = () => {
   const [searchParams] = useSearchParams();
   const id = searchParams.get("id")?.trim();
   const navigate = useNavigate();
-  const [isValidImage, setIsValidImage] = useState(true);
 
   const refs = {
-    company_logo: useRef(),
     job_title: useRef(),
     email: useRef(),
-    company_name: useRef(),
     job_type: useRef(),
     category: useRef(),
     location: useRef(),
@@ -40,9 +38,7 @@ const EditJob = () => {
   };
 
   const [jobFormData, setJobFormData] = useState({
-    company_logo: "",
     job_title: "",
-    company_name: "",
     job_type: "",
     category: "",
     location: "",
@@ -52,7 +48,7 @@ const EditJob = () => {
     application_deadline: "",
     posted_date: "",
     job_description: "",
-    skills: "",
+    skills: [],
     education: "",
     work_mode: "",
     employment_type: "",
@@ -157,8 +153,7 @@ const EditJob = () => {
         message: "Please enter a valid email address.",
       },
     ],
-    company_logo: [{ required: true, message: "Please paste logo url" }],
-    company_name: [{ required: true, message: "This fields can't be empty." }],
+
     category: [{ required: true, message: "This fields can't be empty." }],
     job_type: [{ required: true, message: "This fields can't be empty." }],
     location: [
@@ -199,20 +194,6 @@ const EditJob = () => {
     work_mode: [{ required: true, message: "This fields can't be empty." }],
   };
 
-  //company logo
-  useEffect(() => {
-    if (!jobFormData.company_logo) {
-      setIsValidImage(false);
-      return;
-    }
-
-    const img = new Image();
-    img.src = jobFormData.company_logo;
-
-    img.onload = () => setIsValidImage(true); // URL is correct
-    img.onerror = () => setIsValidImage(false); // URL is broken
-  }, [jobFormData.company_logo]);
-
   // handle form submit
   async function handleSubmit(e) {
     e.preventDefault();
@@ -221,8 +202,6 @@ const EditJob = () => {
       {
         job_title: validationConfig.job_title,
         email: validationConfig.email,
-        company_name: validationConfig.company_name,
-        company_logo: validationConfig.company_logo,
         job_type: validationConfig.job_type,
         category: validationConfig.category,
         location: validationConfig.location,
@@ -268,6 +247,7 @@ const EditJob = () => {
     }
     try {
       setLoading(true);
+
       const res = await updatejob(id, jobFormData, token);
       if (!res.success) {
         setNotif({
@@ -284,9 +264,7 @@ const EditJob = () => {
         type: "success",
       });
       setJobFormData({
-        company_logo: "",
         job_title: "",
-        company_name: "",
         job_type: "",
         category: "",
         location: "",
@@ -296,7 +274,7 @@ const EditJob = () => {
         application_deadline: "",
         posted_date: "",
         job_description: "",
-        skills: "",
+        skills: [],
         education: "",
         work_mode: "",
         employment_type: "",
@@ -344,53 +322,8 @@ const EditJob = () => {
           {/* Job Info Section */}
           <h4 className="mb-3 fw-bold"> Job Information</h4>
           <div className="row g-3">
-            {/* company logo  */}
-            <div className="col-12 d-flex flex-column justify-content-center align-items-center mb-2">
-              <div className={`${styles.company_logo} mb-3`}>
-                {isValidImage ? (
-                  <img
-                    src={
-                      jobFormData.company_logo ? jobFormData.company_logo : null
-                    }
-                    alt="company logo"
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "cover",
-                      objectPosition: "center",
-                    }}
-                  />
-                ) : (
-                  // Default company logo (SVG)
-                  <svg
-                    width="60"
-                    height="60"
-                    viewBox="0 0 24 24"
-                    fill="#999"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path d="M12 2L2 7v2h20V7l-10-5zm0 3.1L17.74 8H6.26L12 5.1zM2 11h20v11H2V11zm6 2v7h2v-7H8zm6 0v7h2v-7h-2z" />
-                  </svg>
-                )}
-              </div>
-            </div>
-            <div className="col-12 mb-2 ">
-              <label className="form-label fw-semibold">Company Logo*</label>
-              <Input
-                ref={refs.company_logo}
-                type="text"
-                id="company_logo"
-                placeholder="Company Logo"
-                name="company_logo"
-                onChange={handleChange}
-                value={jobFormData.company_logo}
-              />
-              {errors.company_logo && (
-                <p className="text-danger">{errors.company_logo}</p>
-              )}
-            </div>
             <div className="col-md-6 mb-2">
-              <label className="form-label">Job Title</label>
+              <label className="form-label">Job Title*</label>
               <Input
                 ref={refs.job_title}
                 type="text"
@@ -404,23 +337,9 @@ const EditJob = () => {
                 <p className="text-danger">{errors.job_title}</p>
               )}
             </div>
+
             <div className="col-md-6 mb-2">
-              <label className="form-label">Company Name</label>
-              <Input
-                ref={refs.company_name}
-                type="text"
-                className="form-control"
-                placeholder="Tech Corp"
-                name="company_name"
-                onChange={handleChange}
-                value={jobFormData.company_name}
-              />
-              {errors.company_name && (
-                <p className="text-danger">{errors.company_name}</p>
-              )}
-            </div>
-            <div className="col-md-4 mb-2">
-              <label className="form-label">Job Type</label>
+              <label className="form-label">Job Type*</label>
               <select
                 ref={refs.job_type}
                 className="form-select w-100 "
@@ -443,7 +362,7 @@ const EditJob = () => {
               )}
             </div>
             <div className="col-md-4 mb-2">
-              <label className="form-label">Category</label>
+              <label className="form-label">Category*</label>
               <select
                 ref={refs.category}
                 className="form-select w-100"
@@ -465,7 +384,28 @@ const EditJob = () => {
               )}
             </div>
             <div className="col-md-4 mb-2">
-              <label className="form-label">Job Location</label>
+              <label className="form-label">Work Mode*</label>
+              <select
+                ref={refs.work_mode}
+                className="form-select w-100"
+                style={{ padding: "6px 12px" }}
+                name="work_mode"
+                value={jobFormData.work_mode}
+                onChange={handleChange}
+              >
+                <option value="" disabled>
+                  Select Mode
+                </option>
+                <option value="Onsite">Onsite</option>
+                <option value="Remote">Remote</option>
+                <option value="Hybrid">Hybrid</option>
+              </select>
+              {errors.work_mode && (
+                <p className="text-danger">{errors.work_mode}</p>
+              )}
+            </div>
+            <div className="col-md-4 mb-2">
+              <label className="form-label">Job Location*</label>
               <Input
                 ref={refs.location}
                 type="text"
@@ -481,7 +421,7 @@ const EditJob = () => {
             </div>
 
             <div className="col-md-4 mb-2">
-              <label className="form-label">Salary Range</label>
+              <label className="form-label">Salary Range*</label>
               <Input
                 ref={refs.salary}
                 type="text"
@@ -494,7 +434,7 @@ const EditJob = () => {
               {errors.salary && <p className="text-danger">{errors.salary}</p>}
             </div>
             <div className="col-md-4 mb-2">
-              <label className="form-label">Experience Required</label>
+              <label className="form-label">Experience Required*</label>
               <select
                 ref={refs.experience}
                 className="form-select w-100"
@@ -516,7 +456,7 @@ const EditJob = () => {
               )}
             </div>
             <div className="col-md-4 mb-2">
-              <label className="form-label">Job Level</label>
+              <label className="form-label">Job Level*</label>
               <select
                 ref={refs.job_level}
                 className="form-select w-100"
@@ -538,7 +478,7 @@ const EditJob = () => {
               )}
             </div>
             <div className="col-md-4 mb-2">
-              <label className="form-label">Number of Openings</label>
+              <label className="form-label">Number of Openings*</label>
               <Input
                 ref={refs.number_of_openings}
                 type="number"
@@ -552,7 +492,7 @@ const EditJob = () => {
               )}
             </div>
             <div className="col-md-4 mb-2">
-              <label className="form-label">Application Deadline</label>
+              <label className="form-label">Application Deadline*</label>
               <Input
                 ref={refs.application_deadline}
                 type="date"
@@ -566,7 +506,7 @@ const EditJob = () => {
               )}
             </div>
             <div className="col-md-4 mb-2">
-              <label className="form-label">Posted Date</label>
+              <label className="form-label">Posted Date*</label>
               <Input
                 ref={refs.posted_date}
                 type="date"
@@ -584,7 +524,7 @@ const EditJob = () => {
           {/* Job Details Section */}
           <h4 className="mt-5 mb-3 fw-bold"> Job Details</h4>
           <div className="mb-3">
-            <label className="form-label">Job Description</label>
+            <label className="form-label">Job Description*</label>
             <JoditEditor
               ref={refs.job_description}
               value={jobFormData.job_description}
@@ -606,22 +546,24 @@ const EditJob = () => {
           </div>
 
           <div className="mb-2">
-            <label className="form-label">Required Skills</label>
-            <Input
-              ref={refs.skills}
-              type="text"
-              className="form-control"
-              placeholder="e.g., React, Node.js, Git"
-              name="skills"
-              onChange={handleChange}
-              value={jobFormData.skills}
-            />
+            <label className="form-label">Required Skills*</label>
+
+            <div ref={refs.skills}>
+              <SkillsInput
+                value={jobFormData.skills}
+                onChange={(skillsList) => {
+                  setJobFormData((prev) => ({ ...prev, skills: skillsList }));
+                  setErrors((prev) => ({ ...prev, skills: "" }));
+                }}
+              />
+            </div>
+
             {errors.skills && <p className="text-danger">{errors.skills}</p>}
           </div>
 
           <div className="row g-3">
             <div className="col-md-4 mb-2">
-              <label className="form-label">Education Requirement</label>
+              <label className="form-label">Education Requirement*</label>
               <Input
                 ref={refs.education}
                 type="text"
@@ -635,29 +577,9 @@ const EditJob = () => {
                 <p className="text-danger">{errors.education}</p>
               )}
             </div>
+
             <div className="col-md-4 mb-2">
-              <label className="form-label">Work Mode</label>
-              <select
-                ref={refs.work_mode}
-                className="form-select w-100"
-                style={{ padding: "6px 12px" }}
-                name="work_mode"
-                value={jobFormData.work_mode}
-                onChange={handleChange}
-              >
-                <option value="" disabled>
-                  Select Mode
-                </option>
-                <option value="Onsite">Onsite</option>
-                <option value="Remote">Remote</option>
-                <option value="Hybrid">Hybrid</option>
-              </select>
-              {errors.work_mode && (
-                <p className="text-danger">{errors.work_mode}</p>
-              )}
-            </div>
-            <div className="col-md-4 mb-2">
-              <label className="form-label">Employment Type</label>
+              <label className="form-label">Employment Type*</label>
               <select
                 ref={refs.employment_type}
                 className="form-select w-100"
@@ -683,7 +605,7 @@ const EditJob = () => {
           <h4 className="mt-3 mb-3 fw-bold"> Contact & Application</h4>
           <div className="row g-3">
             <div className="col-md-6">
-              <label className="form-label">Contact Email</label>
+              <label className="form-label">Contact Email*</label>
               <Input
                 ref={refs.email}
                 type="email"

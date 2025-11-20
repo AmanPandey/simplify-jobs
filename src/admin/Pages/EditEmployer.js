@@ -235,8 +235,6 @@ const EditEmployer = () => {
                     style={{
                       width: "100%",
                       height: "100%",
-                      objectFit: "cover",
-                      objectPosition: "center",
                     }}
                   />
                 ) : (
@@ -270,7 +268,7 @@ const EditEmployer = () => {
             </div>
             {/* Name */}
             <div className="col-md-6 mb-md-4 mb-2 ">
-              <label className="form-label fw-semibold">Name*</label>
+              <label className="form-label fw-semibold">Contact Person*</label>
               <Input
                 type="text"
                 id="name"

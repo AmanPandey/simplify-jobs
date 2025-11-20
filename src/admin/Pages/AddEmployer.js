@@ -108,7 +108,6 @@ const AddEmployer = () => {
       setLoading(true);
 
       const res = await addEmployer(empFormData, token);
-      console.log(res);
 
       if (!res.success) {
         setNotif({ id: Date.now(), message: res.message, type: "error" });
@@ -176,8 +175,6 @@ const AddEmployer = () => {
                     style={{
                       width: "100%",
                       height: "100%",
-                      objectFit: "cover",
-                      objectPosition: "center",
                     }}
                   />
                 ) : (
@@ -211,7 +208,7 @@ const AddEmployer = () => {
             </div>
             {/* Name */}
             <div className="col-md-6 mb-md-4 mb-2 ">
-              <label className="form-label fw-semibold">Name*</label>
+              <label className="form-label fw-semibold">Contact Person*</label>
               <Input
                 type="text"
                 id="name"
