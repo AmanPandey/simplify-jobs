@@ -1,6 +1,8 @@
 import React, { useCallback, useEffect, useState, useMemo } from "react";
 import AdminContext from "./AdminContext";
 
+import { getEmployer, getEmployersByUser } from "../Utils/employersLogic";
+
 const AdminProvider = ({ children }) => {
   const [formData, setFormData] = useState({
     name: "",
@@ -21,6 +23,11 @@ const AdminProvider = ({ children }) => {
   const [isSignUpMode, setIsSignUpMode] = useState(false);
   const [errors, setErrors] = useState({});
   const [notif, setNotif] = useState({ message: null, type: "" });
+  const [createdEmployersByUser, setCreatedEmployersByusers] = useState(null);
+  const [selectEmployerId, setSelectEmployerId] = useState("");
+  const [company, setCompany] = useState({ logo: "", name: "" });
+
+  const [isValidImage, setIsValidImage] = useState(true);
 
   const login = useCallback((newToken) => {
     setToken(newToken);
@@ -59,13 +66,107 @@ const AdminProvider = ({ children }) => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  // get employers data by user
+
+  useEffect(() => {
+    if (!loggedInUser?.id) {
+      setNotif({
+        id: Date.now(),
+        message: "Invalid User ID",
+        type: "error",
+      });
+      return;
+    }
+    if (!token) {
+      setNotif({
+        id: Date.now(),
+        message: "Your session has expired. Please log in again.",
+        type: "error",
+      });
+
+      return;
+    }
+
+    const fetchEmployers = async () => {
+      try {
+        const res = await getEmployersByUser(loggedInUser.id, token);
+
+        if (!res.success) {
+          return setNotif({
+            id: Date.now(),
+            message: res.message,
+            type: "error",
+          });
+        }
+
+        setCreatedEmployersByusers(res.employers);
+      } catch (error) {
+        console.log(error.message);
+        setNotif({
+          id: Date.now(),
+          message: error.message || "Something went wrong.",
+          type: "error",
+        });
+      }
+    };
+
+    fetchEmployers();
+  }, []);
+
+  // get employer by id
+
+  useEffect(() => {
+    if (
+      !selectEmployerId ||
+      selectEmployerId === "" ||
+      selectEmployerId === "undefined"
+    ) {
+      return;
+    }
+
+    if (!token) {
+      setNotif({
+        id: Date.now(),
+        message: "Your session has expired. Please log in again.",
+        type: "error",
+      });
+      return;
+    }
+
+    const fetchEmployer = async () => {
+      try {
+        const res = await getEmployer(selectEmployerId, token);
+
+        if (!res.success) {
+          setNotif({
+            id: Date.now(),
+            message: res.message,
+            type: "error",
+          });
+          return;
+        }
+
+        setCompany((prev) => ({
+          ...prev,
+          logo: res.employer.company_logo,
+          name: res.employer.company_name,
+        }));
+      } catch (error) {
+        console.log(error.message);
+        setNotif({
+          id: Date.now(),
+          message: error.message || "Something went wrong.",
+          type: "error",
+        });
+      }
+    };
+
+    fetchEmployer();
+  }, [selectEmployerId]);
+
   // ✅ Memoize context value to prevent infinite re-renders
   const value = useMemo(
     () => ({
-      // editJob,
-      // setEditJob,
-      // draft,
-      // setDraft,
       showSidebar,
       setShowSidebar,
       isSignUpMode,
@@ -81,10 +182,16 @@ const AdminProvider = ({ children }) => {
       setNotif,
       loggedInUser,
       setLoggedInUser,
+      createdEmployersByUser,
+      setCreatedEmployersByusers,
+      selectEmployerId,
+      setSelectEmployerId,
+      company,
+      setCompany,
+      isValidImage,
+      setIsValidImage,
     }),
     [
-      // editJob,
-      // draft,
       showSidebar,
       isSignUpMode,
       formData,
@@ -94,6 +201,10 @@ const AdminProvider = ({ children }) => {
       login,
       logout,
       loggedInUser,
+      createdEmployersByUser,
+      selectEmployerId,
+      company,
+      isValidImage,
     ]
   );
 

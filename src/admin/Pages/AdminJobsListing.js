@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import AdminContext from "../Context/AdminContext";
 import Notification from "../Components/Notification";
 import Button from "../Components/Button";
-
 import styles from "../assets/admin.module.css";
 
 import { Dropdown } from "react-bootstrap";
@@ -15,7 +14,8 @@ const AdminJobsListing = () => {
   const navigate = useNavigate();
   const [jobData, setJobData] = useState([]);
   const [loading, setLoading] = useState(false);
-  const { token, notif, setNotif } = useContext(AdminContext);
+  const { token, notif, setNotif, company } = useContext(AdminContext);
+  // console.log(jobData);
 
   useEffect(() => {
     if (notif?.message) {
@@ -36,7 +36,7 @@ const AdminJobsListing = () => {
           return;
         }
         const res = await getAllJobs(token);
-        // console.log(res);
+        // console.log(res.data);
 
         if (!res.success) {
           setNotif({
@@ -171,7 +171,7 @@ const AdminJobsListing = () => {
                   jobData.map((job) => (
                     <tr key={job._id}>
                       <td>{job.job_title}</td>
-                      <td>{job.company_name}</td>
+                      <td>{job.createdBy?.company_name}</td>
 
                       <td>{job.category}</td>
                       <td>{job.job_type}</td>

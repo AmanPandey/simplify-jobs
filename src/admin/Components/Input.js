@@ -13,6 +13,7 @@ const Input = React.forwardRef(
       className = "",
       required = false,
       checked,
+      readOnly = false,
     },
     ref
   ) => {
@@ -34,6 +35,7 @@ const Input = React.forwardRef(
         onChange={onChange}
         className={`${baseClass} ${className}`}
         required={required}
+        readOnly={readOnly}
       />
     );
   }

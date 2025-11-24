@@ -150,7 +150,7 @@ const EmployersList = () => {
             </Button>
           </div>
         </div>
-        <div className="row">
+        <div className="row h-100">
           <div className="table-responsive rounded shadow-sm col-12">
             <table className="table table-striped align-middle mb-0">
               {/* ===== Table Header ===== */}

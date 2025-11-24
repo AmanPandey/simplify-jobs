@@ -1,7 +1,9 @@
 import { useState } from "react";
 import styles from "../assets/admin.module.css";
+import React, { forwardRef } from "react";
 
-const SkillsInput = ({ value, onChange }) => {
+const SkillsInput = React.forwardRef((props, ref) => {
+  const { value, onChange } = props;
   const [input, setInput] = useState("");
 
   const addSkill = () => {
@@ -27,6 +29,7 @@ const SkillsInput = ({ value, onChange }) => {
     <div
       className="w-100 border rounded p-2 d-flex flex-wrap gap-2"
       style={{ cursor: "text" }}
+      ref={ref}
     >
       {/* Show tags */}
       {value.map((skill) => (
@@ -64,6 +67,6 @@ const SkillsInput = ({ value, onChange }) => {
       />
     </div>
   );
-};
+});
 
 export default SkillsInput;

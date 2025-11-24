@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import Input from "../Components/Input";
 import { validate } from "../Utils/Validate";
 import AdminContext from "../Context/AdminContext";
@@ -15,8 +15,16 @@ const EditEmployer = () => {
   const [searchParams] = useSearchParams();
   const id = searchParams.get("id")?.trim();
   const navigate = useNavigate();
-
   const [isValidImage, setIsValidImage] = useState(true);
+  const refs = {
+    company_logo: useRef(),
+    name: useRef(),
+    email: useRef(),
+    company_name: useRef(),
+    company_size: useRef(),
+    industry: useRef(),
+    company_location: useRef(),
+  };
   const [empFormData, setEmpFormData] = useState({
     company_logo: "",
     name: "",
@@ -70,7 +78,6 @@ const EditEmployer = () => {
           });
           return;
         }
-
         setEmpFormData(res.employer);
       } catch (error) {
         console.error("fetchEmployer error:", error);
@@ -99,7 +106,6 @@ const EditEmployer = () => {
   function handleChange(e) {
     const { name, value } = e.target;
     setEmpFormData((prev) => ({ ...prev, [name]: value }));
-
     setErrors((prevError) => ({ ...prevError, [name]: "" }));
   }
 
@@ -116,28 +122,29 @@ const EditEmployer = () => {
         message: "Please enter a valid email address",
       },
     ],
+    company_logo: [{ required: true, message: "Please enter logo url" }],
     company_name: [
       { required: true, message: "Please enter your company name" },
     ],
     company_size: [{ required: true, message: "Please select company size." }],
-    company_logo: [{ required: true, message: "Please paste logo url" }],
+
     industry: [{ required: true, message: "Please enter industry type." }],
     company_location: [
       { required: true, message: "Please enter your company location." },
     ],
   };
   useEffect(() => {
-    if (!empFormData.company_logo) {
+    if (!empFormData?.company_logo) {
       setIsValidImage(false);
       return;
     }
 
     const img = new Image();
-    img.src = empFormData.company_logo;
+    img.src = empFormData?.company_logo;
 
     img.onload = () => setIsValidImage(true); // URL is correct
     img.onerror = () => setIsValidImage(false); // URL is broken
-  }, [empFormData.company_logo]);
+  }, [empFormData?.company_logo]);
 
   // handle form submit
   async function handleSubmit(e) {
@@ -148,15 +155,25 @@ const EditEmployer = () => {
         name: validationConfig.name,
         email: validationConfig.email,
         company_name: validationConfig.company_name,
+        company_logo: validationConfig.company_logo,
         company_size: validationConfig.company_size,
         industry: validationConfig.industry,
         company_location: validationConfig.company_location,
-        company_logo: validationConfig.company_logo,
       },
       setErrors
     );
 
+    setErrors(errors);
     if (Object.keys(errors).length > 0) {
+      const firstErrorKey = Object.keys(errors)[0];
+      setTimeout(() => {
+        refs[firstErrorKey]?.current?.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+        refs[firstErrorKey]?.current?.focus?.();
+      }, 100);
+      // refs[firstErrorKey]?.current?.focus?.();
       return;
     }
     try {
@@ -177,6 +194,7 @@ const EditEmployer = () => {
         type: "success",
       });
       setEmpFormData({
+        company_logo: "",
         name: "",
         email: "",
         company_name: "",
@@ -187,8 +205,8 @@ const EditEmployer = () => {
         contact_number: "",
         description: "",
         status: "active",
-        company_logo: "",
       });
+
       setTimeout(() => {
         navigate("/admin/employers");
       }, 4000);
@@ -229,12 +247,14 @@ const EditEmployer = () => {
                 {isValidImage ? (
                   <img
                     src={
-                      empFormData.company_logo ? empFormData.company_logo : null
+                      empFormData?.company_logo
+                        ? empFormData?.company_logo
+                        : null
                     }
                     alt="company logo"
                     style={{
                       width: "100%",
-                      height: "100%",
+                      height: "auto",
                     }}
                   />
                 ) : (
@@ -254,6 +274,7 @@ const EditEmployer = () => {
             <div className="col-12 mb-2 ">
               <label className="form-label fw-semibold">Company Logo*</label>
               <Input
+                ref={refs.company_logo}
                 type="text"
                 id="company_logo"
                 placeholder="Company Logo"
@@ -270,6 +291,7 @@ const EditEmployer = () => {
             <div className="col-md-6 mb-md-4 mb-2 ">
               <label className="form-label fw-semibold">Contact Person*</label>
               <Input
+                ref={refs.name}
                 type="text"
                 id="name"
                 placeholder="Name"
@@ -285,6 +307,7 @@ const EditEmployer = () => {
             <div className="col-md-6 mb-md-4 mb-2">
               <label className="form-label fw-semibold">Email*</label>
               <Input
+                ref={refs.email}
                 type="email"
                 id="email"
                 placeholder="Email"
@@ -300,6 +323,7 @@ const EditEmployer = () => {
             <div className="col-md-6 mb-md-4 mb-2">
               <label className="form-label fw-semibold">Company Name*</label>
               <Input
+                ref={refs.company_name}
                 type="text"
                 name="company_name"
                 placeholder="Company Name"
@@ -317,6 +341,7 @@ const EditEmployer = () => {
                 Company Size*
               </label>
               <select
+                ref={refs.company_size}
                 className="form-select  w-100"
                 name="company_size"
                 onChange={handleChange}
@@ -345,6 +370,7 @@ const EditEmployer = () => {
             <div className="col-md-6 mb-md-4 mb-2">
               <label className="form-label fw-semibold">Industry*</label>
               <Input
+                ref={refs.industry}
                 type="text"
                 name="industry"
                 placeholder="e.g. IT, Finance, Healthcare"
@@ -363,6 +389,7 @@ const EditEmployer = () => {
                 Company Location*
               </label>
               <Input
+                ref={refs.company_location}
                 type="text"
                 name="company_location"
                 placeholder="City, Country"

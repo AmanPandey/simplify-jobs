@@ -2,9 +2,9 @@ import axios from "axios";
 const API_URL = "https://simplify-job-node-js-backend-api.vercel.app/api";
 // const API_URL = "http://localhost:5000/api";
 
-export async function addJob(formData, token) {
+export async function addJob(formData, token, id) {
   try {
-    const res = await axios.post(`${API_URL}/addjob`, formData, {
+    const res = await axios.post(`${API_URL}/addjob?id=${id}`, formData, {
       headers: {
         Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",

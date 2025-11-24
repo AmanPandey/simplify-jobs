@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import Input from "../Components/Input";
 import styles from "../assets/admin.module.css";
 
@@ -15,6 +15,15 @@ const AddEmployer = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [isValidImage, setIsValidImage] = useState(true);
+  const refs = {
+    company_logo: useRef(),
+    name: useRef(),
+    email: useRef(),
+    company_name: useRef(),
+    company_size: useRef(),
+    industry: useRef(),
+    company_location: useRef(),
+  };
 
   const [empFormData, setEmpFormData] = useState({
     company_logo: "",
@@ -101,13 +110,24 @@ const AddEmployer = () => {
       setErrors
     );
 
+    setErrors(errors);
     if (Object.keys(errors).length > 0) {
+      const firstErrorKey = Object.keys(errors)[0];
+      setTimeout(() => {
+        refs[firstErrorKey]?.current?.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+        refs[firstErrorKey]?.current?.focus?.();
+      }, 100);
+      // refs[firstErrorKey]?.current?.focus?.();
       return;
     }
     try {
       setLoading(true);
 
       const res = await addEmployer(empFormData, token);
+      console.log(res);
 
       if (!res.success) {
         setNotif({ id: Date.now(), message: res.message, type: "error" });
@@ -174,7 +194,7 @@ const AddEmployer = () => {
                     alt="company logo"
                     style={{
                       width: "100%",
-                      height: "100%",
+                      height: "auto",
                     }}
                   />
                 ) : (
@@ -194,6 +214,7 @@ const AddEmployer = () => {
             <div className="col-12 mb-2 ">
               <label className="form-label fw-semibold">Company Logo*</label>
               <Input
+                ref={refs.company_logo}
                 type="text"
                 id="company_logo"
                 placeholder="Company Logo"
@@ -210,6 +231,7 @@ const AddEmployer = () => {
             <div className="col-md-6 mb-md-4 mb-2 ">
               <label className="form-label fw-semibold">Contact Person*</label>
               <Input
+                ref={refs.name}
                 type="text"
                 id="name"
                 placeholder="Name"
@@ -225,6 +247,7 @@ const AddEmployer = () => {
             <div className="col-md-6 mb-md-4 mb-2">
               <label className="form-label fw-semibold">Email*</label>
               <Input
+                ref={refs.email}
                 type="email"
                 id="email"
                 placeholder="Email"
@@ -240,6 +263,7 @@ const AddEmployer = () => {
             <div className="col-md-6 mb-md-4 mb-2">
               <label className="form-label fw-semibold">Company Name*</label>
               <Input
+                ref={refs.company_name}
                 type="text"
                 name="company_name"
                 placeholder="Company Name"
@@ -257,6 +281,7 @@ const AddEmployer = () => {
                 Company Size*
               </label>
               <select
+                ref={refs.company_size}
                 className="form-select  w-100"
                 name="company_size"
                 onChange={handleChange}
@@ -286,6 +311,7 @@ const AddEmployer = () => {
             <div className="col-md-6 mb-md-4 mb-2">
               <label className="form-label fw-semibold">Industry*</label>
               <Input
+                ref={refs.industry}
                 type="text"
                 name="industry"
                 placeholder="e.g. IT, Finance, Healthcare"
@@ -304,6 +330,7 @@ const AddEmployer = () => {
                 Company Location*
               </label>
               <Input
+                ref={refs.company_location}
                 type="text"
                 name="company_location"
                 placeholder="City, Country"
