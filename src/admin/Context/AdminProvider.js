@@ -26,6 +26,8 @@ const AdminProvider = ({ children }) => {
   const [createdEmployersByUser, setCreatedEmployersByusers] = useState(null);
   const [selectEmployerId, setSelectEmployerId] = useState("");
   const [company, setCompany] = useState({ logo: "", name: "" });
+  const [refreshEmployers, setRefreshEmployers] = useState(false);
+  const [user, setUser] = useState(null);
 
   const [isValidImage, setIsValidImage] = useState(true);
 
@@ -111,7 +113,7 @@ const AdminProvider = ({ children }) => {
     };
 
     fetchEmployers();
-  }, []);
+  }, [loggedInUser?.id, token, refreshEmployers]);
 
   // get employer by id
 
@@ -190,6 +192,9 @@ const AdminProvider = ({ children }) => {
       setCompany,
       isValidImage,
       setIsValidImage,
+      setRefreshEmployers,
+      user,
+      setUser,
     }),
     [
       showSidebar,

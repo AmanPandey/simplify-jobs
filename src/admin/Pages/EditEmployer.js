@@ -101,6 +101,11 @@ const EditEmployer = () => {
     }
   }, []);
 
+  // clear error msg
+  useEffect(() => {
+    setErrors({});
+  }, []);
+
   // handle inputs
 
   function handleChange(e) {

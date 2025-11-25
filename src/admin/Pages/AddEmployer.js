@@ -10,7 +10,7 @@ import { addEmployer } from "../Utils/employersLogic";
 import { useNavigate } from "react-router-dom";
 
 const AddEmployer = () => {
-  const { errors, setErrors, token, setNotif, notif } =
+  const { errors, setErrors, token, setNotif, notif, setRefreshEmployers } =
     useContext(AdminContext);
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
@@ -45,6 +45,12 @@ const AddEmployer = () => {
     if (notif?.message) {
       setNotif({ id: null, message: "", type: "" });
     }
+  }, []);
+
+  // clear error msg
+
+  useEffect(() => {
+    setErrors({});
   }, []);
 
   // handle form input
@@ -135,6 +141,7 @@ const AddEmployer = () => {
       }
 
       setNotif({ id: Date.now(), message: res.message, type: "success" });
+      setRefreshEmployers((prev) => !prev);
       setEmpFormData({
         name: "",
         email: "",

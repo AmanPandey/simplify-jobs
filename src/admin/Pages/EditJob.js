@@ -69,10 +69,16 @@ const EditJob = () => {
     []
   );
 
+  // clear notification msg
   useEffect(() => {
     if (notif?.message) {
       setNotif({ id: null, message: "", type: "" });
     }
+  }, []);
+
+  // clear error msg
+  useEffect(() => {
+    setErrors({});
   }, []);
 
   //fetch job by id

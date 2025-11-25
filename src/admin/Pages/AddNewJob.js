@@ -90,6 +90,12 @@ const AddNewJob = () => {
     }
   }, []);
 
+  // clear error msg
+
+  useEffect(() => {
+    setErrors({});
+  }, []);
+
   // handle form input
   function handleChange(e) {
     const { name, value } = e.target;

@@ -23,12 +23,6 @@ const EmployersList = () => {
     }
   }, []);
 
-  // const handleNotifClose = useCallback(() => {
-  //   if (notif?.message) {
-  //     setNotif({ id: null, message: "", type: "" });
-  //   }
-  // }, [notif, setNotif]);
-
   // fetch all employer
   useEffect(() => {
     async function fetchEmployers() {
