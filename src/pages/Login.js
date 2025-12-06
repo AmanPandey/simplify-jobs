@@ -1,7 +1,190 @@
-import React from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+import FrontendContext from "../context/FrontendContext";
+import { validate } from "../admin/Utils/Validate.js";
+import {
+  frontendUserregister,
+  loginFrontendUser,
+} from "../Utils/frontendAuth.js";
 
-const Login = () => {
+const Login = React.memo(() => {
+  // import from context
+  const { errors, setErrors, signup, login } = useContext(FrontendContext);
+
+  //form state
+  const [isLogin, setIsLogin] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  // form inputs
+  const [loginUser, setLoginUser] = useState({ email: "", password: "" });
+  const [signupUser, setSignupUser] = useState({
+    name: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
+
+  // password state
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
+  // handle form onchange
+  function handleLoginChange(e) {
+    const { name, value } = e.target;
+    setLoginUser((prev) => ({ ...prev, [name]: value }));
+    setErrors((prev) => ({ ...prev, [name]: "" }));
+  }
+  function handleSignupChange(e) {
+    const { name, value } = e.target;
+    setSignupUser((prev) => ({ ...prev, [name]: value }));
+    setErrors((prev) => ({ ...prev, [name]: "" }));
+  }
+
+  // validation for login
+  const loginValidationConfig = {
+    email: [
+      { required: true, message: "Please enter your email" },
+      {
+        pattern: /^[\w\-\.]+@([\w-]+\.)+[\w-]{2,}$/,
+        message: "Please enter a valid email address",
+      },
+    ],
+    password: [
+      { required: true, message: "Please enter your password" },
+      { minLength: 6, message: "Password must be at least 6 characters" },
+    ],
+  };
+
+  // validation for Signup
+  const signupValidationConfig = {
+    name: [
+      { required: true, message: "Please enter your name" },
+      { minLength: 3, message: "Name should be at least 3 characters" },
+    ],
+    email: [
+      { required: true, message: "Please enter your email" },
+      {
+        pattern: /^[\w\-\.]+@([\w-]+\.)+[\w-]{2,}$/,
+        message: "Please enter a valid email address",
+      },
+    ],
+    password: [
+      { required: true, message: "Please enter your password" },
+      { minLength: 6, message: "Password must be at least 6 characters" },
+    ],
+    confirmPassword: [
+      { required: true, message: "Please enter your password" },
+      { minLength: 6, message: "Password must be at least 6 characters" },
+      {
+        custom: (value, signupUser) => value === signupUser.password,
+        message: "Password does not match",
+      },
+    ],
+  };
+
+  // handle for submitt
+  async function handleSignupSubmit(e) {
+    e.preventDefault();
+    const errors = validate(
+      signupUser,
+      {
+        name: signupValidationConfig.name,
+        email: signupValidationConfig.email,
+        password: signupValidationConfig.password,
+        confirmPassword: signupValidationConfig.confirmPassword,
+      },
+      setErrors
+    );
+    if (Object.keys(errors).length > 0) {
+      return;
+    }
+    try {
+      setLoading(true);
+      const res = await frontendUserregister(signupUser);
+      console.log(res);
+
+      if (!res.success || !res.token) {
+        setErrors((prev) => ({
+          ...prev,
+          general: res.message || "Signup Failed",
+        }));
+
+        return;
+      }
+
+      setErrors({});
+      signup(res.user, res.token);
+      alert("user created successfully");
+      setSignupUser({
+        name: "",
+        email: "",
+        password: "",
+        confirmPassword: "",
+      });
+    } catch (error) {
+      console.log("Signup error:", error);
+      const errorMsg =
+        error.message || "Something went wrong. Please try again.";
+      setErrors((prev) => ({ ...prev, general: errorMsg }));
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  // login
+  async function handleLoginSubmit(e) {
+    e.preventDefault();
+    const errors = validate(
+      loginUser,
+      {
+        email: loginValidationConfig.email,
+        password: loginValidationConfig.password,
+      },
+      setErrors
+    );
+    if (Object.keys(errors).length > 0) {
+      return;
+    }
+    try {
+      const res = await loginFrontendUser(loginUser);
+      console.log(res);
+
+      if (!res.success || !res.token) {
+        setErrors((prev) => ({
+          ...prev,
+          general: res.message || "Signup Failed",
+        }));
+
+        return;
+      }
+
+      setErrors({});
+      login(res.user, res.token);
+      alert("user login successfully");
+      setLoginUser({
+        email: "",
+        password: "",
+      });
+    } catch (error) {
+      console.log("Signup error:", error);
+      const errorMsg =
+        error.message || "Something went wrong. Please try again.";
+      setErrors((prev) => ({ ...prev, general: errorMsg }));
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  // style for eye icon
+  const iconStyle = {
+    position: "absolute",
+    right: "30px",
+    top: "70%",
+    transform: "translateY(-50%)",
+    cursor: "pointer",
+  };
+
   return (
     <>
       <div className="site-wrap">
@@ -34,115 +217,284 @@ const Login = () => {
         </div>
       </section>
 
-      <section className="site-section">
+      <section
+        className={`site-section ${
+          Object.keys(errors).length > 0 ? "error" : ""
+        }`}
+      >
         <div className="container">
-          <div className="row">
-            <div className="col-lg-6 mb-5">
-              <h2 className="mb-4" style={{ fontWeight: "600" }}>
-                Sign Up To JobBoard
-              </h2>
-              <form action="#" className="p-4 border rounded">
-                <div className="row form-group">
-                  <div className="col-md-12 mb-3 mb-md-0">
-                    <label className="text-black" for="fname">
-                      Email
-                    </label>
-                    <input
-                      type="text"
-                      id="fname"
-                      className="form-control"
-                      placeholder="Email address"
-                    />
+          <div className="row mb-5 justify-content-center ">
+            {!isLogin ? (
+              // log in
+              <div
+                className="col-lg-6 p-4"
+                style={{
+                  boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px",
+                }}
+              >
+                <h2
+                  className="mb-4 text-center"
+                  style={{
+                    fontWeight: "600",
+                  }}
+                >
+                  Log In
+                </h2>
+                <form onSubmit={handleLoginSubmit} className="p-4">
+                  <div className="row form-group">
+                    <div className="col-md-12 mb-3 mb-md-0">
+                      <label className="text-black" htmlFor="email">
+                        Email
+                      </label>
+                      <input
+                        type="text"
+                        id="email"
+                        name="email"
+                        className="form-control"
+                        placeholder="Email address"
+                        onChange={handleLoginChange}
+                        value={loginUser.email}
+                      />
+                    </div>
+                    {errors.email && (
+                      <p
+                        className="text-danger"
+                        style={{ paddingRight: "15px", paddingLeft: "15px" }}
+                      >
+                        {errors.email}
+                      </p>
+                    )}
                   </div>
-                </div>
-                <div className="row form-group">
-                  <div className="col-md-12 mb-3 mb-md-0">
-                    <label className="text-black" for="fname">
-                      Password
-                    </label>
-                    <input
-                      type="password"
-                      id="fname"
-                      className="form-control"
-                      placeholder="Password"
-                    />
+                  <div className="row form-group mb-4">
+                    <div className="col-md-12 mb-3 mb-md-0">
+                      <label className="text-black" htmlFor="password">
+                        Password
+                      </label>
+                      <input
+                        type={showPassword ? "text" : "password"}
+                        id="password"
+                        name="password"
+                        className="form-control"
+                        placeholder="Password"
+                        onChange={handleLoginChange}
+                        value={loginUser.password}
+                      />
+                      <span
+                        onClick={() => setShowPassword(!showPassword)}
+                        style={iconStyle}
+                      >
+                        {showPassword ? <FaEyeSlash /> : <FaEye />}
+                      </span>
+                    </div>
+                    {errors.password && (
+                      <p
+                        className="text-danger"
+                        style={{ paddingRight: "15px", paddingLeft: "15px" }}
+                      >
+                        {errors.password}
+                      </p>
+                    )}
                   </div>
-                </div>
-                <div className="row form-group mb-4">
-                  <div className="col-md-12 mb-3 mb-md-0">
-                    <label className="text-black" for="fname">
-                      Re-Type Password
-                    </label>
-                    <input
-                      type="password"
-                      id="fname"
-                      className="form-control"
-                      placeholder="Re-type Password"
-                    />
-                  </div>
-                </div>
 
-                <div className="row form-group">
-                  <div className="col-md-12">
-                    <input
-                      type="submit"
-                      value="Sign Up"
-                      className="btn px-4 btn-primary text-white"
-                      style={{ fontWeight: "600" }}
-                    />
+                  <div className="row form-group">
+                    <div className="col-md-12">
+                      <input
+                        type="submit"
+                        value="Log In"
+                        className="btn px-4 btn-primary text-white"
+                        style={{ fontWeight: "600" }}
+                      />
+                    </div>
                   </div>
-                </div>
-              </form>
-            </div>
-            <div className="col-lg-6">
-              <h2 className="mb-4" style={{ fontWeight: "600" }}>
-                Log In To JobBoard
-              </h2>
-              <form action="#" className="p-4 border rounded">
-                <div className="row form-group">
-                  <div className="col-md-12 mb-3 mb-md-0">
-                    <label className="text-black" for="fname">
-                      Email
-                    </label>
-                    <input
-                      type="text"
-                      id="fname"
-                      className="form-control"
-                      placeholder="Email address"
-                    />
+                </form>
+                {errors.general && (
+                  <p className="text-danger">{errors.general}</p>
+                )}
+                <p className="mt-3">
+                  Do not have an account?{" "}
+                  <button
+                    style={{
+                      border: "none", // Remove border
+                      background: "none", // Remove background
+                      padding: "0", // Optional: Remove padding if needed
+                      outline: "none", // Remove outline
+                      cursor: "pointer", // Optional: Add pointer cursor on hover
+                      marginLeft: "5px",
+                      fontWeight: "600",
+                    }}
+                    onClick={() => setIsLogin(!isLogin)}
+                  >
+                    Sign Up
+                  </button>
+                </p>
+              </div>
+            ) : (
+              // sign up
+              <div
+                className="col-lg-6 p-4"
+                style={{
+                  // boxShadow: "rgba(0, 0, 0, 0.16) 0px 1px 4px",
+                  boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px",
+                }}
+              >
+                <h2
+                  className="mb-4 text-center"
+                  style={{
+                    fontWeight: "600",
+                  }}
+                >
+                  Sign Up
+                </h2>
+                <form onSubmit={handleSignupSubmit} className="p-4 ">
+                  <div className="row form-group">
+                    <div className="col-md-12 mb-3 mb-md-0">
+                      <label className="text-black" htmlFor="name">
+                        Name
+                      </label>
+                      <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        className="form-control"
+                        placeholder="Email address"
+                        onChange={handleSignupChange}
+                        value={signupUser.name}
+                      />
+                    </div>
+                    {errors.name && (
+                      <p
+                        className="text-danger"
+                        style={{ paddingRight: "15px", paddingLeft: "15px" }}
+                      >
+                        {errors.name}
+                      </p>
+                    )}
                   </div>
-                </div>
-                <div className="row form-group mb-4">
-                  <div className="col-md-12 mb-3 mb-md-0">
-                    <label className="text-black" for="fname">
-                      Password
-                    </label>
-                    <input
-                      type="password"
-                      id="fname"
-                      className="form-control"
-                      placeholder="Password"
-                    />
+                  <div className="row form-group">
+                    <div className="col-md-12 mb-3 mb-md-0">
+                      <label className="text-black" htmlFor="email">
+                        Email
+                      </label>
+                      <input
+                        type="text"
+                        id="email"
+                        name="email"
+                        className="form-control"
+                        placeholder="Email address"
+                        onChange={handleSignupChange}
+                        value={signupUser.email}
+                      />
+                    </div>
+                    {errors.email && (
+                      <p
+                        className="text-danger"
+                        style={{ paddingRight: "15px", paddingLeft: "15px" }}
+                      >
+                        {errors.email}
+                      </p>
+                    )}
                   </div>
-                </div>
+                  <div className="row form-group">
+                    <div className="col-md-12 mb-3 mb-md-0">
+                      <label className="text-black" htmlFor="password">
+                        Password
+                      </label>
+                      <input
+                        type={showPassword ? "text" : "password"}
+                        id="password"
+                        name="password"
+                        className="form-control"
+                        placeholder="Password"
+                        onChange={handleSignupChange}
+                        value={signupUser.password}
+                      />
+                      <span
+                        onClick={() => setShowPassword(!showPassword)}
+                        style={iconStyle}
+                      >
+                        {showPassword ? <FaEyeSlash /> : <FaEye />}
+                      </span>
+                    </div>
+                    {errors.password && (
+                      <p
+                        className="text-danger"
+                        style={{ paddingRight: "15px", paddingLeft: "15px" }}
+                      >
+                        {errors.password}
+                      </p>
+                    )}
+                  </div>
+                  <div className="row form-group mb-4">
+                    <div className="col-md-12 mb-3 mb-md-0">
+                      <label className="text-black" htmlFor="confirmPassword">
+                        Re-Type Password
+                      </label>
+                      <input
+                        type={showConfirmPassword ? "text" : "password"}
+                        id="confirmPassword"
+                        name="confirmPassword"
+                        className="form-control"
+                        placeholder="Re-type Password"
+                        onChange={handleSignupChange}
+                        value={signupUser.confirmPassword}
+                      />
+                      <span
+                        onClick={() =>
+                          setShowConfirmPassword(!showConfirmPassword)
+                        }
+                        style={iconStyle}
+                      >
+                        {showConfirmPassword ? <FaEyeSlash /> : <FaEye />}
+                      </span>
+                    </div>
+                    {errors.confirmPassword && (
+                      <p
+                        className="text-danger"
+                        style={{ paddingRight: "15px", paddingLeft: "15px" }}
+                      >
+                        {errors.confirmPassword}
+                      </p>
+                    )}
+                  </div>
 
-                <div className="row form-group">
-                  <div className="col-md-12">
-                    <input
-                      type="submit"
-                      value="Log In"
-                      className="btn px-4 btn-primary text-white"
-                      style={{ fontWeight: "600" }}
-                    />
+                  <div className="row form-group">
+                    <div className="col-md-12">
+                      <input
+                        type="submit"
+                        value="Sign Up"
+                        className="btn px-4 btn-primary text-white"
+                        style={{ fontWeight: "600" }}
+                      />
+                    </div>
                   </div>
-                </div>
-              </form>
-            </div>
+                </form>
+                {errors.general && (
+                  <p className="text-danger">{errors.general}</p>
+                )}
+                <p className="mt-3">
+                  Already have an account?{" "}
+                  <button
+                    style={{
+                      border: "none", // Remove border
+                      background: "none", // Remove background
+                      padding: "0", // Optional: Remove padding if needed
+                      outline: "none", // Remove outline
+                      cursor: "pointer", // Optional: Add pointer cursor on hover
+                      marginLeft: "5px",
+                      fontWeight: "600",
+                    }}
+                    onClick={() => setIsLogin(!isLogin)}
+                  >
+                    Log In
+                  </button>
+                </p>
+              </div>
+            )}
           </div>
         </div>
       </section>
     </>
   );
-};
+});
 
 export default Login;

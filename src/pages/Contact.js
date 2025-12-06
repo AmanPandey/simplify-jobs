@@ -109,7 +109,7 @@ const Contact = () => {
                 </div>
               </form>
             </div>
-            <div
+            {/* <div
               className="col-lg-5 ml-auto"
               data-aos="zoom-in"
               data-aos-delay="200"
@@ -138,7 +138,7 @@ const Contact = () => {
                   </Link>
                 </p>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>

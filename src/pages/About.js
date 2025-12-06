@@ -1,7 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { CiCircleCheck } from "react-icons/ci";
+import { useNavigate } from "react-router-dom";
 
 const About = () => {
+  const navigate = useNavigate();
   return (
     <>
       <div className="site-wrap">
@@ -56,28 +59,93 @@ const About = () => {
               >
                 Simplifying the Way People and Jobs Connect
               </h2>
-              <p className="" data-aos="fade-up" data-aos-delay="200">
-                At SimplifyJob, we exist to make job searching and hiring
-                simple. Traditional portals overwhelm users with clutter,
-                leaving both job seekers and employers frustrated.
-              </p>
-              <p data-aos="fade-up" data-aos-delay="200">
-                For job seekers, the challenge is endless applications, unclear
-                job descriptions, and little feedback. SimplifyJob helps
-                candidates discover clear, relevant opportunities tailored to
-                their skills.
-              </p>
-              <p data-aos="fade-up" data-aos-delay="200">
-                For employers, hiring often means wasting time filtering
-                irrelevant resumes. SimplifyJob enables smarter, faster
-                recruitment by delivering quality candidates who truly match job
-                requirements.
-              </p>{" "}
-              <p data-aos="fade-up" data-aos-delay="200">
-                By bridging this gap, SimplifyJob creates meaningful connections
-                between people and opportunities. Our mission is clear —
-                simplify the hiring process for everyone.
-              </p>
+              <div>
+                {/* First paragraph with icon */}
+                <div className="d-flex align-items-center mb-3">
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      marginRight: "10px", // Space between icon and text
+                    }}
+                  >
+                    <CiCircleCheck
+                      style={{ fontSize: "24px", color: "#28a745" }}
+                    />
+                  </div>
+                  <p data-aos="fade-up" data-aos-delay="200">
+                    At SimplifyJob, we exist to make job searching and hiring
+                    simple. Traditional portals overwhelm users with clutter,
+                    leaving both job seekers and employers frustrated.
+                  </p>
+                </div>
+
+                {/* Second paragraph with icon */}
+                <div className="d-flex align-items-center mb-3">
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      marginRight: "10px", // Space between icon and text
+                    }}
+                  >
+                    <CiCircleCheck
+                      style={{ fontSize: "24px", color: "#28a745" }}
+                    />
+                  </div>
+                  <p data-aos="fade-up" data-aos-delay="200">
+                    For job seekers, the challenge is endless applications,
+                    unclear job descriptions, and little feedback. SimplifyJob
+                    helps candidates discover clear, relevant opportunities
+                    tailored to their skills.
+                  </p>
+                </div>
+
+                {/* Third paragraph with icon */}
+                <div className="d-flex align-items-center mb-3">
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      marginRight: "10px", // Space between icon and text
+                    }}
+                  >
+                    <CiCircleCheck
+                      style={{ fontSize: "24px", color: "#28a745" }}
+                    />
+                  </div>
+                  <p data-aos="fade-up" data-aos-delay="200">
+                    For employers, hiring often means wasting time filtering
+                    irrelevant resumes. SimplifyJob enables smarter, faster
+                    recruitment by delivering quality candidates who truly match
+                    job requirements.
+                  </p>
+                </div>
+
+                {/* Fourth paragraph with icon */}
+                <div className="d-flex align-items-center mb-3">
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      marginRight: "10px", // Space between icon and text
+                    }}
+                  >
+                    <CiCircleCheck
+                      style={{ fontSize: "24px", color: "#28a745" }}
+                    />
+                  </div>
+                  <p data-aos="fade-up" data-aos-delay="200">
+                    By bridging this gap, SimplifyJob creates meaningful
+                    connections between people and opportunities. Our mission is
+                    clear — simplify the hiring process for everyone.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -406,7 +474,7 @@ const About = () => {
               </p>
               <button
                 className="cta-btn mt-4"
-                onClick={() => (window.location.href = "/contact")}
+                onClick={() => navigate("/contact")}
               >
                 Join Now
               </button>

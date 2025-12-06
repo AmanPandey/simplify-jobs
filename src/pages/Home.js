@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Model from "./Model";
+import { CiCircleCheck } from "react-icons/ci";
 
 const Home = () => {
   const [isModelOpen, setIsModelOpen] = useState(false);
@@ -189,12 +190,63 @@ const Home = () => {
               data-aos-delay="200"
             >
               <h2 className="section-title mb-3">Why Choose SimplifyJob?</h2>
-              <p className="lead">
-                ✔ Industry-Focused Opportunities in Banking, Distillery &
-                Automobile.
-              </p>
-              <p className="lead">✔ Fast, AI-Driven Candidate Matching.</p>
-              <p className="lead">✔ 100% Verified Employers.</p>
+              <div>
+                {/* First Item */}
+                <div className="d-flex align-items-center justify-content-start mb-3">
+                  <div
+                    style={{
+                      marginRight: "10px",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
+                  >
+                    <CiCircleCheck
+                      style={{ fontSize: "24px", color: "#28a745" }}
+                    />
+                  </div>
+                  <p className="lead m-0">
+                    Industry-Focused Opportunities in Banking, Distillery &
+                    Automobile.
+                  </p>
+                </div>
+
+                {/* Second Item */}
+                <div className="d-flex align-items-center mb-3">
+                  <div
+                    style={{
+                      marginRight: "10px",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
+                  >
+                    <CiCircleCheck
+                      style={{ fontSize: "24px", color: "#28a745" }}
+                    />
+                  </div>
+                  <p className="lead m-0">
+                    Fast, AI-Driven Candidate Matching.
+                  </p>
+                </div>
+
+                {/* Third Item */}
+                <div className="d-flex align-items-center mb-3">
+                  <div
+                    style={{
+                      marginRight: "10px",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
+                  >
+                    <CiCircleCheck
+                      style={{ fontSize: "24px", color: "#28a745" }}
+                    />
+                  </div>
+                  <p className="lead m-0">100% Verified Employers.</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -605,7 +657,11 @@ const Home = () => {
             <div className="col-md-6 mx-auto py-2 d-flex justify-content-center mt-3">
               <button
                 className="cta-btn mt-4"
-                onClick={() => (window.location.href = "/contact")}
+                type="button"
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigate("/contact");
+                }}
               >
                 Start Your Search
               </button>

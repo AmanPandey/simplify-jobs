@@ -5,13 +5,23 @@ jQuery(function ($) {
   $("#overlayer").delay(1000).fadeOut("slow");
 
   var siteMenuClone = function () {
-    $(".js-clone-nav").each(function () {
-      var $this = $(this);
-      $this
-        .clone()
-        .attr("class", "site-nav-wrap")
-        .appendTo(".site-mobile-menu-body");
-    });
+    // $(".js-clone-nav").each(function () {
+    //   var $this = $(this);
+    //   $this
+    //     .clone()
+    //     .attr("class", "site-nav-wrap")
+    //     .appendTo(".site-mobile-menu-body");
+    // });
+    // Prevent double cloning
+    if ($(".site-mobile-menu-body .site-nav-wrap").length === 0) {
+      $(".js-clone-nav").each(function () {
+        $(this)
+          .clone()
+          .removeClass("js-clone-nav")
+          .addClass("site-nav-wrap")
+          .appendTo(".site-mobile-menu-body");
+      });
+    }
 
     setTimeout(function () {
       var counter = 0;

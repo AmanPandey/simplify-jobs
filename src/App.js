@@ -6,6 +6,10 @@ import {
   Navigate,
 } from "react-router-dom";
 
+// CONTEXT PROVIDER
+import AdminProvider from "./admin/Context/AdminProvider.js";
+import FrontEndProvider from "./context/FrontEndProvider.js";
+
 // THIRD PARTY
 import Aos from "aos";
 import "aos/dist/aos.css";
@@ -43,6 +47,7 @@ import EmployersList from "./admin/Pages/EmployersList.js";
 import AddEmployer from "./admin/Pages/AddEmployer.js";
 import EditEmployer from "./admin/Pages/EditEmployer.js";
 import ScrollToTop from "./components/ScrollToTop.js";
+import Check from "./pages/Check.js";
 
 function App() {
   useEffect(() => {
@@ -56,40 +61,71 @@ function App() {
     <Router>
       <ScrollToTop />
       <Routes>
-        <Route element={<Layout />}>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/job-listings" element={<JobListings />} />
-          <Route path="/job-single" element={<JobSingle />} />
-          <Route path="/post-job" element={<PostJob />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/service-single" element={<ServiceSingle />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/blog-single" element={<BlogSingle />} />
+        {/* FRONTEND */}
+        <Route
+          path="/*"
+          element={
+            <FrontEndProvider>
+              <FrontendRoutes />
+            </FrontEndProvider>
+          }
+        />
 
-          <Route path="/testimonials" element={<Testimonials />} />
-          <Route path="/faq" element={<FAQ />} />
-          <Route path="/gallery" element={<Gallery />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/all-jobs" element={<JobListings />} />
+        {/* ADMIN */}
+        <Route
+          path="/admin/*"
+          element={
+            <AdminProvider>
+              <AdminRoutes />
+            </AdminProvider>
+          }
+        />
+      </Routes>
+    </Router>
+  );
+
+  function FrontendRoutes() {
+    return (
+      <Routes>
+        <Route element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="about" element={<About />} />
+          <Route path="job-listings" element={<JobListings />} />
+          <Route path="job-single" element={<JobSingle />} />
+          <Route path="post-job" element={<PostJob />} />
+          <Route path="services" element={<Services />} />
+          <Route path="service-single" element={<ServiceSingle />} />
+          <Route path="blog" element={<Blog />} />
+          <Route path="blog-single" element={<BlogSingle />} />
+          <Route path="testimonials" element={<Testimonials />} />
+          <Route path="faq" element={<FAQ />} />
+          <Route path="gallery" element={<Gallery />} />
+          <Route path="contact" element={<Contact />} />
+          <Route path="login" element={<Login />} />
+          <Route path="check" element={<Check />} />
+
+          {/* Optional: leave only one */}
+          <Route path="jobs" element={<JobListings />} />
         </Route>
 
-        {/* ADMIN PART */}
+        {/* 404 for frontend */}
+        <Route path="*" element={<PageNotFound />} />
+      </Routes>
+    );
+  }
 
-        {/* Public route for admin login */}
-        <Route path="/admin/login" element={<AuthUser />} />
+  function AdminRoutes() {
+    return (
+      <Routes>
+        <Route path="login" element={<AuthUser />} />
 
-        {/* Protected admin routes */}
         <Route
-          path="/admin"
           element={
             <ProtectedRoute>
               <AdminLayout />
             </ProtectedRoute>
           }
         >
-          {/* When visiting /admin → Dashboard by default */}
           <Route index element={<Navigate to="dashboard" replace />} />
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="jobs" element={<AdminJobsListing />} />
@@ -100,10 +136,12 @@ function App() {
           <Route path="add-employer" element={<AddEmployer />} />
           <Route path="edit-employer" element={<EditEmployer />} />
         </Route>
+
+        {/* 404 for admin */}
         <Route path="*" element={<PageNotFound />} />
       </Routes>
-    </Router>
-  );
+    );
+  }
 }
 
 export default App;

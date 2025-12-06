@@ -1,8 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import useFixMobileNav from "./useFixMobileNav";
+import { useContext } from "react";
+import FrontendContext from "../context/FrontendContext";
+import { getCurrentUser } from "../Hooks/getCurrentUser";
+import FrontEndProvider from "../context/FrontEndProvider";
 
 const Navbar = () => {
+  const { user } = useContext(FrontendContext);
+  console.log(user);
+
   useFixMobileNav();
   const [scrolled, setScrolled] = useState(false);
 
@@ -48,7 +55,17 @@ const Navbar = () => {
                   About
                 </NavLink>
               </li>
-              <li className="has-children">
+              <li>
+                <NavLink
+                  to="/jobs"
+                  className={({ isActive }) =>
+                    isActive ? "nav-link active" : "nav-link"
+                  }
+                >
+                  Jobs
+                </NavLink>
+              </li>
+              {/* <li className="has-children">
                 <NavLink to="#">Job Listings</NavLink>
                 <ul className="dropdown">
                   <li>
@@ -72,9 +89,9 @@ const Navbar = () => {
                     </NavLink>
                   </li>
                 </ul>
-              </li>
+              </li> */}
               <li className="has-children">
-                <NavLink to="#">Pages</NavLink>
+                <NavLink to="#">Company</NavLink>
                 <ul className="dropdown">
                   <li>
                     <NavLink
@@ -86,7 +103,7 @@ const Navbar = () => {
                       Services
                     </NavLink>
                   </li>
-                  <li>
+                  {/* <li>
                     <NavLink
                       to="/service-single"
                       className={({ isActive }) =>
@@ -95,8 +112,8 @@ const Navbar = () => {
                     >
                       Service Single
                     </NavLink>
-                  </li>
-                  <li>
+                  </li> */}
+                  {/* <li>
                     <NavLink
                       to="/blog-single"
                       className={({ isActive }) =>
@@ -105,7 +122,7 @@ const Navbar = () => {
                     >
                       Blog Single
                     </NavLink>
-                  </li>
+                  </li> */}
                   {/* <li>
                     <NavLink to="/portfolio">Portfolio</NavLink>
                   </li>
@@ -157,36 +174,61 @@ const Navbar = () => {
                   Contact
                 </NavLink>
               </li>
-              <li className="d-lg-none">
+              <li className="d-xl-none">
                 <NavLink to="/post-job">
                   <span className="mr-2">+</span> Post a Job
                 </NavLink>
               </li>
-              <li className="d-lg-none">
+              {/* <li className="d-lg-none">
                 <NavLink to="/login">Log In</NavLink>
-              </li>
+              </li> */}
             </ul>
           </nav>
 
           <div className="right-cta-menu text-right d-flex aligin-items-center col-6">
-            <div className="ml-auto">
+            <div className="ml-auto d-flex">
               <NavLink
                 to="/post-job"
-                className="btn btn-outline-white border-width-2 d-none d-lg-inline-block me-1"
+                className="btn btn-outline-white border-width-2 d-none d-xl-inline-block me-1"
               >
                 <span className="mr-2 icon-add"></span>Post a Job
               </NavLink>
-              <NavLink
+              {user ? (
+                <div
+                  className="user-avatar d-flex align-items-center justify-content-center ml-lg-3"
+                  style={{
+                    width: "40px",
+                    height: "40px",
+                    borderRadius: "50%",
+                    background: "rgb(137, 186, 22)",
+                    color: "#fff",
+                    fontWeight: "bold",
+                    fontSize: "18px",
+                    cursor: "pointer",
+                  }}
+                >
+                  {user?.name?.charAt(0)?.toUpperCase()}
+                </div>
+              ) : (
+                <NavLink
+                  to="/login"
+                  className="btn btn-primary border-width-2  ml-2 mr-3"
+                >
+                  <span className="mr-2 icon-lock_outline"></span>Log In
+                </NavLink>
+              )}
+
+              {/* <NavLink
                 to="/login"
                 className="btn btn-primary border-width-2 d-none d-lg-inline-block ml-2"
               >
                 <span className="mr-2 icon-lock_outline"></span>Log In
-              </NavLink>
+              </NavLink> */}
             </div>
             {/* toggler for small screen */}
             <a
               href="#"
-              className="site-menu-toggle js-menu-toggle d-inline-block d-xl-none mt-lg-2 ml-3 "
+              className="site-menu-toggle js-menu-toggle d-flex d-xl-none  ml-3 "
             >
               <span className="icon-menu h3 m-0 p-0 mt-2"></span>
             </a>

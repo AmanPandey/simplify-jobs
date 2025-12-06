@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 const ServiceSingle = () => {
+  const navigate = useNavigate();
   const [tab, setTab] = useState(1);
   return (
     <>
@@ -263,7 +265,7 @@ const ServiceSingle = () => {
               </p>
               <button
                 className="cta-btn mt-4"
-                onClick={() => (window.location.href = "/contact")}
+                onClick={() => navigate("/contact")}
               >
                 Let’s Talk
               </button>

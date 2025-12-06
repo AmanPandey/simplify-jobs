@@ -1,7 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Blog = () => {
+  const navigate = useNavigate();
   return (
     <>
       <div className="site-wrap">
@@ -157,7 +159,7 @@ const Blog = () => {
               <div>August 8, 2025</div>
             </div>
           </div>
-
+          {/* 
           <div className="row pagination-wrap mt-5">
             <div className="col-md-12 text-center">
               <div className="custom-pagination ml-auto">
@@ -177,7 +179,7 @@ const Blog = () => {
                 </Link>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </section>
 
@@ -210,7 +212,7 @@ const Blog = () => {
               </p>
               <button
                 className="cta-btn mt-4"
-                onClick={() => (window.location.href = "/contact")}
+                onClick={() => navigate("/contact")}
               >
                 Contact Us
               </button>
