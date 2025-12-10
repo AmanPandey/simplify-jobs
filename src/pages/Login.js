@@ -1,7 +1,8 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import FrontendContext from "../context/FrontendContext";
+import Notification from "../admin/Components/Notification.js";
 import { validate } from "../admin/Utils/Validate.js";
 import {
   frontendUserregister,
@@ -10,7 +11,18 @@ import {
 
 const Login = React.memo(() => {
   // import from context
-  const { errors, setErrors, signup, login } = useContext(FrontendContext);
+  const { errors, setErrors, signup, login, notif, setNotif } =
+    useContext(FrontendContext);
+
+  useEffect(() => {
+    if (notif?.message) {
+      setNotif({ id: null, message: "", type: "" });
+    }
+  }, []);
+
+  useEffect(() => {
+    setErrors({});
+  }, []);
 
   //form state
   const [isLogin, setIsLogin] = useState(false);
@@ -115,7 +127,8 @@ const Login = React.memo(() => {
 
       setErrors({});
       signup(res.user, res.token);
-      alert("user created successfully");
+
+      setNotif({ id: Date.now(), message: res.message, type: "success" });
       setSignupUser({
         name: "",
         email: "",
@@ -161,7 +174,7 @@ const Login = React.memo(() => {
 
       setErrors({});
       login(res.user, res.token);
-      alert("user login successfully");
+      setNotif({ id: Date.now(), message: res.message, type: "success" });
       setLoginUser({
         email: "",
         password: "",
@@ -187,6 +200,14 @@ const Login = React.memo(() => {
 
   return (
     <>
+      {notif.message && (
+        <Notification
+          key={notif.id}
+          message={notif.message}
+          type={notif.type}
+        />
+      )}
+
       <div className="site-wrap">
         <div className="site-mobile-menu site-navbar-target">
           <div className="site-mobile-menu-header">

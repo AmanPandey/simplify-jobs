@@ -65,7 +65,7 @@ const FAQ = () => {
                     aria-expanded="true"
                     aria-controls="collapseFive"
                   >
-                    What is SimplyfyJob? <span className="icon"></span>
+                    What is JobsAlgo? <span className="icon"></span>
                   </a>
                 </h3>
                 <div
@@ -76,11 +76,11 @@ const FAQ = () => {
                 >
                   <div className="body-text">
                     <p>
-                      SimplyfyJob is a modern job portal that connects job
-                      seekers with employers. Employees can create profiles,
-                      upload resumes, and apply for roles, while employers can
-                      post vacancies and find candidates faster using smart
-                      search filters.
+                      JobsAlgo is a modern job portal that connects job seekers
+                      with employers. Employees can create profiles, upload
+                      resumes, and apply for roles, while employers can post
+                      vacancies and find candidates faster using smart search
+                      filters.
                     </p>
                   </div>
                 </div>
@@ -203,7 +203,7 @@ const FAQ = () => {
               >
                 <blockquote>
                   <p>
-                    &ldquo;SimplyfyJob made my job search stress-free. The smart
+                    &ldquo;JobsAlgo made my job search stress-free. The smart
                     filters helped me find roles that matched my skills, and I
                     landed interviews within days of signing up. Highly
                     recommended for job seekers!&rdquo;
@@ -212,8 +212,8 @@ const FAQ = () => {
                 <div className="block__91147 d-flex align-items-center">
                   <figure className="mr-4">
                     <img
-                      src="images/person_1.jpg"
-                      alt="Candidate testimonial"
+                      src="images/testimonial/priya-nair.jpg"
+                      alt="Priya Nair"
                       className="img-fluid"
                     />
                   </figure>
@@ -233,14 +233,14 @@ const FAQ = () => {
                     &ldquo;I uploaded my resume and within a week received
                     multiple interview calls. The job alerts kept me updated,
                     and I finally got placed in a company I love. Thank you
-                    SimplyfyJob!&rdquo;
+                    JobsAlgo!&rdquo;
                   </p>
                 </blockquote>
                 <div className="block__91147 d-flex align-items-center">
                   <figure className="mr-4">
                     <img
-                      src="images/person_2.jpg"
-                      alt="Candidate testimonial"
+                      src="images/testimonial/karan.jpg"
+                      alt="Karan"
                       className="img-fluid"
                     />
                   </figure>
@@ -278,7 +278,7 @@ const FAQ = () => {
               </h2>
               <p className="text-white">
                 If you didn’t find the answer you were looking for, our team at
-                SimplyfyJob is here to help. Reach out and we’ll guide you
+                JobsAlgo is here to help. Reach out and we’ll guide you
                 personally.
               </p>
               <button

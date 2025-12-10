@@ -24,9 +24,7 @@ const Testimonials = () => {
         <div className="container">
           <div className="row">
             <div className="col-md-7" data-aos="fade-up" data-aos-delay="200">
-              <h1 className="text-white font-weight-bold">
-                Candidate's Testimonials
-              </h1>
+              <h1 className="text-white font-weight-bold">Testimonials</h1>
               <div className="custom-breadcrumbs">
                 <Link href="/">Home</Link> <span className="mx-2 slash">/</span>
                 <span className="text-white">
@@ -50,7 +48,7 @@ const Testimonials = () => {
               <div className="block__87154">
                 <blockquote>
                   <p>
-                    &ldquo;SimplyfyJob made job hunting so much easier. Within a
+                    &ldquo;JobsAlgo made job hunting so much easier. Within a
                     week I found multiple roles that matched my skills and got
                     an interview quickly. The resume builder helped me create a
                     strong CV in minutes.&rdquo;
@@ -59,8 +57,8 @@ const Testimonials = () => {
                 <div className="block__91147 testimonial-user d-flex align-items-center">
                   <figure className="mr-4">
                     <img
-                      src="simple-testimonial-1.jpg"
-                      alt="Employee testimonial"
+                      src="/images/testimonial/ananya-desai.jpg"
+                      alt="Ananya Desai"
                       className="img-fluid"
                     />
                   </figure>
@@ -81,17 +79,17 @@ const Testimonials = () => {
               <div className="block__87154">
                 <blockquote>
                   <p>
-                    &ldquo;As an employer, SimplyfyJob has been a game changer.
-                    The candidate search filters are excellent, and I was able
-                    to connect with qualified applicants in less than 48
+                    &ldquo;As an employer, JobsAlgo has been a game changer. The
+                    candidate search filters are excellent, and I was able to
+                    connect with qualified applicants in less than 48
                     hours.&rdquo;
                   </p>
                 </blockquote>
                 <div className="block__91147 testimonial-user d-flex align-items-center">
                   <figure className="mr-4">
                     <img
-                      src="simple-testimonial-2.jpg"
-                      alt="Employer testimonial"
+                      src="/images/testimonial/vikram-iyer.jpg"
+                      alt="Vikram Iyer"
                       className="img-fluid"
                     />
                   </figure>
@@ -121,13 +119,13 @@ const Testimonials = () => {
                 <div className="block__91147 testimonial-user d-flex align-items-center">
                   <figure className="mr-4">
                     <img
-                      src="simple-testimonial-3.jpg"
-                      alt="Employee testimonial"
+                      src="/images/testimonial/arjun.jpg"
+                      alt="Arjun"
                       className="img-fluid"
                     />
                   </figure>
                   <div>
-                    <h3>Arjun Mehta</h3>
+                    <h3>Arjun </h3>
                     <span className="position">Software Developer</span>
                   </div>
                 </div>
@@ -144,7 +142,7 @@ const Testimonials = () => {
                 <blockquote>
                   <p>
                     &ldquo;We’ve hired several skilled candidates through
-                    SimplyfyJob. The platform is easy to use, and the skill
+                    JobsAlgo. The platform is easy to use, and the skill
                     assessments gave us confidence in the applicants’ abilities
                     before interviews.&rdquo;
                   </p>
@@ -152,8 +150,8 @@ const Testimonials = () => {
                 <div className="block__91147 testimonial-user d-flex align-items-center">
                   <figure className="mr-4">
                     <img
-                      src="simple-testimonial-4.jpg"
-                      alt="Employer testimonial"
+                      src="/images/testimonial/priya-nair.jpg"
+                      alt="Priya Nair"
                       className="img-fluid"
                     />
                   </figure>
@@ -174,7 +172,7 @@ const Testimonials = () => {
               <div className="block__87154 bg-primary">
                 <blockquote>
                   <p className="text-white">
-                    &ldquo;SimplyfyJob bridges the gap between employers and
+                    &ldquo;JobsAlgo bridges the gap between employers and
                     employees. Whether you are looking for the right opportunity
                     or the right talent, this platform makes the process smooth,
                     fast, and reliable.&rdquo;
@@ -183,8 +181,8 @@ const Testimonials = () => {
                 <div className="block__91147 testimonial-user d-flex align-items-center">
                   <figure className="mr-4">
                     <img
-                      src="simple-testimonial-5.jpg"
-                      alt="General testimonial"
+                      src="/images/testimonial/alex-morgan.jpg"
+                      alt="Alex Morgan"
                       className="img-fluid"
                     />
                   </figure>
@@ -225,7 +223,7 @@ const Testimonials = () => {
               </h2>
               <p className="text-white">
                 Thousands of professionals and companies have already achieved
-                their goals with SimplyfyJob. Ready to start your own journey?
+                their goals with JobsAlgo. Ready to start your own journey?
                 Let’s build your success together.
               </p>
               <button

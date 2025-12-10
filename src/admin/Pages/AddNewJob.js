@@ -201,7 +201,7 @@ const AddNewJob = () => {
     // Apply final errors
     setErrors(errors); // ✅ THIS WAS MISSING
 
-    // Stop submit if any errors exist
+    // Stop submit if any errors exist and focus to the first error field
     if (Object.keys(errors).length > 0) {
       const firstErrorKey = Object.keys(errors)[0];
       setTimeout(() => {

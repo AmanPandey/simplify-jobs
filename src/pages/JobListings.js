@@ -27,7 +27,7 @@ const Check = () => {
               <div className="custom-breadcrumbs">
                 <Link href="#">Home</Link> <span className="mx-2 slash">/</span>
                 <span className="text-white">
-                  <strong>Jobs Listing</strong>
+                  <strong>Jobs </strong>
                 </span>
               </div>
             </div>
@@ -345,84 +345,6 @@ const Check = () => {
               {/* job section  */}
 
               <ul className=" mb-lg-5 mt-3  job-listings ">
-                <li className="job-listing d-block d-md-flex pb-3 pb-sm-0 align-items-center">
-                  <Link to="#"></Link>
-                  <div className="job-listing-logo">
-                    <img
-                      src="images/job_logo_1.jpg"
-                      alt="Adidas"
-                      className="img-fluid"
-                    />
-                  </div>
-
-                  <div className="job-listing-about d-md-flex  w-100 justify-content-between mx-3">
-                    <div className="job-listing-position w-50 mb-1 mb-sm-0">
-                      <h2 style={{ fontSize: "18px" }}>Product Designer</h2>
-                      <strong>Adidas</strong>
-                    </div>
-                    <div className="job-listing-location mb-1 mb-sm-0  w-25">
-                      <span className="icon-room"></span> New York
-                    </div>
-                    <div className="job-listing-location mb-1  w-25">
-                      <span className=""></span>$55,000/year
-                    </div>
-                    <div className="job-listing-meta mb-4">
-                      <span className="badge badge-danger">Part Time</span>
-                    </div>
-                  </div>
-                </li>{" "}
-                <li className="job-listing d-block d-md-flex pb-3 pb-sm-0 align-items-center">
-                  <Link to="#"></Link>
-                  <div className="job-listing-logo">
-                    <img
-                      src="images/job_logo_1.jpg"
-                      alt="Adidas"
-                      className="img-fluid"
-                    />
-                  </div>
-
-                  <div className="job-listing-about d-md-flex  w-100 justify-content-between mx-3">
-                    <div className="job-listing-position w-50 mb-1 mb-sm-0">
-                      <h2 style={{ fontSize: "18px" }}>Product Designer</h2>
-                      <strong>Adidas</strong>
-                    </div>
-                    <div className="job-listing-location mb-1 mb-sm-0  w-25">
-                      <span className="icon-room"></span> New York
-                    </div>
-                    <div className="job-listing-location mb-1  w-25">
-                      <span className=""></span>$55,000/year
-                    </div>
-                    <div className="job-listing-meta mb-4">
-                      <span className="badge badge-danger">Part Time</span>
-                    </div>
-                  </div>
-                </li>{" "}
-                <li className="job-listing d-block d-md-flex pb-3 pb-sm-0 align-items-center">
-                  <Link to="#"></Link>
-                  <div className="job-listing-logo">
-                    <img
-                      src="images/job_logo_1.jpg"
-                      alt="Adidas"
-                      className="img-fluid"
-                    />
-                  </div>
-
-                  <div className="job-listing-about d-md-flex  w-100 justify-content-between mx-3">
-                    <div className="job-listing-position w-50 mb-1 mb-sm-0">
-                      <h2 style={{ fontSize: "18px" }}>Product Designer</h2>
-                      <strong>Adidas</strong>
-                    </div>
-                    <div className="job-listing-location mb-1 mb-sm-0  w-25">
-                      <span className="icon-room"></span> New York
-                    </div>
-                    <div className="job-listing-location mb-1  w-25">
-                      <span className=""></span>$55,000/year
-                    </div>
-                    <div className="job-listing-meta mb-4">
-                      <span className="badge badge-danger">Part Time</span>
-                    </div>
-                  </div>
-                </li>
                 <li className="job-listing d-block d-md-flex pb-3 pb-sm-0 align-items-center">
                   <Link to="#"></Link>
                   <div className="job-listing-logo">

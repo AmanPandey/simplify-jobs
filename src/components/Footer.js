@@ -65,7 +65,7 @@ const Footer = () => {
                 <small>
                   Copyright &copy;
                   <script>document.write(new Date().getFullYear());</script>
-                  SimplifyJob. All Rights Reserved.
+                  JobsAlgo. All Rights Reserved.
                 </small>
               </p>
             </div>

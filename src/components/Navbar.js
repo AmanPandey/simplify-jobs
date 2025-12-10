@@ -7,8 +7,10 @@ import { getCurrentUser } from "../Hooks/getCurrentUser";
 import FrontEndProvider from "../context/FrontEndProvider";
 
 const Navbar = () => {
-  const { user } = useContext(FrontendContext);
-  console.log(user);
+  const [openDropdown, setOpenDropdown] = useState(false);
+  // console.log(openDropdown);
+
+  const { user, handleLogout } = useContext(FrontendContext);
 
   useFixMobileNav();
   const [scrolled, setScrolled] = useState(false);
@@ -25,12 +27,22 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    setOpenDropdown(false);
+  }, [user]);
+
   return (
     <header className={`site-navbar mt-3 ${scrolled ? "scrolled" : ""}  `}>
       <div className="container-fluid">
         <div className="row align-items-center">
           <div className="site-logo col-6">
-            <NavLink to="/">Simplifyjob</NavLink>
+            <NavLink to="/">
+              <img
+                src="/images/logo/jobsalgo-logo-removebg-preview.png"
+                alt=""
+                style={{ width: "150px" }}
+              />
+            </NavLink>
           </div>
 
           <nav className="mx-auto site-navigation">
@@ -186,7 +198,7 @@ const Navbar = () => {
           </nav>
 
           <div className="right-cta-menu text-right d-flex aligin-items-center col-6">
-            <div className="ml-auto d-flex">
+            <div className="ml-auto d-flex align-items-center">
               <NavLink
                 to="/post-job"
                 className="btn btn-outline-white border-width-2 d-none d-xl-inline-block me-1"
@@ -195,19 +207,51 @@ const Navbar = () => {
               </NavLink>
               {user ? (
                 <div
-                  className="user-avatar d-flex align-items-center justify-content-center ml-lg-3"
-                  style={{
-                    width: "40px",
-                    height: "40px",
-                    borderRadius: "50%",
-                    background: "rgb(137, 186, 22)",
-                    color: "#fff",
-                    fontWeight: "bold",
-                    fontSize: "18px",
-                    cursor: "pointer",
-                  }}
+                  className="avatar-wrapper"
+                  onMouseEnter={() => setOpenDropdown(true)}
+                  onMouseLeave={() => setOpenDropdown(false)}
                 >
-                  {user?.name?.charAt(0)?.toUpperCase()}
+                  <div
+                    className="user-avatar d-flex align-items-center justify-content-center ml-lg-3"
+                    style={{
+                      width: "40px",
+                      height: "40px",
+                      borderRadius: "50%",
+                      background: "rgb(137, 186, 22)",
+                      color: "#fff",
+                      fontWeight: "bold",
+                      fontSize: "18px",
+                      cursor: "pointer",
+                    }}
+                  >
+                    {user?.name?.charAt(0)?.toUpperCase()}
+                  </div>
+
+                  <ul
+                    className={`custom-dropdown-menu ${
+                      openDropdown ? "dropdown-open" : ""
+                    }`}
+                  >
+                    {/* <li>
+                      <NavLink to="/profile" className="custom-dropdown-item">
+                        Details
+                      </NavLink>
+                    </li> */}
+                    {/* <li>
+                      <NavLink to="/profile" className="custom-dropdown-item">
+                        Log Out
+                      </NavLink>
+                    </li> */}
+
+                    <li>
+                      <button
+                        className="custom-dropdown-item logout-btn"
+                        onClick={handleLogout}
+                      >
+                        Logout
+                      </button>
+                    </li>
+                  </ul>
                 </div>
               ) : (
                 <NavLink
@@ -217,20 +261,13 @@ const Navbar = () => {
                   <span className="mr-2 icon-lock_outline"></span>Log In
                 </NavLink>
               )}
-
-              {/* <NavLink
-                to="/login"
-                className="btn btn-primary border-width-2 d-none d-lg-inline-block ml-2"
-              >
-                <span className="mr-2 icon-lock_outline"></span>Log In
-              </NavLink> */}
             </div>
             {/* toggler for small screen */}
             <a
               href="#"
-              className="site-menu-toggle js-menu-toggle d-flex d-xl-none  ml-3 "
+              className="site-menu-toggle js-menu-toggle d-flex align-items-center d-xl-none  ml-3 "
             >
-              <span className="icon-menu h3 m-0 p-0 mt-2"></span>
+              <span className="icon-menu h3 m-0 p-0 "></span>
             </a>
           </div>
         </div>

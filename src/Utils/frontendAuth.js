@@ -43,3 +43,25 @@ export const loginFrontendUser = async (credentials) => {
     };
   }
 };
+
+//! post job
+
+export const postFrontendJob = async (credentials, token, id) => {
+  try {
+    const res = await axios.post(`${API_URL}/addjob?id=${id}`, credentials, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+    });
+
+    return res.data;
+  } catch (error) {
+    console.log("Signup user error:", error);
+    const backendMsg = error?.response?.data?.message || error?.message;
+    return {
+      succss: false,
+      message: backendMsg,
+    };
+  }
+};

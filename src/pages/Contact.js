@@ -155,7 +155,7 @@ const Contact = () => {
               <div className="block__87154 bg-white rounded">
                 <blockquote>
                   <p>
-                    &ldquo;Reaching out through the SimplifyJob contact page was
+                    &ldquo;Reaching out through the JobsAlgo contact page was
                     quick and effortless. Their team responded within hours and
                     guided me through every step of the hiring process. The
                     support felt personal and genuinely helpful.&rdquo;
@@ -164,7 +164,7 @@ const Contact = () => {
                 <div className="block__91147 d-flex align-items-center">
                   <figure className="mr-4">
                     <img
-                      src="contact-client-1.jpg"
+                      src="/images/testimonial/anita-sharma.jpg"
                       alt="Anita Sharma"
                       className="img-fluid"
                     />
@@ -188,14 +188,14 @@ const Contact = () => {
                   <p>
                     &ldquo;I used the contact form to clarify some queries about
                     job postings, and I was impressed by how fast and
-                    professional the response was. SimplifyJob really values
+                    professional the response was. JobsAlgo really values
                     communication with clients and job seekers alike.&rdquo;
                   </p>
                 </blockquote>
                 <div className="block__91147 d-flex align-items-center">
                   <figure className="mr-4">
                     <img
-                      src="contact-client-2.jpg"
+                      src="/images/testimonial/david-lee.jpg"
                       alt="David Lee"
                       className="img-fluid"
                     />

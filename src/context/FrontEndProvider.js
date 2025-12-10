@@ -11,6 +11,7 @@ const FrontEndProvider = ({ children }) => {
     return saved ? JSON.parse(saved) : null;
   });
   const [errors, setErrors] = useState({});
+  const [notif, setNotif] = useState({ message: null, type: "" });
 
   // signup
   const signup = useCallback((newUser, newToken) => {
@@ -45,6 +46,14 @@ const FrontEndProvider = ({ children }) => {
     return () => window.removeEventListener("storage", handleStorageChange);
   }, []);
 
+  // logout
+
+  function handleLogout() {
+    localStorage.removeItem("Frontend_user");
+    localStorage.removeItem("Frontend_user_token");
+    setUser(null);
+  }
+
   const value = {
     errors,
     setErrors,
@@ -54,6 +63,9 @@ const FrontEndProvider = ({ children }) => {
     login,
     user,
     setUser,
+    handleLogout,
+    notif,
+    setNotif,
   };
 
   return (

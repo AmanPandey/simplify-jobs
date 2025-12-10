@@ -46,8 +46,8 @@ const Blog = () => {
             >
               <Link href="blog-single.html">
                 <img
-                  src="simply-blog-1.jpg"
-                  alt="simply-blog-1"
+                  src="/images/blogs/find-right-job.jpg"
+                  alt="find-right-job"
                   className="img-fluid rounded mb-4 blog-img"
                 />
               </Link>
@@ -66,14 +66,14 @@ const Blog = () => {
             >
               <Link href="blog-single.html">
                 <img
-                  src="simply-blog-2.jpg"
-                  alt="simply-blog-2"
+                  src="/images/blogs/write-standard-resume.jpg"
+                  alt="write-standard-resume"
                   className="img-fluid rounded mb-4 blog-img"
                 />
               </Link>
               <h3>
                 <Link href="blog-single.html" className="text-black">
-                  How to Write a Standout Resume for SimplifyJob
+                  How to Write a Standout Resume for JobsAlgo
                 </Link>
               </h3>
               <div>August 18, 2025</div>
@@ -86,8 +86,8 @@ const Blog = () => {
             >
               <Link href="blog-single.html">
                 <img
-                  src="simply-blog-3.jpg"
-                  alt="simply-blog-3"
+                  src="/images/blogs/connect-with-top-employee.jpg"
+                  alt="connect-with-top-employee"
                   className="img-fluid rounded mb-4 blog-img"
                 />
               </Link>
@@ -106,8 +106,8 @@ const Blog = () => {
             >
               <Link href="blog-single.html">
                 <img
-                  src="simply-blog-4.jpg"
-                  alt="simply-blog-4"
+                  src="/images/blogs/maximize-job-alert.jpg"
+                  alt="maximize-job-alert"
                   className="img-fluid rounded mb-4 blog-img"
                 />
               </Link>
@@ -126,8 +126,8 @@ const Blog = () => {
             >
               <Link href="blog-single.html">
                 <img
-                  src="images/sq_img_5.jpg"
-                  alt="Skill Development Courses to Boost Your Career"
+                  src="/images/blogs/skill-dev-course.jpg"
+                  alt="Skill Development Courses "
                   className="img-fluid rounded mb-4 blog-img"
                 />
               </Link>
@@ -146,7 +146,7 @@ const Blog = () => {
             >
               <Link href="blog-single.html">
                 <img
-                  src="simply-blog-6.jpg"
+                  src="/images/blogs/understanding-salary-insight.jpg"
                   alt="Understanding Salary Insights Before Negotiation"
                   className="img-fluid rounded mb-4 blog-img"
                 />
@@ -208,7 +208,7 @@ const Blog = () => {
               <p className="text-white">
                 Whether you’re exploring career advice or hiring strategies from
                 our blog, our team is here to support you. Get in touch to
-                discuss your goals with SimplyfyJob.
+                discuss your goals with JobsAlgo.
               </p>
               <button
                 className="cta-btn mt-4"

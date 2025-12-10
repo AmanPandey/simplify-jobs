@@ -162,11 +162,11 @@ const Services = () => {
               data-aos-delay="200"
             >
               <h2 className="section-title mb-2 text-white">
-                Simplify Hiring & Job Search with Us
+                Hire Smarter & Find Jobs Faster With Us
               </h2>
               <p className="text-white">
                 From helping employers find top talent to guiding job seekers
-                toward the right opportunities, SimplyfyJob offers services that
+                toward the right opportunities, JobsAlgo offers services that
                 make the hiring process seamless and effective.
               </p>
               <button

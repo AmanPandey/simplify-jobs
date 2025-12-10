@@ -46,7 +46,7 @@ const About = () => {
               data-aos-delay="200"
             >
               <img
-                src="simple-about-intro.jpg"
+                src="/images/simple-about-intro.jpg"
                 alt="about-intro"
                 className="img-fluid img-shadow h-100"
               />
@@ -57,7 +57,7 @@ const About = () => {
                 data-aos="zoom-in"
                 data-aos-delay="200"
               >
-                Simplifying the Way People and Jobs Connect
+                The Smart Way People and Jobs Connect
               </h2>
               <div>
                 {/* First paragraph with icon */}
@@ -75,7 +75,7 @@ const About = () => {
                     />
                   </div>
                   <p data-aos="fade-up" data-aos-delay="200">
-                    At SimplifyJob, we exist to make job searching and hiring
+                    At JobsAlgo, we exist to make job searching and hiring
                     simple. Traditional portals overwhelm users with clutter,
                     leaving both job seekers and employers frustrated.
                   </p>
@@ -97,7 +97,7 @@ const About = () => {
                   </div>
                   <p data-aos="fade-up" data-aos-delay="200">
                     For job seekers, the challenge is endless applications,
-                    unclear job descriptions, and little feedback. SimplifyJob
+                    unclear job descriptions, and little feedback. JobsAlgo
                     helps candidates discover clear, relevant opportunities
                     tailored to their skills.
                   </p>
@@ -119,7 +119,7 @@ const About = () => {
                   </div>
                   <p data-aos="fade-up" data-aos-delay="200">
                     For employers, hiring often means wasting time filtering
-                    irrelevant resumes. SimplifyJob enables smarter, faster
+                    irrelevant resumes. JobsAlgo enables smarter, faster
                     recruitment by delivering quality candidates who truly match
                     job requirements.
                   </p>
@@ -140,7 +140,7 @@ const About = () => {
                     />
                   </div>
                   <p data-aos="fade-up" data-aos-delay="200">
-                    By bridging this gap, SimplifyJob creates meaningful
+                    By bridging this gap, JobsAlgo creates meaningful
                     connections between people and opportunities. Our mission is
                     clear — simplify the hiring process for everyone.
                   </p>
@@ -289,7 +289,7 @@ const About = () => {
               data-aos-delay="200"
             >
               <h2 className="section-title mb-2 text-white">
-                SimplifyJob Site Stats
+                JobsAlgo Site Stats
               </h2>
               <p className="lead text-white">
                 Discover the growth and success we’ve achieved together with job
@@ -345,7 +345,7 @@ const About = () => {
               <h2 className="section-title mb-2">What Our Users Say</h2>
               <p>
                 Real stories from job seekers and employers who found success
-                through SimplifyJob.
+                through JobsAlgo.
               </p>
             </div>
           </div>
@@ -358,8 +358,8 @@ const About = () => {
               >
                 <div className="card-body p-4 py-5">
                   <img
-                    src="about-testimonial-1.jpg"
-                    alt=""
+                    src="/images/testimonial/david.jpg"
+                    alt="David"
                     className="img-fluid rounded-circle border mb-4"
                     width="100"
                   />
@@ -373,9 +373,8 @@ const About = () => {
                     <span className="fas fa-star-half-alt active"></span>
                   </p>
                   <p className="about-testimonial-content mb-0">
-                    SimplifyJob made my job search so easy! I uploaded my
-                    resume, applied in one click, and landed a job within two
-                    weeks.
+                    JobsAlgo made my job search so easy! I uploaded my resume,
+                    applied in one click, and landed a job within two weeks.
                   </p>
                 </div>
               </div>
@@ -388,8 +387,8 @@ const About = () => {
               >
                 <div className="card-body p-4 py-5">
                   <img
-                    src="about-testimonial-2.jpg"
-                    alt=""
+                    src="/images/testimonial/sofia.jpg"
+                    alt="Sofia"
                     className="img-fluid rounded-circle border mb-4"
                     width="100"
                   />
@@ -403,9 +402,8 @@ const About = () => {
                     <span className="fas fa-star-half-alt active"></span>
                   </p>
                   <p className="about-testimonial-content mb-0">
-                    Hiring used to be time-consuming, but SimplifyJob’s
-                    AI-matching helped us find the right candidate in days, not
-                    weeks.
+                    Hiring used to be time-consuming, but JobsAlgo’s AI-matching
+                    helped us find the right candidate in days, not weeks.
                   </p>
                 </div>
               </div>
@@ -418,8 +416,8 @@ const About = () => {
               >
                 <div className="card-body p-4 py-5">
                   <img
-                    src="about-testimonial-3.jpg"
-                    alt=""
+                    src="/images/testimonial/liam.jpg"
+                    alt="Liam"
                     className="img-fluid rounded-circle border mb-4"
                     width="100"
                   />
@@ -465,7 +463,7 @@ const About = () => {
               data-aos-delay="200"
             >
               <h2 className="section-title mb-2 text-white">
-                Grow Your Career with SimplyfyJob
+                Grow Your Career with JobsAlgo
               </h2>
               <p className="text-white">
                 We connect job seekers with the right opportunities and help

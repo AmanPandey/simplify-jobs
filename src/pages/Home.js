@@ -73,7 +73,7 @@ const Home = () => {
             <div className="col-md-12">
               <div className="mb-5 text-center">
                 <h1 className="text-white font-weight-bold">
-                  Simplify Job Amplify Growth
+                  Jobs Algo Amplify Growth
                 </h1>
                 <p>
                   Join 5+ million job seekers monthly. Apply to 100+ fresh
@@ -189,7 +189,7 @@ const Home = () => {
               data-aos="zoom-in"
               data-aos-delay="200"
             >
-              <h2 className="section-title mb-3">Why Choose SimplifyJob?</h2>
+              <h2 className="section-title mb-3">Why Choose JobsAlgo?</h2>
               <div>
                 {/* First Item */}
                 <div className="d-flex align-items-center justify-content-start mb-3">
@@ -650,7 +650,7 @@ const Home = () => {
                 Find the Right Job, Faster
               </h2>
               <p className="mb-0 text-white" style={{ fontSize: "18px" }}>
-                Join SimplyfyJob to explore thousands of opportunities, connect
+                Join JobsAlgo to explore thousands of opportunities, connect
                 with top employers, and take the next step in your career.
               </p>
             </div>
