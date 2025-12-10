@@ -1,6 +1,6 @@
 import axios from "axios";
-const API_URL = "https://simplify-job-node-js-backend-api.vercel.app/api/user";
-// const API_URL = "http://localhost:5000/api/user";
+// const API_URL = "https://simplify-job-node-js-backend-api.vercel.app/api/user";
+const API_URL = "http://localhost:5000/api/user";
 
 //! frontend auth
 
