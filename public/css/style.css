@@ -3083,3 +3083,10 @@ a:hover {
   background: #ebeef0;
   color: #343a40;
 }
+
+/* navbar login btn  */
+@media screen and (max-width: 400px) {
+  .log-in-btn {
+    padding: 4px;
+  }
+}

@@ -256,7 +256,7 @@ const Navbar = () => {
               ) : (
                 <NavLink
                   to="/login"
-                  className="btn btn-primary border-width-2  ml-2 mr-3"
+                  className="btn btn-primary border-width-2  ml-xl-2 mr-xl-3 log-in-btn"
                 >
                   <span className="mr-2 icon-lock_outline"></span>Log In
                 </NavLink>
