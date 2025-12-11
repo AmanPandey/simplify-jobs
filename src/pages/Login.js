@@ -377,7 +377,7 @@ const Login = React.memo(() => {
                         id="name"
                         name="name"
                         className="form-control"
-                        placeholder="Email address"
+                        placeholder="Your Name"
                         onChange={handleSignupChange}
                         value={signupUser.name}
                       />
