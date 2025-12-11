@@ -40,7 +40,7 @@ const Navbar = () => {
               <img
                 src="/images/logo/jobsalgo-logo-removebg-preview.png"
                 alt=""
-                style={{ width: "150px" }}
+                style={{ width: "130px", filter: "brightness(0) invert(1)" }}
               />
             </NavLink>
           </div>
