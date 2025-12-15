@@ -12,6 +12,7 @@ const FrontEndProvider = ({ children }) => {
   });
   const [errors, setErrors] = useState({});
   const [notif, setNotif] = useState({ message: null, type: "" });
+  const [isModelOpen, setIsModelOpen] = useState(false);
 
   // signup
   const signup = useCallback((newUser, newToken) => {
@@ -66,6 +67,8 @@ const FrontEndProvider = ({ children }) => {
     handleLogout,
     notif,
     setNotif,
+    isModelOpen,
+    setIsModelOpen,
   };
 
   return (

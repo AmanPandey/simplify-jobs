@@ -19,7 +19,7 @@ const About = () => {
       </div>
       <section
         className="section-hero overlay inner-page bg-image"
-        style={{ backgroundImage: "url('images/hero_1.jpg')" }}
+        style={{ backgroundImage: "url('images/jobsalgo-hero.jpg')" }}
         id="home-section"
       >
         <div className="container">
@@ -46,7 +46,7 @@ const About = () => {
               data-aos-delay="200"
             >
               <img
-                src="/images/simple-about-intro.jpg"
+                src="/images/smart_job_connection.jpg"
                 alt="about-intro"
                 className="img-fluid img-shadow h-100"
               />
@@ -276,8 +276,7 @@ const About = () => {
         className="py-5 bg-image overlay-primary fixed overlay d-flex align-items-center"
         id="next-section"
         style={{
-          backgroundImage:
-            "url('https://images.pexels.com/photos/6340693/pexels-photo-6340693.jpeg')",
+          backgroundImage: "url('images/jobsalgo_site_stats.jpg')",
           marginTop: "4rem",
         }}
       >
@@ -450,8 +449,7 @@ const About = () => {
         className="bg-image overlay-primary fixed overlay"
         id="next-section"
         style={{
-          backgroundImage:
-            "url('https://images.pexels.com/photos/3184316/pexels-photo-3184316.jpeg')",
+          backgroundImage: "url('images/cta-2.jpg')",
           padding: "6rem 0",
         }}
       >

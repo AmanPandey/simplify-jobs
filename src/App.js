@@ -20,7 +20,7 @@ import PageNotFound from "./pages/PageNotFound.js";
 // FRONTEND
 import Home from "./pages/Home";
 import About from "./pages/About";
-import JobSingle from "./pages/JobSingle";
+import JobSingle from "./pages/JobDescription.js";
 import PostJob from "./pages/PostJob";
 import Services from "./pages/Services";
 import ServiceSingle from "./pages/ServiceSingle";
@@ -48,6 +48,10 @@ import AddEmployer from "./admin/Pages/AddEmployer.js";
 import EditEmployer from "./admin/Pages/EditEmployer.js";
 import ScrollToTop from "./components/ScrollToTop.js";
 import Check from "./pages/Check.js";
+import Disclaimer from "./pages/Disclaimer.js";
+import TermsAndConditions from "./pages/TermsAndConditions.js";
+import PrivacyPolicy from "./pages/PrivacyPolicy.js";
+import JobDescription from "./pages/JobDescription.js";
 
 function App() {
   useEffect(() => {
@@ -91,7 +95,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />
           <Route path="job-listings" element={<JobListings />} />
-          <Route path="job-single" element={<JobSingle />} />
+          <Route path="job-description" element={<JobDescription />} />
           <Route path="post-job" element={<PostJob />} />
           <Route path="services" element={<Services />} />
           <Route path="service-single" element={<ServiceSingle />} />
@@ -103,6 +107,9 @@ function App() {
           <Route path="contact" element={<Contact />} />
           <Route path="login" element={<Login />} />
           <Route path="check" element={<Check />} />
+          <Route path="disclaimer" element={<Disclaimer />} />
+          <Route path="terms-conditions" element={<TermsAndConditions />} />
+          <Route path="privacy-policy" element={<PrivacyPolicy />} />
 
           {/* Optional: leave only one */}
           <Route path="jobs" element={<JobListings />} />

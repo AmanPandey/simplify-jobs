@@ -15,13 +15,16 @@ const Footer = () => {
               <h3>Company</h3>
               <ul className="list-unstyled">
                 <li>
-                  <Link href="#">About Us</Link>
+                  <Link to="/about">About Us</Link>
                 </li>
                 <li>
-                  <Link href="#">Contact Us</Link>
+                  <Link to="/contact">Contact Us</Link>
                 </li>
+                {/* <li>
+                  <Link to="#">Career</Link>
+                </li> */}
                 <li>
-                  <Link href="#">Career</Link>
+                  <Link to="/faq">FAQ</Link>
                 </li>
               </ul>
             </div>
@@ -30,13 +33,13 @@ const Footer = () => {
               <h3>Quick Links</h3>
               <ul className="list-unstyled">
                 <li>
-                  <Link href="#">FAQ</Link>
+                  <Link to="/disclaimer">Disclaimer</Link>
                 </li>
                 <li>
-                  <Link href="#">Privacy Policy</Link>
+                  <Link to="/privacy-policy">Privacy Policy</Link>
                 </li>
                 <li>
-                  <Link href="#">Terms & Conditions</Link>
+                  <Link to="/terms-conditions">Terms & Conditions</Link>
                 </li>
               </ul>
             </div>

@@ -1,8 +1,14 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Check = () => {
   const [showFilter, setShowFilter] = useState(false);
+  const navigate = useNavigate();
+
+  function handleCick(e) {
+    e.preventDefault();
+    navigate("/job-description");
+  }
   return (
     <>
       <div className="site-wrap">
@@ -17,7 +23,7 @@ const Check = () => {
       </div>
       <section
         className="section-hero overlay inner-page bg-image"
-        style={{ backgroundImage: "url('images/hero_1.jpg')" }}
+        style={{ backgroundImage: "url('images/jobsalgo-hero.jpg')" }}
         id="home-section"
       >
         <div className="container">
@@ -345,8 +351,11 @@ const Check = () => {
               {/* job section  */}
 
               <ul className=" mb-lg-5 mt-3  job-listings ">
-                <li className="job-listing d-block d-md-flex pb-3 pb-sm-0 align-items-center">
-                  <Link to="#"></Link>
+                <li
+                  className="job-listing d-block d-md-flex pb-3 pb-sm-0 align-items-center"
+                  onClick={handleCick}
+                  style={{ cursor: "pointer" }}
+                >
                   <div className="job-listing-logo">
                     <img
                       src="images/job_logo_1.jpg"
@@ -371,8 +380,12 @@ const Check = () => {
                     </div>
                   </div>
                 </li>
-                <li className="job-listing d-block d-md-flex pb-3 pb-sm-0 align-items-center">
-                  <Link to="#"></Link>
+
+                <li
+                  className="job-listing d-block d-md-flex pb-3 pb-sm-0 align-items-center"
+                  onClick={handleCick}
+                  style={{ cursor: "pointer" }}
+                >
                   <div className="job-listing-logo">
                     <img
                       src="images/job_logo_2.jpg"
@@ -399,8 +412,11 @@ const Check = () => {
                     </div>
                   </div>
                 </li>
-                <li className="job-listing d-block d-md-flex pb-3 pb-sm-0 align-items-center">
-                  <Link to="#"></Link>
+                <li
+                  className="job-listing d-block d-md-flex pb-3 pb-sm-0 align-items-center"
+                  onClick={handleCick}
+                  style={{ cursor: "pointer" }}
+                >
                   <div className="job-listing-logo">
                     <img
                       src="images/job_logo_3.jpg"
@@ -427,8 +443,11 @@ const Check = () => {
                     </div>
                   </div>
                 </li>
-                <li className="job-listing d-block d-md-flex pb-3 pb-sm-0 align-items-center">
-                  <Link to="#"></Link>
+                <li
+                  className="job-listing d-block d-md-flex pb-3 pb-sm-0 align-items-center"
+                  onClick={handleCick}
+                  style={{ cursor: "pointer" }}
+                >
                   <div className="job-listing-logo">
                     <img
                       src="images/job_logo_4.jpg"
@@ -454,8 +473,11 @@ const Check = () => {
                     </div>
                   </div>
                 </li>
-                <li className="job-listing d-block d-md-flex pb-3 pb-sm-0 align-items-center">
-                  <Link to="#"></Link>
+                <li
+                  className="job-listing d-block d-md-flex pb-3 pb-sm-0 align-items-center"
+                  onClick={handleCick}
+                  style={{ cursor: "pointer" }}
+                >
                   <div className="job-listing-logo">
                     <img
                       src="images/job_logo_5.jpg"
@@ -480,8 +502,11 @@ const Check = () => {
                     </div>
                   </div>
                 </li>
-                <li className="job-listing d-block d-md-flex pb-3 pb-sm-0 align-items-center">
-                  <Link to="#"></Link>
+                <li
+                  className="job-listing d-block d-md-flex pb-3 pb-sm-0 align-items-center"
+                  onClick={handleCick}
+                  style={{ cursor: "pointer" }}
+                >
                   <div className="job-listing-logo">
                     <img
                       src="images/job_logo_1.jpg"
@@ -506,8 +531,11 @@ const Check = () => {
                     </div>
                   </div>
                 </li>
-                <li className="job-listing d-block d-md-flex pb-3 pb-sm-0 align-items-center">
-                  <Link to="#"></Link>
+                <li
+                  className="job-listing d-block d-md-flex pb-3 pb-sm-0 align-items-center"
+                  onClick={handleCick}
+                  style={{ cursor: "pointer" }}
+                >
                   <div className="job-listing-logo">
                     <img
                       src="images/job_logo_2.jpg"
@@ -547,8 +575,7 @@ const Check = () => {
         className=" bg-image overlay-primary fixed overlay "
         id="next-section"
         style={{
-          backgroundImage:
-            "url('https://images.pexels.com/photos/3184316/pexels-photo-3184316.jpeg')",
+          backgroundImage: "url('images/cta-1.jpeg')",
           padding: "6rem 0",
           marginTop: "4rem",
         }}

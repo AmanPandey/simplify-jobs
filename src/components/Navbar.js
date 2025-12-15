@@ -17,7 +17,7 @@ const Navbar = () => {
 
   useEffect(() => {
     function onScroll() {
-      if (window.scrollY > 50) {
+      if (window.scrollY > 70) {
         setScrolled(true);
       } else {
         setScrolled(false);
@@ -32,7 +32,7 @@ const Navbar = () => {
   }, [user]);
 
   return (
-    <header className={`site-navbar mt-3 ${scrolled ? "scrolled" : ""}  `}>
+    <header className={`site-navbar py-4  ${scrolled ? "scrolled" : ""}  `}>
       <div className="container-fluid">
         <div className="row align-items-center">
           <div className="site-logo col-6">
@@ -77,31 +77,7 @@ const Navbar = () => {
                   Jobs
                 </NavLink>
               </li>
-              {/* <li className="has-children">
-                <NavLink to="#">Job Listings</NavLink>
-                <ul className="dropdown">
-                  <li>
-                    <NavLink
-                      to="/all-jobs"
-                      className={({ isActive }) =>
-                        isActive ? "nav-link active" : "nav-link"
-                      }
-                    >
-                      All Jobs
-                    </NavLink>
-                  </li>
-                  <li>
-                    <NavLink
-                      to="/post-job"
-                      className={({ isActive }) =>
-                        isActive ? "nav-link active" : "nav-link"
-                      }
-                    >
-                      Post a Job
-                    </NavLink>
-                  </li>
-                </ul>
-              </li> */}
+
               <li className="has-children">
                 <NavLink to="#">Company</NavLink>
                 <ul className="dropdown">

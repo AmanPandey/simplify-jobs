@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Model from "./Model";
 import { CiCircleCheck } from "react-icons/ci";
+import FrontendContext from "../context/FrontendContext.js";
 
 const Home = () => {
-  const [isModelOpen, setIsModelOpen] = useState(false);
+  const { setIsModelOpen, isModelOpen } = useContext(FrontendContext);
   const navigate = useNavigate();
 
   // function handleSubmit(e) {
@@ -66,7 +67,7 @@ const Home = () => {
       <section
         className="home-section section-hero overlay bg-image"
         id="home-section"
-        style={{ backgroundImage: "url('images/hero_1.jpg')" }}
+        style={{ backgroundImage: "url('images/jobsalgo-hero.jpg')" }}
       >
         <div className="container" data-aos="zoom-in" data-aos-delay="200">
           <div className="row align-items-center justify-content-center">
@@ -170,7 +171,7 @@ const Home = () => {
       </section>
 
       {/* why choose */}
-      <section className="site-section pb-0">
+      <section className="site-section pb-4">
         <div className="container">
           <div className="row">
             <div
@@ -179,7 +180,7 @@ const Home = () => {
               data-aos-delay="200"
             >
               <img
-                src="images/sq_img_6.jpg"
+                src="images/why_choose_jobsalgo.jpg"
                 alt="Why Choose SimplifyJob"
                 className="img-fluid img-shadow"
               />
@@ -466,8 +467,7 @@ const Home = () => {
       <section
         className="py-5 bg-image overlay-primary fixed overlay d-flex align-items-center "
         style={{
-          backgroundImage:
-            "url('https://images.pexels.com/photos/8463166/pexels-photo-8463166.jpeg')",
+          backgroundImage: "url('images/we_are_hiring.jpg')",
           height: "400px",
         }}
       >
@@ -485,7 +485,10 @@ const Home = () => {
             </div>
             <div className="col-md-3 ml-auto">
               <button
-                onClick={() => setIsModelOpen(true)}
+                onClick={() => {
+                  console.log("clicked");
+                  setIsModelOpen(true);
+                }}
                 className="btn btn-block btn-lg apply-now"
                 style={{ fontWeight: "600" }}
               >
@@ -635,7 +638,7 @@ const Home = () => {
       <section
         className="site-section bg-image overlay-hiring fixed overlay"
         style={{
-          backgroundImage: "url('images/hiring.jpg')",
+          backgroundImage: "url('images/cta-3.jpg')",
           padding: "6rem 0rem",
         }}
       >
@@ -670,46 +673,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* <section
-        className="pt-5 bg-image overlay-primary fixed overlay"
-        style={{ backgroundImage: "url('images/hero_1.jpg')" }}
-      >
-        <div className="container">
-          <div className="row">
-            <div className="col-md-6 align-self-center text-center text-md-left mb-5 mb-md-0">
-              <h2 className="text-white">Download the SimplifyJob App</h2>
-              <p className="mb-5 lead text-white">
-                Find and apply for jobs on the go. Get 15% more visibility with
-                mobile applications.
-              </p>
-              <p className="mb-0">
-                <a
-                  href="#"
-                  className="btn btn-dark btn-md px-4 border-width-2 mb-3 mx-md-1"
-                >
-                  <span className="icon-apple mr-3"></span>Download for iOS
-                </a>
-                <a
-                  href="#"
-                  className="btn btn-dark btn-md px-4 border-width-2 mb-3 mx-md-1"
-                >
-                  <span className="icon-android mr-3"></span>Download for
-                  Android
-                </a>
-              </p>
-            </div>
-            <div className="col-md-6 ml-auto align-self-end">
-              <img
-                src="images/apps.png"
-                alt="Free Website Template by Free-Template.co"
-                className="img-fluid"
-              />
-            </div>
-          </div>
-        </div>
-      </section> */}
-
-      <Model isOpen={isModelOpen} onClose={() => setIsModelOpen(false)} />
+      <Model />
     </>
   );
 };

@@ -1,17 +1,9 @@
 jQuery(function ($) {
   "use strict";
 
-  // $(".loader").delay(1000).fadeOut("slow");
   $("#overlayer").delay(1000).fadeOut("slow");
 
   var siteMenuClone = function () {
-    // $(".js-clone-nav").each(function () {
-    //   var $this = $(this);
-    //   $this
-    //     .clone()
-    //     .attr("class", "site-nav-wrap")
-    //     .appendTo(".site-mobile-menu-body");
-    // });
     // Prevent double cloning
     if ($(".site-mobile-menu-body .site-nav-wrap").length === 0) {
       $(".js-clone-nav").each(function () {
@@ -24,31 +16,49 @@ jQuery(function ($) {
     }
 
     setTimeout(function () {
-      var counter = 0;
-      $(".site-mobile-menu .has-children").each(function () {
+      $(".site-mobile-menu .has-children").each(function (index) {
         var $this = $(this);
 
-        $this.prepend('<span class="arrow-collapse collapsed">');
+        // create arrow once
+        if ($this.find("> .arrow-collapse").length === 0) {
+          $this.prepend('<span class="arrow-collapse collapsed"></span>');
+        }
 
-        $this.find(".arrow-collapse").attr({
+        // 🔥 generate STABLE unique id
+        var uniqueId =
+          "mobile-collapse-" +
+          index +
+          "-" +
+          Math.random().toString(36).substr(2, 5);
+
+        $this.find("> .arrow-collapse").attr({
           "data-toggle": "collapse",
-          "data-target": "#collapseItem" + counter,
+          "data-target": "#" + uniqueId,
+          "aria-expanded": "false",
         });
 
         $this.find("> ul").attr({
           class: "collapse",
-          id: "collapseItem" + counter,
+          id: uniqueId,
         });
-
-        counter++;
       });
+
+      // ✅ RESET all dropdowns after cloning
+      $(".site-mobile-menu .collapse").removeClass("show");
+      $(".site-mobile-menu .arrow-collapse")
+        .removeClass("active")
+        .addClass("collapsed");
     }, 1000);
 
     $("body").on("click", ".arrow-collapse", function (e) {
       var $this = $(this);
-      if ($this.closest("li").find(".collapse").hasClass("show")) {
+      var $collapse = $this.closest("li").find("> .collapse");
+
+      if ($collapse.hasClass("show")) {
+        $collapse.collapse("hide");
         $this.removeClass("active");
       } else {
+        $collapse.collapse("show");
         $this.addClass("active");
       }
       e.preventDefault();
@@ -64,6 +74,37 @@ jQuery(function ($) {
         }
       }
     });
+    // 🔥 FIX: keep dropdown & arrow in sync on route changes
+    $("body")
+      .on("show.bs.collapse", ".site-mobile-menu .collapse", function () {
+        $(this)
+          .closest("li")
+          .find("> .arrow-collapse")
+          .addClass("active")
+          .removeClass("collapsed");
+      })
+      .on("hide.bs.collapse", ".site-mobile-menu .collapse", function () {
+        $(this)
+          .closest("li")
+          .find("> .arrow-collapse")
+          .removeClass("active")
+          .addClass("collapsed");
+      });
+
+    // $("body").on("click", ".js-menu-toggle", function (e) {
+    //   var $this = $(this);
+    //   e.preventDefault();
+
+    //   if ($("body").hasClass("offcanvas-menu")) {
+    //     $("body").removeClass("offcanvas-menu");
+    //     $this.removeClass("active");
+    //   } else {
+    //     $("body").addClass("offcanvas-menu");
+    //     $this.addClass("active");
+    //   }
+    // });
+
+    // click outisde offcanvas
 
     $("body").on("click", ".js-menu-toggle", function (e) {
       var $this = $(this);
@@ -72,13 +113,24 @@ jQuery(function ($) {
       if ($("body").hasClass("offcanvas-menu")) {
         $("body").removeClass("offcanvas-menu");
         $this.removeClass("active");
+
+        // ✅ Close all dropdowns when menu is closed
+        $(".site-mobile-menu .collapse").collapse("hide");
+        $(".site-mobile-menu .arrow-collapse")
+          .removeClass("active")
+          .addClass("collapsed");
       } else {
         $("body").addClass("offcanvas-menu");
         $this.addClass("active");
+
+        // ✅ Force all dropdowns closed when menu opens
+        $(".site-mobile-menu .collapse").collapse("hide");
+        $(".site-mobile-menu .arrow-collapse")
+          .removeClass("active")
+          .addClass("collapsed");
       }
     });
 
-    // click outisde offcanvas
     $(document).mouseup(function (e) {
       var container = $(".site-mobile-menu");
       if (!container.is(e.target) && container.has(e.target).length === 0) {

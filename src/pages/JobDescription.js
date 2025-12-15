@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
-const JobSingle = () => {
+const JobDescription = () => {
   const navigate = useNavigate();
   return (
     <>
@@ -18,7 +18,7 @@ const JobSingle = () => {
       </div>
       <section
         className="section-hero overlay inner-page bg-image"
-        style={{ backgroundImage: "url('images/hero_1.jpg')" }}
+        style={{ backgroundImage: "url('images/jobsalgo-hero.jpg')" }}
         id="home-section"
       >
         <div className="container">
@@ -67,7 +67,7 @@ const JobSingle = () => {
                 </div>
               </div>
             </div>
-            <div className="col-lg-4">
+            {/* <div className="col-lg-4">
               <div className="row">
                 <div className="col-6">
                   <Link to="#" className="btn btn-block btn-light btn-md">
@@ -85,7 +85,7 @@ const JobSingle = () => {
                   </Link>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
 
           <div className="row">
@@ -243,7 +243,7 @@ const JobSingle = () => {
               </div>
 
               <div className="row mb-5" data-aos="zoom-in" data-aos-delay="200">
-                <div className="col-6">
+                {/* <div className="col-6">
                   <Link
                     to="#"
                     className="btn btn-block btn-light btn-md border border-grey"
@@ -251,7 +251,7 @@ const JobSingle = () => {
                     <span className="icon-heart-o mr-2 text-danger"></span>Save
                     Job
                   </Link>
-                </div>
+                </div> */}
                 <div className="col-6">
                   <Link
                     to="#"
@@ -331,13 +331,13 @@ const JobSingle = () => {
         </div>
       </section>
 
-      <section className="site-section" id="next">
+      {/* <section className="site-section" id="next">
         <div className="container">
-          {/* <div className="row mb-5 justify-content-center">
+          <div className="row mb-5 justify-content-center">
             <div className="col-md-7 text-center">
               <h2 className="section-title mb-2">1223 Related Jobs</h2>
             </div>
-          </div> */}
+          </div>
 
           <ul className="job-listings mb-5">
             <li
@@ -579,7 +579,7 @@ const JobSingle = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* call to action  */}
 
@@ -617,94 +617,8 @@ const JobSingle = () => {
           </div>
         </div>
       </section>
-
-      {/* <section className="bg-light pt-5 testimony-full">
-        <div className="owl-carousel single-carousel">
-          <div className="container">
-            <div className="row">
-              <div className="col-lg-6 align-self-center text-center text-lg-left">
-                <blockquote>
-                  <p>
-                    &ldquo;SimplifyJob made my job search effortless! The
-                    personalized recommendations and timely alerts helped me
-                    land my dream role in record time.&rdquo;
-                  </p>
-                  <p>
-                    <cite> &mdash; Corey Woods, Software Engineer</cite>
-                  </p>
-                </blockquote>
-              </div>
-              <div className="col-lg-6 align-self-end text-center text-lg-right">
-                <img
-                  src="images/person_transparent_2.png"
-                  alt="Image"
-                  className="img-fluid mb-0"
-                />
-              </div>
-            </div>
-          </div>
-
-          <div className="container">
-            <div className="row">
-              <div className="col-lg-6 align-self-center text-center text-lg-left">
-                <blockquote>
-                  <p>
-                    &ldquo;Thanks to SimplifyJob, our company filled key
-                    positions quickly with qualified candidates. The platform
-                    streamlined our hiring process significantly.&rdquo;
-                  </p>
-                  <p>
-                    <cite> &mdash; Chris Peters, HR Manager</cite>
-                  </p>
-                </blockquote>
-              </div>
-              <div className="col-lg-6 align-self-end text-center text-lg-right">
-                <img
-                  src="images/person_transparent.png"
-                  alt="Image"
-                  className="img-fluid mb-0"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section> */}
-
-      {/* <section
-        className="pt-5 bg-image overlay-primary fixed overlay"
-        style={{ backgroundImage: "url('images/hero_1.jpg')" }}
-      >
-        <div className="container">
-          <div className="row">
-            <div className="col-md-6 align-self-center text-center text-md-left mb-5 mb-md-0">
-              <h2 className="text-white">Get the SimplifyJob App</h2>
-              <p className="mb-5 lead text-white">
-                Search and apply for jobs on the go, connect with top employers,
-                and track your applications—all from your mobile device.
-              </p>
-              <p className="mb-0">
-                <Link
-                  to="#"
-                  className="btn btn-dark btn-md px-4 border-width-2 mx-1 my-1"
-                >
-                  <span className="icon-apple mr-3"></span>App Store
-                </Link>
-                <Link
-                  to="#"
-                  className="btn btn-dark btn-md px-4 border-width-2 mx-1 my-1"
-                >
-                  <span className="icon-android mr-3"></span>Play Store
-                </Link>
-              </p>
-            </div>
-            <div className="col-md-6 ml-auto align-self-end">
-              <img src="images/apps.png" alt="Image" className="img-fluid" />
-            </div>
-          </div>
-        </div>
-      </section> */}
     </>
   );
 };
 
-export default JobSingle;
+export default JobDescription;

@@ -8,7 +8,7 @@ const Layout = () => {
   const location = useLocation();
 
   useEffect(() => {
-    // rebuild mobile menu whenever route changes
+    // Rebuild mobile menu
     if ($(".js-clone-nav").length) {
       $(".site-mobile-menu-body").empty();
       $(".js-clone-nav").each(function () {
@@ -19,7 +19,21 @@ const Layout = () => {
           .appendTo(".site-mobile-menu-body");
       });
     }
-  }, [location.pathname]);
+
+    // ✅ Reset all dropdowns on route change
+    $(".site-mobile-menu .collapse").each(function () {
+      // Use Bootstrap collapse API instead of manually toggling classes
+      $(this).collapse("hide");
+    });
+
+    $(".site-mobile-menu .arrow-collapse")
+      .removeClass("active")
+      .addClass("collapsed");
+
+    // Close offcanvas menu
+    $("body").removeClass("offcanvas-menu");
+  }, [location.pathname]); // trigger on route change
+
   return (
     <div>
       <Navbar />
