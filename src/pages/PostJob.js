@@ -208,7 +208,6 @@ const PostJob = () => {
       setLoading(true);
 
       const res = await postFrontendJob(jobFormData, token, user?.id);
-      console.log(res);
 
       if (!res.success) {
         setNotif({ id: Date.now(), message: res.message, type: "error" });
@@ -307,7 +306,7 @@ const PostJob = () => {
           <div className="row mb-5" data-aos="zoom-in" data-aos-delay="200">
             <div className="col-lg-12">
               <form
-                className="p-4 p-md-5 border rounded row"
+                className="py-3 p-md-5 border rounded row"
                 onSubmit={handleSubmit}
               >
                 {/* Company Name */}

@@ -161,7 +161,6 @@ const Login = React.memo(() => {
     }
     try {
       const res = await loginFrontendUser(loginUser);
-      console.log(res);
 
       if (!res.success || !res.token) {
         setErrors((prev) => ({

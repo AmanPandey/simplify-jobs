@@ -5,34 +5,42 @@ import { useContext } from "react";
 import FrontendContext from "../context/FrontendContext";
 import { getCurrentUser } from "../Hooks/getCurrentUser";
 import FrontEndProvider from "../context/FrontEndProvider";
+import { FaXmark } from "react-icons/fa6";
+import { useLocation } from "react-router-dom";
 
 const Navbar = () => {
+  const location = useLocation();
   const [openDropdown, setOpenDropdown] = useState(false);
-  // console.log(openDropdown);
+  const [showMobNav, setShowMobNav] = useState(false);
+  const [showMobNavDropdown, setShowMobNavDropdown] = useState(false);
 
   const { user, handleLogout } = useContext(FrontendContext);
 
-  useFixMobileNav();
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    function onScroll() {
-      if (window.scrollY > 70) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    }
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
+  // close logout button
   useEffect(() => {
     setOpenDropdown(false);
   }, [user]);
 
+  // close dropdwon
+  useEffect(() => {
+    setShowMobNavDropdown(false);
+  }, [showMobNav]);
+
+  // close mob nav and nav dropdown
+  useEffect(() => {
+    setShowMobNavDropdown(false);
+    setShowMobNav(false);
+  }, [location.pathname]);
+
+  function handleCompanyClick(e) {
+    if (window.innerWidth <= 1200) {
+      e.preventDefault();
+      setShowMobNavDropdown((prev) => !prev);
+    }
+  }
+
   return (
-    <header className={`site-navbar py-4  ${scrolled ? "scrolled" : ""}  `}>
+    <header className={`site-navbar py-4 `}>
       <div className="container-fluid">
         <div className="row align-items-center">
           <div className="site-logo col-6">
@@ -45,8 +53,26 @@ const Navbar = () => {
             </NavLink>
           </div>
 
-          <nav className="mx-auto site-navigation">
-            <ul className="site-menu js-clone-nav d-none d-xl-block ml-0 pl-0">
+          <nav
+            className={`mx-auto site-navigation ${showMobNav ? "show" : ""}`}
+          >
+            <div className="site-logo d-xl-none d-flex justify-content-between">
+              <NavLink to="/">
+                <img
+                  src="/images/logo/jobsalgo-logo-removebg-preview.png"
+                  alt=""
+                  style={{ width: "130px", filter: "brightness(0) invert(1)" }}
+                />
+              </NavLink>
+              <button
+                onClick={() => setShowMobNav(false)}
+                className="mob-nav-close-btn"
+                aria-label="Close menu"
+              >
+                <FaXmark />
+              </button>
+            </div>
+            <ul className="site-menu d-xl-block ml-0 pl-0">
               <li>
                 <NavLink
                   to="/"
@@ -78,9 +104,15 @@ const Navbar = () => {
                 </NavLink>
               </li>
 
-              <li className="has-children">
-                <NavLink to="#">Company</NavLink>
-                <ul className="dropdown">
+              <li className={`has-children`}>
+                <NavLink to="#" onClick={handleCompanyClick}>
+                  Company
+                </NavLink>
+                <ul
+                  className={`dropdown ${
+                    showMobNavDropdown ? "showDropdown" : ""
+                  }`}
+                >
                   <li>
                     <NavLink
                       to="/services"
@@ -91,32 +123,7 @@ const Navbar = () => {
                       Services
                     </NavLink>
                   </li>
-                  {/* <li>
-                    <NavLink
-                      to="/service-single"
-                      className={({ isActive }) =>
-                        isActive ? "nav-link active" : "nav-link"
-                      }
-                    >
-                      Service Single
-                    </NavLink>
-                  </li> */}
-                  {/* <li>
-                    <NavLink
-                      to="/blog-single"
-                      className={({ isActive }) =>
-                        isActive ? "nav-link active" : "nav-link"
-                      }
-                    >
-                      Blog Single
-                    </NavLink>
-                  </li> */}
-                  {/* <li>
-                    <NavLink to="/portfolio">Portfolio</NavLink>
-                  </li>
-                  <li>
-                    <NavLink to="/portfolio-single">Portfolio Single</NavLink>
-                  </li> */}
+
                   <li>
                     <NavLink
                       to="/testimonials"
@@ -137,9 +144,6 @@ const Navbar = () => {
                       FAQ
                     </NavLink>
                   </li>
-                  {/* <li>
-                    <NavLink to="/gallery">Gallery</NavLink>
-                  </li> */}
                 </ul>
               </li>
               <li>
@@ -163,13 +167,10 @@ const Navbar = () => {
                 </NavLink>
               </li>
               <li className="d-xl-none">
-                <NavLink to="/post-job">
+                <NavLink to="/post-job" className="w-100">
                   <span className="mr-2">+</span> Post a Job
                 </NavLink>
               </li>
-              {/* <li className="d-lg-none">
-                <NavLink to="/login">Log In</NavLink>
-              </li> */}
             </ul>
           </nav>
 
@@ -208,17 +209,6 @@ const Navbar = () => {
                       openDropdown ? "dropdown-open" : ""
                     }`}
                   >
-                    {/* <li>
-                      <NavLink to="/profile" className="custom-dropdown-item">
-                        Details
-                      </NavLink>
-                    </li> */}
-                    {/* <li>
-                      <NavLink to="/profile" className="custom-dropdown-item">
-                        Log Out
-                      </NavLink>
-                    </li> */}
-
                     <li>
                       <button
                         className="custom-dropdown-item logout-btn"
@@ -238,13 +228,14 @@ const Navbar = () => {
                 </NavLink>
               )}
             </div>
-            {/* toggler for small screen */}
-            <a
-              href="#"
+
+            <button
+              onClick={() => setShowMobNav(!showMobNav)}
               className="site-menu-toggle js-menu-toggle d-flex align-items-center d-xl-none  ml-3 "
+              style={{ border: "none", backgroundColor: "transparent" }}
             >
               <span className="icon-menu h3 m-0 p-0 "></span>
-            </a>
+            </button>
           </div>
         </div>
       </div>

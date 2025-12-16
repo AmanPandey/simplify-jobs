@@ -1,8 +1,13 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import FrontendContext from "../context/FrontendContext";
+import Model from "./Model";
 
 const Check = () => {
   const [showFilter, setShowFilter] = useState(false);
+  const { isModalOpen, setIsModelOpen } = useContext(FrontendContext);
+  console.log(isModalOpen);
+
   const navigate = useNavigate();
 
   function handleCick(e) {
@@ -594,7 +599,12 @@ const Check = () => {
                 It’s easier to reach your savings goals when you have the right
                 savings account.
               </p>
-              <button className="cta-btn mt-4">Let's Talk</button>
+              <button
+                className="cta-btn mt-4"
+                onClick={() => navigate("/contact")}
+              >
+                Let's Talk
+              </button>
             </div>
           </div>
         </div>

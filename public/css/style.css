@@ -40,7 +40,7 @@
   position: absolute;
   left: 5%;
 }
-@media (max-width: 767.98px) {
+@media (max-width: 1200px) {
   .site-navbar .site-logo {
     position: relative;
     left: auto;
@@ -81,11 +81,11 @@
   }
 }
 .site-navbar .site-navigation {
-  position: absolute;
+  /* position: absolute;
   left: 50%;
   -webkit-transform: translateX(-50%);
   -ms-transform: translateX(-50%);
-  transform: translateX(-50%);
+  transform: translateX(-50%); */
   z-index: 5;
 }
 .site-navbar .site-navigation .site-menu {
@@ -3112,5 +3112,86 @@ a:hover {
 @media screen and (max-width: 400px) {
   .log-in-btn {
     padding: 4px;
+  }
+}
+
+/*  navbar update  */
+@media screen and (max-width: 1200px) {
+  .site-navigation {
+    position: fixed;
+    top: 0;
+    left: 0 !important;
+    transform: translateX(-200%);
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    /* border: 2px solid red; */
+    margin: 0 !important;
+    transition: all 0.3s ease-in-out;
+    background-color: black;
+    height: 100vh;
+    overflow-y: auto;
+  }
+
+  .site-navigation.show {
+    transform: translateX(0);
+  }
+
+  .site-navigation .site-menu {
+    display: flex;
+    flex-direction: column;
+    /* border: 2px solid white; */
+  }
+  .site-navbar .site-navigation .site-menu > li > a {
+    display: block;
+    color: white;
+  }
+  .mob-nav-close-btn {
+    width: 50px;
+    height: 60px;
+    border: none;
+    color: white;
+    background-color: transparent;
+    outline: none;
+  }
+  .mob-nav-close-btn:focus,
+  .mob-nav-close-btn:focus-visible,
+  .mob-nav-close-btn:active,
+  .site-menu-toggle:focus,
+  .site-menu-toggle:focus-visible,
+  .site-menu-toggle:active {
+    outline: none;
+    box-shadow: none;
+  }
+  .site-navbar .site-navigation .site-menu .has-children {
+    position: relative;
+    /* border: 2px solid red; */
+  }
+  .site-navbar .site-navigation .site-menu .has-children:hover .dropdown {
+    opacity: 0;
+    visibility: hidden;
+    /* max-height: 0; */
+  }
+  .site-navbar .site-navigation .site-menu .has-children .dropdown {
+    background-color: #212529;
+    width: 95%;
+    margin: 0px auto;
+  }
+  .site-navbar .site-navigation .site-menu .has-children .dropdown a {
+    color: white;
+    margin-left: 15px;
+  }
+  .site-navbar
+    .site-navigation
+    .site-menu
+    .has-children
+    .dropdown.showDropdown {
+    position: static;
+    visibility: visible;
+    opacity: 1;
+    margin-top: 0px;
+  }
+  .site-navbar .site-navigation .site-menu .has-children .dropdown a.active {
+    background-color: transparent;
   }
 }

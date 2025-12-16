@@ -65,3 +65,28 @@ export const postFrontendJob = async (credentials, token, id) => {
     };
   }
 };
+
+//! mail
+
+export const sendMail = async (credentials) => {
+  try {
+    const res = await axios.post(
+      "https://simplify-job-node-js-backend-api.vercel.app/api/send-mail",
+      credentials,
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+
+    return res.data;
+  } catch (error) {
+    console.log("Sending mail  error:", error);
+    const backendMsg = error?.response?.data?.message || error?.message;
+    return {
+      succss: false,
+      message: backendMsg,
+    };
+  }
+};
