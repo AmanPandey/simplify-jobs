@@ -1,9 +1,40 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { getPublicJobById } from "../Utils/frontendJobs";
 
 const JobDescription = () => {
   const navigate = useNavigate();
+  const { id } = useParams();
+  const [job, setJob] = useState(null);
+  const [loading, setLoading] = useState(false);
+  console.log(job);
+
+  //capitalize
+
+  const capitalize = (text) =>
+    text ? text.charAt(0).toUpperCase() + text.slice(1) : "";
+
+  useEffect(() => {
+    const fetchJob = async () => {
+      try {
+        setLoading(true);
+        const res = await getPublicJobById(id);
+        if (res?.success) {
+          setJob(res.job);
+        }
+      } catch (error) {
+        console.error("Error fetching job:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    if (id) {
+      fetchJob();
+    }
+  }, [id]);
+
   return (
     <>
       <div className="site-wrap">
@@ -16,25 +47,41 @@ const JobDescription = () => {
           <div className="site-mobile-menu-body"></div>
         </div>
       </div>
+
       <section
         className="section-hero overlay inner-page bg-image"
-        style={{ backgroundImage: "url('images/jobsalgo-hero.jpg')" }}
+        style={{ backgroundImage: "url('/images/jobsalgo-hero.jpg')" }}
         id="home-section"
       >
+        {/* <div className="container">
+              <div className="row">
+                <div
+                  className="col-md-7"
+                  data-aos="fade-up"
+                  data-aos-delay="200"
+                >
+                  <h1
+                    className="text-white font-weight-bold"
+                    style={{ fontWeight: "600" }}
+                  >
+                    {job.job_title}
+                  </h1>
+                  <strong style={{ color: "#89ba16" }}>
+                    {job.createdBy?.company_name}
+                  </strong>
+                </div>
+              </div>
+            </div> */}
         <div className="container">
           <div className="row">
             <div className="col-md-7" data-aos="fade-up" data-aos-delay="200">
-              <h1
-                className="text-white font-weight-bold"
-                style={{ fontWeight: "600" }}
-              >
-                UI/UX Designer
-              </h1>
+              <h1 className="text-white font-weight-bold">Job Description</h1>
               <div className="custom-breadcrumbs">
                 <Link to="/">Home</Link> <span className="mx-2 slash">/</span>
-                <Link to="#">Job</Link> <span className="mx-2 slash">/</span>
+                <Link to="/jobs">Jobs</Link>{" "}
+                <span className="mx-2 slash">/</span>
                 <span className="text-white">
-                  <strong>UI/UX Designer</strong>
+                  <strong>Job Desciption</strong>
                 </span>
               </div>
             </div>
@@ -42,32 +89,52 @@ const JobDescription = () => {
         </div>
       </section>
 
-      <section className="site-section">
+      {loading && (
         <div className="container">
-          <div className="row align-items-center mb-5">
-            <div className="col-lg-8 mb-4 mb-lg-0">
-              <div className="d-flex align-items-center">
-                <div className="border p-2 d-inline-block mr-3 rounded">
-                  <img src="images/job_logo_5.jpg" alt="SimplifyJob Logo" />
-                </div>
-                <div>
-                  <h2>UI/UX Designer</h2>
+          <div
+            className="row text-center d-flex justify-content-center py-5"
+            style={{ height: "500px" }}
+          >
+            Loading...
+          </div>
+        </div>
+      )}
+
+      {job && (
+        <section className="site-section">
+          <div className="container">
+            <div className="row align-items-center mb-5">
+              <div className="col-lg-8 mb-4 mb-lg-0">
+                <div className="d-flex align-items-center">
+                  <div className="border p-2 d-inline-block mr-3 rounded">
+                    <img
+                      src={job.createdBy?.company_logo}
+                      alt={job.createdBy?.company_name}
+                    />
+                  </div>
                   <div>
-                    <span className="ml-0 mr-2 mb-2">
-                      <span className="icon-briefcase mr-2"></span>Puma
-                    </span>
-                    <span className="m-2">
-                      <span className="icon-room mr-2"></span>Noida, India
-                    </span>
-                    <span className="m-2">
-                      <span className="icon-clock-o mr-2"></span>
-                      <span className="text-primary">Full Time</span>
-                    </span>
+                    <h2>{job.job_title}</h2>
+                    <div>
+                      <span className="ml-0 mr-2 mb-2">
+                        <span className="icon-briefcase mr-2"></span>
+                        {job.createdBy?.company_name}
+                      </span>
+                      <span className="m-2">
+                        <span className="icon-room mr-2"></span>
+                        {(job.location || job.work_mode)
+                          ?.charAt(0)
+                          .toUpperCase() +
+                          (job.location || job.work_mode)?.slice(1)}
+                      </span>
+                      <span className="m-2">
+                        <span className="icon-clock-o mr-2"></span>
+                        <span className="text-primary">{job.job_type}</span>
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            {/* <div className="col-lg-4">
+              {/* <div className="col-lg-4">
               <div className="row">
                 <div className="col-6">
                   <Link to="#" className="btn btn-block btn-light btn-md">
@@ -86,164 +153,174 @@ const JobDescription = () => {
                 </div>
               </div>
             </div> */}
-          </div>
+            </div>
 
-          <div className="row">
-            <div className="col-lg-8">
-              <div className="mb-5">
-                <figure
-                  className="mb-5"
+            <div className="row">
+              <div className="col-lg-8">
+                <div className="mb-5">
+                  {/* <figure
+                      className="mb-5"
+                      data-aos="zoom-in"
+                      data-aos-delay="200"
+                    >
+                      <img
+                        src="images/job_single_img_1.jpg"
+                        alt="Job Illustration"
+                        className="img-fluid rounded"
+                      />
+                    </figure> */}
+                  <h3
+                    className="h5 d-flex align-items-center mb-4 text-primary"
+                    data-aos="fade-up"
+                    data-aos-delay="200"
+                  >
+                    <span className="icon-align-left mr-3"></span>Job
+                    Description
+                  </h3>
+                  <div
+                    data-aos="fade-up"
+                    data-aos-delay="200"
+                    dangerouslySetInnerHTML={{ __html: job.job_description }}
+                  ></div>
+                </div>
+
+                {/* <div className="mb-5">
+                    <h3
+                      className="h5 d-flex align-items-center mb-4 text-primary"
+                      data-aos="fade-up"
+                      data-aos-delay="200"
+                    >
+                      <span className="icon-rocket mr-3"></span>Responsibilities
+                    </h3>
+                    <ul className="list-unstyled m-0 p-0">
+                      <li
+                        className="d-flex align-items-start mb-2"
+                        data-aos="fade-up"
+                        data-aos-delay="200"
+                      >
+                        <span className="icon-check_circle mr-2 text-muted"></span>
+                        <span>
+                          Create wireframes, prototypes, and visual designs
+                        </span>
+                      </li>
+                      <li
+                        className="d-flex align-items-start mb-2"
+                        data-aos="fade-up"
+                        data-aos-delay="200"
+                      >
+                        <span className="icon-check_circle mr-2 text-muted"></span>
+                        <span>
+                          Collaborate with product and engineering teams
+                        </span>
+                      </li>
+                      <li
+                        className="d-flex align-items-start mb-2"
+                        data-aos="fade-up"
+                        data-aos-delay="200"
+                      >
+                        <span className="icon-check_circle mr-2 text-muted"></span>
+                        <span>
+                          Ensure consistent branding and design standards
+                        </span>
+                      </li>
+                      <li
+                        className="d-flex align-items-start mb-2"
+                        data-aos="fade-up"
+                        data-aos-delay="200"
+                      >
+                        <span className="icon-check_circle mr-2 text-muted"></span>
+                        <span>Conduct user research and usability testing</span>
+                      </li>
+                    </ul>
+                  </div> */}
+
+                <div className="mb-5">
+                  <h3
+                    className="h5 d-flex align-items-center mb-4 text-primary"
+                    data-aos="fade-up"
+                    data-aos-delay="200"
+                  >
+                    <span className="icon-book mr-3"></span>Education +
+                    Experience
+                  </h3>
+                  <ul className="list-unstyled m-0 p-0">
+                    <li
+                      className="d-flex align-items-start mb-2"
+                      data-aos="fade-up"
+                      data-aos-delay="200"
+                    >
+                      <span className="icon-check_circle mr-2 text-muted"></span>
+                      <span>{job.education}</span>
+                    </li>
+                    <li
+                      className="d-flex align-items-start mb-2"
+                      data-aos="fade-up"
+                      data-aos-delay="200"
+                    >
+                      <span className="icon-check_circle mr-2 text-muted"></span>
+
+                      <span>
+                        {job.skills
+                          ?.map((skill) => capitalize(skill))
+                          .join(", ")}
+                      </span>
+                    </li>
+                    {/* <li
+                        className="d-flex align-items-start mb-2"
+                        data-aos="fade-up"
+                        data-aos-delay="200"
+                      >
+                        <span className="icon-check_circle mr-2 text-muted"></span>
+                        <span>
+                          Strong portfolio demonstrating design thinking
+                        </span>
+                      </li> */}
+                  </ul>
+                </div>
+
+                {/* <div className="mb-5">
+                    <h3
+                      className="h5 d-flex align-items-center mb-4 text-primary"
+                      data-aos="fade-up"
+                      data-aos-delay="200"
+                    >
+                      <span className="icon-turned_in mr-3"></span>Other
+                      Benefits
+                    </h3>
+                    <ul className="list-unstyled m-0 p-0">
+                      <li
+                        className="d-flex align-items-start mb-2"
+                        data-aos="fade-up"
+                        data-aos-delay="200"
+                      >
+                        <span className="icon-check_circle mr-2 text-muted"></span>
+                        <span>Flexible work hours and remote options</span>
+                      </li>
+                      <li
+                        className="d-flex align-items-start mb-2"
+                        data-aos="fade-up"
+                        data-aos-delay="200"
+                      >
+                        <span className="icon-check_circle mr-2 text-muted"></span>
+                        <span>Health, dental, and vision insurance</span>
+                      </li>
+                      <li
+                        className="d-flex align-items-start mb-2"
+                        data-aos="fade-up"
+                        data-aos-delay="200"
+                      >
+                        <span className="icon-check_circle mr-2 text-muted"></span>
+                        <span>Learning & development support</span>
+                      </li>
+                    </ul>
+                  </div> */}
+
+                <div
+                  className="row mb-5"
                   data-aos="zoom-in"
                   data-aos-delay="200"
                 >
-                  <img
-                    src="images/job_single_img_1.jpg"
-                    alt="Job Illustration"
-                    className="img-fluid rounded"
-                  />
-                </figure>
-                <h3
-                  className="h5 d-flex align-items-center mb-4 text-primary"
-                  data-aos="fade-up"
-                  data-aos-delay="200"
-                >
-                  <span className="icon-align-left mr-3"></span>Job Description
-                </h3>
-                <p data-aos="fade-up" data-aos-delay="200">
-                  Puma is looking for a creative and detail-oriented UI/UX
-                  Designer to join our team. You will design user-friendly
-                  interfaces that enhance our job portal experience for job
-                  seekers and employers.
-                </p>
-                <p data-aos="fade-up" data-aos-delay="200">
-                  Work closely with product managers and developers to deliver
-                  seamless user experiences. Bring your ideas to life through
-                  intuitive design patterns and thoughtful interactions.
-                </p>
-              </div>
-
-              <div className="mb-5">
-                <h3
-                  className="h5 d-flex align-items-center mb-4 text-primary"
-                  data-aos="fade-up"
-                  data-aos-delay="200"
-                >
-                  <span className="icon-rocket mr-3"></span>Responsibilities
-                </h3>
-                <ul className="list-unstyled m-0 p-0">
-                  <li
-                    className="d-flex align-items-start mb-2"
-                    data-aos="fade-up"
-                    data-aos-delay="200"
-                  >
-                    <span className="icon-check_circle mr-2 text-muted"></span>
-                    <span>
-                      Create wireframes, prototypes, and visual designs
-                    </span>
-                  </li>
-                  <li
-                    className="d-flex align-items-start mb-2"
-                    data-aos="fade-up"
-                    data-aos-delay="200"
-                  >
-                    <span className="icon-check_circle mr-2 text-muted"></span>
-                    <span>Collaborate with product and engineering teams</span>
-                  </li>
-                  <li
-                    className="d-flex align-items-start mb-2"
-                    data-aos="fade-up"
-                    data-aos-delay="200"
-                  >
-                    <span className="icon-check_circle mr-2 text-muted"></span>
-                    <span>Ensure consistent branding and design standards</span>
-                  </li>
-                  <li
-                    className="d-flex align-items-start mb-2"
-                    data-aos="fade-up"
-                    data-aos-delay="200"
-                  >
-                    <span className="icon-check_circle mr-2 text-muted"></span>
-                    <span>Conduct user research and usability testing</span>
-                  </li>
-                </ul>
-              </div>
-
-              <div className="mb-5">
-                <h3
-                  className="h5 d-flex align-items-center mb-4 text-primary"
-                  data-aos="fade-up"
-                  data-aos-delay="200"
-                >
-                  <span className="icon-book mr-3"></span>Education + Experience
-                </h3>
-                <ul className="list-unstyled m-0 p-0">
-                  <li
-                    className="d-flex align-items-start mb-2"
-                    data-aos="fade-up"
-                    data-aos-delay="200"
-                  >
-                    <span className="icon-check_circle mr-2 text-muted"></span>
-                    <span>
-                      Bachelor’s degree in Design, HCI, or related field
-                    </span>
-                  </li>
-                  <li
-                    className="d-flex align-items-start mb-2"
-                    data-aos="fade-up"
-                    data-aos-delay="200"
-                  >
-                    <span className="icon-check_circle mr-2 text-muted"></span>
-                    <span>2+ years of experience in UI/UX design</span>
-                  </li>
-                  <li
-                    className="d-flex align-items-start mb-2"
-                    data-aos="fade-up"
-                    data-aos-delay="200"
-                  >
-                    <span className="icon-check_circle mr-2 text-muted"></span>
-                    <span>Strong portfolio demonstrating design thinking</span>
-                  </li>
-                </ul>
-              </div>
-
-              <div className="mb-5">
-                <h3
-                  className="h5 d-flex align-items-center mb-4 text-primary"
-                  data-aos="fade-up"
-                  data-aos-delay="200"
-                >
-                  <span className="icon-turned_in mr-3"></span>Other Benefits
-                </h3>
-                <ul className="list-unstyled m-0 p-0">
-                  <li
-                    className="d-flex align-items-start mb-2"
-                    data-aos="fade-up"
-                    data-aos-delay="200"
-                  >
-                    <span className="icon-check_circle mr-2 text-muted"></span>
-                    <span>Flexible work hours and remote options</span>
-                  </li>
-                  <li
-                    className="d-flex align-items-start mb-2"
-                    data-aos="fade-up"
-                    data-aos-delay="200"
-                  >
-                    <span className="icon-check_circle mr-2 text-muted"></span>
-                    <span>Health, dental, and vision insurance</span>
-                  </li>
-                  <li
-                    className="d-flex align-items-start mb-2"
-                    data-aos="fade-up"
-                    data-aos-delay="200"
-                  >
-                    <span className="icon-check_circle mr-2 text-muted"></span>
-                    <span>Learning & development support</span>
-                  </li>
-                </ul>
-              </div>
-
-              <div className="row mb-5" data-aos="zoom-in" data-aos-delay="200">
-                {/* <div className="col-6">
+                  {/* <div className="col-6">
                   <Link
                     to="#"
                     className="btn btn-block btn-light btn-md border border-grey"
@@ -252,334 +329,101 @@ const JobDescription = () => {
                     Job
                   </Link>
                 </div> */}
-                <div className="col-6">
-                  <Link
-                    to="#"
-                    className="btn btn-block btn-primary btn-md"
-                    style={{ fontWeight: "600" }}
+                  <div className="col-6">
+                    <Link
+                      to="#"
+                      className="btn btn-block btn-primary btn-md"
+                      style={{ fontWeight: "600" }}
+                    >
+                      Apply Now
+                    </Link>
+                  </div>
+                </div>
+              </div>
+
+              <div className="col-lg-4">
+                <div
+                  className="bg-light p-3 border rounded mb-4"
+                  data-aos="zoom-in"
+                  data-aos-delay="200"
+                >
+                  <h3 className="text-primary mt-3 h5 pl-3 mb-3">
+                    Job Summary
+                  </h3>
+                  <ul className="list-unstyled pl-3 mb-0">
+                    <li className="mb-2">
+                      <strong className="text-black">Published on:</strong>{" "}
+                      {new Date(job.posted_date).toLocaleDateString("en-US", {
+                        year: "numeric",
+                        month: "long",
+                        day: "numeric",
+                      })}
+                    </li>
+                    <li className="mb-2">
+                      <strong className="text-black">Vacancy:</strong>{" "}
+                      {job.number_of_openings}
+                    </li>
+                    <li className="mb-2">
+                      <strong className="text-black">Employment Type:</strong>{" "}
+                      {job.employment_type}
+                    </li>
+                    <li className="mb-2">
+                      <strong className="text-black">Experience:</strong>{" "}
+                      {job.experience}
+                    </li>
+                    <li className="mb-2">
+                      <strong className="text-black">Category:</strong>{" "}
+                      {job.category}
+                    </li>
+                    <li className="mb-2">
+                      <strong className="text-black">Salary:</strong>{" "}
+                      {job.salary} INR/year
+                    </li>
+                    <li className="mb-2">
+                      <strong className="text-black">Gender:</strong> Any
+                    </li>
+                    <li className="mb-2">
+                      <strong className="text-black">
+                        Application Deadline:
+                      </strong>{" "}
+                      {new Date(job.application_deadline).toLocaleDateString(
+                        "en-US",
+                        {
+                          year: "numeric",
+                          month: "long",
+                          day: "numeric",
+                        }
+                      )}
+                    </li>
+                  </ul>
+                </div>
+                {/* 
+                  <div
+                    className="bg-light p-3 border rounded"
+                    data-aos="zoom-in"
+                    data-aos-delay="200"
                   >
-                    Apply Now
-                  </Link>
-                </div>
-              </div>
-            </div>
-
-            <div className="col-lg-4">
-              <div
-                className="bg-light p-3 border rounded mb-4"
-                data-aos="zoom-in"
-                data-aos-delay="200"
-              >
-                <h3 className="text-primary mt-3 h5 pl-3 mb-3">Job Summary</h3>
-                <ul className="list-unstyled pl-3 mb-0">
-                  <li className="mb-2">
-                    <strong className="text-black">Published on:</strong> August
-                    22, 2025
-                  </li>
-                  <li className="mb-2">
-                    <strong className="text-black">Vacancy:</strong> 5
-                  </li>
-                  <li className="mb-2">
-                    <strong className="text-black">Employment Status:</strong>{" "}
-                    Full-time
-                  </li>
-                  <li className="mb-2">
-                    <strong className="text-black">Experience:</strong> 2+ years
-                  </li>
-                  <li className="mb-2">
-                    <strong className="text-black">Job Location:</strong> Noida,
-                    India
-                  </li>
-                  <li className="mb-2">
-                    <strong className="text-black">Salary:</strong> $70k - $120k
-                  </li>
-                  <li className="mb-2">
-                    <strong className="text-black">Gender:</strong> Any
-                  </li>
-                  <li className="mb-2">
-                    <strong className="text-black">
-                      Application Deadline:
-                    </strong>{" "}
-                    September 15, 2025
-                  </li>
-                </ul>
-              </div>
-
-              <div
-                className="bg-light p-3 border rounded"
-                data-aos="zoom-in"
-                data-aos-delay="200"
-              >
-                <h3 className="text-primary mt-3 h5 pl-3 mb-3">Share</h3>
-                <div className="px-3">
-                  <Link to="#" className="pt-3 pb-3 pr-3 pl-0">
-                    <span className="icon-facebook"></span>
-                  </Link>
-                  <Link to="#" className="pt-3 pb-3 pr-3 pl-0">
-                    <span className="icon-twitter"></span>
-                  </Link>
-                  <Link to="#" className="pt-3 pb-3 pr-3 pl-0">
-                    <span className="icon-linkedin"></span>
-                  </Link>
-                  <Link to="#" className="pt-3 pb-3 pr-3 pl-0">
-                    <span className="icon-pinterest"></span>
-                  </Link>
-                </div>
+                    <h3 className="text-primary mt-3 h5 pl-3 mb-3">Share</h3>
+                    <div className="px-3">
+                      <Link to="#" className="pt-3 pb-3 pr-3 pl-0">
+                        <span className="icon-facebook"></span>
+                      </Link>
+                      <Link to="#" className="pt-3 pb-3 pr-3 pl-0">
+                        <span className="icon-twitter"></span>
+                      </Link>
+                      <Link to="#" className="pt-3 pb-3 pr-3 pl-0">
+                        <span className="icon-linkedin"></span>
+                      </Link>
+                      <Link to="#" className="pt-3 pb-3 pr-3 pl-0">
+                        <span className="icon-pinterest"></span>
+                      </Link>
+                    </div>
+                  </div> */}
               </div>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* <section className="site-section" id="next">
-        <div className="container">
-          <div className="row mb-5 justify-content-center">
-            <div className="col-md-7 text-center">
-              <h2 className="section-title mb-2">1223 Related Jobs</h2>
-            </div>
-          </div>
-
-          <ul className="job-listings mb-5">
-            <li
-              className="job-listing d-block d-sm-flex pb-3 pb-sm-0 align-items-center"
-              data-aos="fade-up"
-              data-aos-delay="200"
-            >
-              <Link to="#"></Link>
-              <div className="job-listing-logo">
-                <img
-                  src="images/job_logo_1.jpg"
-                  alt="Adidas"
-                  className="img-fluid"
-                />
-              </div>
-
-              <div className="job-listing-about d-sm-flex custom-width w-100 justify-content-between mx-4">
-                <div className="job-listing-position custom-width w-50 mb-3 mb-sm-0">
-                  <h2>Product Designer</h2>
-                  <strong>Adidas</strong>
-                </div>
-                <div className="job-listing-location mb-3 mb-sm-0 custom-width w-25">
-                  <span className="icon-room"></span> New York, New York
-                </div>
-                <div className="job-listing-location mb-3 custom-width w-25">
-                  <span className=""></span>$55,000/year
-                </div>
-                <div className="job-listing-meta">
-                  <span className="badge badge-danger">Part Time</span>
-                </div>
-              </div>
-            </li>
-            <li
-              className="job-listing d-block d-sm-flex pb-3 pb-sm-0 align-items-center"
-              data-aos="fade-up"
-              data-aos-delay="200"
-            >
-              <Link to="#"></Link>
-              <div className="job-listing-logo">
-                <img
-                  src="images/job_logo_2.jpg"
-                  alt="Sprint"
-                  className="img-fluid"
-                />
-              </div>
-
-              <div className="job-listing-about d-sm-flex custom-width w-100 justify-content-between mx-4">
-                <div className="job-listing-position custom-width w-50 mb-3 mb-sm-0">
-                  <h2>Digital Marketing Director</h2>
-                  <strong>Sprint</strong>
-                </div>
-                <div className="job-listing-location mb-3 mb-sm-0 custom-width w-25">
-                  <span className="icon-room"></span> Overland Park, Kansas
-                </div>
-                <div className="job-listing-location mb-3 custom-width w-25">
-                  <span className=""></span>$60,000/year
-                </div>
-                <div className="job-listing-meta">
-                  <span className="badge badge-success">Full Time</span>
-                </div>
-              </div>
-            </li>
-
-            <li
-              className="job-listing d-block d-sm-flex pb-3 pb-sm-0 align-items-center"
-              data-aos="fade-up"
-              data-aos-delay="200"
-            >
-              <Link to="#"></Link>
-              <div className="job-listing-logo">
-                <img
-                  src="images/job_logo_3.jpg"
-                  alt="Amazon"
-                  className="img-fluid"
-                />
-              </div>
-
-              <div className="job-listing-about d-sm-flex custom-width w-100 justify-content-between mx-4">
-                <div className="job-listing-position custom-width w-50 mb-3 mb-sm-0">
-                  <h2>Back-end Engineer (Python)</h2>
-                  <strong>Amazon</strong>
-                </div>
-                <div className="job-listing-location mb-3 mb-sm-0 custom-width w-25">
-                  <span className="icon-room"></span> Overland Park, Kansas
-                </div>
-                <div className="job-listing-location mb-3 custom-width w-25">
-                  <span className=""></span>$35,000/year
-                </div>
-                <div className="job-listing-meta">
-                  <span className="badge badge-success">Full Time</span>
-                </div>
-              </div>
-            </li>
-
-            <li
-              className="job-listing d-block d-sm-flex pb-3 pb-sm-0 align-items-center"
-              data-aos="fade-up"
-              data-aos-delay="200"
-            >
-              <Link to="#"></Link>
-              <div className="job-listing-logo">
-                <img
-                  src="images/job_logo_4.jpg"
-                  alt="Microsoft"
-                  className="img-fluid"
-                />
-              </div>
-
-              <div className="job-listing-about d-sm-flex custom-width w-100 justify-content-between mx-4">
-                <div className="job-listing-position custom-width w-50 mb-3 mb-sm-0">
-                  <h2>Senior Art Director</h2>
-                  <strong>Microsoft</strong>
-                </div>
-                <div className="job-listing-location mb-3 mb-sm-0 custom-width w-25">
-                  <span className="icon-room"></span> Anywhere
-                </div>
-                <div className="job-listing-location mb-3 custom-width w-25">
-                  <span className=""></span>$100,000/year
-                </div>
-                <div className="job-listing-meta">
-                  <span className="badge badge-success">Full Time</span>
-                </div>
-              </div>
-            </li>
-
-            <li
-              className="job-listing d-block d-sm-flex pb-3 pb-sm-0 align-items-center"
-              data-aos="fade-up"
-              data-aos-delay="200"
-            >
-              <Link to="#"></Link>
-              <div className="job-listing-logo">
-                <img
-                  src="images/job_logo_5.jpg"
-                  alt="Puma"
-                  className="img-fluid"
-                />
-              </div>
-
-              <div className="job-listing-about d-sm-flex custom-width w-100 justify-content-between mx-4">
-                <div className="job-listing-position custom-width w-50 mb-3 mb-sm-0">
-                  <h2>Product Designer</h2>
-                  <strong>Puma</strong>
-                </div>
-                <div className="job-listing-location mb-3 mb-sm-0 custom-width w-25">
-                  <span className="icon-room"></span> San Mateo, CA
-                </div>
-                <div className="job-listing-location mb-3 custom-width w-25">
-                  <span className=""></span>$90,000/year
-                </div>
-                <div className="job-listing-meta">
-                  <span className="badge badge-success">Full Time</span>
-                </div>
-              </div>
-            </li>
-            <li
-              className="job-listing d-block d-sm-flex pb-3 pb-sm-0 align-items-center"
-              data-aos="fade-up"
-              data-aos-delay="200"
-            >
-              <Link to="#"></Link>
-              <div className="job-listing-logo">
-                <img
-                  src="images/job_logo_1.jpg"
-                  alt="Adidas"
-                  className="img-fluid"
-                />
-              </div>
-
-              <div className="job-listing-about d-sm-flex custom-width w-100 justify-content-between mx-4">
-                <div className="job-listing-position custom-width w-50 mb-3 mb-sm-0">
-                  <h2>Product Designer</h2>
-                  <strong>Adidas</strong>
-                </div>
-                <div className="job-listing-location mb-3 mb-sm-0 custom-width w-25">
-                  <span className="icon-room"></span> New York, New York
-                </div>
-                <div className="job-listing-location mb-3 custom-width w-25">
-                  <span className=""></span>$40,000/year
-                </div>
-                <div className="job-listing-meta">
-                  <span className="badge badge-danger">Part Time</span>
-                </div>
-              </div>
-            </li>
-            <li
-              className="job-listing d-block d-sm-flex pb-3 pb-sm-0 align-items-center"
-              data-aos="fade-up"
-              data-aos-delay="200"
-            >
-              <Link to="#"></Link>
-              <div className="job-listing-logo">
-                <img
-                  src="images/job_logo_2.jpg"
-                  alt="Sprint"
-                  className="img-fluid"
-                />
-              </div>
-
-              <div className="job-listing-about d-sm-flex custom-width w-100 justify-content-between mx-4">
-                <div className="job-listing-position custom-width w-50 mb-3 mb-sm-0">
-                  <h2>Digital Marketing Director</h2>
-                  <strong>Sprint</strong>
-                </div>
-                <div className="job-listing-location mb-3 mb-sm-0 custom-width w-25">
-                  <span className="icon-room"></span> Overland Park, Kansas
-                </div>
-                <div className="job-listing-location mb-3 custom-width w-25">
-                  <span className=""></span>$80,000/year
-                </div>
-                <div className="job-listing-meta">
-                  <span className="badge badge-success">Full Time</span>
-                </div>
-              </div>
-            </li>
-          </ul>
-
-          <div className="row pagination-wrap">
-            <div className="col-md-6 text-center text-md-left mb-4 mb-md-0">
-              <span>Showing 1-7 Of 2,392 Jobs</span>
-            </div>
-            <div className="col-md-6 text-center text-md-right">
-              <div className="custom-pagination ml-auto">
-                <Link to="#" className="prev">
-                  Prev
-                </Link>
-                <div className="d-inline-block">
-                  <Link to="#" className="active">
-                    1
-                  </Link>
-                  <Link to="#">2</Link>
-                  <Link to="#">3</Link>
-                  <Link to="#">4</Link>
-                </div>
-                <Link to="#" className="next">
-                  Next
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section> */}
+        </section>
+      )}
 
       {/* call to action  */}
 

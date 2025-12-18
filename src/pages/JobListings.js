@@ -1,19 +1,43 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import FrontendContext from "../context/FrontendContext";
 import Model from "./Model";
+import { getAllJobs, getPublicJobs } from "../Utils/frontendJobs";
+import { useActiveTooltipDataPoints } from "recharts";
 
 const Check = () => {
   const [showFilter, setShowFilter] = useState(false);
   const { isModalOpen, setIsModelOpen } = useContext(FrontendContext);
-  console.log(isModalOpen);
+  const [jobs, setJobs] = useState([]);
+  const [loading, setLoading] = useState(false);
+  // console.log("jobs:", jobs);
 
   const navigate = useNavigate();
 
-  function handleCick(e) {
-    e.preventDefault();
-    navigate("/job-description");
+  function handleCick(id) {
+    navigate(`/job-description/${id}`);
   }
+
+  // get all jobs
+
+  useEffect(() => {
+    const fetchAllJobs = async () => {
+      try {
+        setLoading(true);
+        const res = await getPublicJobs();
+        if (res.success) {
+          setJobs(res.jobs);
+        }
+      } catch (error) {
+        console.log("Error fetching job:", error.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchAllJobs();
+  }, []);
+
   return (
     <>
       <div className="site-wrap">
@@ -34,7 +58,7 @@ const Check = () => {
         <div className="container">
           <div className="row">
             <div className="col-md-7" data-aos="fade-up" data-aos-delay="200">
-              <h1 className="text-white font-weight-bold">Jobs Listing</h1>
+              <h1 className="text-white font-weight-bold">Jobs </h1>
               <div className="custom-breadcrumbs">
                 <Link href="#">Home</Link> <span className="mx-2 slash">/</span>
                 <span className="text-white">
@@ -324,7 +348,7 @@ const Check = () => {
                       // style={{ border: "2px solid red" }}
                       className="d-flex align-items-center"
                     >
-                      <h6>2,392 Jobs found</h6>
+                      <h6>{jobs.length} Jobs found</h6>
                     </div>
 
                     <div
@@ -355,219 +379,57 @@ const Check = () => {
 
               {/* job section  */}
 
+              {loading && <p className="text-center mt-3">Loading..</p>}
               <ul className=" mb-lg-5 mt-3  job-listings ">
-                <li
-                  className="job-listing d-block d-md-flex pb-3 pb-sm-0 align-items-center"
-                  onClick={handleCick}
-                  style={{ cursor: "pointer" }}
-                >
-                  <div className="job-listing-logo">
-                    <img
-                      src="images/job_logo_1.jpg"
-                      alt="Adidas"
-                      className="img-fluid"
-                    />
-                  </div>
+                {jobs.length > 0 &&
+                  jobs.map((job) => (
+                    <li
+                      className="job-listing d-block d-md-flex pb-3 pb-sm-0 align-items-center"
+                      onClick={() => handleCick(job._id)}
+                      style={{ cursor: "pointer" }}
+                      key={job._id}
+                    >
+                      <div className="job-listing-logo">
+                        <img
+                          src={job.createdBy?.company_logo}
+                          alt={job.createdBy?.company_name}
+                          className="img-fluid"
+                        />
+                      </div>
 
-                  <div className="job-listing-about d-md-flex  w-100 justify-content-between mx-3">
-                    <div className="job-listing-position w-50 mb-1 mb-sm-0">
-                      <h2 style={{ fontSize: "18px" }}>Product Designer</h2>
-                      <strong>Adidas</strong>
-                    </div>
-                    <div className="job-listing-location mb-1 mb-sm-0  w-25">
-                      <span className="icon-room"></span> New York
-                    </div>
-                    <div className="job-listing-location mb-1  w-25">
-                      <span className=""></span>$55,000/year
-                    </div>
-                    <div className="job-listing-meta mb-4">
-                      <span className="badge badge-danger">Part Time</span>
-                    </div>
-                  </div>
-                </li>
-
-                <li
-                  className="job-listing d-block d-md-flex pb-3 pb-sm-0 align-items-center"
-                  onClick={handleCick}
-                  style={{ cursor: "pointer" }}
-                >
-                  <div className="job-listing-logo">
-                    <img
-                      src="images/job_logo_2.jpg"
-                      alt="Sprint"
-                      className="img-fluid"
-                    />
-                  </div>
-
-                  <div className="job-listing-about d-md-flex  w-100 justify-content-between mx-3">
-                    <div className="job-listing-position  w-50 mb-1 mb-sm-0">
-                      <h2 style={{ fontSize: "18px" }}>
-                        Digital Marketing Director
-                      </h2>
-                      <strong>Sprint</strong>
-                    </div>
-                    <div className="job-listing-location mb-1 mb-sm-0  w-25">
-                      <span className="icon-room"></span> Noida,India
-                    </div>
-                    <div className="job-listing-location mb-1  w-25">
-                      <span className=""></span>$60,000/year
-                    </div>
-                    <div className="job-listing-meta mb-4">
-                      <span className="badge badge-success">Full Time</span>
-                    </div>
-                  </div>
-                </li>
-                <li
-                  className="job-listing d-block d-md-flex pb-3 pb-sm-0 align-items-center"
-                  onClick={handleCick}
-                  style={{ cursor: "pointer" }}
-                >
-                  <div className="job-listing-logo">
-                    <img
-                      src="images/job_logo_3.jpg"
-                      alt="Amazon"
-                      className="img-fluid"
-                    />
-                  </div>
-
-                  <div className="job-listing-about d-md-flex  w-100 justify-content-between mx-3">
-                    <div className="job-listing-position  w-50 mb-1 mb-sm-0">
-                      <h2 style={{ fontSize: "18px" }}>
-                        Back-end Engineer (Python)
-                      </h2>
-                      <strong>Amazon</strong>
-                    </div>
-                    <div className="job-listing-location mb-1 mb-sm-0  w-25">
-                      <span className="icon-room"></span>UK
-                    </div>
-                    <div className="job-listing-location mb-1  w-25">
-                      <span className=""></span>$35,000/year
-                    </div>
-                    <div className="job-listing-meta mb-4">
-                      <span className="badge badge-success">Full Time</span>
-                    </div>
-                  </div>
-                </li>
-                <li
-                  className="job-listing d-block d-md-flex pb-3 pb-sm-0 align-items-center"
-                  onClick={handleCick}
-                  style={{ cursor: "pointer" }}
-                >
-                  <div className="job-listing-logo">
-                    <img
-                      src="images/job_logo_4.jpg"
-                      alt="Microsoft"
-                      className="img-fluid"
-                    />
-                  </div>
-
-                  <div className="job-listing-about d-md-flex  w-100 justify-content-between mx-3">
-                    <div className="job-listing-position  w-50 mb-1 mb-sm-0">
-                      <h2 style={{ fontSize: "18px" }}>Senior Art Director</h2>
-                      <strong>Microsoft</strong>
-                    </div>
-                    <div className="job-listing-location mb-1 mb-sm-0  w-25">
-                      <span className="icon-room"></span> Hydrabad, <br />
-                      India
-                    </div>
-                    <div className="job-listing-location mb-1  w-25">
-                      <span className=""></span>$100,000/year
-                    </div>
-                    <div className="job-listing-meta mb-4">
-                      <span className="badge badge-success">Full Time</span>
-                    </div>
-                  </div>
-                </li>
-                <li
-                  className="job-listing d-block d-md-flex pb-3 pb-sm-0 align-items-center"
-                  onClick={handleCick}
-                  style={{ cursor: "pointer" }}
-                >
-                  <div className="job-listing-logo">
-                    <img
-                      src="images/job_logo_5.jpg"
-                      alt="Puma"
-                      className="img-fluid"
-                    />
-                  </div>
-
-                  <div className="job-listing-about d-md-flex  w-100 justify-content-between mx-3">
-                    <div className="job-listing-position  w-50 mb-1 mb-sm-0">
-                      <h2 style={{ fontSize: "18px" }}>Product Designer</h2>
-                      <strong>Puma</strong>
-                    </div>
-                    <div className="job-listing-location mb-1 mb-sm-0  w-25">
-                      <span className="icon-room"></span> San Mateo
-                    </div>
-                    <div className="job-listing-location mb-1  w-25">
-                      <span className=""></span>$90,000/year
-                    </div>
-                    <div className="job-listing-meta mb-4">
-                      <span className="badge badge-success">Full Time</span>
-                    </div>
-                  </div>
-                </li>
-                <li
-                  className="job-listing d-block d-md-flex pb-3 pb-sm-0 align-items-center"
-                  onClick={handleCick}
-                  style={{ cursor: "pointer" }}
-                >
-                  <div className="job-listing-logo">
-                    <img
-                      src="images/job_logo_1.jpg"
-                      alt="Adidas"
-                      className="img-fluid"
-                    />
-                  </div>
-
-                  <div className="job-listing-about d-md-flex  w-100 justify-content-between mx-3">
-                    <div className="job-listing-position  w-50 mb-1 mb-sm-0">
-                      <h2 style={{ fontSize: "18px" }}>Product Designer</h2>
-                      <strong>Adidas</strong>
-                    </div>
-                    <div className="job-listing-location mb-1 mb-sm-0  w-25">
-                      <span className="icon-room"></span> New York
-                    </div>
-                    <div className="job-listing-location mb-1  w-25">
-                      <span className=""></span>$40,000/year
-                    </div>
-                    <div className="job-listing-meta mb-4">
-                      <span className="badge badge-danger">Part Time</span>
-                    </div>
-                  </div>
-                </li>
-                <li
-                  className="job-listing d-block d-md-flex pb-3 pb-sm-0 align-items-center"
-                  onClick={handleCick}
-                  style={{ cursor: "pointer" }}
-                >
-                  <div className="job-listing-logo">
-                    <img
-                      src="images/job_logo_2.jpg"
-                      alt="Sprint"
-                      className="img-fluid"
-                    />
-                  </div>
-
-                  <div className="job-listing-about d-md-flex  w-100 justify-content-between mx-3">
-                    <div className="job-listing-position  w-50 mb-1 mb-sm-0">
-                      <h2 style={{ fontSize: "18px" }}>
-                        Digital Marketing Director
-                      </h2>
-                      <strong>Sprint</strong>
-                    </div>
-                    <div className="job-listing-location mb-1 mb-sm-0  w-25">
-                      <span className="icon-room"></span>
-                      Kansas
-                    </div>
-                    <div className="job-listing-location mb-1  w-25">
-                      <span className=""></span>$80,000/year
-                    </div>
-                    <div className="job-listing-meta mb-4">
-                      <span className="badge badge-success">Full Time</span>
-                    </div>
-                  </div>
-                </li>
+                      <div className="job-listing-about d-md-flex  w-100 justify-content-between mx-3">
+                        <div className="job-listing-position w-50 mb-1 mb-sm-0">
+                          <h2 style={{ fontSize: "18px" }}>
+                            {job.job_title?.charAt(0).toUpperCase() +
+                              job.job_title?.slice(1)}
+                          </h2>
+                          <strong>{job.createdBy?.company_name}</strong>
+                        </div>
+                        <div className="job-listing-location mb-1 mb-sm-0  w-25">
+                          <span className="icon-room"></span>{" "}
+                          {(job.location || job.work_mode)
+                            ?.charAt(0)
+                            .toUpperCase() +
+                            (job.location || job.work_mode)?.slice(1)}
+                        </div>
+                        <div className="job-listing-location mb-1  w-25">
+                          <span className=""></span>
+                          {job.salary} Inr/year
+                        </div>
+                        <div className="job-listing-meta mb-4">
+                          <span
+                            className={`badge ${
+                              job.job_type === "Full-time"
+                                ? "badge-success"
+                                : "badge-danger"
+                            } `}
+                          >
+                            {job.job_type}
+                          </span>
+                        </div>
+                      </div>
+                    </li>
+                  ))}
               </ul>
             </section>
           </div>

@@ -95,7 +95,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />
           <Route path="job-listings" element={<JobListings />} />
-          <Route path="job-description" element={<JobDescription />} />
+          <Route path="job-description/:id" element={<JobDescription />} />
           <Route path="post-job" element={<PostJob />} />
           <Route path="services" element={<Services />} />
           <Route path="service-single" element={<ServiceSingle />} />

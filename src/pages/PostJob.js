@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import SkillsInput from "../admin/Components/SkillsInput";
 import FrontendContext from "../context/FrontendContext";
 import { validate } from "../admin/Utils/Validate";
-import { postFrontendJob } from "../Utils/frontendAuth";
+import { postFrontendJob } from "../Utils/frontendJobs";
 import Notification from "../admin/Components/Notification";
 
 const PostJob = () => {

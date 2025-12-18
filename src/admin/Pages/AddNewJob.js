@@ -442,7 +442,7 @@ const AddNewJob = () => {
                   ref={refs.salary}
                   type="text"
                   className="form-control"
-                  placeholder="₹4,00,000 - ₹6,00,000"
+                  placeholder="₹4,00,000 - ₹6,00,000/year"
                   name="salary"
                   onChange={handleChange}
                   value={jobFormData.salary}

@@ -15,7 +15,7 @@ const AdminJobsListing = () => {
   const [jobData, setJobData] = useState([]);
   const [loading, setLoading] = useState(false);
   const { token, notif, setNotif, company } = useContext(AdminContext);
-  // console.log(jobData);
+  console.log(jobData);
 
   useEffect(() => {
     if (notif?.message) {
@@ -36,7 +36,7 @@ const AdminJobsListing = () => {
           return;
         }
         const res = await getAllJobs(token);
-        // console.log(res.data);
+        console.log(res.data);
 
         if (!res.success) {
           setNotif({

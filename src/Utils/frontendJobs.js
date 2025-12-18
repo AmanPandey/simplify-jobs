@@ -1,14 +1,14 @@
 import axios from "axios";
 // const API_URL = "https://simplify-job-node-js-backend-api.vercel.app/api/user";
-const API_URL = "http://localhost:5000/api/user";
+const API_URL = "http://localhost:5000/api";
 
-//! frontend auth
+//! post a job (post a job page)
 
-// register
-export const frontendUserregister = async (credentials) => {
+export const postFrontendJob = async (credentials, token, id) => {
   try {
-    const res = await axios.post(`${API_URL}/register`, credentials, {
+    const res = await axios.post(`${API_URL}/addjob?id=${id}`, credentials, {
       headers: {
+        Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
       },
     });
@@ -24,18 +24,20 @@ export const frontendUserregister = async (credentials) => {
   }
 };
 
-// login
-export const loginFrontendUser = async (credentials) => {
+//! get all jobs (job listings page)
+
+export const getPublicJobs = async () => {
   try {
-    const res = await axios.post(`${API_URL}/login`, credentials, {
+    const res = await axios.get(`${API_URL}/jobs`, {
       headers: {
         "Content-Type": "application/json",
       },
     });
 
+    // console.log(res.data);
     return res.data;
   } catch (error) {
-    console.log("Login user error:", error);
+    console.log("Getting all jobs error:", error.message);
     const backendMsg = error?.response?.data?.message || error?.message;
     return {
       succss: false,
@@ -44,25 +46,20 @@ export const loginFrontendUser = async (credentials) => {
   }
 };
 
-//! mail
+//! get job by id (job description page)
 
-export const sendMail = async (credentials) => {
+export const getPublicJobById = async (id) => {
+  console.log(id);
+
   try {
-    const res = await axios.post(
-      // "https://simplify-job-node-js-backend-api.vercel.app/api/send-mail",
-      `${API_URL}/send-mail`,
-
-      credentials,
-      {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
-
+    const res = await axios.get(`${API_URL}/jobs/${id}`, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
     return res.data;
   } catch (error) {
-    console.log("Sending mail  error:", error);
+    console.log("Getting  job by id error:", error.message);
     const backendMsg = error?.response?.data?.message || error?.message;
     return {
       succss: false,

@@ -1,6 +1,6 @@
 import axios from "axios";
-const API_URL = "https://simplify-job-node-js-backend-api.vercel.app/api";
-// const API_URL = "http://localhost:5000/api";
+// const API_URL = "https://simplify-job-node-js-backend-api.vercel.app/api";
+const API_URL = "http://localhost:5000/api/admin";
 
 export async function addJob(formData, token, id) {
   try {
@@ -35,6 +35,8 @@ export async function getAllJobs(token) {
         Authorization: `Bearer ${token}`,
       },
     });
+    console.log(res.data);
+
     return res.data;
   } catch (error) {
     console.error("getAllJobs error:", error);
