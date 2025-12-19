@@ -12,54 +12,29 @@ import { deletJob, getAllJobs } from "../Utils/jobsLogic";
 
 const AdminJobsListing = () => {
   const navigate = useNavigate();
-  const [jobData, setJobData] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const { token, notif, setNotif, company } = useContext(AdminContext);
-  console.log(jobData);
+
+  const {
+    token,
+    notif,
+    setNotif,
+    allJobs,
+    setAllJobs,
+    loading,
+    setLoading,
+    fetchAllJobs,
+  } = useContext(AdminContext);
+  // console.log(jobData);
+
+  // useContext(() => {
+  //   if (allJobs.length === 0) {
+  //     fetchAllJobs();
+  //   }
+  // }, []);
 
   useEffect(() => {
     if (notif?.message) {
       setNotif({ id: null, message: "", type: "" });
     }
-  }, []);
-  useEffect(() => {
-    async function fetchJobs() {
-      try {
-        setLoading(true);
-        if (!token) {
-          setNotif({
-            id: Date.now(),
-            message: "Your session has expired. Please log in again.",
-            type: "error",
-          });
-          navigate("/admin/login");
-          return;
-        }
-        const res = await getAllJobs(token);
-        console.log(res.data);
-
-        if (!res.success) {
-          setNotif({
-            id: Date.now(),
-            message: res.message || "Failed to fetch jobs",
-            type: "error",
-          });
-          return;
-        }
-
-        setJobData(res.jobs);
-      } catch (error) {
-        console.error("Unexpected fetchJobs error:", error);
-        setNotif({
-          id: Date.now(),
-          message: "An unexpected error occurred while fetching jobs.",
-          type: "error",
-        });
-      } finally {
-        setLoading(false);
-      }
-    }
-    fetchJobs();
   }, []);
 
   function handleEdit(id) {
@@ -93,7 +68,7 @@ const AdminJobsListing = () => {
     }
     try {
       const res = await deletJob(id, token);
-      setJobData((prev) => prev.filter((job) => job._id !== id));
+      setAllJobs((prev) => prev.filter((job) => job._id !== id));
       setNotif({
         id: Date.now(),
         message: res.message || "Job deleted successfully",
@@ -167,8 +142,8 @@ const AdminJobsListing = () => {
                       Loading...
                     </td>
                   </tr>
-                ) : jobData && jobData.length > 0 ? (
-                  jobData.map((job) => (
+                ) : allJobs && allJobs.length > 0 ? (
+                  allJobs.map((job) => (
                     <tr key={job._id}>
                       <td>{job.job_title}</td>
                       <td>{job.createdBy?.company_name}</td>

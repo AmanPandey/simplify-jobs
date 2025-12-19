@@ -12,6 +12,15 @@ const Footer = () => {
         <div className="container">
           <div className="row mb-5">
             <div className="col-md-4 mb-4 mb-md-0">
+              <h1 style={{ color: "#89ba16", fontWeight: "700" }}>JobsAlgo</h1>
+              <h6 className="text-white">Careers made simpler</h6>
+
+              <h6 className="text-white">
+                {" "}
+                <i>JobsAlgo is a unit of Tekalgo</i>
+              </h6>
+            </div>
+            <div className="col-md-4 mb-4 mb-md-0">
               <h3>Company</h3>
               <ul className="list-unstyled">
                 <li>
@@ -43,7 +52,7 @@ const Footer = () => {
                 </li>
               </ul>
             </div>
-            <div className="col-md-4 mb-4 mb-md-0">
+            {/* <div className="col-md-4 mb-4 mb-md-0">
               <h3>Contact Us</h3>
               <div className="footer-social">
                 <Link href="#">
@@ -59,7 +68,7 @@ const Footer = () => {
                   <span className="icon-linkedin "></span>
                 </Link>
               </div>
-            </div>
+            </div> */}
           </div>
 
           <div className="row text-center">

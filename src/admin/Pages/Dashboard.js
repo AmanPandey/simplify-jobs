@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
+import AdminContext from "../Context/AdminContext.js";
 import CardStat from "../Components/CardStat";
 import { FaUser, FaBriefcase, FaFileAlt, FaUserTie } from "react-icons/fa";
 import {
@@ -37,8 +38,8 @@ const pieData = [
 ];
 const COLORS = ["#AB274F", "#FBCEB1", "#9966CC"];
 
-const Dashboard = ({ value }) => {
-  // console.log(value);
+const Dashboard = () => {
+  const { allJobs, empData } = useContext(AdminContext);
 
   return (
     <div className="dashboard container rounded  ">
@@ -52,7 +53,7 @@ const Dashboard = ({ value }) => {
           <div className="col-md-6 mb-4">
             <CardStat
               title="All recruiters"
-              value="250"
+              value={empData.length}
               icon={FaUserTie}
               style={{
                 backgroundColor: "#79021c",
@@ -82,7 +83,7 @@ const Dashboard = ({ value }) => {
           <div className="col-md-6 mb-4">
             <CardStat
               title="Job Posted"
-              value="320"
+              value={allJobs.length}
               icon={FaBriefcase}
               style={{
                 backgroundColor: "#c7522a",

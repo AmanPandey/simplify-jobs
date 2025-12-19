@@ -1,7 +1,13 @@
 import React, { useCallback, useEffect, useState, useMemo } from "react";
 import AdminContext from "./AdminContext";
 
-import { getEmployer, getEmployersByUser } from "../Utils/employersLogic";
+import {
+  getAllEmployers,
+  getEmployer,
+  getEmployersByUser,
+} from "../Utils/employersLogic";
+import { useNavigate } from "react-router-dom";
+import { getAllJobs } from "../Utils/jobsLogic.js";
 
 const AdminProvider = ({ children }) => {
   const [formData, setFormData] = useState({
@@ -20,16 +26,24 @@ const AdminProvider = ({ children }) => {
   );
 
   const [showSidebar, setShowSidebar] = useState(window.innerWidth > 992);
-  const [isSignUpMode, setIsSignUpMode] = useState(false);
+
   const [errors, setErrors] = useState({});
   const [notif, setNotif] = useState({ message: null, type: "" });
   const [createdEmployersByUser, setCreatedEmployersByusers] = useState(null);
   const [selectEmployerId, setSelectEmployerId] = useState("");
   const [company, setCompany] = useState({ logo: "", name: "" });
   const [refreshEmployers, setRefreshEmployers] = useState(false);
+  const [refreshJobs, setRefreshJob] = useState(false);
+
   const [user, setUser] = useState(null);
+  const [allJobs, setAllJobs] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [empData, setEmpData] = useState([]);
+
+  // console.log(allJobs);
 
   const [isValidImage, setIsValidImage] = useState(true);
+  const navigate = useNavigate();
 
   const login = useCallback((newToken) => {
     setToken(newToken);
@@ -166,13 +180,99 @@ const AdminProvider = ({ children }) => {
     fetchEmployer();
   }, [selectEmployerId]);
 
+  // get all jobs
+
+  const fetchAllJobs = async () => {
+    try {
+      setLoading(true);
+      if (!token) {
+        setNotif({
+          id: Date.now(),
+          message: "Your session has expired. Please log in again.",
+          type: "error",
+        });
+        navigate("/admin/login");
+        return;
+      }
+      const res = await getAllJobs(token);
+      // console.log(res);
+
+      if (!res.success) {
+        setNotif({
+          id: Date.now(),
+          message: res.message || "Failed to fetch jobs",
+          type: "error",
+        });
+        return;
+      }
+
+      setAllJobs(res.jobs);
+    } catch (error) {
+      console.error("Unexpected fetchJobs error:", error);
+      setNotif({
+        id: Date.now(),
+        message: "An unexpected error occurred while fetching jobs.",
+        type: "error",
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    if (token) {
+      fetchAllJobs();
+    }
+  }, [token, refreshJobs]);
+
+  // fetch all employer
+
+  const fetchAllEmployers = async () => {
+    try {
+      setLoading(true);
+      if (!token) {
+        setNotif({
+          id: Date.now(),
+          message: "Your session has expired. Please log in again.",
+          type: "error",
+        });
+        navigate("/admin/login");
+        return;
+      }
+      const res = await getAllEmployers(token);
+      if (!res.success) {
+        setNotif({
+          id: Date.now(),
+          message: res.message || "Failed to fetch employers",
+          type: "error",
+        });
+        return;
+      }
+
+      setEmpData(res.employers);
+    } catch (error) {
+      console.error("Unexpected fetchEmployers error:", error);
+      setNotif({
+        id: Date.now(),
+        message: "An unexpected error occurred while fetching employers.",
+        type: "error",
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    if (token) {
+      fetchAllEmployers();
+    }
+  }, [token, refreshEmployers]);
+
   // ✅ Memoize context value to prevent infinite re-renders
   const value = useMemo(
     () => ({
       showSidebar,
       setShowSidebar,
-      isSignUpMode,
-      setIsSignUpMode,
       formData,
       setFormData,
       errors,
@@ -195,21 +295,31 @@ const AdminProvider = ({ children }) => {
       setRefreshEmployers,
       user,
       setUser,
+      allJobs,
+      setAllJobs,
+      loading,
+      setLoading,
+      empData,
+      setEmpData,
+      refreshJobs,
+      setRefreshJob,
     }),
     [
       showSidebar,
-      isSignUpMode,
       formData,
       errors,
       token,
       notif,
-      login,
-      logout,
       loggedInUser,
       createdEmployersByUser,
       selectEmployerId,
       company,
       isValidImage,
+      user,
+      allJobs,
+      loading,
+      empData,
+      refreshJobs,
     ]
   );
 

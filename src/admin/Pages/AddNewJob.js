@@ -24,6 +24,7 @@ const AddNewJob = () => {
     setSelectEmployerId,
     company,
     setCompany,
+    setRefreshJob,
   } = useContext(AdminContext);
 
   const navigate = useNavigate();
@@ -216,15 +217,12 @@ const AddNewJob = () => {
     }
     try {
       setLoading(true);
-
       const res = await addJob(jobFormData, token, selectEmployerId);
-      console.log(res);
-
       if (!res.success) {
         setNotif({ id: Date.now(), message: res.message, type: "error" });
         return;
       }
-
+      setRefreshJob((prev) => !prev);
       setNotif({ id: Date.now(), message: res.message, type: "success" });
       setJobFormData({
         company_logo: "",

@@ -10,9 +10,9 @@ import { FaEdit, FaTrash, FaEllipsisV } from "react-icons/fa";
 import { deletEmployer, getAllEmployers } from "../Utils/employersLogic";
 
 const EmployersList = () => {
-  const [empData, setEmpData] = useState([]);
   const [loading, setLoading] = useState(false);
-  const { token, notif, setNotif } = useContext(AdminContext);
+  const { token, notif, setNotif, empData, setEmpData } =
+    useContext(AdminContext);
   const navigate = useNavigate();
 
   // clear notification msg

@@ -59,21 +59,38 @@ const Home = () => {
         style={{ backgroundImage: "url('images/jobsalgo-hero.jpg')" }}
       >
         <div className="container" data-aos="zoom-in" data-aos-delay="200">
-          <div className="row align-items-center justify-content-center">
-            <div className="col-md-12">
-              <div className="mb-5 text-center">
-                <h1 className="text-white font-weight-bold">
-                  Jobs Algo Amplify Growth
+          <div className="row d-flex align-items-center justify-lg-content-start  ">
+            <div className="col-xl-8">
+              <div
+                className="mb-3
+              "
+              >
+                <h1 className=" font-weight-bold text-white">
+                  Find Work That{" "}
+                  <span style={{ color: "#89ba16" }}>Actually Fits</span>
                 </h1>
-                <p>
-                  Join 5+ million job seekers monthly. Apply to 100+ fresh
-                  opportunities daily in banking, distillery, and automobile
-                  sectors.
+
+                <p className="" style={{ fontSize: "18px" }}>
+                  AI-powered jobs for real careers — not noise. <br /> 100+
+                  fresh opportunities added daily across <br />
+                  <strong className="text-white mr-2"> Banking ,</strong>
+                  <strong className="text-white mr-2"> Distillery ,</strong>
+                  <strong className="text-white mr-2"> Automobile</strong>
                 </p>
+                <h5 style={{ color: "#89ba16", fontWeight: "700" }}>
+                  <i>JobsAlgo is a unit of Tekalgo</i>
+                </h5>
+                {/* <h2
+                  style={{ color: "#fff", fontWeight: "700" }}
+                  className="mt-4"
+                >
+                  <span style={{ color: "" }}>JobsAlgo </span> is a unit of{" "}
+                  <span style={{ color: "#89ba16" }}>Tekalgo </span>
+                </h2> */}
               </div>
               <form method="" className="search-jobs-form" id="job-search-form">
-                <div className="row mb-3">
-                  <div className="col-12 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
+                <div className="row mb-3 d-flex ">
+                  {/* <div className="col-12 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
                     <select
                       className="selectpicker"
                       data-style="btn-white btn-lg"
@@ -88,16 +105,31 @@ const Home = () => {
                       </option>
                       <option value="Automobile">Automobile</option>
                     </select>
-                  </div>
-                  <div className="col-12 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
+                  </div> */}
+                  <div className="col-12 col-md-10 mb-sm-3 mb-2 d-flex flex-sm-row">
                     <input
                       type="text"
-                      className="form-control form-control-lg"
-                      placeholder="Job title or keyword (e.g., Regional Manager, Cane Manager, Service Head)"
+                      className="form-control"
+                      placeholder="Search roles: Regional Manager, Cane Manager, Service Head"
                       name="keyword"
+                      style={{ borderRadius: "0" }}
                     />
+                    <div
+                      className="d-flex align-items-center search-btn-wrapper justify-content-center"
+                      style={{ cursor: "pointer" }}
+                    >
+                      <span className="icon-search icon mr-2 text-white btn-search ">
+                        {" "}
+                      </span>
+                      <span
+                        className="text-white"
+                        style={{ fontWeight: "600" }}
+                      >
+                        Search Job
+                      </span>
+                    </div>
                   </div>
-                  <div className="col-12 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
+                  {/* <div className="col-12 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
                     <select
                       className="selectpicker"
                       data-style="btn-white btn-lg"
@@ -109,8 +141,8 @@ const Home = () => {
 
                       <option>Hyderabad</option>
                     </select>
-                  </div>{" "}
-                  <div className="col-12 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
+                  </div>{" "} */}
+                  {/* <div className="col-12 col-sm-6 col-md-3  mb-4 mb-lg-0">
                     <button
                       type="submit"
                       className="btn btn-primary btn-lg btn-block text-white btn-search"
@@ -118,7 +150,7 @@ const Home = () => {
                     >
                       <span className="icon-search icon mr-2"></span>Search Job
                     </button>
-                  </div>
+                  </div> */}
                 </div>
                 <div className="row">
                   <div className="col-md-12">
@@ -127,8 +159,13 @@ const Home = () => {
                 </div>
 
                 <div className="row">
-                  <div className="col-md-12 popular-keywords">
-                    <h3>Trending Keywords:</h3>
+                  <div className="col-md-12 popular-keywords d-flex flex-md-row flex-column ">
+                    <h6
+                      style={{ fontWeight: "600" }}
+                      className="text-white mr-2"
+                    >
+                      Trending Right Now:
+                    </h6>
                     <ul className="keywords list-unstyled m-0 p-0">
                       <li>
                         <a href="/" className="mr-1 mb-1">
@@ -171,7 +208,7 @@ const Home = () => {
               <img
                 src="images/why_choose_jobsalgo.jpg"
                 alt="Why Choose SimplifyJob"
-                className="img-fluid img-shadow"
+                className="img-fluid img-shadow h-100"
               />
             </div>
             <div
@@ -179,10 +216,39 @@ const Home = () => {
               data-aos="zoom-in"
               data-aos-delay="200"
             >
-              <h2 className="section-title mb-3">Why Choose JobsAlgo?</h2>
+              <div className="d-flex align-items-start justify-content-start mb-3">
+                <div
+                  style={{
+                    marginRight: "10px",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    visibility: "hidden",
+                  }}
+                >
+                  <CiCircleCheck
+                    style={{ fontSize: "24px", color: "#28a745" }}
+                  />
+                </div>
+                <div className="d-flex flex-column">
+                  <h2
+                    className="section-title mb-2"
+                    style={{ color: "#89ba16" }}
+                  >
+                    Why JobsAlgo?
+                  </h2>
+                  {/* <h5 className=" mb-1" style={{ fontWeight: "500" }}>
+                    Designed for focus. Built for speed.
+                  </h5> */}
+                  <p className="mb-1">
+                    <i> Designed for focus. Built for speed</i>
+                  </p>
+                </div>
+              </div>
+
               <div>
                 {/* First Item */}
-                <div className="d-flex align-items-center justify-content-start mb-3">
+                <div className="d-flex align-items-start justify-content-start mb-3">
                   <div
                     style={{
                       marginRight: "10px",
@@ -192,17 +258,20 @@ const Home = () => {
                     }}
                   >
                     <CiCircleCheck
-                      style={{ fontSize: "24px", color: "#28a745" }}
+                      style={{ fontSize: "24px", color: "#89ba16" }}
                     />
                   </div>
-                  <p className="lead m-0">
-                    Industry-Focused Opportunities in Banking, Distillery &
-                    Automobile.
-                  </p>
+                  <div className="d-flex flex-column">
+                    <h5 className="feature-title">Industry-First Hiring</h5>
+                    <p className=" m-0">
+                      Industry-Focused Opportunities in Banking, Distillery &
+                      Automobile.
+                    </p>
+                  </div>
                 </div>
 
                 {/* Second Item */}
-                <div className="d-flex align-items-center mb-3">
+                <div className="d-flex align-items-start mb-3">
                   <div
                     style={{
                       marginRight: "10px",
@@ -212,16 +281,19 @@ const Home = () => {
                     }}
                   >
                     <CiCircleCheck
-                      style={{ fontSize: "24px", color: "#28a745" }}
+                      style={{ fontSize: "24px", color: "#89ba16" }}
                     />
                   </div>
-                  <p className="lead m-0">
-                    Fast, AI-Driven Candidate Matching.
-                  </p>
+                  <div className="d-flex flex-column">
+                    <h5 className="feature-title">Smart AI Matching</h5>
+                    <p className=" m-0">
+                      Your profile talks. Our engine listens.
+                    </p>
+                  </div>
                 </div>
 
                 {/* Third Item */}
-                <div className="d-flex align-items-center mb-3">
+                <div className="d-flex align-items-start mb-3">
                   <div
                     style={{
                       marginRight: "10px",
@@ -231,10 +303,17 @@ const Home = () => {
                     }}
                   >
                     <CiCircleCheck
-                      style={{ fontSize: "24px", color: "#28a745" }}
+                      style={{ fontSize: "24px", color: "#89ba16" }}
                     />
                   </div>
-                  <p className="lead m-0">100% Verified Employers.</p>
+                  <div className="d-flex flex-column">
+                    <h5 className="feature-title">
+                      Zero Spam. Only Real Employers
+                    </h5>
+                    <p className=" m-0">
+                      Every job is reviewed before it goes live.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -255,12 +334,12 @@ const Home = () => {
           >
             <div className="col-md-7 text-center">
               <h2 className="section-title mb-2">Browse by Category</h2>
-              <p>Find the job that’s perfect for you</p>
+              <p>Careers, neatly organized</p>
             </div>
           </div>
           <div className="row">
             <div
-              className="col-12 col-md-3 mb-4 mb-md-0"
+              className="col-12 col-md-4 mb-4 mb-md-0"
               data-aos="fade-up"
               data-aos-delay="200"
             >
@@ -272,11 +351,11 @@ const Home = () => {
                   <span className="icon-briefcase d-block"></span>
                 </span>
                 <h3>Banking & Finance</h3>
-                <p>13 Jobs Available</p>
+                <p>13 Open Roles</p>
               </a>
             </div>
             <div
-              className="col-12 col-md-3 mb-4 mb-md-0 "
+              className="col-12 col-md-4 mb-4 mb-md-0 "
               data-aos="fade-up"
               data-aos-delay="200"
             >
@@ -287,12 +366,12 @@ const Home = () => {
                 <span className="custom-icon mx-auto">
                   <span className="icon-glass d-block"></span>
                 </span>
-                <h3>Distillery</h3>
-                <p>5 Jobs Available</p>
+                <h3>Distillery & Manufacturing</h3>
+                <p>5 Open Roles</p>
               </a>
             </div>
             <div
-              className="col-12 col-md-3 mb-4 mb-md-0"
+              className="col-12 col-md-4 mb-4 mb-md-0"
               data-aos="fade-up"
               data-aos-delay="200"
             >
@@ -303,24 +382,8 @@ const Home = () => {
                 <span className="custom-icon mx-auto">
                   <span className="icon-car d-block"></span>
                 </span>
-                <h3>Automobile</h3>
-                <p>8 Jobs Available</p>
-              </a>
-            </div>
-            <div
-              className="col-12 col-md-3 mb-4 mb-md-0"
-              data-aos="fade-up"
-              data-aos-delay="200"
-            >
-              <a
-                href="service-single.html"
-                className="block__16443 text-center d-block h-100"
-              >
-                <span className="custom-icon mx-auto">
-                  <span className="icon-users d-block"></span>
-                </span>
-                <h3>Human Resources</h3>
-                <p>3 Jobs Available</p>
+                <h3>Automobile & Mobility</h3>
+                <p>8 Open Roles</p>
               </a>
             </div>
           </div>
@@ -330,13 +393,14 @@ const Home = () => {
       {/* jobs locations */}
       <section className="location-section">
         <div className="container my-5">
-          <div className="row mb-5 justify-content-center">
-            <div
-              className="col-md-7 text-center"
-              data-aos="zoom-in"
-              data-aos-delay="200"
-            >
-              <h2 className="section-title mb-2">Jobs by Location</h2>
+          <div
+            className="row mb-5 justify-content-center"
+            data-aos="zoom-in"
+            data-aos-delay="200"
+          >
+            <div className="col-md-7 text-center">
+              <h2 className="section-title mb-2">Work Without Borders</h2>
+              <p>Jobs by Location</p>
             </div>
           </div>
           <div className="row g-4">
@@ -348,13 +412,13 @@ const Home = () => {
               <div className="card h-100">
                 <div className="card-img-wrapper">
                   <img
-                    src="images/germany.jpg"
+                    src="images/Lucknow.jpg"
                     className="img-fluid"
-                    alt="Germany"
+                    alt="Lucknow"
                   />
                   <div className="overlay">
                     <p className="mb-1">
-                      <i className="fas fa-briefcase mx-2"></i>12 Vacancies
+                      <i className="fas fa-briefcase mx-2"></i>12 Roles
                     </p>
                     <p>
                       <i className="fas fa-building mx-2"></i>6 Companies
@@ -363,7 +427,7 @@ const Home = () => {
                 </div>
               </div>
               <div className="country text-center">
-                <strong>Germany</strong>
+                <strong>Lucknow</strong>
               </div>
             </div>
 
@@ -375,13 +439,13 @@ const Home = () => {
               <div className="card h-100">
                 <div className="card-img-wrapper">
                   <img
-                    src="images/uk.jpg"
+                    src="images/chennai.avif"
                     className="img-fluid"
-                    alt="United Kingdom"
+                    alt="chennai"
                   />
                   <div className="overlay">
                     <p className="mb-1">
-                      <i className="fas fa-briefcase mx-2"></i>9 Vacancies
+                      <i className="fas fa-briefcase mx-2"></i>9 Roles
                     </p>
                     <p>
                       <i className="fas fa-building mx-2"></i>4 Companies
@@ -390,7 +454,7 @@ const Home = () => {
                 </div>
               </div>
               <div className="country text-center">
-                <strong>United Kingdom</strong>
+                <strong>Chennai</strong>
               </div>
             </div>
 
@@ -402,22 +466,22 @@ const Home = () => {
               <div className="card h-100">
                 <div className="card-img-wrapper">
                   <img
-                    src="images/australia.jpg"
+                    src="images/indore.jpg"
                     className="img-fluid"
-                    alt="australia"
+                    alt="indore"
                   />
                   <div className="overlay">
                     <p className="mb-1">
-                      <i className="fas fa-briefcase mx-2"></i>8 Vacancies
+                      <i className="fas fa-briefcase mx-2"></i>8 Roles
                     </p>
                     <p>
-                      <i className="fas fa-building mx-2"></i>5 Companies
+                      <i className="fas fa-building mx-2"></i>5 Companies
                     </p>
                   </div>
                 </div>
               </div>
               <div className="country text-center">
-                <strong>Australia</strong>
+                <strong>Indore</strong>
               </div>
             </div>
 
@@ -429,13 +493,13 @@ const Home = () => {
               <div className="card h-100">
                 <div className="card-img-wrapper">
                   <img
-                    src="images/denmark.jpg"
+                    src="images/mumbai.jpg"
                     className="img-fluid"
-                    alt="denmark"
+                    alt="mumbai"
                   />
                   <div className="overlay">
                     <p className="mb-1">
-                      <i className="fas fa-briefcase mx-2"></i>7 Vacancies
+                      <i className="fas fa-briefcase mx-2"></i>7 Roles
                     </p>
                     <p>
                       <i className="fas fa-building mx-2"></i>3 Companies
@@ -444,7 +508,7 @@ const Home = () => {
                 </div>
               </div>
               <div className="country text-center">
-                <strong>Denmark</strong>
+                <strong>Maharastra</strong>
               </div>
             </div>
           </div>
@@ -467,9 +531,14 @@ const Home = () => {
             data-aos-delay="200"
           >
             <div className="col-md-8 mb-3">
-              <h2 className="text-white section-title">We are HIRING</h2>
+              <h1 className=" section-title" style={{ color: "#89ba16" }}>
+                We are HIRING
+              </h1>
+              <h5 className="" style={{ color: "#89ba16" }}></h5>
               <p className="mb-0 text-white" style={{ fontSize: "18px" }}>
-                Lets work together and explore the opportunities
+                <i> Let’s build your next chapter. </i>
+                <br /> Whether you’re growing, switching, or restarting <br />{" "}
+                there’s a role waiting for you.
               </p>
             </div>
             <div className="col-md-3 ml-auto">
@@ -499,7 +568,10 @@ const Home = () => {
                   data-aos="zoom-in"
                   data-aos-delay="200"
                 >
-                  <h2 className="section-title mb-2">Top Recruiters Hiring</h2>
+                  <h2 className="section-title mb-2">
+                    Companies Hiring on JobsAlgo
+                  </h2>
+                  <p>The teams shaping the future</p>
                 </div>
               </div>
             </div>
@@ -566,8 +638,9 @@ const Home = () => {
           >
             <div className="col-md-7 text-center">
               <h2 className="section-title mb-2" style={{ fontWeight: "700" }}>
-                Career Tips & Resources
+                Learn. Apply. Grow.
               </h2>
+              <p>Career resources that don’t waste your time</p>
             </div>
           </div>
           <div className="row d-flex align-items-stretch">
@@ -580,11 +653,8 @@ const Home = () => {
                 <span className="custom-icon mx-auto">
                   <span className="icon-chat d-block"></span>
                 </span>
-                <h3>21 Job Interview Tips to Make a Great Impression</h3>
-                <p>
-                  Get ready to impress with these practical tips that help you
-                  prepare, practice, and present your best self.
-                </p>
+                <h3>Interview Smarter</h3>
+                <p>21 proven tips to walk into interviews with confidence.</p>
               </a>
             </div>
             <div
@@ -596,11 +666,8 @@ const Home = () => {
                 <span className="custom-icon mx-auto">
                   <span className="icon-briefcase d-block"></span>
                 </span>
-                <h3>How to Write a Resume for Finance Roles</h3>
-                <p>
-                  Expert guidance on building a finance-specific resume that
-                  stands out in 2025.
-                </p>
+                <h3>Finance Resume Playbook (2025)</h3>
+                <p>What recruiters actually look for — explained clearly.</p>
               </a>
             </div>
             <div
@@ -612,11 +679,8 @@ const Home = () => {
                 <span className="custom-icon mx-auto">
                   <span className="icon-beer d-block"></span>
                 </span>
-                <h3>Breaking into the Distillery Industry</h3>
-                <p>
-                  Explore the qualifications, skills, and roles in one of the
-                  fastest-growing manufacturing segments.
-                </p>
+                <h3>Inside the Distillery Industry</h3>
+                <p>Skills, roles, and how to break in.</p>
               </a>
             </div>
           </div>
@@ -639,11 +703,10 @@ const Home = () => {
           >
             <div className="col-md-8 mx-auto text-center">
               <h2 className="text-white section-title">
-                Find the Right Job, Faster
+                Your Career. Accelerated.
               </h2>
               <p className="mb-0 text-white" style={{ fontSize: "18px" }}>
-                Join JobsAlgo to explore thousands of opportunities, connect
-                with top employers, and take the next step in your career.
+                Thousands of roles. Verified companies. One simple platform.
               </p>
             </div>
             <div className="col-md-6 mx-auto py-2 d-flex justify-content-center mt-3">
@@ -655,7 +718,7 @@ const Home = () => {
                   navigate("/jobs");
                 }}
               >
-                Start Your Search
+                Start Your Job Search
               </button>
             </div>
           </div>

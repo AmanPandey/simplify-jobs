@@ -133,7 +133,7 @@ const AddEmployer = () => {
       setLoading(true);
 
       const res = await addEmployer(empFormData, token);
-      console.log(res);
+      // console.log(res);
 
       if (!res.success) {
         setNotif({ id: Date.now(), message: res.message, type: "error" });
