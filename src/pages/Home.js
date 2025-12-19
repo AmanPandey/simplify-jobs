@@ -157,36 +157,38 @@ const Home = () => {
                     <div id="form-error" className="text-white d-none"></div>
                   </div>
                 </div>
-
-                <div className="row">
-                  <div className="col-md-12 popular-keywords d-flex flex-md-row flex-column ">
-                    <h6
-                      style={{ fontWeight: "600" }}
-                      className="text-white mr-2"
-                    >
-                      Trending Right Now:
-                    </h6>
-                    <ul className="keywords list-unstyled m-0 p-0">
-                      <li>
-                        <a href="/" className="mr-1 mb-1">
-                          Regional Manager
-                        </a>
-                      </li>
-                      <li>
-                        <a href="/" className="mr-1 mb-1">
-                          Cane Manager
-                        </a>
-                      </li>
-                      <li>
-                        <a href="/" className="mr-1 mb-1">
-                          {" "}
-                          Service Head
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
               </form>
+              <div className="row">
+                <div className="col-md-12 popular-keywords d-flex flex-md-row flex-column ">
+                  <h6 style={{ fontWeight: "600" }} className="text-white mr-2">
+                    Trending Right Now:
+                  </h6>
+                  <ul className="keywords list-unstyled m-0 p-0">
+                    <li>
+                      <a href="/" className="mr-1 mb-1">
+                        Regional Manager
+                      </a>
+                    </li>
+                    <li>
+                      <a href="/" className="mr-1 mb-1">
+                        Cane Manager
+                      </a>
+                    </li>
+                    <li>
+                      <a href="/" className="mr-1 mb-1">
+                        {" "}
+                        Service Head
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <button
+                className="cta-btn mt-4"
+                onClick={() => navigate("/jobs")}
+              >
+                Start Exploring Jobs
+              </button>
             </div>
           </div>
         </div>
