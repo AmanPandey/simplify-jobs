@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { getPublicJobById } from "../Utils/frontendJobs";
-import { Helmet } from "react-helmet-async";
 
 const JobDescription = () => {
+  useEffect(() => {
+    document.title = "JobsAlgo | Job Description";
+  }, []);
   const navigate = useNavigate();
   const { id } = useParams();
   const [job, setJob] = useState(null);
@@ -38,9 +40,6 @@ const JobDescription = () => {
 
   return (
     <>
-      <Helmet>
-        <title>JobsAlgo | Job Description</title>
-      </Helmet>
       <div className="site-wrap">
         <div className="site-mobile-menu site-navbar-target">
           <div className="site-mobile-menu-header">
