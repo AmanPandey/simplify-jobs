@@ -25,8 +25,12 @@ const Login = React.memo(() => {
   }, []);
 
   //form state
-  const [isLogin, setIsLogin] = useState(false);
+  const [isLogin, setIsLogin] = useState(true);
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    document.title = isLogin ? "JobsAlgo || LogIn" : "JobsAlgo || SignUp";
+  }, [isLogin]);
 
   // form inputs
   const [loginUser, setLoginUser] = useState({ email: "", password: "" });
@@ -244,7 +248,7 @@ const Login = React.memo(() => {
       >
         <div className="container">
           <div className="row mb-5 justify-content-center ">
-            {!isLogin ? (
+            {isLogin ? (
               // log in
               <div
                 className="col-lg-6 p-4"

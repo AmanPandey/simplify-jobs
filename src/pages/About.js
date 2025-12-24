@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { CiCircleCheck } from "react-icons/ci";
 import { useNavigate } from "react-router-dom";
 
 const About = () => {
+  useEffect(() => {
+    document.title = "JobsAlgo || About Us";
+  }, []);
   const navigate = useNavigate();
   return (
     <>

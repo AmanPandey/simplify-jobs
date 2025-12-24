@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 const PrivacyPolicy = () => {
+  useEffect(() => {
+    document.title = "JobsAlgo || Privacy Policy";
+  }, []);
   return (
     <>
       <div className="site-wrap">

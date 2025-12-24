@@ -6,6 +6,9 @@ import { getAllJobs, getPublicJobs } from "../Utils/frontendJobs";
 import { useActiveTooltipDataPoints } from "recharts";
 
 const Check = () => {
+  useEffect(() => {
+    document.title = "JobsAlgo || All Jobs";
+  }, []);
   const [showFilter, setShowFilter] = useState(false);
   const { isModalOpen, setIsModelOpen } = useContext(FrontendContext);
   const [jobs, setJobs] = useState([]);

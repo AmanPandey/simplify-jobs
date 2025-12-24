@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 const TermsAndConditions = () => {
+  useEffect(() => {
+    document.title = "JobsAlgo || Terms & Conditions";
+  }, []);
   return (
     <>
       <div className="site-wrap">

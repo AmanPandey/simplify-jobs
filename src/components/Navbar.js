@@ -166,22 +166,22 @@ const Navbar = () => {
                   Contact
                 </NavLink>
               </li>
-              <li className="d-xl-none">
+              {/* <li className="d-xl-none">
                 <NavLink to="/post-job" className="w-100">
                   <span className="mr-2">+</span> Post a Job
                 </NavLink>
-              </li>
+              </li> */}
             </ul>
           </nav>
 
           <div className="right-cta-menu text-right d-flex aligin-items-center col-6">
             <div className="ml-auto d-flex align-items-center">
-              <NavLink
+              {/* <NavLink
                 to="/post-job"
                 className="btn btn-outline-white border-width-2 d-none d-xl-inline-block me-1"
               >
                 <span className="mr-2 icon-add"></span>Post a Job
-              </NavLink>
+              </NavLink> */}
               {user ? (
                 <div
                   className="avatar-wrapper"

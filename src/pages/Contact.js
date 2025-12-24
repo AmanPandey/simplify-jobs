@@ -7,6 +7,9 @@ import Notification from "../admin/Components/Notification";
 import ReCAPTCHA from "react-google-recaptcha";
 
 const Contact = () => {
+  useEffect(() => {
+    document.title = "JobsAlgo || Contact Us";
+  }, []);
   const { notif, setNotif, errors, setErrors } = useContext(FrontendContext);
 
   const [formData, setFormData] = useState({

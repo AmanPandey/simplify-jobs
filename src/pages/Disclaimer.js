@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 const Disclaimer = () => {
+  useEffect(() => {
+    document.title = "JobsAlgo || Disclaimer";
+  }, []);
+
   return (
     <>
       <div className="site-wrap">

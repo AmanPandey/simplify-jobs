@@ -5,6 +5,9 @@ import { CiCircleCheck } from "react-icons/ci";
 import FrontendContext from "../context/FrontendContext.js";
 
 const Home = () => {
+  useEffect(() => {
+    document.title = "JobsAlgo || Home";
+  }, []);
   const { setIsModelOpen, isModelOpen } = useContext(FrontendContext);
   const navigate = useNavigate();
 
