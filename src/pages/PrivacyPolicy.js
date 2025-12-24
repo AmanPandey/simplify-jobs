@@ -1,11 +1,12 @@
-import React, { useEffect } from "react";
+import React from "react";
+import { Helmet } from "react-helmet-async";
 
 const PrivacyPolicy = () => {
-  useEffect(() => {
-    document.title = "JobsAlgo || Privacy Policy";
-  }, []);
   return (
     <>
+      <Helmet>
+        <title>JobsAlgo | Privacy Policy</title>
+      </Helmet>
       <div className="site-wrap">
         <div className="site-mobile-menu site-navbar-target">
           <div className="site-mobile-menu-header">

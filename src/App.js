@@ -52,6 +52,7 @@ import Disclaimer from "./pages/Disclaimer.js";
 import TermsAndConditions from "./pages/TermsAndConditions.js";
 import PrivacyPolicy from "./pages/PrivacyPolicy.js";
 import JobDescription from "./pages/JobDescription.js";
+import UploadCV from "./admin/Pages/uploadCV.js";
 
 function App() {
   useEffect(() => {
@@ -142,6 +143,7 @@ function App() {
           <Route path="employers" element={<EmployersList />} />
           <Route path="add-employer" element={<AddEmployer />} />
           <Route path="edit-employer" element={<EditEmployer />} />
+          <Route path="cv" element={<UploadCV />} />
         </Route>
 
         {/* 404 for admin */}

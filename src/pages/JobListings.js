@@ -4,11 +4,9 @@ import FrontendContext from "../context/FrontendContext";
 import Model from "./Model";
 import { getAllJobs, getPublicJobs } from "../Utils/frontendJobs";
 import { useActiveTooltipDataPoints } from "recharts";
+import { Helmet } from "react-helmet-async";
 
 const Check = () => {
-  useEffect(() => {
-    document.title = "JobsAlgo || All Jobs";
-  }, []);
   const [showFilter, setShowFilter] = useState(false);
   const { isModalOpen, setIsModelOpen } = useContext(FrontendContext);
   const [jobs, setJobs] = useState([]);
@@ -43,6 +41,9 @@ const Check = () => {
 
   return (
     <>
+      <Helmet>
+        <title>JobsAlgo | All Jobs</title>
+      </Helmet>
       <div className="site-wrap">
         <div className="site-mobile-menu site-navbar-target">
           <div className="site-mobile-menu-header">

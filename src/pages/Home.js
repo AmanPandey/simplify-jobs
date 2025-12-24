@@ -3,11 +3,9 @@ import { Link, useNavigate } from "react-router-dom";
 import Model from "./Model";
 import { CiCircleCheck } from "react-icons/ci";
 import FrontendContext from "../context/FrontendContext.js";
+import { Helmet } from "react-helmet-async";
 
 const Home = () => {
-  useEffect(() => {
-    document.title = "JobsAlgo || Home";
-  }, []);
   const { setIsModelOpen, isModelOpen } = useContext(FrontendContext);
   const navigate = useNavigate();
 
@@ -53,6 +51,9 @@ const Home = () => {
 
   return (
     <>
+      <Helmet>
+        <title>JobsAlgo | Home</title>
+      </Helmet>
       {/* <div id="overlayer"></div> */}
 
       {/* Hero Section */}

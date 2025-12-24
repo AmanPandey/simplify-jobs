@@ -82,6 +82,24 @@ const Sidebar = () => {
           </li>
           <li>
             <NavLink
+              to="/admin/cv"
+              onClick={() => {
+                if (window.innerWidth < 992) setShowSidebar(false);
+              }}
+              className={({ isActive }) =>
+                `nav-link   ${
+                  isActive
+                    ? `fw-bold ${styles.bg_active}`
+                    : "fw-semibold text-black"
+                }`
+              }
+            >
+              <FaBriefcase className="mr-2" />
+              CV
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
               to="/admin/login"
               end
               className={({ isActive }) =>

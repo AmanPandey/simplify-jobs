@@ -8,6 +8,7 @@ import {
   frontendUserregister,
   loginFrontendUser,
 } from "../Utils/frontendAuth.js";
+import { Helmet } from "react-helmet-async";
 
 const Login = React.memo(() => {
   // import from context
@@ -27,10 +28,6 @@ const Login = React.memo(() => {
   //form state
   const [isLogin, setIsLogin] = useState(true);
   const [loading, setLoading] = useState(false);
-
-  useEffect(() => {
-    document.title = isLogin ? "JobsAlgo || LogIn" : "JobsAlgo || SignUp";
-  }, [isLogin]);
 
   // form inputs
   const [loginUser, setLoginUser] = useState({ email: "", password: "" });
@@ -203,6 +200,9 @@ const Login = React.memo(() => {
 
   return (
     <>
+      <Helmet>
+        <title>{isLogin ? "JobsAlgo | LogIn" : "JobsAlgo | SignUp"} </title>
+      </Helmet>
       {notif.message && (
         <Notification
           key={notif.id}
