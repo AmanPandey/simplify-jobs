@@ -14,7 +14,6 @@ const Check = () => {
   const [jobs, setJobs] = useState([]);
   const [loading, setLoading] = useState(false);
   // console.log("jobs:", jobs);
-
   const navigate = useNavigate();
 
   function handleCick(id) {
@@ -40,6 +39,26 @@ const Check = () => {
 
     fetchAllJobs();
   }, []);
+
+  // Helper function
+  const formatSalary = (min, max) => {
+    if (!min && !max) return "Not disclosed";
+
+    const formatValue = (value) => {
+      if (value >= 100) {
+        // Convert LPA to Cr
+        return `${(value / 100).toFixed(2)} Cr`;
+      }
+      return `${value} LPA`;
+    };
+
+    // If min & max are equal → show single value
+    if (min === max) {
+      return formatValue(max);
+    }
+
+    return `${formatValue(min)} - ${formatValue(max)}`;
+  };
 
   return (
     <>
@@ -417,7 +436,7 @@ const Check = () => {
                         </div>
                         <div className="job-listing-location mb-1  w-25">
                           <span className=""></span>
-                          {job.salary} Inr/year
+                          {formatSalary(job.minSalary, job.maxSalary)}
                         </div>
                         <div className="job-listing-meta mb-4">
                           <span

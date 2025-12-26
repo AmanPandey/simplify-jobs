@@ -13,11 +13,6 @@ const JobDescription = () => {
   const [loading, setLoading] = useState(false);
   console.log(job);
 
-  //capitalize
-
-  const capitalize = (text) =>
-    text ? text.charAt(0).toUpperCase() + text.slice(1) : "";
-
   useEffect(() => {
     const fetchJob = async () => {
       try {
@@ -37,6 +32,29 @@ const JobDescription = () => {
       fetchJob();
     }
   }, [id]);
+
+  const capitalize = (text) =>
+    text ? text.charAt(0).toUpperCase() + text.slice(1) : "";
+
+  // Helper function
+  const formatSalary = (min, max) => {
+    if (!min && !max) return "Not disclosed";
+
+    const formatValue = (value) => {
+      if (value >= 100) {
+        // Convert LPA to Cr
+        return `${(value / 100).toFixed(2)} Cr`;
+      }
+      return `${value} LPA`;
+    };
+
+    // If min & max are equal → show single value
+    if (min === max) {
+      return formatValue(max);
+    }
+
+    return `${formatValue(min)} - ${formatValue(max)}`;
+  };
 
   return (
     <>
@@ -380,7 +398,7 @@ const JobDescription = () => {
                     </li>
                     <li className="mb-2">
                       <strong className="text-black">Salary:</strong>{" "}
-                      {job.salary} INR/year
+                      {formatSalary(job.minSalary, job.maxSalary)}
                     </li>
                     <li className="mb-2">
                       <strong className="text-black">Gender:</strong> Any
