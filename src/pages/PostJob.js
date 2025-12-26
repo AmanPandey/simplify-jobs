@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
@@ -775,16 +774,6 @@ const PostJob = () => {
         </div>
       </section>
     </>
-=======
-import React from 'react';
-
-const PostJob = () => {
-  return (
-    <div className="container py-5">
-      <h1>Post a Job</h1>
-      <p>This page will contain a form for employers to post job openings.</p>
-    </div>
->>>>>>> 7712bff (Just finish the first setup)
   );
 };
 

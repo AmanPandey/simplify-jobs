@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React, { useEffect } from "react";
 
 import { Link } from "react-router-dom";
@@ -184,16 +183,6 @@ const Services = () => {
         </div>
       </section>
     </>
-=======
-import React from 'react';
-
-const Services = () => {
-  return (
-    <div className="container py-5">
-      <h1>Our Services</h1>
-      <p>This page will describe the services offered by your platform.</p>
-    </div>
->>>>>>> 7712bff (Just finish the first setup)
   );
 };
 

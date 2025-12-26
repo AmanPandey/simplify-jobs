@@ -4,6 +4,8 @@
 /node_modules
 /.pnp
 .pnp.js
+src/pages/PortfolioSingle.js
+src/pages/Portfolio.js
 
 
 # testing
@@ -23,9 +25,5 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-
-# common files 
 *.txt
 *.docx
-*.json
-

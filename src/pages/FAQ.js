@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React, { useEffect } from "react";
 
 import { Link } from "react-router-dom";
@@ -298,16 +297,6 @@ const FAQ = () => {
         </div>
       </section>
     </>
-=======
-import React from 'react';
-
-const FAQ = () => {
-  return (
-    <div className="container py-5">
-      <h1>Frequently Asked Questions</h1>
-      <p>This page will list common questions and answers for users.</p>
-    </div>
->>>>>>> 7712bff (Just finish the first setup)
   );
 };
 

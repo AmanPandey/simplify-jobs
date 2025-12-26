@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import FrontendContext from "../context/FrontendContext";
@@ -6,7 +5,7 @@ import Model from "./Model";
 import { getAllJobs, getPublicJobs } from "../Utils/frontendJobs";
 import { useActiveTooltipDataPoints } from "recharts";
 
-const Check = () => {
+const JobListings = () => {
   useEffect(() => {
     document.title = "JobsAlgo | All Jobs";
   }, []);
@@ -498,18 +497,4 @@ const Check = () => {
   );
 };
 
-export default Check;
-=======
-import React from 'react';
-
-const JobListings = () => {
-  return (
-    <div className="container py-5">
-      <h1>Job Listings</h1>
-      <p>This page will display all available job listings.</p>
-    </div>
-  );
-};
-
 export default JobListings;
->>>>>>> 7712bff (Just finish the first setup)

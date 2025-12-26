@@ -13,29 +13,10 @@ const JobDescription = () => {
   const [loading, setLoading] = useState(false);
   console.log(job);
 
-  useEffect(() => {
-    const fetchJob = async () => {
-      try {
-        setLoading(true);
-        const res = await getPublicJobById(id);
-        if (res?.success) {
-          setJob(res.job);
-        }
-      } catch (error) {
-        console.error("Error fetching job:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    if (id) {
-      fetchJob();
-    }
-  }, [id]);
+  //capitalize
 
   const capitalize = (text) =>
     text ? text.charAt(0).toUpperCase() + text.slice(1) : "";
-
   // Helper function
   const formatSalary = (min, max) => {
     if (!min && !max) return "Not disclosed";
@@ -55,6 +36,26 @@ const JobDescription = () => {
 
     return `${formatValue(min)} - ${formatValue(max)}`;
   };
+
+  useEffect(() => {
+    const fetchJob = async () => {
+      try {
+        setLoading(true);
+        const res = await getPublicJobById(id);
+        if (res?.success) {
+          setJob(res.job);
+        }
+      } catch (error) {
+        console.error("Error fetching job:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    if (id) {
+      fetchJob();
+    }
+  }, [id]);
 
   return (
     <>

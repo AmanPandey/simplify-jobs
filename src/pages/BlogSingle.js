@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
@@ -193,16 +192,6 @@ const BlogSingle = () => {
         </div>
       </section>
     </>
-=======
-import React from 'react';
-
-const BlogSingle = () => {
-  return (
-    <div className="container py-5">
-      <h1>Blog Article</h1>
-      <p>This page will show a full blog post or article.</p>
-    </div>
->>>>>>> 7712bff (Just finish the first setup)
   );
 };
 
