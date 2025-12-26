@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
@@ -274,6 +275,16 @@ const ServiceSingle = () => {
         </div>
       </section>
     </>
+=======
+import React from 'react';
+
+const ServiceSingle = () => {
+  return (
+    <div className="container py-5">
+      <h1>Service Details</h1>
+      <p>This page will show detailed information about a single service.</p>
+    </div>
+>>>>>>> 7712bff (Just finish the first setup)
   );
 };
 

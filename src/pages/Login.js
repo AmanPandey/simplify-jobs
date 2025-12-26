@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState, useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
@@ -518,5 +519,17 @@ const Login = React.memo(() => {
     </>
   );
 });
+=======
+import React from 'react';
+
+const Login = () => {
+  return (
+    <div className="container py-5">
+      <h1>Login</h1>
+      <p>This page will allow users to log into their accounts.</p>
+    </div>
+  );
+};
+>>>>>>> 7712bff (Just finish the first setup)
 
 export default Login;

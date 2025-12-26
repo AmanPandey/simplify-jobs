@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import FrontendContext from "../context/FrontendContext";
@@ -426,6 +427,16 @@ const Contact = () => {
         </div>
       </section>
     </>
+=======
+import React from 'react';
+
+const Contact = () => {
+  return (
+    <div className="container py-5">
+      <h1>Contact Us</h1>
+      <p>This page will contain a contact form and company contact details.</p>
+    </div>
+>>>>>>> 7712bff (Just finish the first setup)
   );
 };
 

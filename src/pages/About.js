@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { CiCircleCheck } from "react-icons/ci";
@@ -482,6 +483,16 @@ const About = () => {
         </div>
       </section>
     </>
+=======
+import React from 'react';
+
+const About = () => {
+  return (
+    <div className="container py-5">
+      <h1>About Page</h1>
+      <p>This is the About page. Replace this with real content later.</p>
+    </div>
+>>>>>>> 7712bff (Just finish the first setup)
   );
 };
 

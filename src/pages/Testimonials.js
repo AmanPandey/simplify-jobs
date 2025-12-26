@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useEffect } from "react";
 
 import { Link } from "react-router-dom";
@@ -240,6 +241,16 @@ const Testimonials = () => {
         </div>
       </section>
     </>
+=======
+import React from 'react';
+
+const Testimonials = () => {
+  return (
+    <div className="container py-5">
+      <h1>Testimonials</h1>
+      <p>This page will display customer or client testimonials and feedback.</p>
+    </div>
+>>>>>>> 7712bff (Just finish the first setup)
   );
 };
 
